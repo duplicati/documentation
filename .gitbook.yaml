@@ -1,0 +1,9 @@
+root: ./
+
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
+
+redirects:
+  en/latest/01-introduction/: https://prevdocs.duplicati.com/en/latest/01-introduction/
+  en/latest/02-installation/: https://prevdocs.duplicati.com/en/latest/02-installation/
