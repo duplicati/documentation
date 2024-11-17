@@ -36,5 +36,9 @@ For installation, Duplicati offers `.deb` packages for the Debian based distros,
 
 ## MacOS
 
+For MacOS the **GUI** [TrayIcon](../duplicati-programs/trayicon.md) is bundled inside a MacOS app-bundle, similar to other applications on MacOS. Inside the app bundle are the [commandline components](../duplicati-programs/command-line-interface-cli/) and they can be invoked as binaries from within the app bundle. The GUI application is packaged as a `.dmg` file that supports drag-n-drop style installation, as well as a `.pkg` installer package. The contents of the two package formats are the same, but the `.pkg` also installs a launchagent which automatically starts Duplicati on login.
 
+If the UI is not needed, there is also a **CLI** version which does not contain the TrayIcon. This version installs itself into the commandline path for easy use from the commandline. Since the CLI version does not need an app bundle, there is only a `.pkg` version of the CLI package. The package also installs a launchagent that can be edited to allow starting the [Server](../duplicati-programs/server.md) on login.
+
+The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](broken-reference) and is intended to run without any local access possible. Since the agent does not need an app bundle it is only available as a `.pkg` file.
 
