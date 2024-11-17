@@ -2,7 +2,7 @@
 description: Describes the features and how to configure sending emails with backup details
 ---
 
-# Sending reports via Email
+# Sending reports with email
 
 The basic options for sending email are documented via the CLI:
 

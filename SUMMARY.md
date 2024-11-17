@@ -18,7 +18,8 @@
 * [Using remote management](detailed-descriptions/using-remote-management/README.md)
   * [Using remote control with agent](detailed-descriptions/using-remote-management/using-remote-control-with-agent.md)
 * [Migrating Duplicati to a new machine](detailed-descriptions/migrating-duplicati-to-a-new-machine.md)
-* [Sending reports via Email](detailed-descriptions/sending-reports-via-email.md)
+* [Sending reports](detailed-descriptions/sending-reports-via-email/README.md)
+  * [Sending reports with email](detailed-descriptions/sending-reports-via-email/sending-reports-with-email.md)
 * [Duplicati Access Password](detailed-descriptions/duplicati-access-password.md)
 * [Import and export backup configurations](detailed-descriptions/import-and-export-backup-configurations.md)
 * [Filters in Duplicati](detailed-descriptions/filters-in-duplicati.md)
@@ -74,6 +75,7 @@
 
 * [Release channels and versions](installation-details/release-channels-and-versions/README.md)
   * [Upgrading and downgrading](installation-details/release-channels-and-versions/upgrading-and-downgrading.md)
+* [Package options](installation-details/package-options.md)
 
 ## Duplicati Console
 
