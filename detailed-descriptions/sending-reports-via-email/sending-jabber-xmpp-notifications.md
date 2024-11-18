@@ -1,0 +1,2 @@
+# Sending Jabber/XMPP notifications
+
