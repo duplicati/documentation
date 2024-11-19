@@ -46,6 +46,7 @@
 
 * [Encrypting and decrypting files](using-tools/encrypting-and-decrypting-files.md)
 * [Using Duplicati from the Command Line](using-tools/using-duplicati-from-the-command-line.md)
+* [Recovering from failure](using-tools/recovering-from-failure.md)
 * [Disaster recovery](using-tools/disaster-recovery.md)
 
 ## Backup destinations
@@ -83,3 +84,4 @@
 ## Duplicati Console
 
 * [Organizations and sub-organizations](duplicati-console/organizations-and-sub-organizations.md)
+* [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
