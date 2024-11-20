@@ -87,3 +87,21 @@
 
 * [Organizations and sub-organizations](duplicati-console/organizations-and-sub-organizations.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
+
+## Community docs
+
+* [Community docs: home](community-docs/community-docs-home.md)
+* [Community docs: introduction](community-docs/community-docs-introduction.md)
+* [Community docs: installation](community-docs/community-docs-installation.md)
+* [Community docs: using the graphical user interface](community-docs/community-docs-using-the-graphical-user-interface.md)
+* [Community docs: using duplicati from the commandline](community-docs/community-docs-using-duplicati-from-the-commandline.md)
+* [Community docs: storage providers](community-docs/community-docs-storage-providers.md)
+* [Community docs: advanced options](community-docs/community-docs-advanced-options.md)
+* [Community docs: other commandline utilities](community-docs/community-docs-other-commandline-utilities.md)
+* [Community docs: disaster recovery](community-docs/community-docs-disaster-recovery.md)
+* [Community docs: how the backup process works](community-docs/community-docs-how-the-backup-process-works.md)
+* [Community docs: how the restore process works](community-docs/community-docs-how-the-restore-process-works.md)
+* [Community docs: choosing sizes in Duplicati](community-docs/community-docs-choosing-sizes-in-duplicati.md)
+* [Community docs: filters](community-docs/community-docs-filters.md)
+* [Community docs: how we get along with oauth](community-docs/community-docs-how-we-get-along-with-oauth.md)
+* [Community docs: example scripts](community-docs/community-docs-example-scripts.md)
