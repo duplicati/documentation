@@ -62,7 +62,7 @@ Having an outdated backup is rarely an ideal solution, but remembering to run ba
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 14.43.07.png" alt=""><figcaption><p>Choosing a schedule to run on</p></figcaption></figure>
 
-If you prefer to run the backups manually, disable the scheduler, and you can use [ServerUtil](../duplicati-programs/command-line-interface-cli/serverutil.md) to trigger the backups as needed.
+If you prefer to run the backups manually, disable the scheduler, and you can use [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) to trigger the backups as needed.
 
 Once satisfied with the schedule, click "Next".
 

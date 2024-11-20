@@ -20,7 +20,7 @@ If you prefer, it is possible to choose the password so you can enter it when as
 
 ## Change password with ServerUtil
 
-If you are not using the TrayIcon or you have disabled the signin feature, but lost the password somehow, you can change the password with [ServerUtil](../duplicati-programs/command-line-interface-cli/serverutil.md) in some cases.
+If you are not using the TrayIcon or you have disabled the signin feature, but lost the password somehow, you can change the password with [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) in some cases.
 
 This works by reading the same database as the server is using and extracting the keys used to sign a sign-in token, and then creating a sign-in token. This sign-in token works the same way as the TrayIcon's signin feature. Note that the password itself cannot be extracted from the database, it can only be verified.
 

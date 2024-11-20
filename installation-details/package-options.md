@@ -16,7 +16,7 @@ The operating system and processor type are defined by the machine you run Dupli
 
 Because every Windows version includes a desktop component, there are only two options for the usage type: [GUI](../duplicati-programs/trayicon.md) and [Agent](../duplicati-programs/agent.md).&#x20;
 
-The most versatile option is the **GUI** package, which also includes all the commandline utilities. Due to the way Windows works, it is possible to install the GUI version and use only the [Server](../duplicati-programs/server.md) or [Commandline](../duplicati-programs/command-line-interface-cli/) components. This works beacuse each component is an executable that can be launched independently. The overhead for the unused executables is very low, usually less than 1 MiB.
+The most versatile option is the **GUI** package, which also includes all the commandline utilities. Due to the way Windows works, it is possible to install the GUI version and use only the [Server](../duplicati-programs/server.md) or [Commandline](../duplicati-programs/command-line-interface-cli-1/) components. This works beacuse each component is an executable that can be launched independently. The overhead for the unused executables is very low, usually less than 1 MiB.
 
 The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](broken-reference) and is intended to run without any local access possible.
 
@@ -24,9 +24,9 @@ In terms of installation type there are two types offered for Windows: MSI and Z
 
 ## Linux
 
-It is common to have Linux installations that do not have any desktop components, meaning they are purely servers with no display attached. Since these setups do not have any destop packages installed, installing the GUI package on such a system would require installing a large set of desktop-related packages. For this reason, the Linux packages are available as [GUI](../duplicati-programs/trayicon.md), [CLI](../duplicati-programs/command-line-interface-cli/), and [Agent](../duplicati-programs/agent.md) forms.
+It is common to have Linux installations that do not have any desktop components, meaning they are purely servers with no display attached. Since these setups do not have any destop packages installed, installing the GUI package on such a system would require installing a large set of desktop-related packages. For this reason, the Linux packages are available as [GUI](../duplicati-programs/trayicon.md), [CLI](../duplicati-programs/command-line-interface-cli-1/), and [Agent](../duplicati-programs/agent.md) forms.
 
-The **GUI** package has the most dependencies as it requires a desktop environment. This package also includes all the [commandline components](../duplicati-programs/command-line-interface-cli/) together with the [TrayIcon](../duplicati-programs/trayicon.md) application that is shown in the system menu or activity area.
+The **GUI** package has the most dependencies as it requires a desktop environment. This package also includes all the [commandline components](../duplicati-programs/command-line-interface-cli-1/) together with the [TrayIcon](../duplicati-programs/trayicon.md) application that is shown in the system menu or activity area.
 
 The **CLI** package has very few dependencies, as everything is bundled with the package. It is essentially the same as the GUI package, but without the TrayIcon executable.&#x20;
 
@@ -36,7 +36,7 @@ For installation, Duplicati offers `.deb` packages for the Debian based distros,
 
 ## MacOS
 
-For MacOS the **GUI** [TrayIcon](../duplicati-programs/trayicon.md) is bundled inside a MacOS app-bundle, similar to other applications on MacOS. Inside the app bundle are the [commandline components](../duplicati-programs/command-line-interface-cli/) and they can be invoked as binaries from within the app bundle. The GUI application is packaged as a `.dmg` file that supports drag-n-drop style installation, as well as a `.pkg` installer package. The contents of the two package formats are the same, but the `.pkg` also installs a launchagent which automatically starts Duplicati on login.
+For MacOS the **GUI** [TrayIcon](../duplicati-programs/trayicon.md) is bundled inside a MacOS app-bundle, similar to other applications on MacOS. Inside the app bundle are the [commandline components](../duplicati-programs/command-line-interface-cli-1/) and they can be invoked as binaries from within the app bundle. The GUI application is packaged as a `.dmg` file that supports drag-n-drop style installation, as well as a `.pkg` installer package. The contents of the two package formats are the same, but the `.pkg` also installs a launchagent which automatically starts Duplicati on login.
 
 If the UI is not needed, there is also a **CLI** version which does not contain the TrayIcon. This version installs itself into the commandline path for easy use from the commandline. Since the CLI version does not need an app bundle, there is only a `.pkg` version of the CLI package. The package also installs a launchagent that can be edited to allow starting the [Server](../duplicati-programs/server.md) on login.
 
