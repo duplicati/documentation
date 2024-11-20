@@ -4,57 +4,33 @@ description: Describes the features and how to configure sending emails with bac
 
 # Sending reports with email
 
-The basic options for sending email are documented via the CLI:
+Sending emails is supported by having access to an SMTP server that will accept the inbound emails. From on your SMTP/email server provider you need to get a url, a username, and a password. If you are a [GMail or Google Workspace user, use the Google SMTP guide](https://support.google.com/a/answer/176600), otherwise consult your provider for these details.
 
-```
---send-mail-to=<email-address>
-  Send an email to <email-address> after a backup. 
-  Valid formats are "Name <test@example.com>, Other <test2@example.com>, test3@example.com". 
-  Multiple addresses must be separated with a comma. 
---send-mail-from=<email-address>
-  This is the sender address of the email that is sent.
---send-mail-subject=<subject>
-  This is the subject line of the email that is sent. 
-  E.g. this can be "Duplicati %OPERATIONNAME% Report"
---send-mail-body=<body>
-  The content of the email message. This should contain "%RESULT%".
---send-mail-url=<smtp-url>
-  A URL to connect to an SMTP server to send out an email. 
-  Example: "tls://smtp.example.com:587", "smtps://smtp.example.com:465" or "smtp://smtp.example.com:25"
---send-mail-username=<username>
-  Required username to authenticate with SMTP server.
---send-mail-password=<password>
-  Required password to authenticate with SMTP server.
---send-mail-level=<level>
-  When email messages are sent: "Success", "Warning", "Error", "Fatal", "All" are possible.
---send-mail-any-operation=true
-  Also send emails after other operations like restore etc.
-```
+Besides the connection details, you also need to provide the recipient email address. Note that SMTP servers may sometimes restrict what recipients they allow, but generally using the provider SMTP server will allow sending to your own account.
 
-To configure the contents of the email, you can use these placeholder values in the subject and body options:
+In the UI you can configure these mandatory values as well as the&#x20;
 
-```
- %PARSEDRESULT%
-      The parsed result op the operation: Success, Warning, Error
-    %RESULT%
-      When used in the body, this is the result/log of the backup, 
-      When used in the subject line, this is the same as %PARSEDRESULT%
-    %OPERATIONNAME%
-      The name of the operation, usually "backup", but could also be "restore" etc.
-    %REMOTEURL%
-      The backend url
-    %LOCALPATH%
-      The path to the local folders involved (i.e. the folders being backed up)
-    %machine-id%
-      The assigned unique random identifier for the current machine.
-      Can be overridden with --machine-id
-    %backup-id%
-      The assigned id for the backup.
-      Can be overridden with --backup-id
-    %backup-name%
-      The name of the backup.
-      Can be overridden with --backup-name
-    %machine-name%
-      The name of the machine.
-      Can be overridden with --machine-name
-```
+The basic options for sending email can be entered into the general settings, which will then apply to each backup. It is also possible to apply or change the settings for the individual backups by editing the advanced options. Here is how it looks when editing it in the user interface:
+
+<div>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.04.png" alt=""><figcaption><p>Set up email with the default options editor</p></figcaption></figure>
+
+ 
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.14.png" alt=""><figcaption><p>Set up email option with a text field</p></figcaption></figure>
+
+</div>
+
+You can toggle between the two views using the "Edit as list" and "Edit as text" links.
+
+Besides the mandatory options, it is also possible to configure:
+
+* Email sender address
+* The subject line
+* The email body
+* Conditions on when to send emails
+
+For details on how to customize the subject line and message body, see the [section on customizing message content](custom-message-content.md).
+
+If you prefer email logs, but would also like to get reports, check out the community provided [dupReport](https://forum.duplicati.com/t/announcing-dupreport-a-duplicati-email-report-summary-generator/1116) tool that can summarize the emails into overviews.

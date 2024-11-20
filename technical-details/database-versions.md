@@ -12,6 +12,8 @@ Besides the server database, Duplicati also has a [local database](../detailed-d
 
 ## Server database
 
+<figure><picture><source srcset="../.gitbook/assets/server-database-3.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/server-database-4.png" alt=""></picture><figcaption><p>Schema overview of the server database</p></figcaption></figure>
+
 The server database was updated in these versions:
 
 Version 5 and less: 2.0.4.23 and earlier
@@ -21,6 +23,8 @@ Version 6: Duplicati 2.0.8.1
 Version 8: Duplicati 2.1.0.0
 
 ## Local database
+
+<figure><picture><source srcset="../.gitbook/assets/local-database.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/local-database-2.png" alt=""></picture><figcaption><p>Schema overview of the local database</p></figcaption></figure>
 
 The local database was updated in these versions:
 
