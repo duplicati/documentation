@@ -1,5 +1,5 @@
 ---
-description: Describes the features and how to configure sending emails with backup details
+description: Describes the how to configure sending emails with backup details
 ---
 
 # Sending reports with email
@@ -8,7 +8,7 @@ Sending emails is supported by having access to an SMTP server that will accept 
 
 Besides the connection details, you also need to provide the recipient email address. Note that SMTP servers may sometimes restrict what recipients they allow, but generally using the provider SMTP server will allow sending to your own account.
 
-In the UI you can configure these mandatory values as well as the&#x20;
+In the UI you can configure these mandatory values as well as the optional values.
 
 The basic options for sending email can be entered into the general settings, which will then apply to each backup. It is also possible to apply or change the settings for the individual backups by editing the advanced options. Here is how it looks when editing it in the user interface:
 
