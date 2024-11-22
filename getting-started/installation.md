@@ -10,7 +10,7 @@ description: >-
 
 For desktop and laptop users, the most common application type is called the "GUI" package, which is short for Graphical User Interface. The GUI package includes the core components, a webserver to show the user interface and a tray icon (also called a status bar icon).
 
-For users installing in environments without a desktop or screen, there are also commandline-only, remote managent and Docker versions. Depending on your setup, you may also want to use one of those packages on a desktop or laptop.
+For users installing in environments without a desktop or screen, there are also commandline only, remote management and Docker versions. Depending on your setup, you may also want to use one of those packages on a desktop or laptop.
 
 This page covers only the GUI installation.
 
