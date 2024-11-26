@@ -9,3 +9,5 @@ When running a backup, the goal is to create a new "snapshot" of the filesystem.
 Each backup will produce a "filelist" (aka `.dlist`) file on the remote storage as well as one or more block volumes (aka `.dblock`) and usually also one or more index volumes (aka `.dindex`). The filelists explain how to recreate the files that are in this particular version, and the block volumes contains the actual file contents, split into blocks.
 
 The index volumes are optional, and not required for restores, but are created by default as they reduce the amount of data that needs to be processed if the [local database](../../detailed-descriptions/the-local-database.md) is lost.
+
+The backup process is described in the next section and explains how these files are constructed.
