@@ -29,20 +29,7 @@
 * [Import and export backup configurations](detailed-descriptions/import-and-export-backup-configurations.md)
 * [Filters in Duplicati](detailed-descriptions/filters-in-duplicati.md)
 * [The local database](detailed-descriptions/the-local-database.md)
-
-***
-
-* [TECHNICAL DETAILS](technical-details/README.md)
-  * [Architecture Premises](technical-details/architecture-premises.md)
-  * [Understanding Backup](technical-details/understanding-backup/README.md)
-    * [How Backup Works](technical-details/understanding-backup/how-backup-works.md)
-    * [Encryption Algorithms](technical-details/understanding-backup/encryption-algorithms.md)
-    * [Backup size parameters](technical-details/understanding-backup/backup-size-parameters.md)
-  * [Understanding Restore](technical-details/understanding-restore/README.md)
-    * [How Restore Works](technical-details/understanding-restore/how-restore-works.md)
-    * [Disaster Recovery](technical-details/understanding-restore/disaster-recovery.md)
-  * [Database versions](technical-details/database-versions.md)
-  * [Server authentication model](technical-details/server-authentication-model.md)
+* [Protecting the server database](detailed-descriptions/protecting-the-server-database.md)
 
 ## Using tools
 
@@ -88,6 +75,20 @@
 
 * [Organizations and sub-organizations](duplicati-console/organizations-and-sub-organizations.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
+
+***
+
+* [TECHNICAL DETAILS](technical-details/README.md)
+  * [Architecture Premises](technical-details/architecture-premises.md)
+  * [Understanding Backup](technical-details/understanding-backup/README.md)
+    * [How Backup Works](technical-details/understanding-backup/how-backup-works.md)
+    * [Encryption Algorithms](technical-details/understanding-backup/encryption-algorithms.md)
+    * [Backup size parameters](technical-details/understanding-backup/backup-size-parameters.md)
+  * [Understanding Restore](technical-details/understanding-restore/README.md)
+    * [How Restore Works](technical-details/understanding-restore/how-restore-works.md)
+    * [Disaster Recovery](technical-details/understanding-restore/disaster-recovery.md)
+  * [Database versions](technical-details/database-versions.md)
+  * [Server authentication model](technical-details/server-authentication-model.md)
 
 ## Community docs
 
