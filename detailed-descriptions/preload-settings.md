@@ -10,7 +10,10 @@ For single-machine users, the preload settings are a convenient way to change th
 
 To support different ways of deploying the settings file, 3 locations are checked:
 
-* `%CommonApplicationData%\Duplicati\preload.json` (see this [SO thread](https://stackoverflow.com/questions/895723/environment-getfolderpath-commonapplicationdata-is-still-returning-c-docum) for details, but usually `/usr/share/Duplicati/preload.json` and `C:\ProgramData\Duplicati\preload.json`)
+* `%CommonApplicationData%\Duplicati\preload.json`&#x20;
+  * see this [SO thread](https://stackoverflow.com/questions/895723/environment-getfolderpath-commonapplicationdata-is-still-returning-c-docum) for details, but usually&#x20;
+  * Linux/MacOS: `/usr/share/Duplicati/preload.json`
+  * Windows:`C:\ProgramData\Duplicati\preload.json`
 * Inside the installation folder
 * The file pointed to by `DUPLICATI_PRELOAD_SETTINGS`
 

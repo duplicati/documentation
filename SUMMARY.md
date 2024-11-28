@@ -50,7 +50,7 @@
 * [TrayIcon](duplicati-programs/trayicon.md)
 * [Server](duplicati-programs/server.md)
 * [Command Line Interface CLI](duplicati-programs/command-line-interface-cli.md)
-* [Service](duplicati-programs/service.md)
+* [Service and WindowsService](duplicati-programs/service.md)
 * [Command Line Tools](duplicati-programs/command-line-interface-cli-1/README.md)
   * [AutoUpdater](duplicati-programs/command-line-interface-cli-1/autoupdater.md)
   * [BackendTester](duplicati-programs/command-line-interface-cli-1/backendtester.md)
