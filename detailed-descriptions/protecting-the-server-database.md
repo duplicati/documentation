@@ -1,2 +1,0 @@
-# Protecting the server database
-

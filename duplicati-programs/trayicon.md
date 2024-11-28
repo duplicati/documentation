@@ -19,3 +19,5 @@ The second task the TrayIcon is usually responsible for, is to host the [Server 
 In some cases it may be useful to run the server in one process and the TrayIcon in another. For this setup, the TrayIcon can run without a hosted server. Start the TrayIcon application with the commandline option `--no-hosted-server`, and the TrayIcon will instead try to connect to the Server. If the Server is not running on the same machine, or using a different port, this can be specified with the commandline option `--hosturl`.
 
 It may also be required to provide the password for the server in the detatched setup, as outlined in [Duplicati Access Password](../detailed-descriptions/duplicati-access-password.md).
+
+It may be convienient to [use preload settings](../detailed-descriptions/preload-settings.md) to provide arguments to both the Server and TrayIcon when running in detached mode.

@@ -20,6 +20,8 @@ As noted in the section on [Duplicati Access Password](../detailed-descriptions/
 
 However, it is possible to issue Signin Tokens and Access Tokens, for anyone with access to the signing keys stored in the database. To limit this exposure, it is possible to [disable the issuance of Signin Tokens](../detailed-descriptions/duplicati-access-password.md), but the Access Tokens cannot currently be secured in case the database is compromised.
 
-To avoid leaking the signing keys, it is recommended that the local database is protected by [setting the database field encryption password](../detailed-descriptions/protecting-the-server-database.md).
+To avoid leaking the signing keys, it is recommended that the local database is protected by [setting the database field encryption password](../detailed-descriptions/the-server-database.md).
+
+Also, note that the default installation does not use SSL/TLS encryption for the server communication, but this can be manually configured with a self-issued certicate.
 
 A more detailed description of how the tokens are generated and issued is in the [forum post on the webserver security](https://forum.duplicati.com/t/increasing-security-for-duplicati-s-web-server/18871).

@@ -29,7 +29,8 @@
 * [Import and export backup configurations](detailed-descriptions/import-and-export-backup-configurations.md)
 * [Filters in Duplicati](detailed-descriptions/filters-in-duplicati.md)
 * [The local database](detailed-descriptions/the-local-database.md)
-* [Protecting the server database](detailed-descriptions/protecting-the-server-database.md)
+* [The server database](detailed-descriptions/the-server-database.md)
+* [Preload settings](detailed-descriptions/preload-settings.md)
 
 ## Using tools
 
