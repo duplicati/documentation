@@ -1,11 +1,12 @@
 ---
-description: >-
-  Before trusting a storage location with your backups, it's essential to verify
-  its reliability. The built-in Storage Testing Tool helps validate your backup
-  destination through comprehensive integrity
+description: This page describes the backend tester tool
 ---
 
 # BackendTester
+
+Before trusting a storage location with your backups, it's essential to verify its reliability. The built-in Storage Testing Tool helps validate your backup destination through comprehensive integrity testing.&#x20;
+
+The BackendTester binary is called `Duplicati.CommandLine.BackendTester.exe` and `duplicati-backend-tester` on Linux and MacOS. The tool is mostly intended for system administrators that needs to verify a certain storage solution is working as expected, or for developers who are writing a new storage destination provider.
 
 **How the Storage Test Works:**
 
