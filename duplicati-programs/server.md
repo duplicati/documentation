@@ -168,6 +168,13 @@ The log data that is stored in the database is by default kept for 30 days, but 
 --log-retention=<time to keep logs>
 ```
 
+On Windows, it is also possible to log data to the Windows Eventlog. To activate this, set the options:
+
+```
+--windows-eventlog=true
+--windows-eventlog-level=<loglevel>
+```
+
 ## Storing data in different places
 
 By default, Duplicati will use the location that is recommended by the operating system to store "Application Support Files" or "Application Data":
@@ -192,3 +199,16 @@ DUPLICATI_HOME=<path to storage folder>
 
 If both are supplied, the commandline options are used.
 
+## Environment variables
+
+For the server options, it is also possible to supply them as environment variables. This makes it easier to toggle options from Docker-like setups where is is desirable to have then entire service config in a single file, and setting commandline arguments may be error prone.
+
+Any of the commandline options for the server an be applied by transforming the option name to an environment variable name. The transformation is to upper-case the option, change hyphen, `-`, to underscore, `_`, and prepend `DUPLICATI__`.&#x20;
+
+For example, to set the commandline option `--webservice-api-only=true` with an environment variable:
+
+```
+DUPLICATI__WEBSERVICE_API_ONLY=true
+```
+
+Any arguments supplied on the commandline will take precedence over an environment variable, as commandline arguments are considered more "local".

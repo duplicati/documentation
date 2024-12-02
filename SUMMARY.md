@@ -55,7 +55,6 @@
   * [AutoUpdater](duplicati-programs/command-line-interface-cli-1/autoupdater.md)
   * [BackendTester](duplicati-programs/command-line-interface-cli-1/backendtester.md)
   * [BackendTool](duplicati-programs/command-line-interface-cli-1/backendtool.md)
-  * [ConfigurationImporter](duplicati-programs/command-line-interface-cli-1/configurationimporter.md)
   * [RecoveryTool](duplicati-programs/command-line-interface-cli-1/recoverytool.md)
   * [SecretTool](duplicati-programs/command-line-interface-cli-1/secrettool.md)
   * [SharpAESCrypt](duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md)
