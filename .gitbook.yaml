@@ -5,5 +5,7 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  en/latest/01-introduction/: https://prevdocs.duplicati.com/en/latest/01-introduction/
-  en/latest/02-installation/: https://prevdocs.duplicati.com/en/latest/02-installation/
+  en/latest/: community-docs/community-docs-home
+  en/latest/01-introduction/: community-docs/community-docs-introduction  
+  en/latest/02-installation/: community-docs/community-docs-installation
+  en/latest/03-using-the-graphical-user-interface/: community-docs/community-docs-using-the-graphical-user-interface
