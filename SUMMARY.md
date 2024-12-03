@@ -31,6 +31,7 @@
 * [The local database](detailed-descriptions/the-local-database.md)
 * [The server database](detailed-descriptions/the-server-database.md)
 * [Preload settings](detailed-descriptions/preload-settings.md)
+* [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
 
 ## Using tools
 
