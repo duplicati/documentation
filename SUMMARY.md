@@ -91,6 +91,7 @@
     * [Disaster Recovery](technical-details/understanding-restore/disaster-recovery.md)
   * [Database versions](technical-details/database-versions.md)
   * [Server authentication model](technical-details/server-authentication-model.md)
+  * [Option formats](technical-details/option-formats.md)
 
 ## Community docs
 
