@@ -36,7 +36,7 @@ To avoid weak passphrases, Duplicati has a built-in passphrase generator as well
 
 The storage destination is arguably the most technical step because it is where you specify how to connect to the storage provider you want to hold your information. Some destinations require only a single setting, where others require multiple.
 
-Due to the number of supported backends, this page does not contain the instructions. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview/).
+Due to the number of supported backends, this page does not contain the instructions. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview.md).
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 14.34.55.png" alt=""><figcaption><p>Storage destination list</p></figcaption></figure>
 
