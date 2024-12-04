@@ -34,6 +34,14 @@ The **Agent** form is a reduced version of Duplicati, usable for integrating wit
 
 For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS.  There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thin missing is the service files used to integrate with `launchctl`.
 
+If you are using [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux), there is currently an extra step to ensure that the binaries, which are placed in `/usr/lib/duplicati`, are allowed to execute:
+
+```
+semanage fcontext -a -t bin_t '/usr/lib/duplicati/duplicati'
+semanage fcontext -a -t bin_t '/usr/lib/duplicati/duplicati-*'
+restorecon -r /usr/lib/duplicati/
+```
+
 ## MacOS
 
 For MacOS the **GUI** [TrayIcon](../duplicati-programs/trayicon.md) is bundled inside a MacOS app-bundle, similar to other applications on MacOS. Inside the app bundle are the [commandline components](../duplicati-programs/command-line-interface-cli-1/) and they can be invoked as binaries from within the app bundle. The GUI application is packaged as a `.dmg` file that supports drag-n-drop style installation, as well as a `.pkg` installer package. The contents of the two package formats are the same, but the `.pkg` also installs a launchagent which automatically starts Duplicati on login.
