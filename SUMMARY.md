@@ -32,6 +32,7 @@
 * [The server database](detailed-descriptions/the-server-database.md)
 * [Preload settings](detailed-descriptions/preload-settings.md)
 * [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
+* [Retention settings](detailed-descriptions/retention-settings.md)
 
 ## Using tools
 
