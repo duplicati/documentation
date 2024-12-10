@@ -18,6 +18,16 @@ The downside is that you can bookmark the Duplicati page, but you may be asked f
 
 If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.
 
+## Temporary signin token
+
+When Duplicati starts up with the randomly generated password it will attempt to emit a temporary sign-in url. If you run either the [TrayIcon](../duplicati-programs/trayicon.md) or [Server](../duplicati-programs/server.md) in a terminal, most systems will show the link here.
+
+If you are running Duplicati as a service with no console attached, the link will end up in the system logs. On Windows you can use the [Event Viewer](https://learn.microsoft.com/en-us/shows/inside/event-viewer) utility to find the message with a sign-in url. For Linux you can view the system logs and for MacOS you can use the [Console app](https://support.apple.com/lt-lt/guide/console/welcome/mac).
+
+Once you have obtained the link, simply click it or paste it into a browser. If the link has expired, simply restart the service or application and a new link will be generated.
+
+Note that the sign-in token has a short lifetime to prevent it being used to gain unathorized access from someone who obtains the logs. After a password has been set, the link will no longer be generated.&#x20;
+
 ## Change password with ServerUtil
 
 If you are not using the TrayIcon or you have disabled the signin feature, but lost the password somehow, you can change the password with [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) in some cases.
