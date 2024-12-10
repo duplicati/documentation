@@ -14,6 +14,6 @@ To protect the database, Duplicati has support for a field-level encryption pass
 
 To supply the field-level encryption password, start the Server, TrayIcon, or Agent with the commandline option `--settings-encryption-key=<key>`. As the commandline can usually be read by other processes, it is also possible to supply this key via the environment variable `SETTINGS_ENCRYPTION_KEY=<key>`.
 
-Both the commandline arguments and environment variables can be set with the [Preload settings](preload-settings.md) file, which makes it simpler to apply the same settings across executables, and removes the need for changing the service or laucher files.
+Both the commandline arguments and environment variables can be set with the [Preload settings](preload-settings.md) file, which makes it simpler to apply the same settings across executables, and removes the need for changing the service or launcher files.
 
 Finally, the [operating system Keychain, or an external secret provider](using-the-secret-provider/), can be used to further secure the encryption key.

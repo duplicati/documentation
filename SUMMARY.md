@@ -97,6 +97,10 @@
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
   * [License Agreement](duplicati-programs/license/license-agreement.md)
 
+***
+
+* [SUPPORT](support.md)
+
 ## Installation details
 
 * [Release channels and versions](installation-details/release-channels-and-versions/README.md)
