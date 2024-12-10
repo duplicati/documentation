@@ -44,10 +44,28 @@ This only works if:
 If these constraints are satisfied, it is possible to reset the server password by running:
 
 ```shell
-> server-util change-password
+> duplicati-server-util change-password
 ```
 
 If ServerUtil is launched in a similar environment (i.e., same user, same environment variables) this would allow access in most cases. There are a number of commandline options that can be used to guide ServerUtil in case the environments are not entirely the same.
+
+For Linux user, you can usually use `su` or `sudo`to enter the correct user context, but some additional environment variables may be needed. The default location for the database is described in the [data location section](../duplicati-programs/server.md#storing-data-in-different-places), and a different location can be provided with `--server-datafolder.`
+
+### Example change with a different context
+
+If you need to change the password for a Windows Service instance running in the service context, you can use a command such as this:
+
+```
+Duplicati.CommandLine.ServerUtil change-password \ 
+  --server-datafolder "C:\Windows\System32\config\systemprofile\AppData\Local\Duplicati"
+```
+
+Similarly, if the service is running as root on Linux:
+
+```
+duplicati-server-util change-password \
+  --server-datafolder=/root/.config/Duplicati
+```
 
 ## Change password from the Server
 

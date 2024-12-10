@@ -6,6 +6,8 @@ description: This page describes the database kept by the Duplicati Server
 
 When the [Server](../duplicati-programs/server.md) is running, either stand-alone or as part of the [TrayIcon](../duplicati-programs/trayicon.md) or [Agent](../duplicati-programs/agent.md), it needs a place to store the configuration. All configuration data, logs and settings are stored inside the file `Duplicati-server.sqlite`. As the file extension reveals, this is an [SQLite](https://www.sqlite.org) database file and as such can be viewed and updated by any tool that works with SQLite databases.
 
+The database file is by default located in a folder that belongs to the user account running it. See the section on the [database location](../duplicati-programs/server.md#storing-data-in-different-places) for details on where this is and how to change it.
+
 Due to the nature of Duplicati, this database can contain a few secrets that are vital to ensuring the integrity and security of the backups and also the Duplicati server itself. These secrets include both the user-provided secrets, such as the backup encryption passphrase and the connection credentials, but also server-provided secrets, such as the token signing keys, and optionally an SSL certificate password.
 
 Even though the database is located on the machine that makes the backup, it is important to prevent unauthorized access to the database, as it could be used for privilege escalation. And should the database ever be leaked, it is also important to ensure the contents are not accessible.
