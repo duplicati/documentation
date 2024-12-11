@@ -96,3 +96,21 @@ secrets:
 ```
 
 It is also possible to use one of the other secret providers, such as one that fetches secrets from a secure key vault. In this case, you do not need the `secrets.json` file, but can just configure the provider.
+
+## Read locked files
+
+Duplicati has support for LVM-based snapshots which is the recommended way for getting a consistent point-in-time copy of the disk. For some uses, it is not possible to configure LVM snapshots, and this can cause problems due to some files being locked. By default, Duplicati will respect the advisory file locking and fail to open locked files, as the lock is usually an indication that the files are in use, and reading it may not result in a meaningful copy.
+
+If you prefer to make a best-effort backup, which was the default in Duplicati v2.0.8.1 and older, you can disable advisory file locking for individual jobs with the advanced option: \`--ignore-advisory-locking=true\`. You can also disable file locking support entirely in Duplicati:
+
+```
+services:
+  myapp:
+    image: duplicati/duplicati:latest
+    volumes:
+      - ./data:/data
+    environment:
+      - SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      - DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
+      - DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+```
