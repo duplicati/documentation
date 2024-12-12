@@ -103,7 +103,7 @@ Duplicati has support for LVM-based snapshots which is the recommended way for g
 
 If you prefer to make a best-effort backup, which was the default in Duplicati v2.0.8.1 and older, you can disable advisory file locking for individual jobs with the advanced option: \`--ignore-advisory-locking=true\`. You can also disable file locking support entirely in Duplicati:
 
-```
+```yaml
 services:
   myapp:
     image: duplicati/duplicati:latest
