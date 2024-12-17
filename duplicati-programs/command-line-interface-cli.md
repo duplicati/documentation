@@ -72,7 +72,7 @@ If either of the `--keep-time`, `--keep-versions`, or `--retention-policy` optio
 
 ## Restore
 
-The restore command is equally as important as the restore command and can be executed with:
+The restore command is equally as important as the backup command and can be executed with:
 
 ```
 duplicati-cli restore <remote url> <filename> <options>
