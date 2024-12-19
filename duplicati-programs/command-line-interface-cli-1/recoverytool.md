@@ -27,7 +27,7 @@ The recovery tool is called `Duplicati.CommandLine.RecoveryTool.exe` on Windows 
 ### Download
 
 ```
-duplicati-recovery-tool download [options]
+duplicati-recovery-tool download <backend url> <working folder> [options]
 ```
 
 Downloads all files matching the Duplicati filenames from the remote storage to the current directory, and decrypts them in the process. The remote url must be one supported by Duplicati. Use `duplicati-cli help backends` to see backends and options.
@@ -35,7 +35,7 @@ Downloads all files matching the Duplicati filenames from the remote storage to 
 ### Index
 
 ```
-duplicati-recovery-tool index [options]
+duplicati-recovery-tool index <working folder> [options]
 ```
 
 Examines all files found in the current folder and produces an `index.txt` file, which is a list of all block hashes found in the files. The index file can be rather large. It defaults to being stored in the current working directory, but can be specified with `--indexfile`. Some files are created in the system temporary folder, use `--tempdir` to set an alternative temporary folder location.
@@ -43,7 +43,7 @@ Examines all files found in the current folder and produces an `index.txt` file,
 ### Restore
 
 ```
-duplicati-recovery-tool restore [version] [options]
+duplicati-recovery-tool restore <working folder> [version] [options]
 ```
 
 Restores all files to their respective destinations. Use `--targetpath` to choose another folder where the files are restored into. Use the filters, `--exclude`, to perform a partial restore. Version can be either a number, a filename or a date. If omitted the most recent backup is used.
@@ -60,7 +60,7 @@ Advanced performance options are:&#x20;
 ### List
 
 ```
-duplicati-recovery-tool list [version] [options]
+duplicati-recovery-tool list <working folder> [version] [options]
 ```
 
 Lists contents of backups. Version can be either a number, a filename or a date. If \[version] is omitted a list of backup versions are shown, if \[version] is supplied, files from that version are listed. Use the filters, `--exclude`, to show a subset of files.
@@ -68,7 +68,8 @@ Lists contents of backups. Version can be either a number, a filename or a date.
 ### Recompress
 
 ```
-duplicati-recovery-tool recompress --reupload --reencrypt [options]
+duplicati-recovery-tool recompress zip <backend url> <working folder> \
+  --reupload --reencrypt [options]
 ```
 
 1. Downloads whole remote storage to the current working folder.
@@ -76,7 +77,7 @@ duplicati-recovery-tool recompress --reupload --reencrypt [options]
 3. If `--reencrypt` is supplied, again reencrypts using same passphrase (needs to be decrypted for compression type change)
 4. If `--reupload` is supplied, files with old compression are deleted and recompressed files are uploaded back to remote storage (it is recommended to take at least temporary copy of remote storage before enabling this switch)
 
-If `--reupload` is supplied it is advisable to specify `--reencrypt` for perfect security.
+**Warning**: If `--reupload` is supplied it is advisable to specify `--reencrypt` otherwise the files will be uploaded unencrypted!
 
 **Warning**: Before recompress delete the [local database](../../detailed-descriptions/the-local-database.md) and after recompress recreate local database before executing any operation on backup. This allows Duplicati to read new file names from remote storage.
 
