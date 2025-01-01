@@ -97,6 +97,7 @@
 * [LICENSE](duplicati-programs/license/README.md)
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
   * [License Agreement](duplicati-programs/license/license-agreement.md)
+* [OAuth Server](duplicati-programs/oauth-server.md)
 
 ***
 
