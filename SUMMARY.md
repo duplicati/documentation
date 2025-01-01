@@ -67,6 +67,7 @@
   * [Google Cloud Storage Destination](backup-destinations/provider-specific-destinations/google-cloud-storage-destination.md)
   * [Microsoft Group Destination](backup-destinations/provider-specific-destinations/microsoft-group-destination.md)
   * [SharePoint Destination](backup-destinations/provider-specific-destinations/sharepoint-destination.md)
+  * [SharePoint v2 (Graph API)](backup-destinations/provider-specific-destinations/sharepoint-v2-graph-api.md)
   * [Amazon S3 destination](backup-destinations/provider-specific-destinations/amazon-s3-destination.md)
 * [File synchronization providers](backup-destinations/file-synchronization-providers/README.md)
   * [Dropbox Destination](backup-destinations/file-synchronization-providers/dropbox-destination.md)
