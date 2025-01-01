@@ -84,9 +84,9 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - SETTINGS_ENCRYPTION_KEY: "$settings-key"
-      - DUPLICATI__SECRET_PROVIDER: file:///run/secrets/secretprovider
-      - DUPLICATI__WEBSERVICE_PASSWORD: "$ui-password"
+      - SETTINGS_ENCRYPTION_KEY: "$$settings-key"
+      - DUPLICATI__SECRET_PROVIDER: file-secret:///run/secrets/secretprovider
+      - DUPLICATI__WEBSERVICE_PASSWORD: "$$ui-password"
     secrets:
       - secretprovider
 

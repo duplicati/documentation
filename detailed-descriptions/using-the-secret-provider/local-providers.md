@@ -14,9 +14,9 @@ The simplest provider is the `env://` provider, which simply extracts environmen
 --secret-provider=env://
 ```
 
-## The File provider
+## The File Secret provider
 
-The `file://` provider supports reading secrets from a file containing a JSON encoded dictionary of key/value pairs. As an example, a file could look like:
+The `file-secret://` provider supports reading secrets from a file containing a JSON encoded dictionary of key/value pairs. As an example, a file could look like:
 
 ```json
 {
@@ -28,7 +28,7 @@ The `file://` provider supports reading secrets from a file containing a JSON en
 The file provider also supports files encrypted with [AESCrypt](../../using-tools/encrypting-and-decrypting-files.md) and you supply the decryption key with the option `passphrase`.  Suppose the file is encrypted with the key `mypassword` you can then configure the provider:
 
 ```
---secret-provider=file:///home/user/secrets.json.aes?passphrase=my-password
+--secret-provider=file-secret:///home/user/secrets.json.aes?passphrase=my-password
 ```
 
 To avoid passing the encryption key via a commandline, see [the section on how to inject the secret provider configuration via an environment variable](advanced-configurations.md#how-to-avoid-passing-credentials-on-the-commandline).&#x20;

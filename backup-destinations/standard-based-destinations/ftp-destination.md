@@ -56,6 +56,14 @@ A related setting `--ftp-upload-delay` adjusts the delay that is inserted after 
 
 Because the FTP protocol can sometimes be difficult to diagnose, the option `--ftp-log-to-console` will enable logging various diagnostics output to the terminal. This option works best with the [BackendTool](../../duplicati-programs/command-line-interface-cli-1/backendtool.md) or [BackendTester](../../duplicati-programs/command-line-interface-cli-1/backendtester.md) application. The option `--ftp-log-privateinfo-to-console` will also enable logging of usernames and passwords being transmitted, to further track down issues. Neither option should be set outside of testing and evaluation scenarios.
 
+## Notes on `aFTP`
+
+Prior to Duplicati 2.1.0.2 there were two different FTP backends, FTP and Alternative FTP (aFTP). This was done as the primary FTP backend was based on [FtpWebRequest](https://learn.microsoft.com/en-us/dotnet/api/system.net.ftpwebrequest?view=net-9.0) and was lacking some features. The aFTP backend was introduced to maintain the FTP backend but offer more features using the FluentFTP library.
+
+With Duplicati 2.1.0.2 the codebase was upgraded to .NET8 which means that `FtpWebRequest` is now deprecated. For that reason, the FTP backend was converted to also be based on FluentFTP, so both FTP backends are currently using the same library.
+
+The `aFTP` backend is still available for backwards compatibility, but is the same as the FTP backend, with some different defaults. The `aFTP` backend will likely be marked deprecated in a future version, and eventually removed.
+
 
 
 
