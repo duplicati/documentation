@@ -14,7 +14,7 @@ ftp://<hostname>/<path>
   &auth-password=<password>
 ```
 
-Despite FTP being a well documented standard, there are many different implementations of the protocol, so the FTP backend supports a variety of settings for configuring the connection.
+Despite FTP being a well documented standard, there are many different implementations of the protocol, so the FTP backend supports a variety of settings for configuring the connection. You can use a non-standard port through the hostname, such as `ftp://hostname:2121` .
 
 ## Connection mode
 
