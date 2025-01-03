@@ -16,7 +16,11 @@ This mechanism works for most default installations and is secure as long as the
 
 The downside is that you can bookmark the Duplicati page, but you may be asked for a password that you do not know when accessing the page. In this case, re-launching from the TrayIcon will log you in again.
 
-If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.
+If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.&#x20;
+
+Login with the TrayIcon is shown here for MacOS, but the same works on Linux and Windows:
+
+<figure><img src="../.gitbook/assets/Launch From TrayIcon.gif" alt="" width="358"><figcaption><p>Log in with the TrayIcon</p></figcaption></figure>
 
 ## Temporary signin token
 
