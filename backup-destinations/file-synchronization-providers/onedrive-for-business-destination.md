@@ -4,7 +4,7 @@ description: This page describes the OneDrive For Business storage destination
 
 # OneDrive For Business Destination
 
-Duplicati supports using Microsoft OneDrive for Business as a storage destination. Note that Duplicati stores compressed and encrypted volumes on OneDrive and does not store files so they are individually accessible from OneDrive.
+Duplicati supports using [Microsoft OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/onedrive-for-business) as a storage destination. Note that Duplicati stores compressed and encrypted volumes on OneDrive and does not store files so they are individually accessible from OneDrive.
 
 To use OneDrive For Business, use the following URL format:
 

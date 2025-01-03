@@ -2,9 +2,9 @@
 description: This page describes the Dropbox storage destination
 ---
 
-# GoogleDrive Destination
+# Google Drive Destination
 
-Duplicati supports using Google Drive as a storage destination. Note that Duplicati stores compressed and encrypted volumes in Google Drive and does not store files so they are individually accessible from Google Drive.
+Duplicati supports using [Google Drive](https://workspace.google.com/products/drive/) as a storage destination. Note that Duplicati stores compressed and encrypted volumes in Google Drive and does not store files so they are individually accessible from Google Drive.
 
 To use Google Drive, use the following URL format:
 

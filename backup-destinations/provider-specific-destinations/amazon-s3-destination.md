@@ -4,7 +4,7 @@ description: This page describes how to use the AWS S3 storage destination
 
 # Amazon S3 destination
 
-The AWS S3 storage destination is implemented with the [general S3 destination](../standard-based-destinations/s3-compatible-destination.md), so all details from that page applies here as well, but some additional features are supported by AWS.
+The [AWS S3](https://aws.amazon.com/s3/) storage destination is implemented with the [general S3 destination](../standard-based-destinations/s3-compatible-destination.md), so all details from that page applies here as well, but some additional features are supported by AWS.
 
 To use the AWS S3 destination, use a format such as:
 

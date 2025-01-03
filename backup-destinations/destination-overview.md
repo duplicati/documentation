@@ -47,7 +47,7 @@ Storage destinations in this category are specific to one particular provider an
 Storage destinations in this category are also specific to one particular provider, but these storage provider products are generally intended to be used as file synchronization storage. When they are used with Duplicati, the backup files will generally be visible as part of the synchronization files. Destinations in this category are:
 
 * [Dropbox](file-synchronization-providers/dropbox-destination.md)
-* [GoogleDrive](file-synchronization-providers/googledrive-destination.md)
+* [GoogleDrive](file-synchronization-providers/google-drive-destination.md)
 * [OneDrive](file-synchronization-providers/onedrive-destination.md)
 * [OneDrive for business](file-synchronization-providers/onedrive-for-business-destination.md)
 

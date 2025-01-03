@@ -4,7 +4,7 @@ description: This page describes the SharePoint v2 storage destination
 
 # SharePoint v2 (Graph API)
 
-Duplicati supports using Microsoft SharePoint as a storage destination. This page describes the SharePoint that uses the Graph API, for the [SharePoint provider that uses the legacy API, see SharePoint](sharepoint-destination.md).
+Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the SharePoint that uses the Graph API, for the [SharePoint provider that uses the legacy API, see SharePoint](sharepoint-destination.md).
 
 To use SharePoint, use the following URL format:
 

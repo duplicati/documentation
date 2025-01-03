@@ -4,7 +4,7 @@ description: This page describes the Microsoft Group storage destination
 
 # Microsoft Group Destination
 
-Duplicati supports using Microsoft Group as a storage destination. To use the destination, use the following URL format:
+Duplicati supports using [Microsoft Groups](https://learn.microsoft.com/en-us/microsoftteams/office-365-groups) as a storage destination. To use the destination, use the following URL format:
 
 ```
 msgroup://<folder>/<subfolder>

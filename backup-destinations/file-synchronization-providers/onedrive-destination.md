@@ -4,7 +4,7 @@ description: This page describes the OneDrive storage destination
 
 # OneDrive Destination
 
-Duplicati supports using Microsoft OneDrive as a storage destination. Note that Duplicati stores compressed and encrypted volumes on OneDrive and does not store files so they are individually accessible from OneDrive.
+Duplicati supports using [Microsoft OneDrive](https://www.microsoft.com/da-dk/microsoft-365/onedrive/online-cloud-storage) as a storage destination. Note that Duplicati stores compressed and encrypted volumes on OneDrive and does not store files so they are individually accessible from OneDrive.
 
 To use OneDrive, use the following URL format:
 

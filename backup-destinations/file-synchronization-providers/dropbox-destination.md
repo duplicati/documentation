@@ -4,7 +4,7 @@ description: This page describes the Dropbox storage destination
 
 # Dropbox Destination
 
-Duplicati supports using Dropbox as a storage destination. Note that Duplicati stores compressed and encrypted volumes on Dropbox and does not store files so they are individually accessible from Dropbox.
+Duplicati supports using [Dropbox](https://www.dropbox.com) as a storage destination. Note that Duplicati stores compressed and encrypted volumes on Dropbox and does not store files so they are individually accessible from Dropbox.
 
 To use Dropbox, use the following URL format:
 
