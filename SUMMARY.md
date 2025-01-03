@@ -71,7 +71,7 @@
   * [Amazon S3 destination](backup-destinations/provider-specific-destinations/amazon-s3-destination.md)
 * [File synchronization providers](backup-destinations/file-synchronization-providers/README.md)
   * [Dropbox Destination](backup-destinations/file-synchronization-providers/dropbox-destination.md)
-  * [Google Drive Destination](backup-destinations/file-synchronization-providers/google-drive-destination.md)
+  * [Google Drive Destination](backup-destinations/file-synchronization-providers/googledrive-destination.md)
   * [OneDrive Destination](backup-destinations/file-synchronization-providers/onedrive-destination.md)
   * [OneDrive For Business Destination](backup-destinations/file-synchronization-providers/onedrive-for-business-destination.md)
 * [Decentralized providers](backup-destinations/decentralized-providers/README.md)
