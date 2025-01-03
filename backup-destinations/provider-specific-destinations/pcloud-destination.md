@@ -14,7 +14,7 @@ To use pCloud, use the following URL format:
 pcloud://<folder>/<subfolder>?authid=<authid>
 ```
 
-To use Dropbox you must first obtain an `AuthID` by using a Duplicati service to log in to pCloud and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
+To use pCloud you must first obtain an `AuthID` by using a Duplicati service to log in to pCloud and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
 
 Due to the way the pCloud authentication system is implemented, the generated AuthID is not stored by the OAuth server and cannot be revoked via the OAuth server. To revoke the token, you must revoke the Duplicati app from your pCloud account, which will revoke all issued tokens.
 

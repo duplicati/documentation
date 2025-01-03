@@ -4,7 +4,7 @@ description: This page describes the Google Cloud Storage destination
 
 # Google Cloud Storage Destination
 
-Duplicati supports storing files on [Google Cloud Storage](https://cloud.google.com/storage), aka GCS, which is a large-scale object storage, similar to S3. In GCS you store "objects" (similar to files) in "buckets" which define various properties shared between the objects. If you prefix objects with a `/` they can be displayed as virtual folders when listing them.
+Duplicati supports storing files on [Google Cloud Storage](https://cloud.google.com/storage), aka GCS, which is a large-scale object storage, similar to S3. In GCS you store "objects" (similar to files) in "buckets" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
 
 Note that the bucket id is globally unique, so it is recommended using a name that is not likely to conflict with other users, such as prefixing the bucket with the project id or a similar unique value. If you use a simple name, like `data` or `backup` it is likely already associated with another project and you will get permission errors when attempting to use it.
 
@@ -13,6 +13,8 @@ To use GCS, you can use the following URL format:
 ```
 gcs://<bucket>/<prefix>?authid=<authid>
 ```
+
+To use Google Cloud Storage you must first obtain an `AuthID` by using a Duplicati service to log in to Google and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
 
 ## Creating a bucket
 

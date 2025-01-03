@@ -8,7 +8,7 @@ The Simple Storage Service, S3, was originally described, developed and offered 
 
 This page deals with S3 in general, for a specific [setup on AWS S3, refer to the AWS specific page](../provider-specific-destinations/amazon-s3-destination.md).
 
-When storing data in S3, the storage is divided into a top-level "folder" called a "bucket", and each bucket has "objects", similar to files. For most providers, a filename with `/`characters will be interpreted as subfolders in some way.
+When storing data in S3, the storage is divided into a top-level "folder" called a "bucket", and each bucket has "objects", similar to files. For most providers, an object name with `/`characters will be interpreted as subfolders in some way.
 
 In the original S3 specification, the bucket name was used as part of the hostname, causing some issues with bucket names that are not valid hostnames, and some delays for new buckets caused by DNS update speeds. Newer solutions use a single shared hostname and provide the bucket name as a parameter.
 
