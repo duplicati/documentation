@@ -4,7 +4,7 @@ description: This page describes the Backblaze B2 storage destination
 
 # Backblaze B2 Destination
 
-Duplicati supports storing files with Backblaze B2, which is a large-scale object storage, similar to S3. With B2 you store "objects" (similar to files) in "containers" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
+Duplicati supports storing files with Backblaze B2, which is a large-scale object storage, similar to S3. With B2 you store "objects" (similar to files) in "buckets" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
 
 To use the B2 storage destination, use the following URL format:
 
