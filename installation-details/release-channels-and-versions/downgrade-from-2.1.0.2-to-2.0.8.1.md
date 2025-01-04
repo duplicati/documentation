@@ -36,3 +36,7 @@ This will downgrade the database to [version 12](../../technical-details/databas
 
 Close the SQLite editor, and then start Duplicati 2.0.8.1.
 
+## Obtaining older releases
+
+The [installer packages for 2.0.8.1](https://github.com/duplicati/duplicati/releases/tag/v2.0.8.1-2.0.8.1_beta_2024-05-07) are available on Github. You can [browse the list of releases ](https://github.com/duplicati/duplicati/releases)for other versions you may want.
+
