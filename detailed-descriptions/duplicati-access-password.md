@@ -26,7 +26,13 @@ Login with the TrayIcon is shown here for MacOS, but the same works on Linux and
 
 When Duplicati starts up with the randomly generated password it will attempt to emit a temporary sign-in url. If you run either the [TrayIcon](../duplicati-programs/trayicon.md) or [Server](../duplicati-programs/server.md) in a terminal, most systems will show the link here.
 
-If you are running Duplicati as a service with no console attached, the link will end up in the system logs. On Windows you can use the [Event Viewer](https://learn.microsoft.com/en-us/shows/inside/event-viewer) utility to find the message with a sign-in url. For Linux you can view the system logs and for MacOS you can use the [Console app](https://support.apple.com/lt-lt/guide/console/welcome/mac).
+If you are running Duplicati as a service with no console attached, the link will end up in the system logs. On Windows you can use the [Event Viewer](https://learn.microsoft.com/en-us/shows/inside/event-viewer) utility to find the message with a sign-in url. For Linux you can view the system logs, usually:
+
+```bash
+sudo journalctl --unit=duplicati
+```
+
+For MacOS you can use the [Console app](https://support.apple.com/lt-lt/guide/console/welcome/mac).
 
 Once you have obtained the link, simply click it or paste it into a browser. Note that the sign-in token has a short lifetime to prevent it being used to gain unathorized access from someone who obtains the logs. If the link has expired, simply restart the service or application and a new link will be generated.
 
