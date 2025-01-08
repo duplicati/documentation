@@ -11,6 +11,7 @@
 
 ## Detailed descriptions
 
+* [Choosing Duplicati Type](detailed-descriptions/choosing-duplicati-type.md)
 * [Using the secret provider](detailed-descriptions/using-the-secret-provider/README.md)
   * [Local providers](detailed-descriptions/using-the-secret-provider/local-providers.md)
   * [Cloud providers](detailed-descriptions/using-the-secret-provider/cloud-providers.md)
@@ -31,6 +32,7 @@
 * [The local database](detailed-descriptions/the-local-database.md)
 * [The server database](detailed-descriptions/the-server-database.md)
 * [Preload settings](detailed-descriptions/preload-settings.md)
+* [Using Duplicati with Linux](detailed-descriptions/using-duplicati-with-linux.md)
 * [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
 * [Retention settings](detailed-descriptions/retention-settings.md)
 

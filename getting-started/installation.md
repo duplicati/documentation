@@ -45,7 +45,7 @@ For Linux distributions there are packages for the most common 64-bit based syst
 To install Duplicati on a Debian based system, first download the `.deb` package matching the system architecture, then run:
 
 ```sh
-dpkg -i duplicati-version-arch.deb
+sudo dpkg -i duplicati-version-arch.deb
 ```
 
 This will install all dependencies and place Duplicati in the default location on the target system. The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
@@ -55,7 +55,7 @@ This will install all dependencies and place Duplicati in the default location o
 To install Duplicati on a RedHat-based system, first download the `.rpm` package matching the system architecture, then run:
 
 ```sh
-yum -i duplicati-version-arch.rpm
+sudo yum -i duplicati-version-arch.rpm
 ```
 
 This will install all dependencies and place Duplicati in the default location on the target system. The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
