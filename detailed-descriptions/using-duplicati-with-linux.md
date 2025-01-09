@@ -4,15 +4,25 @@ description: This page describes how to use Duplicati with Linux
 
 # Using Duplicati with Linux
 
-To use Duplicati on Linux, you first need to decide which kind of instance you want. You can use the following overview to decide:
+Before you can install Duplicati, you need to decide on three different parameters:
 
-* Home user, single desktop machine: [TrayIcon](../duplicati-programs/trayicon.md) or [Agent](../duplicati-programs/agent.md)
-* Server backup or headless: [Server](../duplicati-programs/server.md), [CLI](../duplicati-programs/command-line-interface-cli.md) or [Agent](../duplicati-programs/agent.md)
-* Multiple machines: [Server](../duplicati-programs/server.md), [CLI](../duplicati-programs/command-line-interface-cli.md) or [Agent](../duplicati-programs/agent.md)
+* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).&#x20;
+* Your package manager: `apt`, `yum` or something else.
+* You machine CPU type: x64, Arm64 or Arm7
+
+## Deciding on type
+
+To use Duplicati on Linux, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](choosing-duplicati-type.md) has more details on each of the different types.
+
+## Determine package manager
 
 Next step is checking what Linux distribution you are using. Duplicati supports running on most Linux distros, but does not yet support FreeBSD. &#x20;
 
-If you are using a Debian-based operating system, such as Ubuntu or Mint, you can use the `.deb` package, and for RedHat-based operating system, such as Fedora or SUSE, you can use the `.rpm` packages. For  other operating systems you can use the zip package, or check if your package manager already carries Duplicati.
+If you are using a Debian-based operating system, such as Ubuntu or Mint, you can use the `.deb` package, and for RedHat-based operating system, such as Fedora or SUSE, you can use the `.rpm` packages.&#x20;
+
+For  other operating systems you can use the `.zip` package, or check if your package manager already carries Duplicati.
+
+## Determine CPU architecture
 
 Finally you need to locate information on what CPU architecture you are using:
 
@@ -125,10 +135,12 @@ duplicati-cli help
 
 Since the CLI also needs a local database for each backup, it will use the same location as [described for the Server](using-duplicati-with-linux.md#using-the-server) above to place databases. In addition to this, it will keep a small file called `dbconfig.json` in the storage folder where it maps URLs to databases. The intention of this is to avoid manually specifying the `--dbpath` parameter on every invocation.
 
+If you specify the `--dbpath` parameter, it will not use the `dbconfig.json` file and it will not store anything in the local datafolder.
+
 ## Using the support programs
 
 Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with a `duplicati-*` name and all contain built-in help. For example, to invoke [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
 
-```
+```sh
 duplicati-server-util help
 ```
