@@ -89,3 +89,27 @@ duplicati-server-util change-password <new password>
 ```
 
 Note that this will not revoke access that is already granted, as such [access lives in refresh and access tokens](../../technical-details/server-authentication-model.md). Restart the Server with `--webservice-reset-jwt-config=true` as explained in the [Server](../server.md#configuring-the-server-password) section.
+
+## Issuing a "forever token"
+
+All requests to the Duplicati server needs to be authenticated with a valid token. Usually the token is obtained by providing the password to the server and receiving a token in the response. For some advanced setups, especially when running Duplicati behind an authenticated proxy server. In such a setup, the Duplicati password is an unwanted "double authentication".
+
+In a setup where there is another layer of authentication, it is possible to issue a token that last 10 years, significantly longer than the 15 minutes regular tokens last. To prevent unintended usage of the feature, it requires three steps to configure:
+
+* Stop Duplicati and start `duplicati-server` with `--webservice-enable-forever-token=true`
+* Run the command: `server-util issue-forever-token`
+* Stop Duplicati and start without `--webservice-enable-forever-token`
+
+The commandline option `--webservice-enable-forever-token` toggles the ability to issue the token. The API is implemented such that it will only issue a single token pr. server start.
+
+Once the API is enabled, the `server-util` can call the API and obtain the single token. If something goes wrong, you can restart the Server and try again.
+
+Once the token is obtained, it is **important** to remove the `--webservice-enable-forever-token` again, so regular users cannot issue such a token.
+
+With the token in hand, configure the proxy to attach the header to each request:
+
+```
+Authorization: Bearer <token>
+```
+
+With this header present, all requests to Duplicati will be authenticated. If you need to revoke a forever token, start the server once with `--webservice-reset-jwt-config` which will immediately invalidate any issued token.
