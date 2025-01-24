@@ -45,11 +45,11 @@ CIFS supports two distinct transport protocols, each with its own characteristic
 
 
 
-[**read-buffer-size**](#user-content-fn-1)[^1]
+\--[**read-buffer-size**](#user-content-fn-1)[^1]
 
 Defines the read buffer size, in bytes, for SMB operations (Will be capped automatically by SMB negotiated values, values bellow 10000 bytes will be ignored)
 
-[**write-buffer-size**](#user-content-fn-2)[^2]
+\--[**write-buffer-size**](#user-content-fn-2)[^2]
 
 Defines the write buffer size, in bytes, for SMB operations (Will be capped automatically by SMB negotiated values, values bellow 10000 bytes will be ignored)
 

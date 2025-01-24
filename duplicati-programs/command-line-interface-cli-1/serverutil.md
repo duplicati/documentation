@@ -92,12 +92,14 @@ Note that this will not revoke access that is already granted, as such [access l
 
 ## Issuing a "forever token"
 
+The "`issue-forever-token`" command was added to Duplicati beta 2.1.0.3 and canary 2.0.102.
+
 All requests to the Duplicati server needs to be authenticated with a valid token. Usually the token is obtained by providing the password to the server and receiving a token in the response. For some advanced setups, especially when running Duplicati behind an authenticated proxy server. In such a setup, the Duplicati password is an unwanted "double authentication".
 
 In a setup where there is another layer of authentication, it is possible to issue a token that last 10 years, significantly longer than the 15 minutes regular tokens last. To prevent unintended usage of the feature, it requires three steps to configure:
 
 * Stop Duplicati and start `duplicati-server` with `--webservice-enable-forever-token=true`
-* Run the command: `server-util issue-forever-token`
+* Run the command: `duplicati-server-util issue-forever-token`
 * Stop Duplicati and start without `--webservice-enable-forever-token`
 
 The commandline option `--webservice-enable-forever-token` toggles the ability to issue the token. The API is implemented such that it will only issue a single token pr. server start.
