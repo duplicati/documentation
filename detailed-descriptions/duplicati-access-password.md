@@ -29,8 +29,10 @@ When Duplicati starts up with the randomly generated password it will attempt to
 If you are running Duplicati as a service with no console attached, the link will end up in the system logs. On Windows you can use the [Event Viewer](https://learn.microsoft.com/en-us/shows/inside/event-viewer) utility to find the message with a sign-in url. For Linux you can view the system logs, usually:
 
 ```bash
-sudo journalctl --unit=duplicati
+sudo journalctl --unit=duplicati | less
 ```
+
+Note that the regular output from `journalctl` is capped in width, so you cannot see the whole token. Pipe to a file or another program as shown above to get the full output.
 
 For MacOS you can use the [Console app](https://support.apple.com/lt-lt/guide/console/welcome/mac).
 
