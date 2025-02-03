@@ -34,6 +34,7 @@
 * [Preload settings](detailed-descriptions/preload-settings.md)
 * [Using Duplicati with Linux](detailed-descriptions/using-duplicati-with-linux.md)
 * [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
+* [Using Duplicati with MacOS](detailed-descriptions/using-duplicati-with-macos.md)
 * [Retention settings](detailed-descriptions/retention-settings.md)
 
 ## Using tools

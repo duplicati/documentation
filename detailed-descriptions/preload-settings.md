@@ -12,7 +12,8 @@ To support different ways of deploying the settings file, 3 locations are checke
 
 * `%CommonApplicationData%\Duplicati\preload.json`&#x20;
   * see this [SO thread](https://stackoverflow.com/questions/895723/environment-getfolderpath-commonapplicationdata-is-still-returning-c-docum) for details, but usually&#x20;
-  * Linux/MacOS: `/usr/share/Duplicati/preload.json`
+  * Linux: `/usr/share/Duplicati/preload.json`
+  * MacOS: `/usr/local/share/Duplicati/preload.json`
   * Windows:`C:\ProgramData\Duplicati\preload.json`
 * Inside the installation folder
 * The file pointed to by `DUPLICATI_PRELOAD_SETTINGS`
