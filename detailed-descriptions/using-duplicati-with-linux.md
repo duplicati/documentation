@@ -114,9 +114,7 @@ sudo journalctl --unit=duplicati
 If you are using a [pre-authenticated link](../duplicati-programs/agent.md#registering-the-machine), you can run the following command to activate the registration:
 
 ```sh
-duplicati-agent run \ 
-  --agent-registration-url="<pre-authorized url>" \
-  --agent-register-only
+duplicati-agent register "<pre-authorized url>"
 ```
 
 After registration is complete, restart the service to pick up the new credentials:

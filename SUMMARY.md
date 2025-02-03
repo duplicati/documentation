@@ -32,10 +32,11 @@
 * [The local database](detailed-descriptions/the-local-database.md)
 * [The server database](detailed-descriptions/the-server-database.md)
 * [Preload settings](detailed-descriptions/preload-settings.md)
+* [Retention settings](detailed-descriptions/retention-settings.md)
 * [Using Duplicati with Linux](detailed-descriptions/using-duplicati-with-linux.md)
 * [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
 * [Using Duplicati with MacOS](detailed-descriptions/using-duplicati-with-macos.md)
-* [Retention settings](detailed-descriptions/retention-settings.md)
+* [Using Duplicati with Windows](detailed-descriptions/using-duplicati-with-windows.md)
 
 ## Using tools
 

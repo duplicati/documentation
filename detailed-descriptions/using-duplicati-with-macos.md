@@ -1,3 +1,7 @@
+---
+description: This page describes common scenarios for configuring Duplicati with MacOS
+---
+
 # Using Duplicati with MacOS
 
 Before you can install Duplicati, you need to decide on two different parameters:
@@ -14,6 +18,8 @@ To use Duplicati on MacOS, you first need to decide which kind of instance you w
 Your Mac is most likely using Arm64 with one of the M1, M2, M3, or M4 chips. If you have an older Mac, it may use the Intel x64 chipset. To see what CPU you have, click the Apple icon and choose "About this Mac". In the field labelled "Chip" it will either show Intel (x64) or M1, M2, M3, M4 (Arm64).
 
 ## Installing the package
+
+The packages can be obtained via the [main download page](https://duplicati.com/download). The default package shown on the page is the MacOS Arm64 GUI package in `.dmg` format. If you need another version click the "Other versions" link at the bottom of the page.
 
 If you are using the `.dmg` package the installation works similar to other application, simply open the `.dmg` file and drag Duplicati into Applications. Note that with the `.dmg` package, Duplicati is not set to start automatically with your Mac, but if you restart with the option to re-open running programs, Duplicati will start on login.
 
@@ -47,7 +53,7 @@ With the [Agent](../duplicati-programs/agent.md) there is a minimal setup requir
 
 If the Agent is not registered with the Console, it will open the default browser and ask to be registered. Once registered, it will run in the background and be avilable on the Duplicati Console for management.
 
-If you have a pre-registered URL for registering the machine, you can place a file in `/usr/local/share/Duplicati/preload.json` with content similar to:
+If you have a [pre-authenticated link](../duplicati-programs/agent.md#registering-the-machine) for registering the machine, you can place a file in `/usr/local/share/Duplicati/preload.json` with content similar to:
 
 ```json
 {
