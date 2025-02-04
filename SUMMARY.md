@@ -37,6 +37,7 @@
 * [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
 * [Using Duplicati with MacOS](detailed-descriptions/using-duplicati-with-macos.md)
 * [Using Duplicati with Windows](detailed-descriptions/using-duplicati-with-windows.md)
+* [Running a self-hosted OAuth Server](detailed-descriptions/running-a-self-hosted-oauth-server.md)
 
 ## Using tools
 
