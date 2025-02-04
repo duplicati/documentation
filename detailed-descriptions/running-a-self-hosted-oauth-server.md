@@ -18,11 +18,11 @@ The first step is to [sign up for Google Cloud Services](https://console.cloud.g
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.10.52.png" alt="" width="375"><figcaption><p>Creating a new project</p></figcaption></figure>
 
-Once you have create a project where the OAuth settings can live in, you need to enable the "Google Drive API". Go to the top-left menu, choose "API & Services" and then "Enabled APIs & Services". From here search for "Google Drive API", click it and enable:
+Once you have create a project where the OAuth settings can live in, you need to enable the "**Google Drive API**". Go to the top-left menu, choose "**API & Services**" and then "**Enabled APIs & Services**". From here search for "**Google Drive API**", click it and enable:
 
 <div><figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.11.21.png" alt=""><figcaption><p>Choosing the menu "Enabled APIs &#x26; Services"</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.11.44.png" alt=""><figcaption><p>Enabling API and Services</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.12.11.png" alt=""><figcaption></figcaption></figure></div>
 
-Before you can get the values you need to configure the consent screen that is shown when users log in with your OAuth Service. You can choose "Internal" here, unless you need to provide access to people outside your organization. Choosing "External" also requires a Google review. On the consent screen, you only need to fill in the required fields, the app name and some contact information:
+Before you can get the values you need to configure the consent screen that is shown when users log in with your OAuth Service. You can choose "**Internal**" here, unless you need to provide access to people outside your organization. Choosing "External" also requires a Google review. On the consent screen, you only need to fill in the required fields, the app name and some contact information:
 
 <div><figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.13.54.png" alt=""><figcaption><p>Choosing Audience</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.15.29.png" alt=""><figcaption><p>Setting up the consent screen</p></figcaption></figure></div>
 
@@ -30,11 +30,11 @@ The last step in the consent is choosing the scopes (meaning the permissions) it
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.16.13.png" alt="" width="375"><figcaption><p>Choosing the scopes</p></figcaption></figure>
 
-You can now click update and save the consent screen and proceed to setting up the credentials needed. Click "Create Credentials" and choose "OAuth client ID". On the next page, choose the type "Web application". In the "Authorized redirect URIs" field you need to enter the url for the server that is being called after login. The Duplicati OAuth server uses a path of `/logged-in` so make sure it ends with that. In the screenshot, the server is hosted on a single machine, so the setup is for `https://localhost:8080/logged-in`:
+You can now click update and save the consent screen and proceed to setting up the credentials needed. Click "**Create Credentials**" and choose "**OAuth client ID**". On the next page, choose the type "**Web application**". In the "**Authorized redirect URIs**" field you need to enter the url for the server that is being called after login. The Duplicati OAuth server uses a path of `/logged-in` so make sure it ends with that. In the screenshot, the server is hosted on a single machine, so the setup is for `https://localhost:8080/logged-in`:
 
 <div><figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.54.13.png" alt=""><figcaption><p>Choose OAuth client ID</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.17.28.png" alt=""><figcaption><p>Configure the OAuth client ID</p></figcaption></figure></div>
 
-When you are done, click "Save" and a popup will show the credentials that are generated. Use the convenient copy buttons to get "Client ID" and "Client secret" or download the JSON file containing them. If you loose them, you can get then again via the "Credentials" page. The credentials shown here are redacted:
+When you are done, click "Save" and a popup will show the credentials that are generated. Use the convenient copy buttons to get "**Client ID**" and "**Client secret**" or download the JSON file containing them. If you loose them, you can get then again via the "Credentials" page. The credentials shown here are redacted:
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 22.17.41.png" alt="" width="375"><figcaption><p>Redacted view of the generated credentials</p></figcaption></figure>
 
@@ -68,7 +68,7 @@ If you are using Docker, you can run the [OAuth server image](https://hub.docker
 - SERVICES: "googledocs"
 ```
 
-The hostname here **MUST** match the one set as the redirect URI or the authorization will fail. The URLs parameter is what the internal Docker engine thinks it is running. For this setup there is no TLS/SSL certificate, so the URL here is `http` but note that we used `https` in the redirect URI and these two must match in the end. Here I am assuming some other service is providing the SSL certificate.
+The hostname here **MUST** match the one set as the redirect URI or the authorization will fail. The URLs parameter is what the internal Docker engine thinks it is running. For this setup there is no TLS/SSL certificate, so the URL here is `http` but note that we used `https` in the redirect URI and these two must match in the end. Here I am assuming some other service is providing the SSL layer.
 
 If you need to serve the certificate directly from the Docker container, generate a certificate `.pfx` file and use a configuration such as:
 
@@ -99,7 +99,7 @@ OAuthServer run
   --services=googledocs
 ```
 
-The hostname here **MUST** match the one set as the redirect URI or the authorization will fail. The URLs parameter is what the process thinks it is running locally. For this setup there is no TLS/SSL certificate, so the URL here is `http` but note that we used `https` in the redirect URI and these two must match in the end. Here I am assuming some other proxy service is providing the SSL certificate.
+The hostname here **MUST** match the one set as the redirect URI or the authorization will fail. The URLs parameter is what the process thinks it is running locally. For this setup there is no TLS/SSL certificate, so the URL here is `http` but note that we used `https` in the redirect URI and these two must match in the end. Here I am assuming some proxy service is providing the SSL certificate.
 
 If you need to serve the certificate directly from the Docker container, generate a certificate `.pfx` file and use a configuration such as:
 
@@ -123,7 +123,7 @@ Once the service is running, you can navigate to the page and generate an AuthID
 
 ## Using the self-hosted OAuth server in Duplicati
 
-The final step is to instruct Duplicati to use the self-host OAuth server instead of the regular instance. This is done by visiting the "Settings" page in the Duplicati UI and adding the advanced option `--oauth-url=https://localhost:8080/refresh`:
+The final step is to instruct Duplicati to use the self-hosted OAuth server instead of the regular instance. This is done by visiting the "Settings" page in the Duplicati UI and adding the advanced option `--oauth-url=https://localhost:8080/refresh`:
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-02-04 at 23.32.32.png" alt=""><figcaption><p>Adding the OAuth URL to Duplicati</p></figcaption></figure>
 
