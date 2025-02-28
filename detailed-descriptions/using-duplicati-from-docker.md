@@ -25,8 +25,8 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
-      - DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
+      SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
 ```
 
 But you can make it a bit more secure by using [Docker secrets](https://docs.docker.com/compose/how-tos/use-secrets/) which are abstracted as files that are mounted under `/run/secrets/`. Since Duplicati does not support reading files in place of the environment variables, you can either use a [preload configuration file](preload-settings.md) or use one of [the secret providers](using-the-secret-provider/).
@@ -55,7 +55,7 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - DUPLICATI_PRELOAD_SETTINGS: /run/secrets/preloadsettings
+      DUPLICATI_PRELOAD_SETTINGS: /run/secrets/preloadsettings
     secrets:
       - preloadsettings
 
@@ -84,9 +84,9 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - SETTINGS_ENCRYPTION_KEY: "$$settings-key"
-      - DUPLICATI__SECRET_PROVIDER: file-secret:///run/secrets/secretprovider
-      - DUPLICATI__WEBSERVICE_PASSWORD: "$$ui-password"
+      SETTINGS_ENCRYPTION_KEY: "$$settings-key"
+      DUPLICATI__SECRET_PROVIDER: file-secret:///run/secrets/secretprovider
+      DUPLICATI__WEBSERVICE_PASSWORD: "$$ui-password"
     secrets:
       - secretprovider
 
@@ -110,7 +110,7 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
-      - DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
-      - DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+      SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
+      DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
 ```
