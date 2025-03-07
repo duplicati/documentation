@@ -101,7 +101,7 @@ OAuthServer run
 
 The hostname here **MUST** match the one set as the redirect URI or the authorization will fail. The URLs parameter is what the process thinks it is running locally. For this setup there is no TLS/SSL certificate, so the URL here is `http` but note that we used `https` in the redirect URI and these two must match in the end. Here I am assuming some proxy service is providing the SSL certificate.
 
-If you need to serve the certificate directly from the Docker container, generate a certificate `.pfx` file and use a configuration such as:
+If you need to serve the certificate directly from the the binary, generate a certificate `.pfx` file and use a configuration such as:
 
 ```
 OAuthServer run 
