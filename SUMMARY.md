@@ -19,6 +19,7 @@
 * [Using remote management](detailed-descriptions/using-remote-management/README.md)
   * [Using remote control with agent](detailed-descriptions/using-remote-management/using-remote-control-with-agent.md)
 * [Migrating Duplicati to a new machine](detailed-descriptions/migrating-duplicati-to-a-new-machine.md)
+* [Scripts](detailed-descriptions/scripts.md)
 * [Sending reports](detailed-descriptions/sending-reports-via-email/README.md)
   * [Monitoring with Duplicati Console](detailed-descriptions/sending-reports-via-email/monitoring-with-duplicati-console.md)
   * [Sending reports with email](detailed-descriptions/sending-reports-via-email/sending-reports-with-email.md)
