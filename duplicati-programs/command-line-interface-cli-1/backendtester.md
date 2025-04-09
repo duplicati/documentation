@@ -31,7 +31,6 @@ The BackendTester binary is called `Duplicati.CommandLine.BackendTester.exe` and
 * Filename parameters: Configure allowed characters
 * Test iterations: Specify how many test cycles to run
 
-\
 
 
 ```
