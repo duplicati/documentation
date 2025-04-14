@@ -41,8 +41,10 @@ It is also possible to disable the use of signin tokens, which are used in some 
 Since the [server database is a critical resource to protect](../detailed-descriptions/the-server-database.md), it is possible to set a field-level encryption password:
 
 ```
---settings-encryption-key<encryption key>
+--settings-encryption-key=<encryption key>
 ```
+
+_Ensure you use double quotes to escape special characters as required by your operating system's command line._
 
 If the server starts without a settings encryption key, it will emit a warning in the logs explaining the problem. If any fields are already encrypted, Duplicati will refuse to start without the encryption key. If no fields are encrypted, but an encryption key is supplied, the fields will be encrypted.
 
