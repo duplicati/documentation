@@ -31,3 +31,17 @@ duplicati-agent --registration-url=<copied-url>
 ```
 
 This will cause the Agent to immediately show up in the Console. Future invocations of the agent will not require the registration url, but should the Agent somehow be de-registered, it will re-reregister if the url is set and the link is still valid.
+
+### Registration with deployment
+
+To simplify starting the agent in larger scale deployments, it is possible to configure [a `preload.json`file](../preload-settings.md) with the registration url. To do so, create a file named `preload.json`with the following content:
+
+```json
+{
+  "args": {
+    "agent": [ "--registration-url=<copied-url>" ],
+  }
+}
+```
+
+This file can then be distributed to the target machine before the package is installed. The [preload settings page](../preload-settings.md) describes the possible locations where Duplicati will look for such a file.
