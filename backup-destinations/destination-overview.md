@@ -12,6 +12,10 @@ Some storage providers support multiple protocols with each their strenghts, and
 
 Each storage destination has a number of options that can be provided via a URL like format. The options should preferably be provided as part of the URL, but can also be provided via regular commandline options. For instance, the `--use-ssl=true` flag can also be added to the URL with `&use-ssl=true`. If both are provided, the URL value is used.
 
+{% hint style="warning" %}
+Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
+{% endhint %}
+
 ## Standard based destinations
 
 Destinations in this category are general purpose enough, or commonly used, so they can be used across a range of storage providers. Destinations in this category are:

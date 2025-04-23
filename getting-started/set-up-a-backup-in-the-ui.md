@@ -28,13 +28,23 @@ For the basic configuration, you need to provide a name and setup encryption:
 
 The name and description fields can be any text you like, and is only used to display the backup configuration in lists so you can differentiate if you have multiple backups.
 
-The encryption setup allows you to choose an encryption method and a passphrase. Encryption generally adds a minor overhead to the processing, but is generally a good idea to add. If you opt out of encryption, make sure you control the storage destination and have adequate protections in place.
+The encryption setup allows you to choose an encryption method and a passphrase. Encryption adds a minor overhead to the processing, but is generally a good idea to add. If you opt out of encryption, make sure you control the storage destination and have adequate protections in place.
 
-To avoid weak passphrases, Duplicati has a built-in passphrase generator as well as a passphrase strength measurer. **Be sure to store the chosen or generated passphrase in a safe location** as it is not possible to recover anything if this passphrase is lost!
+{% hint style="warning" %}
+**Be sure to store the chosen or generated passphrase in a safe location** as it is not possible to recover anything if this passphrase is lost!
+{% endhint %}
+
+To avoid weak passphrases, Duplicati has a built-in passphrase generator as well as a passphrase strength measurer.&#x20;
+
+
 
 ## 2. Storage destination
 
 The storage destination is arguably the most technical step because it is where you specify how to connect to the storage provider you want to hold your information. Some destinations require only a single setting, where others require multiple.
+
+{% hint style="warning" %}
+Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
+{% endhint %}
 
 Due to the number of supported backends, this page does not contain the instructions. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview.md).
 
