@@ -11,8 +11,13 @@ The pCloud provider was added in Duplicati v2.1.0.100, and is not yet included i
 To use pCloud, use the following URL format:
 
 ```
-pcloud://<folder>/<subfolder>?authid=<authid>
+pcloud://<host>/<folder>/<subfolder>?authid=<authid>
 ```
+
+The `<host>` value must be one of:
+
+* `api.pcloud.com` for US based access
+* `eapi.pcloud.com` for EU based access
 
 To use pCloud you must first obtain an `AuthID` by using a Duplicati service to log in to pCloud and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
 
