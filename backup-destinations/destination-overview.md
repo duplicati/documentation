@@ -34,7 +34,6 @@ Storage destinations in this category are specific to one particular provider an
 
 * [Backblaze B2](provider-specific-destinations/backblaze-b2-destination.md)
 * [Box.com](provider-specific-destinations/box.com-destination.md)
-* [Rackspace CloudFiles](provider-specific-destinations/rackspace-cloudfiles-destination.md)
 * [Mega.nz](provider-specific-destinations/mega.nz-destination.md)
 * [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md)
 * [Tencent COS](provider-specific-destinations/tencent-cos-destination.md)
