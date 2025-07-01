@@ -11,3 +11,5 @@ Besides the general [commandline interface](../command-line-interface-cli.md), D
 The [BackendTool](backendtool.md) and [SharpAESCrypt](sharpaescrypt.md) tools are intended to work directly with the remote storage files.
 
 The [RecoveryTool](recoverytool.md) can work directly with the remote storage without using the regular Duplicati code, and can both recover files from a damaged remote destination, but also re-upload existing files.
+
+The [SyncTool](synctool.md) is used for mirroring a backup from one backend to another, which is useful for increasing redundancy.&#x20;
