@@ -28,12 +28,20 @@ You can add custom entries directly to Duplicati's log system from your scripts 
 * `LOG:WARN` - For potential issues that didn't prevent completion
 * `LOG:ERROR` - For critical failures that require attention
 
-**Example Usage:**
+**Example Usage (Linux / MacOS):**
 
 ```bash
 echo "LOG:INFO Preparation tasks completed successfully"
 echo "LOG:WARN Database backup older than 24 hours detected"
 echo "LOG:ERROR Unable to lock database, backup may contain inconsistent data"
+```
+
+**Example Usage (Windows):**
+
+```batch
+echo LOG:INFO Preparation tasks completed successfully
+echo LOG:WARN Database backup older than 24 hours detected
+echo LOG:ERROR Unable to lock database, backup may contain inconsistent data
 ```
 
 These messages will be captured with their appropriate severity levels and integrated into Duplicati's logging system, making script events traceable within the same monitoring interfaces you use for Duplicati itself.
