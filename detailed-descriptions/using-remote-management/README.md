@@ -6,6 +6,10 @@ description: >-
 
 # Using remote management
 
+{% hint style="info" %}
+## This page is for setting up remote management with a desktop installation. For Agent based installations, see the subpage on [Agent remote mangement](using-remote-control-with-agent.md)
+{% endhint %}
+
 ## Register the local installation
 
 In a default installation, Duplicati will serve up a UI using an internal webserver. This setup works well for workstations and laptops but can be challenging when the machine is not always connected to a display. To securely connect the instance to the Duplicati Console, go to the settings page and find the "Remote access control" section.
