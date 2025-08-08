@@ -31,6 +31,10 @@ Duplicati.CommandLine.SyncTool <backend_src> <backend_dst> [options]
 
 ## Options
 
+* `--auto-create-folders`: Automatically create folders in the destination backend if they do not exist. Default is `true.`
+* `--backend-retries`: Number of times to recreate a backend on backend errors. Default is `3`.
+* `--backend-retry-delay`: Delay in milliseconds between backend retries. Default is `1000`.
+* `--backend-retry-with-exponential-backoff`: Use exponential backoff for backend retries, multiplying the delay by two for each failure. Default is `true`.&#x20;
 * `-y, --confirm, --yes` : Automatically confirm the operation. Default is `false`.
 * `-d, --dry-run` : Do not actually write or delete files. If not set here, the global options will be checked. Default is `false`.&#x20;
 * `--dst-options` : Options for the destination backend. Each option is a key-value pair separated by an equals sign, e.g. `--dst-options key1=value1 key2=value2` . Default is an empty collection of options.
