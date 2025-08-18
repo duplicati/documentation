@@ -14,6 +14,19 @@ You also need a way to sign in to the server after it has started. You can eithe
 
 To ensure that any secrets configured within the application are not stored in plain text, it is also important to set up the database encryption key.
 
+See also the DockerHub page for details on how to configure the image: [https://hub.docker.com/r/duplicati/duplicati/](https://hub.docker.com/r/duplicati/duplicati/)
+
+## Hostname access
+
+Duplicati's server allows access from IP-based requests, but disallows access from requests that use a hostname. This is done to prevent certain DNS-based attacks, but will also block attempts to use a correct hostname. To avoid this, set the environment variable:
+
+```yaml
+environment:
+  DUPLICATI__WEBSERVICE_ALLOWED_HOSTNAMES: <hostname1>;<hostname2>
+```
+
+Setting this environment variable will enable using desired hostnames instead of IP addresses only. The special hostname `*` will disable the protection and allow any hostname, but this is not recommended for security reasons.
+
 ## Managing secrets in Docker
 
 &#x20;Ideally, you need at least the settings encryption key provided to the container, but perhaps also the webservice password. You can easily provide this via a regular environment variable:
