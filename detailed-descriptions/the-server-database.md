@@ -59,7 +59,11 @@ When running Duplicati as a Windows Service, the `%LOCALAPPDATA%\Duplicati` fold
 C:\Windows\System32\config\systemprofile\AppData\Local\Duplicati
 ```
 
-Since this folder is under `C:\Windows` the contents may be deleted on major Windows upgrades (usually when the version number changes). For that reason, Duplicati will detect an attempt to store files in the `C:\Windows` folder and emit a warning. From version 2.1.0.108 and forward, Duplicati will choose to use `C:\Users\LocalService\Duplicati` as the storage folder, if it would otherwise be under `C:\Windows`.
+Since this folder is under `C:\Windows` the contents may be deleted on major Windows upgrades (usually when the version number changes). For that reason, Duplicati will detect an attempt to store files in the `C:\Windows` folder and emit a warning. From version **2.1.0.108** and forward, Duplicati will avoid using a folder under `C:\Windows` and instead choose to use:
+
+```
+C:\ProgramData\Duplicati
+```
 
 ### Database location on Linux
 
