@@ -74,13 +74,7 @@ Duplicati.WindowsService.exe INSTALL-AGENT <options>
 Note that since the Agent cannot open a browser from within the service context, it will instead emit the link that is used to claim the Agent in the Windows Event Log. You need to find the link from there and open it in a browser to claim the machine. Alternatively, use the [method outlined above to register the machine](agent.md#registering-the-machine), but beware that you need to run in the same context as the service, or the `agent.json` file will be placed in another folder.
 
 {% hint style="info" %}
-In Duplicati Stable 2.1.0.5, you need to add the "`run`" argument to the install commandline:
-
-```
-Duplicati.WindowsService.exe INSTALL-AGENT run <options>
-```
-
-This has been fixed in later releases
+The Agent installer does not work in Duplicati 2.1.0.5 or older, due to incorrectly passed commandline argument order. Use a later version to get the Agent running as a service.
 {% endhint %}
 
 Similarly, you can uninstall the Agent service with:
