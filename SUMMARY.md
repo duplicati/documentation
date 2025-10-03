@@ -39,6 +39,8 @@
 * [Using Duplicati with MacOS](detailed-descriptions/using-duplicati-with-macos.md)
 * [Using Duplicati with Windows](detailed-descriptions/using-duplicati-with-windows.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/running-a-self-hosted-oauth-server.md)
+* [Telemery collected by Duplicati](detailed-descriptions/telemery-collected-by-duplicati.md)
+* [Telemetry collection](detailed-descriptions/telemetry-collection.md)
 
 ## Using tools
 
