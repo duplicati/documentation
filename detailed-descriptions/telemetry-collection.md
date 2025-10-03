@@ -1,5 +1,5 @@
 ---
-description: This page describes the telemetry collected by Duplicati and how to share it
+description: This page describes the telemetry collected by Duplicati and how to opt out
 ---
 
 # Telemetry collection
