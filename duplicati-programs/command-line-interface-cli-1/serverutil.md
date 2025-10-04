@@ -8,11 +8,17 @@ The ServerUtil executable is a helper program that can interact with a running D
 
 The ServerUtil is a replacement for a contributed [duplicati\_client](https://github.com/Pectojin/duplicati-client) script that is no longer maintained. Bot approaches works by accessing the Duplicat server API and issuing the same requests as the user interface would otherwise do.
 
-The ServerUtil binaries are called `Duplicati.CommandLine.ServerUtil.exe` on Windows ana `duplicati-server-util` on Linux and MacOS.
+The ServerUtil binaries are called `Duplicati.CommandLine.ServerUtil.exe` on Windows and `duplicati-server-util` on Linux and MacOS.
 
 ## Handling login
 
-The ServerUtil needs to authenticate with the Server, which requires a connection url and a password. To avoid needing this, the ServerUtil will attempt to read the [Server database](../../detailed-descriptions/the-server-database.md) and obtain information from there. If this succeeds, the ServerUtil will automatically configure an authenticated session with the server, without needing additional input.
+The ServerUtil needs to authenticate with the Server, which requires a connection url and a password. To avoid needing this, the ServerUtil will attempt to read the [Server database](../../detailed-descriptions/the-server-database.md) and obtain information from there. If this succeeds, the ServerUtil will automatically configure an authenticated session with the server, without needing additional input.&#x20;
+
+By default, the ServerUtil will look for the database at the default path for the current user context, meaning that if you run Duplicati as a service, you should invoke ServerUtil as Administrat/root. If the default database path is not correct, you can specify the database path for each command with:
+
+```
+duplicati-server-util login --server-datafolder=<database folder path>
+```
 
 If the database is encrypted, write protected, or in some other way inacessible, the caller needs to provide both the url and the password on the commandline.
 
