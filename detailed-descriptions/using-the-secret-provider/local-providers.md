@@ -33,6 +33,12 @@ The file provider also supports files encrypted with [AESCrypt](../../using-tool
 
 To avoid passing the encryption key via a commandline, see [the section on how to inject the secret provider configuration via an environment variable](advanced-configurations.md#how-to-avoid-passing-credentials-on-the-commandline).&#x20;
 
+To encrypt the file, you can use the [AESCrypt tool](../../duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md) provided with Duplicati:
+
+```
+Duplicati.CommandLine.SharpAESCrypt.exe e my-password source.json destination.json.aes
+```
+
 ## Credential Manager (Windows)
 
 On Windows XP and later, the [Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0) can be used to securely store secrets. As the credentials are protected by the account login, there is no configuration needed, so the setup is simply:
