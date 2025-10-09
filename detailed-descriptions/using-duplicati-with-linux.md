@@ -142,3 +142,11 @@ Each package of Duplicati contains a number of support utilities, such as the [R
 ```sh
 duplicati-server-util help
 ```
+
+## Handling locked files
+
+By default, Duplicati will honor Linux advisory locking and refuse to open files that are locked. The logic for this is that it is not guaranteed that reading the file while it is locked, will result in a useful file when restored. However, many Linux applications ignore the locks because the default file operations ignores them as well. If you prefer that Duplicati ignores locked files, and just reads what it finds, you can set the advanced option:
+
+```
+--ignore-advisory-locking=true
+```
