@@ -18,7 +18,7 @@ Duplicati.WindowsService.exe INSTALL [arguments ...]
 
 The arguments can be any of the arguments supported by the Server and will be passed on to the Server on startup. The service will be registered to automatically restart and start at login. These details can be changed from the Windows service manager.
 
-From version 2.1.0.0 and forward, the service will automatically start after installation. The command can be changed to `INSTALL-ONLY` to avoid starting the service.
+From version 2.1.1.0 and forward, the service will automatically start after installation. The command can be changed to `INSTALL-ONLY` to avoid starting the service.
 
 To remove the service, use the the `UNINSTALL` command:
 
