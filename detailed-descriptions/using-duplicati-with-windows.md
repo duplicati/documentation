@@ -115,3 +115,25 @@ Each package of Duplicati contains a number of support utilities, such as the [R
 ```sh
  C:\Program Files\Duplicati 2\Duplicati.CommandLine.ServerUtil.exe help
 ```
+
+## Handling locked files
+
+On Windows, file locking is an integrated part of how programs expect the system to work. This is problematic for backup systems that want to read all the files, locked or not, to ensure they are backed up.
+
+Windows offers two primary ways to read locked files: VSS and BackupRead. Both ways require that the caller has the SeBackupPrivilege enabled and will then permit the caller to read the files. Unfortunately, this is implemented with a permission override as well, meaning that a caller with the SeBackupPrivilege has access to read any file on the system.
+
+In other words: it is not possible to read the user's own locked files without also granting full read access to the system. Since it is a security issue to have a regular account that has access to all files, the two options are: run as a user with elevated privileges (e.g., Administrator) or ignore locked files.&#x20;
+
+For simplicity, most users prefer to [run Duplicati as a service](using-duplicati-with-windows.md#running-the-server-as-a-windows-service), which will run in the LocalSystem account that already has the SeBackupPrivilege set.
+
+### Volume Snapshot Service (VSS)
+
+The most robust and heavy handed way of making a backup on Windows is to use VSS to create a snapshot of the current disk, and then read this. The implementation on Windows signals all programs that want to write to disk that a snapshot is being prepared, waits for them to flush to disk, makes the snapshot and lets all programs continue. This approach ensures that the disk snapshot is in a consistent state so there are not partial writes being backed up.&#x20;
+
+To enable VSS, set the advanced option `--snapshot-policy=required` . If you are using Duplicati 2.1.1.0 or later, VSS will be enabled by default if the user context has the SeBackupPrivilege.
+
+### BackupRead
+
+The BackupRead method does not create a snapshot and instead relies on a Windows API call that allows a program to read files for backup purposes. The benefit from this is that you do not need to create disk snapshots, which requires extra disk space and co-operation from other programs.
+
+To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../installation-details/release-channels-and-versions/).
