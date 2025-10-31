@@ -4,7 +4,7 @@ description: This page describes the Filen.io integration
 
 # Filen.io
 
-Duplicati supports using [Filen.io](https://filen.io) as the storage destination. Note that Duplicati encrypts volumes before uploading them to Filen.io, but will encrypt them again using the Filen encryption scheme so they can be downloaded from Filen.
+Duplicati supports using [Filen.io](https://filen.io) as the storage destination since stable release v2.2. Note that Duplicati encrypts volumes before uploading them to Filen.io, but will encrypt them again using the Filen encryption scheme so they can be downloaded from Filen.
 
 To use Filen.io, use the following URL format:
 

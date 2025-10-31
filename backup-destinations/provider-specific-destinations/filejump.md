@@ -4,7 +4,7 @@ description: This page describes the Filejump integration
 
 # Filejump
 
-Duplicati supports using [Filejump](https://filejump.com) as the storage destination.&#x20;
+Duplicati supports using [Filejump](https://filejump.com) as the storage destination since stable release v2.2.
 
 To use Filejump, use the following URL format:
 
