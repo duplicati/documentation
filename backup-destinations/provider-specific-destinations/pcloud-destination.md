@@ -6,7 +6,7 @@ description: This page describes the pCloud storage destination
 
 Duplicati supports using [pCloud](https://pcloud.com) as a storage destination. Note that Duplicati stores compressed and encrypted volumes on pCloud and does not store files so they are individually accessible from pCloud.
 
-The pCloud provider was added in Duplicati v2.1.0.100, and is not yet included in a stable release.
+The pCloud provider was added in Duplicati v2.1.0.100, and is included in stable release 2.2.
 
 To use pCloud, use the following URL format:
 
