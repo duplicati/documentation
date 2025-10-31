@@ -22,6 +22,8 @@ Version 6: Duplicati 2.0.8.1
 
 Version 8: Duplicati 2.1.0.0
 
+Version 9: Duplicati 2.2.0.0
+
 ## Local database
 
 <figure><picture><source srcset="../.gitbook/assets/local-database.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/local-database-2.png" alt=""></picture><figcaption><p>Schema overview of the local database</p></figcaption></figure>
@@ -35,3 +37,5 @@ Version 11: 2.0.6.3
 Version 12: 2.0.8.1
 
 Version 14: 2.1.0.0
+
+Version 17: 2.2.0.0
