@@ -104,6 +104,7 @@
   * [SharpAESCrypt](duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md)
   * [Snapshots](duplicati-programs/command-line-interface-cli-1/snapshots.md)
   * [SyncTool](duplicati-programs/command-line-interface-cli-1/synctool.md)
+  * [DatabaseTool](duplicati-programs/command-line-interface-cli-1/databasetool.md)
 * [Agent](duplicati-programs/agent.md)
 * [LICENSE](duplicati-programs/license/README.md)
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
@@ -118,7 +119,8 @@
 
 * [Release channels and versions](installation-details/release-channels-and-versions/README.md)
   * [Upgrading and downgrading](installation-details/release-channels-and-versions/upgrading-and-downgrading.md)
-  * [Downgrade from 2.1.0.2 to 2.0.8.1](installation-details/release-channels-and-versions/downgrade-from-2.1.0.2-to-2.0.8.1.md)
+  * [Downgrade from 2.1.0.5 to 2.0.8.1](installation-details/release-channels-and-versions/downgrade-from-2.1.0.2-to-2.0.8.1.md)
+  * [Downgrade from 2.2 to 2.1.05](installation-details/release-channels-and-versions/downgrade-from-2.2-to-2.1.05.md)
 * [Package options](installation-details/package-options.md)
 * [Developer](installation-details/developer.md)
 

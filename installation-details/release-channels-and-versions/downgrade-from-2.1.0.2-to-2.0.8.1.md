@@ -1,10 +1,10 @@
 ---
-description: This page describes how to downgrade from Duplicati 2.1.0.2 to 2.0.8.1
+description: This page describes how to downgrade from Duplicati 2.1.0.5 to 2.0.8.1
 ---
 
-# Downgrade from 2.1.0.2 to 2.0.8.1
+# Downgrade from 2.1.0.5 to 2.0.8.1
 
-To downgrade from 2.1.0.2 to an earlier version, note that the two are built on different core technologies (.NET8 vs .NET4/Mono). If you have previously been able to run 2.0.8.1, you should be able to downgrade by installing the previous version as before.
+To downgrade from 2.1.0.5 to an earlier version, note that the two are built on different core technologies (.NET8 vs .NET4/Mono). If you have previously been able to run 2.0.8.1, you should be able to downgrade by installing the previous version as before.
 
 Before you downgrade, you should make sure you have removed database encryption. You can do this by stopping all running instances, and then running [Server](../../duplicati-programs/server.md) or [TrayIcon](../../duplicati-programs/trayicon.md) with:
 
