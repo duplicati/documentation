@@ -92,6 +92,7 @@
 
 * [TrayIcon](duplicati-programs/trayicon.md)
 * [Server](duplicati-programs/server.md)
+* [Agent](duplicati-programs/agent.md)
 * [Command Line Interface CLI](duplicati-programs/command-line-interface-cli.md)
 * [Service and WindowsService](duplicati-programs/service.md)
 * [Command Line Tools](duplicati-programs/command-line-interface-cli-1/README.md)
@@ -105,7 +106,6 @@
   * [Snapshots](duplicati-programs/command-line-interface-cli-1/snapshots.md)
   * [SyncTool](duplicati-programs/command-line-interface-cli-1/synctool.md)
   * [DatabaseTool](duplicati-programs/command-line-interface-cli-1/databasetool.md)
-* [Agent](duplicati-programs/agent.md)
 * [LICENSE](duplicati-programs/license/README.md)
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
   * [License Agreement](duplicati-programs/license/license-agreement.md)

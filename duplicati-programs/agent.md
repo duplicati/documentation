@@ -6,6 +6,10 @@ description: This page describes the Agent executable
 
 The Duplicati Agent is one of the primary ways to run Duplicati, similar to the [Server](server.md) and [TrayIcon](trayicon.md). The Agent can be deployed in settings where there is no desktop or user interaction is not desired. The Agent needs to connect to a remote control destination from wher it can be controlled, and due to this, the Agent employs a number of additional settings that prevents applications from running on the same machine to interact with the Agent.
 
+{% hint style="info" %}
+The Agent requires an Enterprise plan
+{% endhint %}
+
 A benefit from using the Agent is that it will only communicate over TLS encrypted connections and does not require you to manually handle the configuration of [certificates for the Server](server.md#ssl-tls-support).
 
 The Agent binary is called `Duplicati.Agent.exe` on Windows and `duplicati-agent` on Linux and MacOS.
