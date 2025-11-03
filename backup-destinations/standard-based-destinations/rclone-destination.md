@@ -8,7 +8,17 @@ Duplicati has a wide variety of storage destinations, but the [Rclone project](h
 
 If you are using Rclone, some features, such as bandwidth limits and transfer progress do not work.
 
-Duplicati does not bundle Rclone, so you need to download and install the appropriate binaries before you can use this backend. The URL format for the Rclone destination is:
+Duplicati does not bundle Rclone, so you need to download and install the appropriate binaries before you can use this backend.&#x20;
+
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.05.51.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.05.40.png" alt="View of the Rclone configuration page"></picture><figcaption></figcaption></figure>
+
+For rclone, you need to specify the remote and path. You can use the advanced options to specify more options, including the path to the Rclone binary, if it is not in the default search path.
+
+## URL format for Commandline
+
+The URL format for the Rclone destination is:
 
 ```
 rclone://<remote repo>/<remote path>

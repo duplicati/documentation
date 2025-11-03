@@ -6,7 +6,17 @@ description: This page describes the OpenStack storage destination
 
 Duplicati supports storing files with OpenStack, which is a large-scale object storage, similar to S3. With OpenStack you store "objects" (similar to files) in "containers" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
 
-## OpenStack v2
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.00.28.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.00.39.png" alt="View of the OpenStack destination configuration"></picture><figcaption></figcaption></figure>
+
+To use the OpenStack destination you must fill out the fields: bucket, domain name, tenant name, auth uri, version and region.
+
+Note that the Bucket is sometimes called Container. The version of the protocol depends on your provider. See below for details. Depending on your connection you will need to also add some advanced options to specify an API key or a password.
+
+## URL format for Commandline
+
+### OpenStack v2
 
 If you are using OpenStack with version 2 of the protocol, you can either use an API key or a username/password/tenant combination. To use the password based authentication, use a URL format like this:
 
@@ -20,7 +30,7 @@ openstack://<container>/<prefix>
 
 If you are using an API key, leave out the `--auth-password`  and `--openstack-tenant-name` parameters and add in `--openstack-apikey=<apikey>`.
 
-## OpenStack v3
+### OpenStack v3
 
 If you are using OpenStack with version 3 of the protocol, you must supply: username, password, domain, and tenant name:
 

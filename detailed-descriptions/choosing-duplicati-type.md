@@ -30,6 +30,10 @@ When running the Server you also need to [configure a password](duplicati-access
 
 The [Agent](../duplicati-programs/agent.md) mode is intended for users who wants to run Duplicati with remote access through the [Duplicati Console](broken-reference). The benefit from this is that you do not need to provide any local access as all access is protected with HTTPS and additional channel encryption from the Agent to the browser you are using.
 
+{% hint style="info" %}
+The Agent mode is only available on the Enterprise plan
+{% endhint %}
+
 If you have multiple machines to manage, using the console enables you to access all the backups, settings, logs, controls, etc. from one place.
 
 ## The Command Line Interface (CLI)

@@ -59,7 +59,7 @@
   * [WebDAV Destination](backup-destinations/standard-based-destinations/webdav-destination.md)
   * [OpenStack Destination](backup-destinations/standard-based-destinations/openstack-destination.md)
   * [Rclone Destination](backup-destinations/standard-based-destinations/rclone-destination.md)
-  * [CIFS (aka SMB) Destination](backup-destinations/standard-based-destinations/cifs-aka-smb-destination.md)
+  * [SMB (aka CIFS) Destination](backup-destinations/standard-based-destinations/cifs-aka-smb-destination.md)
 * [Provider specific destinations](backup-destinations/provider-specific-destinations/README.md)
   * [Amazon S3 destination](backup-destinations/provider-specific-destinations/amazon-s3-destination.md)
   * [Backblaze B2 Destination](backup-destinations/provider-specific-destinations/backblaze-b2-destination.md)

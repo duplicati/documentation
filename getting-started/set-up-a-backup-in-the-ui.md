@@ -6,9 +6,9 @@ description: Describes how to configure a backup in Duplicati
 
 Once Duplicati is running, you can set up a backup through the UI. If the UI is not showing, you can use the [TrayIcon](../duplicati-programs/trayicon.md) in your system menu bar and choose "Open". If you are asked for a password before logging in to the UI, see [how to access without a password](../detailed-descriptions/duplicati-access-password.md).
 
-In the UI, start by clicking "Add backup", and choose the option "Configure a new backup":
+In the UI, start by clicking "Add backup", and choose the option "Add a new backup":
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32.png" alt=""></picture><figcaption><p>Configuring a new backup</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15 (1).png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32 (1).png" alt=""></picture><figcaption><p>Configuring a new backup</p></figcaption></figure>
 
 If you have an existing backup configuration you want to load in, see the [section on import/export](../detailed-descriptions/import-and-export-backup-configurations.md).
 
@@ -46,25 +46,25 @@ The storage destination is arguably the most technical step because it is where 
 Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
 {% endhint %}
 
-Due to the number of supported backends, this page does not contain the instructions. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview.md).
+Due to the number of supported backends, this page does not contain the instructions for how to configure it. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview.md).
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.33.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.27.png" alt=""></picture><figcaption><p>Storage destination list</p></figcaption></figure>
 
-When the details are entered, it is recommended that you use the "Test" button which will perform some connection tests that helps reveal any issues with the entered information.
+When the details are entered, it is recommended that you use the "Test destination" button which will perform some connection tests that helps reveal any issues with the entered information.
 
-When the destination is configured as desired, click the "Next" button.
+When the destination is configured as desired, click the "Continue" button.
 
 ## 3. Source data
 
 In the third step you need to define what data should be backed up. This part depends on your use. If you are a home user, you may want to back up images and documents. An IT professional may want to back up databases.
 
-In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to uncheck some items that you want to exclude, and they will show up with a red X.
+In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to unselect some items that you want to exclude, and they will show up without a selection marker.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.41.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.59.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
 
 For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/filters-in-duplicati.md) if your have advanced needs.
 
-Once you are satisfied with the source view, click the "Next" button to continue to the schedule step.
+Once you are satisfied with the source view, click the "Continue" button to continue to the schedule step.
 
 ## 4. Schedule
 
@@ -74,13 +74,13 @@ Having an outdated backup is rarely an ideal solution, but remembering to run ba
 
 If you prefer to run the backups manually, disable the scheduler, and you can use [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) to trigger the backups as needed.
 
-Once satisfied with the schedule, click "Next".
+Once satisfied with the schedule, click "Continue".
 
 ## 5. Retention and miscelaneous
 
 Even though Duplicati has deduplication and compression to reduce the stored data, it is inevitable that old data is stored that will take up space, but is not needed for restore. In this final configuration step you can decide when old versions are removed and what size of files to store on the destination.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.01.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.09.43.png" alt=""></picture><figcaption><p>Choosing backup retention</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.25.02.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.24.54.png" alt=""></picture><figcaption><p>Choosing backup retention</p></figcaption></figure>
 
 The size of remote volumes is meant for a balanced size usable with cloud-storage and a limited network connection. If you have a fast connection or store files on a local network, consider increasing the size of the remote volumes. For more information see [this page on the tradeoffs between sizes](https://forum.duplicati.com/t/choosing-sizes-in-duplicati/17683).
 

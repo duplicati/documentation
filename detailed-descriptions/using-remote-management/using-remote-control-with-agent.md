@@ -6,6 +6,10 @@ description: This page describes how to use the remote agent to connect with rem
 
 The [Agent](../../duplicati-programs/agent.md) is designed to be deployed in a way that is more secure and easier to manage at scale than the regular [TrayIcon](../../duplicati-programs/trayicon.md) or [Server](../../duplicati-programs/server.md) instances. When the agent is running, it does not have any way to interact with it from the local machine.
 
+{% hint style="info" %}
+The Agent is only available on the Enterprise plan
+{% endhint %}
+
 On the very first run, the Agent will attempt to register itself with the Duplicati Console. If there is a desktop environment and a browser on the system, the Agent will attempt to open this with [the registration link](./#registering-on-the-console). In case there is no such option, the Agent will print out the link in the console or Event Viewer on Windows. The Agent will repeatedly poll the Console to find out when it is claimed.
 
 As long as the Agent is not registered, restarting it will make it attempt to connect again.

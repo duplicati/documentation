@@ -6,6 +6,14 @@ description: This page describes the FTP storage destination
 
 The FTP protocol is widely supported but generally, [FTP is considered a legacy protocol with security issues](https://serverfault.com/questions/1163510/ftp-for-what-it-is-used-for-why-its-urls-sometimes-begin-with-http-and-i) despite correct implementation. Due to its continued ubiquity, it is still supported by Duplicati using [FluentFTP](https://github.com/robinrodricks/FluentFTP).
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.41.18.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.41.09.png" alt="View of the FTP configuration page"></picture><figcaption></figcaption></figure>
+
+To use the FTP destination you must fill out at least the fields shown: server, port, path on server, username, and password. Based on your server, you may also need to add some advanced options as described below.
+
+## URL format for Commandline
+
 To use the FTP backend, you can use a URL such as:
 
 ```

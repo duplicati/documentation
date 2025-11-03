@@ -14,6 +14,16 @@ In the original S3 specification, the bucket name was used as part of the hostna
 
 For AWS S3, and most other providers, the bucket name is a global name, shared across all users. This means that simple names, such as `backup` or `data` will likely be taken, and attempts to use these will cause permission errors. For [AWS, the recommendation is to use a guid in the bucket name](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html#automatically-created-buckets) to make it unique. The Duplicati UI will recommend prefixing the account id to the bucket name, to make it unique.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.38.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.26.png" alt="The S3 Backend Configuration view"></picture><figcaption></figcaption></figure>
+
+To use the S3 backend you must fill in details for all the fields: bucket, folder path, server, AWS Access Key ID, and AWS Secret Access Key. Not that your provider may use different names for the different values, especially the Access Key Id and Secret Access Key may be called something like username and password.
+
+With the advanced options you can choose many extra settings as described below.
+
+## URL format for Commandline
+
 To use S3 as the storage destination, us a format such as:
 
 ```
@@ -33,6 +43,12 @@ Make sure you consult the provider documentation to get the server name you need
 The S3 storage destination can either use the [AWS S3 library](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/csharp_s3_code_examples.html) or [Minio library](https://min.io/docs/minio/linux/developers/dotnet/minio-dotnet.html), and you can choose the library to use with `--s3-client=minio`.
 
 Generally, both libraries will work with most providers, but the AWS library has some defaults that may not be compatible with other providers. While you can configure the settings, it may be simpler to use Minio with the default settings.
+
+## Using non-AWS storage
+
+Most providers other than AWS S3 use an older version of the protocol, so to connect to them you often need to set either the option `--s3-disable-chunk-encoding` or use the Minio client with `--s3-client=minio` (but not both):
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.36.22.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.36.28.png" alt="Advanced options picked for compatibility with non-AWS storage"></picture><figcaption></figcaption></figure>
 
 ## Creating the bucket
 

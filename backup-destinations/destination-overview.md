@@ -33,6 +33,7 @@ Destinations in this category are general purpose enough, or commonly used, so t
 Storage destinations in this category are specific to one particular provider and implemented using either their public API description, or by using libraries implemented for that provider. Destinations in this category are:
 
 * [Backblaze B2](provider-specific-destinations/backblaze-b2-destination.md)
+* [Amazon S3](provider-specific-destinations/amazon-s3-destination.md)
 * [Box.com](provider-specific-destinations/box.com-destination.md)
 * [Mega.nz](provider-specific-destinations/mega.nz-destination.md)
 * [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md)
@@ -43,7 +44,8 @@ Storage destinations in this category are specific to one particular provider an
 * [Google Cloud Storage](provider-specific-destinations/google-cloud-storage-destination.md)
 * [Microsoft Group Drive](provider-specific-destinations/microsoft-group-destination.md)
 * [SharePoint](provider-specific-destinations/sharepoint-destination.md)
-* [Amazon S3](provider-specific-destinations/amazon-s3-destination.md)
+* [FileJump](provider-specific-destinations/filejump.md)
+* [Filen.io](provider-specific-destinations/filen.io.md)
 
 ## File synchronization providers
 
@@ -58,6 +60,5 @@ Storage destinations in this category are also specific to one particular provid
 
 Storage destinations in this category are utilizing a decentralized storage strategy and requires knowledge about each system to have it working. Some of these may require additional servers or intermediary providers and may have different speed characteristics, compared to other storage providers. Destinations in this category are:
 
-* [Sia](decentralized-providers/sia-destination.md)
-* [Storj](decentralized-providers/storj-destination.md) (aka Tardigrade)
+* [Storj](decentralized-providers/storj-destination.md) (previously Tardigrade)
 * [TahoeLAFS](decentralized-providers/tahoelafs-destination.md)

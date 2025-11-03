@@ -6,6 +6,14 @@ description: This page describes the SFTP (SSH) storage destination
 
 The SFTP destination is using the ubiquitous SSH system to implement a secure file transfer service. Using SSH allows secure logins with keys and is generally a secure way to connect to another system. The SSH connection is implemented with [Renci SSH.Net](https://github.com/sshnet/SSH.NET).
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.44.44.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.44.52.png" alt="View of the SSH connection configuration screen"></picture><figcaption></figcaption></figure>
+
+To use the SFTP destination you must enter at least the shown information: server, port, folder path, and username. You must most likely also provide either a password or an SSH private key through the advanced options.
+
+## URL format for Commandline
+
 To use the SFTP destination you can use a URL such as:
 
 ```
@@ -20,6 +28,12 @@ You can supply a non-standard port through the hostname, such as `ssh://hostname
 ## Using key-based authentication
 
 It is very common, and more secure, to use key-based authentication, and Duplicati supports this as well. You can either provide the entire key as part of the URL or give a path to the key file. If the key is encrypted, you can supply the encryption key with `--auth-password`.
+
+Starting with Duplicati 2.2 it is now possible to provide an SSH private key file with the option `--ssh-keyfile=/path/to/file` or an inline key with the option `--ssh-key=url-encoded-key` . In the user interface you can drop the file with the private key, or paste in the contents.
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.45.32.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.45.25.png" alt="Advanced options shown for the SFTP backend"></picture><figcaption></figcaption></figure>
+
+## Using key-based authentication from the Commandline
 
 To use a private key inline, you need to url encode it first and then pass it to `--ssh-key`. An example with an inline private key:
 

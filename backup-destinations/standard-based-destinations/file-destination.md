@@ -8,7 +8,19 @@ description: >-
 
 The most basic destination in Duplicati is the file backend. This backend simply stores the backup data somewhere that is reachable from the file system. The destination can be a network based storage as long as it is mounted when needed, a fixed disk, or a removable media.
 
+{% hint style="info" %}
 Note that for Windows network shares, you may want to use the [CIFS/SMB destination](cifs-aka-smb-destination.md) instead.
+{% endhint %}
+
+## User interface
+
+In the user interface you simply need to either pick or type the path to where the backup data will be stored.
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.26.17.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.26.26.png" alt="The file-based storage destination configuration view"></picture><figcaption></figcaption></figure>
+
+In the advanced options you can choose the options mentioned below.
+
+## URL format for Commandline
 
 The file backend can be chosen with the `file://` prefix where the rest of the destination url is the path.
 

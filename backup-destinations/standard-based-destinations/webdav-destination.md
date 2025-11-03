@@ -6,6 +6,14 @@ description: This page describes the WebDAV storage destination
 
 The WebDAV protocol is a minor extension to the HTTP protocol used for web requests. Because it is compatible with HTTP it also supports SSL/TLS certificates and verification similar to what websites are using.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.55.28.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.55.21.png" alt="Showing the options needed for configuring the WebDAV connection"></picture><figcaption></figcaption></figure>
+
+To use the WebDAV destination you must enter: server, path on server, username and password. Depneding on your setup, you may also need to add some advanced options as explained below.
+
+## URL format for Commandline
+
 To use the WebDAV destination, you can use a url such as:
 
 ```
@@ -31,7 +39,7 @@ You need to examine your destination servers documentation to find the supported
 
 ## Encryption and Certificates
 
-To use an encrypted connection, add the option `--use-ssl=true`such as:
+To use an encrypted connection, add the option `--use-ssl=true` such as:
 
 ```
 webdav://<hostname>/<path>
@@ -42,6 +50,6 @@ webdav://<hostname>/<path>
 
 This will then use an HTTPS secured connection subject to the operating system certificate validation rules. If you need to use a self-signed certificate that is not trusted by the operating system, you can use the option `--accept-specified-ssl-hash=<hash>` to specifically trust a certain certificate. The hash value is reported if you attempt to connect and the certificate is not trusted.
 
-This technique is similar to certificate pinning and prevents rotating the certificate and blocks man-in-the-middle attacks.
+This technique is similar to certificate pinning and prevents rotating the certificate and blocks man-in-the-middle attacks. If you are using the graphical user interface, the "Test connection" button will detect untrusted certificates and ask to pin the certificate.
 
 For testing setups you can also use `--accept-any-ssl-certificate` that will disable certificate validation. As this enables various attacks it is not recommended besides for testing.
