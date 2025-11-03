@@ -2,9 +2,13 @@
 description: This page describes the Filejump integration
 ---
 
-# Filejump
+# FileJump
 
-Duplicati supports using [Filejump](https://filejump.com) as the storage destination since stable release v2.2.
+Duplicati supports using [FileJump](https://filejump.com) as the storage destination since stable release v2.2.
+
+{% hint style="warning" %}
+As of 2025-11-01 FileJump has announced that they will change the solution including the API so Duplicati will likely stop working with Filejump on 2025-12-31. If API docs are updated before, Duplicati may be updated to support FileJump again. Until this happens, we do not recommend using Filejump with Duplicati.
+{% endhint %}
 
 To use Filejump, use the following URL format:
 

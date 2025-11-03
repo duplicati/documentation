@@ -77,7 +77,7 @@
   * [SharePoint v2 (Graph API)](backup-destinations/provider-specific-destinations/sharepoint-v2-graph-api.md)
   * [Amazon S3 destination](backup-destinations/provider-specific-destinations/amazon-s3-destination.md)
   * [Filen.io](backup-destinations/provider-specific-destinations/filen.io.md)
-  * [Filejump](backup-destinations/provider-specific-destinations/filejump.md)
+  * [FileJump](backup-destinations/provider-specific-destinations/filejump.md)
 * [File synchronization providers](backup-destinations/file-synchronization-providers/README.md)
   * [Dropbox Destination](backup-destinations/file-synchronization-providers/dropbox-destination.md)
   * [Google Drive Destination](backup-destinations/file-synchronization-providers/googledrive-destination.md)
