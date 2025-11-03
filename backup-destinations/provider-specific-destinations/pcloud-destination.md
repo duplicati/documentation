@@ -8,6 +8,14 @@ Duplicati supports using [pCloud](https://pcloud.com) as a storage destination. 
 
 The pCloud provider was added in Duplicati v2.1.0.100, and is included in stable release 2.2.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.35.49.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.35.43.png" alt="Configuring pCloud destination"></picture><figcaption></figcaption></figure>
+
+To configure the pCloud destination you need to first choose if you are working with the Global or EU servers. Then pick a unique folder name for the backups, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
+
+## URL format for Commandline
+
 To use pCloud, use the following URL format:
 
 ```

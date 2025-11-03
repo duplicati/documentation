@@ -10,6 +10,14 @@ Duplicati supports using [FileJump](https://filejump.com) as the storage destina
 As of 2025-11-01 FileJump has announced that they will change the solution including the API so Duplicati will likely stop working with Filejump on 2025-12-31. If API docs are updated before, Duplicati may be updated to support FileJump again. Until this happens, we do not recommend using Filejump with Duplicati.
 {% endhint %}
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.41.47.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.41.39.png" alt="Configure the destination for FileJump"></picture><figcaption></figcaption></figure>
+
+To configure the FileJump destination, enter a unique path for the backup and an [API token](https://drive.filejump.com/account-settings).
+
+## URL format for Commandline
+
 To use Filejump, use the following URL format:
 
 ```

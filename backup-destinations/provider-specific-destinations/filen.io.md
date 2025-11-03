@@ -6,6 +6,14 @@ description: This page describes the Filen.io integration
 
 Duplicati supports using [Filen.io](https://filen.io) as the storage destination since stable release v2.2. Note that Duplicati encrypts volumes before uploading them to Filen.io, but will encrypt them again using the Filen encryption scheme so they can be downloaded from Filen.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.41.08.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.41.16.png" alt="Configuring the Filen.io destination"></picture><figcaption></figcaption></figure>
+
+To configure the destination for Filen.io, choose a unique path for the backup, and then provide the username and password to authenticate.
+
+## URL format for Commandline
+
 To use Filen.io, use the following URL format:
 
 ```

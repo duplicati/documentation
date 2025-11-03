@@ -10,6 +10,14 @@ Duplicati supports storing files on [Alibaba Cloud Object Storage Service](https
 
 Note that the bucket id is globally unique, so it is recommended using a name that is not likely to conflict with other users, such as prefixing the bucket with the project id or a similar unique value. If you use a simple name, like `data` or `backup` it is likely already associated with another project and you will get permission errors when attempting to use it.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.33.56.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.34.03.png" alt="Aliyun OSS destination configuration"></picture><figcaption></figcaption></figure>
+
+To use the Aliyun OSS destination you must specify: bucket, path in bucket, access key id, access key secret, and endpoint.
+
+## URL format for Commandline
+
 To use Aliyun OSS, you can use the following URL format:
 
 ```

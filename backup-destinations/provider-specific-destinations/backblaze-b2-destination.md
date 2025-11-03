@@ -6,6 +6,16 @@ description: This page describes the Backblaze B2 storage destination
 
 Duplicati supports storing files with Backblaze B2, which is a large-scale object storage, similar to S3. With B2 you store "objects" (similar to files) in "buckets" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.30.30.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.30.22.png" alt="B2 configuration view"></picture><figcaption></figcaption></figure>
+
+To configure the B2 destination you must supply: bucket, path in bucket, application id, and application key.
+
+If you use the "Test connection" button and the bucket does not exist, Duplicati will offer to create the bucket for you.
+
+## URL format for Commandline
+
 To use the B2 storage destination, use the following URL format:
 
 ```

@@ -6,6 +6,14 @@ description: This page describes the SharePoint storage destination
 
 Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the SharePoint that uses the legacy API, for the [SharePoint provider that uses the Graph API, see SharePoint v2](sharepoint-v2-graph-api.md).
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.39.46.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.39.58.png" alt="Configure Sharepoint destination"></picture><figcaption></figcaption></figure>
+
+To configure the SharePoint destination, enter the values for: server, path on server, account name, and access key.
+
+## URL format for Commandline
+
 To use SharePoint, use the following URL format:
 
 ```

@@ -6,7 +6,15 @@ description: This page describes the Storj storage destination
 
 Duplicati supports backups to the [Storj network](https://www.storj.io) which is a large-scale decentralized storage network. The destination supports two different ways of authenticating: Access Grant and Satellite API.
 
-## Access Grant
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 16.50.48.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 16.50.39.png" alt="Configure the Storj destination"></picture><figcaption></figcaption></figure>
+
+To configure the Storj destination, choose the satellite that you will connect to, then provide the access grant. The bucket and path can be used to control where the data is stored within the network.
+
+## URL format for Commandline
+
+### Access Grant
 
 To use the access grant method, use the following URL format:
 
@@ -16,7 +24,7 @@ storj://
   &storj-shared-access=<access key>
 ```
 
-## Satellite API
+### Satellite API
 
 To use a satellite API, use the following URL format:
 

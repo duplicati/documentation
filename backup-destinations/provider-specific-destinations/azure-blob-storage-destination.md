@@ -6,6 +6,14 @@ description: This page describes the Azure Blob Storage destination
 
 Duplicati supports backing up to [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs), which is a large scale object storage, similar to S3.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.37.28.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.37.34.png" alt="Configuring Azure Blob Storage destination"></picture><figcaption></figcaption></figure>
+
+To configure Azure Blob Storage you must fill in: container name, account name and access key. To use a SAS token instead of an access key, use the advanced options.
+
+## URL format for Commandline
+
 To use the Azure Blob Storage destination, you can use the following URL format:
 
 ```
@@ -29,3 +37,11 @@ azure://<container>/<prefix>
   ?azure-account-name=<account id>
   &azure-access-sas-token=<SAS token>
 ```
+
+## Cold storage
+
+Since Duplicati stable version 2.2, Duplicati recognizes data in cold storage and will avoid downloading these files for testing. The recommended way to use this is to set up life-cycle rules that move files into cold storage after a period. Once the files are in cold storage, Duplicati will not attempt to read them.
+
+However, if you have retention enabled, you must set `--no-auto-compact` as Duplicati will otherwise attempt to download the files from cold storage, in order to compact them.
+
+Similarly, for a restore, you must manually move files from cold storage into the bucket before attempting the restore operation.

@@ -6,6 +6,14 @@ description: This page describes the SharePoint v2 storage destination
 
 Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the SharePoint that uses the Graph API, for the [SharePoint provider that uses the legacy API, see SharePoint](sharepoint-destination.md).
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.40.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.26.png" alt="Configure the SharePoint v2 destination"></picture><figcaption></figcaption></figure>
+
+To configure the SharePoint v2 destination you need to pick a unique folder name for the backups, provide the site id, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
+
+## URL format for Commandline
+
 To use SharePoint, use the following URL format:
 
 ```

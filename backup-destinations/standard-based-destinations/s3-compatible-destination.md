@@ -16,7 +16,7 @@ For AWS S3, and most other providers, the bucket name is a global name, shared a
 
 ## User interface
 
-<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.38.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.26.png" alt="The S3 Backend Configuration view"></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.38 (1).png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.26 (1).png" alt="The S3 Backend Configuration view"></picture><figcaption></figcaption></figure>
 
 To use the S3 backend you must fill in details for all the fields: bucket, folder path, server, AWS Access Key ID, and AWS Secret Access Key. Not that your provider may use different names for the different values, especially the Access Key Id and Secret Access Key may be called something like username and password.
 

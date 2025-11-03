@@ -10,6 +10,18 @@ Note that the bucket id is globally unique, so it is recommended using a name th
 
 Note that iDrive has a similar offering called [iDrive Cloud Backup](https://www.idrive.com), which is not currently supported by Duplicati.
 
+## User interface
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.32.25.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.32.32.png" alt="Configuring iDrive e2"></picture><figcaption></figcaption></figure>
+
+To use iDrive e2, you must supply: bucket, path in bucket, access id, and access secret.
+
+If you use the "Test connection" and the bucket does not exist, Duplicati will offer to create it for you.
+
+As the iDrive e2 backend is S3 based, there are many advanced options that can be configured.
+
+## URL format for Commandline
+
 To use iDrive e2, you can use the following URL format:
 
 ```
