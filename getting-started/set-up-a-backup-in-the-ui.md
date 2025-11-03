@@ -8,7 +8,7 @@ Once Duplicati is running, you can set up a backup through the UI. If the UI is 
 
 In the UI, start by clicking "Add backup", and choose the option "Configure a new backup":
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-11 at 09.27.52.png" alt=""><figcaption><p>Configuring a new backup</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32.png" alt=""></picture><figcaption><p>Configuring a new backup</p></figcaption></figure>
 
 If you have an existing backup configuration you want to load in, see the [section on import/export](../detailed-descriptions/import-and-export-backup-configurations.md).
 
@@ -24,7 +24,7 @@ To set up a new backup there are some details that are required, and these are d
 
 For the basic configuration, you need to provide a name and setup encryption:
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-11 at 09.28.15.png" alt=""><figcaption><p>Basic configuration page</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.25.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.49.png" alt=""></picture><figcaption><p>Basic configuration page</p></figcaption></figure>
 
 The name and description fields can be any text you like, and is only used to display the backup configuration in lists so you can differentiate if you have multiple backups.
 
@@ -48,7 +48,7 @@ Each backup created by Duplicati **requires a separate folder**. Do not create t
 
 Due to the number of supported backends, this page does not contain the instructions. Instead, each of the supported destinations is described in detail on the [destination overview page](../backup-destinations/destination-overview.md).
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 14.34.55.png" alt=""><figcaption><p>Storage destination list</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.33.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.27.png" alt=""></picture><figcaption><p>Storage destination list</p></figcaption></figure>
 
 When the details are entered, it is recommended that you use the "Test" button which will perform some connection tests that helps reveal any issues with the entered information.
 
@@ -60,7 +60,7 @@ In the third step you need to define what data should be backed up. This part de
 
 In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to uncheck some items that you want to exclude, and they will show up with a red X.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-13 at 18.07.46.png" alt=""><figcaption><p>Selecting source folders</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.41.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.59.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
 
 For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/filters-in-duplicati.md) if your have advanced needs.
 
@@ -70,7 +70,7 @@ Once you are satisfied with the source view, click the "Next" button to continue
 
 Having an outdated backup is rarely an ideal solution, but remembering to run backups is also tedious and easy to forget. To ensure you have up-to-date backups, there is a built-in scheduler in Duplicati that you can enable to have Duplicati run automatically.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 14.43.07.png" alt=""><figcaption><p>Choosing a schedule to run on</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.51.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.09.29.png" alt=""></picture><figcaption><p>Choosing a schedule to run on</p></figcaption></figure>
 
 If you prefer to run the backups manually, disable the scheduler, and you can use [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) to trigger the backups as needed.
 
@@ -80,7 +80,7 @@ Once satisfied with the schedule, click "Next".
 
 Even though Duplicati has deduplication and compression to reduce the stored data, it is inevitable that old data is stored that will take up space, but is not needed for restore. In this final configuration step you can decide when old versions are removed and what size of files to store on the destination.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 14.44.06.png" alt=""><figcaption><p>Choosing backup retention</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.01.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.09.43.png" alt=""></picture><figcaption><p>Choosing backup retention</p></figcaption></figure>
 
 The size of remote volumes is meant for a balanced size usable with cloud-storage and a limited network connection. If you have a fast connection or store files on a local network, consider increasing the size of the remote volumes. For more information see [this page on the tradeoffs between sizes](https://forum.duplicati.com/t/choosing-sizes-in-duplicati/17683).
 
