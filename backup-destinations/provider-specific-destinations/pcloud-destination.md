@@ -14,6 +14,24 @@ The pCloud provider was added in Duplicati v2.1.0.100, and is included in stable
 
 To configure the pCloud destination you need to first choose if you are working with the Global or EU servers. Then pick a unique folder name for the backups, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
 
+## Finding backups in pCloud
+
+Within pCloud's control panel you cannot immediately see the backups made by Duplicati. This is because pCloud restricts each application to its own sub-folder. When you enter a folder path in Duplicati, it will be automatically mapped to a subfolder in pCloud.
+
+If you enter the folder path in Duplicati:
+
+```
+folder/subfolder
+```
+
+You can then find the Duplicati data in the pCloud console under:
+
+```
+folder/subfolder -> /Applications/DuplicatiBackup/folder/subfolder
+```
+
+The benefit from this mapping is that it is impossible for Duplicati to ever touch any non-Duplicati files that you may have stored in pCloud.
+
 ## URL format for Commandline
 
 To use pCloud, use the following URL format:
