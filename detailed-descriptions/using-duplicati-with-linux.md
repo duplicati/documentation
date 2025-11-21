@@ -103,7 +103,7 @@ sudo journalctl --unit=duplicati
 
 When Duplicati runs under a dedicated service account on Linux, systemd does not automatically include that user's supplementary groups. If you add the service account to additional groups (for example, to access NFS or Samba shares) you should explicitly configure the unit file so systemd grants those memberships when the service starts.
 
-For **Duplicati version 2.2.0.102 and newer**, edit the setings file as mentioned above iwt the `DAEMON_OPTS`:
+To supply the groups, edit the setings file as mentioned above with the `DAEMON_OPTS`, and edit the line (add it if it does not exist):
 
 ```
 SUPPLIMENTARY_GROUPS=group1 group2
