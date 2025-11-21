@@ -73,6 +73,9 @@ If you need to pass options to the server, edit the settings file, usually at `/
 
 # Additional options that are passed to the Daemon.
 DAEMON_OPTS=""
+
+# Supplemantary groups to inherit if not running as root
+SUPPLIMENTARY_GROUPS=
 ```
 
 You can use `DAEMON_OPTS` to pass arguments to `duplicati-server`, such as `--webservice-password=<passsword>`.
@@ -94,6 +97,32 @@ To check the logs (and possibly obtain a signin link), the following command can
 
 ```sh
 sudo journalctl --unit=duplicati
+```
+
+#### Linux systemd service and supplementary groups
+
+When Duplicati runs under a dedicated service account on Linux, systemd does not automatically include that user's supplementary groups. If you add the service account to additional groups (for example, to access NFS or Samba shares) you should explicitly configure the unit file so systemd grants those memberships when the service starts.
+
+For **Duplicati version 2.2.0.102 and newer**, edit the setings file as mentioned above iwt the `DAEMON_OPTS`:
+
+```
+SUPPLIMENTARY_GROUPS=group1 group2
+```
+
+{% hint style="info" %}
+For **Duplicati versions less than 2.2.0.102**, you also need to edit the service file and add the following:
+{% endhint %}
+
+```
+[Service]
+SupplementaryGroups=$SUPPLIMENTARY_GROUPS
+```
+
+Finally reload and restart the service so the new group membership takes effect:
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart duplicati
 ```
 
 ## Using the Agent
