@@ -49,11 +49,13 @@ On Windows XP and later, the [Credential Manager](https://support.microsoft.com/
 
 ## Using `libsecret` (Linux)
 
-The[ `libsecret` implementation](https://gnome.pages.gitlab.gnome.org/libsecret/) stores various credentials on Linux and integrates with various UI applications to let the user approve or reject attempts to read secrets.  The `libsecret` provider supports a single optional setting, `collection`, which indicates what collection to read from. If not supplied the default collection is used. To use the `libsecret` provider, use this argument:
+The[ `libsecret` implementation](https://gnome.pages.gitlab.gnome.org/libsecret/) stores various credentials on Linux and integrates with various UI applications to let the user approve or reject attempts to read secrets.  The `libsecret` provider supports a single optional setting, `collection`, which indicates what collection to read from. If not supplied the `default` collection is used. To use the `libsecret` provider, use this argument:
 
 ```
---secret-provider=libsecret://?collection=default
+--secret-provider=libsecret://
 ```
+
+If you are using a system with a Gnome-based desktop, such as Ubuntu, you can use the [Seahorse](https://wiki.gnome.org/Apps/Seahorse) application to manage your passwords.
 
 ## Using the `pass` secret provider (Linux)
 
@@ -61,6 +63,18 @@ The [`pass` command](https://www.passwordstore.org) is a project that implements
 
 ```
 --secret-provider=pass://
+```
+
+If you want to use `pass`, make sure it is installed on the system. You also need a GPG key, and you can create one with:
+
+```
+gpg --full-generate-key
+```
+
+As part of the key generation process, you are asked to enter an email address that will later be used to identify the key. Once you have the GPG key you can initialize pass with:
+
+```
+pass init <your-email-address>
 ```
 
 ## Using the KeyChain (MacOS)
