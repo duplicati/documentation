@@ -18,7 +18,7 @@ Because every Windows version includes a desktop component, there are only two o
 
 The most versatile option is the **GUI** package, which also includes all the commandline utilities. Due to the way Windows works, it is possible to install the GUI version and use only the [Server](../duplicati-programs/server.md) or [Commandline](../duplicati-programs/command-line-interface-cli-1/) components. This works beacuse each component is an executable that can be launched independently. The overhead for the unused executables is very low, usually less than 1 MiB.
 
-The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](broken-reference) and is intended to run without any local access possible.
+The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](/broken/pages/mwwrECckpb1xj3XLM1fk) and is intended to run without any local access possible.
 
 In terms of installation type there are two types offered for Windows: MSI and Zip. The contents of both are the same, so you can pick the installation type that best suits your needs. The MSI package is easier to integrate with some package managers and also offers the options to install shortcuts. The Zip package is just all the contents compressed and ready to use.
 
@@ -30,7 +30,7 @@ The **GUI** package has the most dependencies as it requires a desktop environme
 
 The **CLI** package has very few dependencies, as everything is bundled with the package. It is essentially the same as the GUI package, but without the TrayIcon executable.&#x20;
 
-The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](broken-reference) and is intended to run without any local access possible.
+The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](/broken/pages/mwwrECckpb1xj3XLM1fk) and is intended to run without any local access possible.
 
 For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS.  There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thin missing is the service files used to integrate with `launchctl`.
 
@@ -48,5 +48,5 @@ For MacOS the **GUI** [TrayIcon](../duplicati-programs/trayicon.md) is bundled i
 
 If the UI is not needed, there is also a **CLI** version which does not contain the TrayIcon. This version installs itself into the commandline path for easy use from the commandline. Since the CLI version does not need an app bundle, there is only a `.pkg` version of the CLI package. The package also installs a launchagent that can be edited to allow starting the [Server](../duplicati-programs/server.md) on login.
 
-The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](broken-reference) and is intended to run without any local access possible. Since the agent does not need an app bundle it is only available as a `.pkg` file.
+The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](/broken/pages/mwwrECckpb1xj3XLM1fk) and is intended to run without any local access possible. Since the agent does not need an app bundle it is only available as a `.pkg` file.
 

@@ -40,7 +40,7 @@ By default, the key lookup is done case-insensitive but can be toggled case-sens
 
 ## Amazon Secret Manager
 
-The provider for [AWS Secret Manager](https://aws.amazon.com/secrets-manager/) supports the AWS hosted vault. The credentials for the vault are the regular Access Key Id and Access Key Secret. While these can be provided via the secret provider url as `access-id` and `access-key`, they should be passed via the environment variables:
+The provider for [AWS Secret Manager](https://aws.amazon.com/secrets-manager/) supports the AWS hosted vault. The credentials for the vault are the regular Access Key Id and Access Key Secret. While these can be provided via the secret provider url as `access-id` and `secret-key`, they should be passed via the environment variables:
 
 ```
 export AWS_ACCESS_KEY_ID=<id>
@@ -49,11 +49,19 @@ export AWS_SECRET_ACCESS_KEY=<key>
 --secret-provider=awssm://?region=us-east-1&secrets=vault1,vault2
 ```
 
-The secrets values name the vaults to use (called "Secret Name" in the AWS Console). When more than one value is supplied, the vaults are tried in order and stops once all secrets are resolved. This means that if the same secret key is found in two vaults, the value will be used from the first vault examined.
+The `secrets` values name the vaults to use (called "Secret Name" in the AWS Console). When more than one value is supplied, the vaults are tried in order and stops once all secrets are resolved. This means that if the same secret key is found in two vaults, the value will be used from the first vault examined.
 
 Instead of suppling the region the entire service point url can also be provided via `&service-url=`.
 
 By default, the key lookup is done case-insensitive but can be toggled case-sensitive with the option `&case-sensitive=true`.
+
+If you use IAM to create an account for this, you can use the policy `SecretsManagerReadWrite`.
+
+{% hint style="warning" %}
+You need to create the "Secret Name" in AWS console before you can use it.
+
+The secrets in AWS should be key/value and can contain multiple values. Setting a value will always append it to the first secret provided.
+{% endhint %}
 
 ## Google Cloud Secret Manager
 
@@ -71,7 +79,19 @@ If you need to integrate with a different flow you can also [supply an access to
 
 ### Additional options for `gcsm://`
 
-By default, the screts are accessed with the version set to `latest` but this can be changed with `&version=`. Finally, the communication protocol can be changed from gRPC to https with by adding `&api-type=Rest`.
+By default, the secrets are accessed with the version set to `latest` but this can be changed with `&version=`. The communication protocol can be changed from gRPC to https with by adding `&api-type=Rest`.
+
+It is also possible to use either `service-account-file` or `service-account-json` to authenticate with a service account.
+
+### Configure a service account for Google Cloud Secret Manager
+
+To configure a service account for Google Cloud Secret Manager, visit  [IAM ](https://console.cloud.google.com/iam-admin/serviceaccounts)→[ Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) → Create.
+
+Use the role `Secret Accessor` for read-only access, and add `Secret Version Adder` if the account should be able to update the secrets.&#x20;
+
+Then create the key with: Service account → Keys → Add key → Create new key → JSON.
+
+This will generate a key that will be downloaded. You can either use the key-file with `service-account-file=<path-to-file>`, or you can url-encode the contents and supply it to `service-account-json=<url-encoded-json>`.
 
 ## Azure Key Vault
 
@@ -107,3 +127,26 @@ And for username/password, use:
   &username=<username>
   &password=<password>
 ```
+
+### How to configure manual access to an Azure Key Vault
+
+There are several ways as shown above, and the recommended is to use the CI method, but here is a description of a manual way: creating a client secret.
+
+First, visit Portal → Microsoft Entra ID → App registrations → New registration.
+
+Enter a name for the application and create it. On the application screen, record the Application Id and Directory Id:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 21.04.58.png" alt=""><figcaption></figcaption></figure>
+
+Then visit: App → Certificates & secrets → Client secrets → New client secret.
+
+Create a new client secret, and make sure you copy the secret as it will not be shown again:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 21.09.19.png" alt=""><figcaption></figcaption></figure>
+
+Event with all the information ,you still need to grant permissions for the app/client to access the key vault: Key Vault → Access control (IAM) → Add role assignment.
+
+If you need read-only access, use the role `Key Vault Secrets User` and if you need read/write acces, use the role `Key Vault Secrets Officer`. On the member page, add the app/client.
+
+Now you have all the details to connect to the vault, add them as shown above, and make sure to url-encode the values, particularly the secret as it may contain characters that are not url-safe. You need to encode: `keyvault-name`, `tenant-id`, `client-id`, and `client-secret`.
+
