@@ -126,8 +126,9 @@
 
 ## Duplicati Console
 
-* [Organizations and sub-organizations](duplicati-console/organizations-and-sub-organizations.md)
+* [Organization management](duplicati-console/organizations-and-sub-organizations.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
+* [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
 
 ***
 
