@@ -109,17 +109,18 @@ sudo apt-get update
 sudo apt-get install mono-devel
 ```
 
-**Debian 10:**
+**Debian 10 and later:**
 
 ```
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
-echo "deb http://download.mono-project.com/repo/debian buster main" | sudo tee /etc/apt/sources.list.d/mono-official.list
+echo "deb http://download.mono-project.com/repo/debian stable-buster main" | sudo tee /etc/apt/sources.list.d/mono-official.list
 
 sudo apt-get update
 
 sudo apt-get install mono-devel
 ```
+
 
 **Debian 9:**
 
@@ -127,30 +128,6 @@ sudo apt-get install mono-devel
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
 echo "deb http://download.mono-project.com/repo/debian stretch main" | sudo tee /etc/apt/sources.list.d/mono-official.list
-
-sudo apt-get update
-
-sudo apt-get install mono-devel
-```
-
-**Debian 8:**
-
-```
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-
-echo "deb http://download.mono-project.com/repo/debian jessie main" | sudo tee /etc/apt/sources.list.d/mono-official.list
-
-sudo apt-get update
-
-sudo apt-get install mono-devel
-```
-
-**Debian 7:**
-
-```
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-official.list
 
 sudo apt-get update
 
