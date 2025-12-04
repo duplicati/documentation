@@ -35,7 +35,7 @@ If you have installed the GUI package, you will have Duplicati installed in `/Ap
 
 If you install the CLI package, Duplicati binaries are placed in `/usr/local/duplicati` and symlinked into `/usr/local/bin` and you can start the server simply by running:
 
-```
+```sh
 duplicati-server
 ```
 
@@ -43,7 +43,7 @@ When invoked as a regular user, it will use the same folder, `~/Library/Applicat
 
 **Note**: If you install the GUI package or install from homebrew, Duplicati's binaries are not symlinked into the paths searched by MacOS. You can invoke the binaries by supplying the full path:
 
-```
+```sh
 /Applications/Duplicati.app/Contents/MacOS/duplicati-server
 ```
 
