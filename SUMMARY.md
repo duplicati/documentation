@@ -48,6 +48,12 @@
 * [Recovering from failure](using-tools/recovering-from-failure.md)
 * [Disaster recovery](using-tools/disaster-recovery.md)
 
+## Duplicati Console
+
+* [Organization management](duplicati-console/organizations-and-sub-organizations.md)
+* [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
+* [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
+
 ## Backup destinations
 
 * [Destination overview](backup-destinations/destination-overview.md)
@@ -124,26 +130,19 @@
 * [Package options](installation-details/package-options.md)
 * [Developer](installation-details/developer.md)
 
-## Duplicati Console
+## Technical Details
 
-* [Organization management](duplicati-console/organizations-and-sub-organizations.md)
-* [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
-* [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
-
-***
-
-* [TECHNICAL DETAILS](technical-details/README.md)
-  * [Architecture Premises](technical-details/architecture-premises.md)
-  * [Understanding Backup](technical-details/understanding-backup/README.md)
-    * [How Backup Works](technical-details/understanding-backup/how-backup-works.md)
-    * [Encryption Algorithms](technical-details/understanding-backup/encryption-algorithms.md)
-    * [Backup size parameters](technical-details/understanding-backup/backup-size-parameters.md)
-  * [Understanding Restore](technical-details/understanding-restore/README.md)
-    * [How Restore Works](technical-details/understanding-restore/how-restore-works.md)
-    * [Disaster Recovery](technical-details/understanding-restore/disaster-recovery.md)
-  * [Database versions](technical-details/database-versions.md)
-  * [Server authentication model](technical-details/server-authentication-model.md)
-  * [Option formats](technical-details/option-formats.md)
+* [Architecture Premises](technical-details/architecture-premises.md)
+* [Understanding Backup](technical-details/understanding-backup/README.md)
+  * [How Backup Works](technical-details/understanding-backup/how-backup-works.md)
+  * [Encryption Algorithms](technical-details/understanding-backup/encryption-algorithms.md)
+  * [Backup size parameters](technical-details/understanding-backup/backup-size-parameters.md)
+* [Understanding Restore](technical-details/understanding-restore/README.md)
+  * [How Restore Works](technical-details/understanding-restore/how-restore-works.md)
+  * [Disaster Recovery](technical-details/understanding-restore/disaster-recovery.md)
+* [Database versions](technical-details/database-versions.md)
+* [Server authentication model](technical-details/server-authentication-model.md)
+* [Option formats](technical-details/option-formats.md)
 
 ## Community docs
 
