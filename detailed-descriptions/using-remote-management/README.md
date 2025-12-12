@@ -7,7 +7,7 @@ description: >-
 # Using remote management
 
 {% hint style="info" %}
-## This page is for setting up remote management with a TrayIcon or Server installation. For Agent based installations, see the subpage on [Agent remote mangement](using-remote-control-with-agent.md)
+### This page is for setting up remote management with a TrayIcon or Server installation. For Agent based installations, see the subpage on [Agent remote mangement](using-remote-control-with-agent.md)
 {% endhint %}
 
 ## Register the local installation

@@ -8,7 +8,7 @@ The [AWS S3](https://aws.amazon.com/s3/) storage destination is implemented with
 
 ## User interface
 
-<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.38.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.26.png" alt="View of the configuration of an S3 bucket"></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.38 (1).png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.31.26 (1).png" alt="View of the configuration of an S3 bucket"></picture><figcaption></figcaption></figure>
 
 To use an AWS S3 destination you need to fill out: bucket, folder path, server, AWS Access Key Id, AWS Secret Access Key. You can decide on the bucket name and path, and get the Key Id and Access Key from the IAM center.
 

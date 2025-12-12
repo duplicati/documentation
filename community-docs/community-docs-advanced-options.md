@@ -89,7 +89,7 @@ A display name that is attached to this backup. Can be used to identify the back
 #### backup-test-samples[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#backup-test-samples) <a href="#backup-test-samples" id="backup-test-samples"></a>
 
 `--backup-test-samples = 1`\
-After a backup is completed, some files (in each file categoy: dblock, dindex, dlist) are selected for verification on the remote backend. Use this option to change how many files in each category should be tested. If this value is set to 0 or the option --no-backend-verification is set, no remote files are verified.&#x20;
+After a backup is completed, some files (in each file categoy: dblock, dindex, dlist) are selected for verification on the remote backend. Use this option to change how many files in each category should be tested. If this value is set to 0 or the option --no-backend-verification is set, no remote files are verified.
 
 #### block-hash-algorithm[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#block-hash-algorithm) <a href="#block-hash-algorithm" id="block-hash-algorithm"></a>
 
@@ -286,15 +286,15 @@ By default, your system locale and culture settings will be used. In some cases 
 Use this option to increase verification by checking the hash of ALL blocks in a block volume. When restoring, all blocks of a volume are tested or none according to this option.\
 When testing, if this option is set all blocks of a volume are tested, if not, a random 20%.\
 When testing, this option implies --full-remote-verification.\
-It is defaulting to false in both backup and explicit test, since it is using several database queries for each block in a remote volume, which is slow.&#x20;
+It is defaulting to false in both backup and explicit test, since it is using several database queries for each block in a remote volume, which is slow.
 
 #### full-remote-verification[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#full-remote-verification) <a href="#full-remote-verification" id="full-remote-verification"></a>
 
 `--full-remote-verification = false`\
 After a backup is completed, some (by default 1 of each type, see the --backup-test- options to change that) files are selected for verification on the remote backend; use this option to turn on verification of the selected volumes, which will decrypt and verify their content, instead of simply verifying the volume hash if false.\
-Note that whatever the option value, the volume has to be fetched from the backend, but no temporary file is created when just checking the hash. For backups, to have any effect, the --no-backend-verification option should be NOT set. \
+Note that whatever the option value, the volume has to be fetched from the backend, but no temporary file is created when just checking the hash. For backups, to have any effect, the --no-backend-verification option should be NOT set.\
 For tests launched independently of backups (test in command line mode), if defined, it is set by default to false. However, if not defined, a full remote verification is performed.\
-Note that a data volume is not necessarily completely verified, see above --full-block-verification.&#x20;
+Note that a data volume is not necessarily completely verified, see above --full-block-verification.
 
 #### full-result[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#full-result) <a href="#full-result" id="full-result"></a>
 
@@ -372,13 +372,13 @@ Log file information level Possible options: See `log-level`.
 `--log-level = Warning`\
 Specifies the amount of log information to write into the file specified by `--log-file`.\
 Suppored options:\
-&#xNAN;_`Error`: Error messages only._\
+\&#xNAN;_`Error`: Error messages only._\
 `Warning`: Also warnings, meaning that later errors may be related to this message.\
-&#xNAN;_`DryRun`: Also messages from dry- run output._\
+\&#xNAN;_`DryRun`: Also messages from dry- run output._\
 `Information`: Also informational messages that do not indicate problems.\
-&#xNAN;_`Retry`: Also messages from a retry._\
+\&#xNAN;_`Retry`: Also messages from a retry._\
 `Profiling`: Also messages that are not wanted for display.\
-\* `ExplicitOnly`: Also messages that are only be shown if explicitly requested.&#x20;
+\* `ExplicitOnly`: Also messages that are only be shown if explicitly requested.
 
 #### log-retention[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#log-retention) <a href="#log-retention" id="log-retention"></a>
 
@@ -486,7 +486,7 @@ Versions which are outside of any time frame will be erased. A safeguard prevent
 
 The most current version is excluded from retention-policy, so whenever a backup is run manually it will be kept, until the next run, then the rules apply. This can also be overridden by --allow-full-removal.
 
-Notice that 'versions' are in fact indices that refer to versions of the source and backups. When indices age through the schema, they will be passed from one timeframe to the next. Every rule checks if an entering index fits in the intervall, and if the distance to the preceding index is to short, the newer index will get purged. The deduplication of the backup volume implicate that file are referred by multiple indices. Only backup data will be purged, which are not longer referred by any index, respectively are not longer needed to restore any preserved version of the source.&#x20;
+Notice that 'versions' are in fact indices that refer to versions of the source and backups. When indices age through the schema, they will be passed from one timeframe to the next. Every rule checks if an entering index fits in the intervall, and if the distance to the preceding index is to short, the newer index will get purged. The deduplication of the backup volume implicate that file are referred by multiple indices. Only backup data will be purged, which are not longer referred by any index, respectively are not longer needed to restore any preserved version of the source.
 
 #### retry-delay[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#retry-delay) <a href="#retry-delay" id="retry-delay"></a>
 
@@ -596,11 +596,6 @@ Use this option to upload a verification file after changing the remote storage.
 `--use-background-io-priority = false`\
 This option instructions the operating system to set the current process to use the lowest IO priority level, which can make operations run slower but will interfere less with other operations running at the same time.
 
-#### use-block-cache[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#use-block-cache) <a href="#use-block-cache" id="use-block-cache"></a>
-
-`--use-block-cache = false`\
-Store an in-memory copy of the block table. This potentially reduces lookup time during backup as it limits the number of times the database must be accessed when examining blocks.
-
 #### usn-policy[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#usn-policy) <a href="#usn-policy" id="usn-policy"></a>
 
 `--usn-policy = off`\
@@ -692,7 +687,7 @@ Default value: `false`
 
 ### Scripting options[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#scripting-options) <a href="#scripting-options" id="scripting-options"></a>
 
-With these options you can execute a script before starting an operation, and again on completion. Module is loaded automatically, use `--disable-module` to prevent this.&#x20;
+With these options you can execute a script before starting an operation, and again on completion. Module is loaded automatically, use `--disable-module` to prevent this.
 
 ***
 
@@ -733,7 +728,7 @@ These options provide support for sending status reports via HTTP messages. Modu
 
 `--send-http-url (String)`\
 HTTP report url.\
-&#xNAN;_&#x54;his option is deprecated. For version 2.0.8.106 and newer, use_ `--send-http-form-urls` _and_ `--send-http-json-urls` _instead._
+\&#xNAN;_This option is deprecated. For version 2.0.8.106 and newer, use_ `--send-http-form-urls` _and_ `--send-http-json-urls` _instead._
 
 #### send-http-form-urls[¶](https://prev-docs.duplicati.com/en/latest/06-advanced-options/#send-http-form-urls) <a href="#send-http-form-urls" id="send-http-form-urls"></a>
 
