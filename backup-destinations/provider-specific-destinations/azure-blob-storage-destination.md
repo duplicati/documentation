@@ -12,6 +12,20 @@ Duplicati supports backing up to [Azure Blob Storage](https://azure.microsoft.co
 
 To configure Azure Blob Storage you must fill in: container name, account name and access key. To use a SAS token instead of an access key, use the advanced options.
 
+The **Container name** is the name of the container in the Storage Account.&#x20;
+
+The **Account name** is the name of the Storage Account.&#x20;
+
+The **Access key** can be found on the Storage Account under "Security + Networking" -> "Access keys".  You can use either key1 or key2.
+
+{% hint style="info" %}
+Access keys are shared for the Storage Account and the key gives access to all containers in the Storage Account. If you want privilege separation, set up a Service SAS for each backup.
+{% endhint %}
+
+If you want to use key rotation, consider using a [secret provider](../../detailed-descriptions/using-the-secret-provider/) and store the keys in the secret provider, so they are always up-to-date.&#x20;
+
+You do not need a separate container for each backup, you can use prefixes to distinguish them, but using individual containers makes it easier to manage rules for each backup.
+
 ## URL format for Commandline
 
 To use the Azure Blob Storage destination, you can use the following URL format:
@@ -37,6 +51,8 @@ azure://<container>/<prefix>
   ?azure-account-name=<account id>
   &azure-access-sas-token=<SAS token>
 ```
+
+The **account name** is the name of the Storage Account, and the SAS token must have access to read, write, list, and delete files in the container.
 
 ## Cold storage
 
