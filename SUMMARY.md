@@ -40,6 +40,7 @@
 * [Using Duplicati with Windows](detailed-descriptions/using-duplicati-with-windows.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/running-a-self-hosted-oauth-server.md)
 * [Telemetry collection](detailed-descriptions/telemetry-collection.md)
+* [Using remote file locking](detailed-descriptions/using-remote-file-locking.md)
 
 ## Using tools
 
