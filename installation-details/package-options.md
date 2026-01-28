@@ -14,7 +14,7 @@ The operating system and processor type are defined by the machine you run Dupli
 
 ## Windows
 
-Because every Windows version includes a desktop component, there are only two options for the usage type: [GUI](../duplicati-programs/trayicon.md) and [Agent](../duplicati-programs/agent.md).&#x20;
+Because every Windows version includes a desktop component, there are only two options for the usage type: [GUI](../duplicati-programs/trayicon.md) and [Agent](../duplicati-programs/agent.md).
 
 The most versatile option is the **GUI** package, which also includes all the commandline utilities. Due to the way Windows works, it is possible to install the GUI version and use only the [Server](../duplicati-programs/server.md) or [Commandline](../duplicati-programs/command-line-interface-cli-1/) components. This works beacuse each component is an executable that can be launched independently. The overhead for the unused executables is very low, usually less than 1 MiB.
 
@@ -28,11 +28,11 @@ It is common to have Linux installations that do not have any desktop components
 
 The **GUI** package has the most dependencies as it requires a desktop environment. This package also includes all the [commandline components](../duplicati-programs/command-line-interface-cli-1/) together with the [TrayIcon](../duplicati-programs/trayicon.md) application that is shown in the system menu or activity area.
 
-The **CLI** package has very few dependencies, as everything is bundled with the package. It is essentially the same as the GUI package, but without the TrayIcon executable.&#x20;
+The **CLI** package has very few dependencies, as everything is bundled with the package. It is essentially the same as the GUI package, but without the TrayIcon executable.
 
 The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](/broken/pages/mwwrECckpb1xj3XLM1fk) and is intended to run without any local access possible.
 
-For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS.  There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thin missing is the service files used to integrate with `launchctl`.
+For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS. There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thin missing is the service files used to integrate with `launchctl`. Duplicati is also available as an AppImage for a self-contained, portable install.
 
 If you are using [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux), there is currently an extra step to ensure that the binaries, which are placed in `/usr/lib/duplicati`, are allowed to execute:
 
@@ -50,3 +50,6 @@ If the UI is not needed, there is also a **CLI** version which does not contain 
 
 The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](/broken/pages/mwwrECckpb1xj3XLM1fk) and is intended to run without any local access possible. Since the agent does not need an app bundle it is only available as a `.pkg` file.
 
+## Synology
+
+Duplicati provides a Synology DSM `.spk` package to install on Synology NAS devices. After installation, make sure to grant Duplicati access to the shared folders you want to back up (or restore to); DSM permissions must allow Duplicati to read or write those shares for backups and restores to succeed.
