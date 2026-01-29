@@ -54,6 +54,7 @@ Supported Backends:
 * Amazon S3 (and S3-compatible like IDrive e2)
 * Backblaze B2
 * Azure Blob Storage
+* Google Cloud Storage
 
 #### 2. Enabling Locking in a Backup Job
 
@@ -74,6 +75,11 @@ You can specify the mode depending on your provider:
 * S3: `--s3-object-lock-mode=governance` (default) or `compliance`
 * Backblaze B2: `--b2-retention-mode=governance` or `compliance`
 * Azure: `--azure-blob-immutability-policy-mode=unlocked` or `locked`
+* Google Cloud Storage: `--gcs-retention-policy-mode=unlocked` or `locked`&#x20;
+
+{% hint style="info" %}
+**Google Cloud Storage** also requires using `--service-account-file` or `--service-account-json` as the default OAuth flow does not grant permissions to lock objects
+{% endhint %}
 
 ***
 
@@ -109,4 +115,8 @@ To avoid paying for data that should have been deleted, you must configure Lifec
 
 #### Direct Deletion (Azure and others)
 
-In Azure, the file remains visible. If Duplicati attempts to delete a locked file, the operation will simply fail because the blob itself is protected. In this case, no lifecycle rules are needed, because the file will actually be deleted when requested.
+In Azure, the file remains visible and cannot be deleted. If Duplicati attempts to delete a locked file, the operation will simply fail because the blob itself is protected. In this case, no lifecycle rules are needed, because the file will actually be deleted when requested.
+
+#### Mixed (Google Cloud Storage)
+
+Google Cloud Storage can use both a WORM approach as well as a soft-delete and/or versioning approach. Depending on the bucket settings you will get either a soft-delete approach or a WORM setup. If you disable versioning and soft-delete, but enable object lock retention, this gives a WORM behavior that rejects deletes. Enabling soft-delete will allow the files to be marked as deleted but they are not actually deleted before the lock expires. Additionally, the soft-delete rules may keep the objects in the bucket even after the lock expires.
