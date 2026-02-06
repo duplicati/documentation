@@ -24,7 +24,7 @@ To skip the registration step and have the agent connect directly to the console
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-25 at 14.55.30.png" alt="" width="375"><figcaption><p>Added a registration URL</p></figcaption></figure>
 
-Any machine can now use this pre-authorized url to add machines to your organization in the Console. You can click the "Copy" button to get the link to your clipboard and paste it in when registering a machine. Do not share this link with anyone as it could allow them to add machines to your account.&#x20;
+Any machine can now use this pre-authorized url to add machines to your organization in the Console. You can click the "Copy" button to get the link to your clipboard and paste it in when registering a machine. Do not share this link with anyone as it could allow them to add machines to your account.
 
 To revoke a link, simply delete it from within the portal. This will prevent new machines from registering, but existing registered machines will remain there.
 
@@ -38,14 +38,29 @@ This will cause the Agent to immediately show up in the Console. Future invocati
 
 ### Registration with deployment
 
-To simplify starting the agent in larger scale deployments, it is possible to configure [a `preload.json`file](../preload-settings.md) with the registration url. To do so, create a file named `preload.json`with the following content:
+To simplify starting the agent in larger scale deployments, it is possible to configure [a `preload.json`file](../preload-settings.md) with the registration url.
+
+{% hint style="success" %}
+There is a button on the [Links page in the console](https://app.duplicati.com/app/machines/links) to download the file with the link inserted so you do not have to create the file manually. Using the generated file is recommended as it reduces the chance for typo errors.
+{% endhint %}
+
+To create a preload file manually, create a new file  named `preload.json`with the following content:&#x20;
 
 ```json
 {
   "args": {
     "agent": [ "--registration-url=<copied-url>" ],
+  },
+  "env": {
+    "*": {
+      "DUPLICATI__REGISTER_REMOTE_CONTROL": "<copied-url>"
+    }
   }
 }
 ```
+
+{% hint style="info" %}
+The first part in the example affects only the [Agent](../../duplicati-programs/agent.md), the second parts sets the environment variable for the [TrayIcon](../../duplicati-programs/trayicon.md) and [Server](../../duplicati-programs/server.md) configurations.
+{% endhint %}
 
 This file can then be distributed to the target machine before the package is installed. The [preload settings page](../preload-settings.md) describes the possible locations where Duplicati will look for such a file.
