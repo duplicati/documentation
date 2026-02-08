@@ -6,6 +6,10 @@ description: This page describes how Office 365 backup and restore works with Du
 
 Duplicati supports backing up and restoring Microsoft Office 365 (Microsoft 365) data through the Microsoft Graph API. The backup workflow captures content in native formats (for example, MIME for email and JSON for structured objects), and restore operations re-create items through the appropriate Graph API endpoints.
 
+{% hint style="info" %}
+Office 365 backup and restore was added in Canary 2.2.0.104
+{% endhint %}
+
 {% hint style="warning" %}
 The Office 365 backup feature has a limit that covers up to **5 mailboxes or sites**. The Office 365 backup feature is source-available, but **not open-source** like the rest of Duplicati. There are no limitations on restore.
 
