@@ -42,6 +42,7 @@
 * [Telemetry collection](detailed-descriptions/telemetry-collection.md)
 * [Using remote file locking](detailed-descriptions/using-remote-file-locking.md)
 * [Office 365 backup and restore](detailed-descriptions/office-365-backup-and-restore.md)
+* [Using Duplicati to backup OpenClaw](detailed-descriptions/using-duplicati-to-backup-openclaw.md)
 
 ## Using tools
 
