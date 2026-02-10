@@ -53,6 +53,7 @@
 
 ## Duplicati Console
 
+* [Using the Duplicati Console](duplicati-console/using-the-duplicati-console.md)
 * [Organization management](duplicati-console/organizations-and-sub-organizations.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
 * [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
