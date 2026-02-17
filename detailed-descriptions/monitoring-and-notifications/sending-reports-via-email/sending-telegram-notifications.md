@@ -19,7 +19,7 @@ To obtain the API key, follow the [Telegram guide to creating an application](ht
 
 With all required values obtained, you can set up the Telegram notifications in the general settings:
 
-<div><figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 15.21.57.png" alt=""><figcaption><p>Set up Telegram notifications with the default options editor</p></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 15.22.08.png" alt=""><figcaption><p>Set up Telegram option with a text field</p></figcaption></figure></div>
+<div><figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 15.21.57.png" alt=""><figcaption><p>Set up Telegram notifications with the default options editor</p></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 15.22.08.png" alt=""><figcaption><p>Set up Telegram option with a text field</p></figcaption></figure></div>
 
 You can toggle between the two views using the "Edit as list" and "Edit as text" links.
 

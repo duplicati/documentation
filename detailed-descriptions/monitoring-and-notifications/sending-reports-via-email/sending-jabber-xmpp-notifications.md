@@ -14,11 +14,11 @@ The basic options for sending XMPP notifications can be entered into the general
 
 <div>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 14.46.45.png" alt=""><figcaption><p>Set up XMPP notifications with the default options editor</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 14.46.45.png" alt=""><figcaption><p>Set up XMPP notifications with the default options editor</p></figcaption></figure>
 
- 
+  
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 14.46.35.png" alt=""><figcaption><p>Set up XMPP option with a text field</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 14.46.35.png" alt=""><figcaption><p>Set up XMPP option with a text field</p></figcaption></figure>
 
 </div>
 

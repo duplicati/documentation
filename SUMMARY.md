@@ -11,38 +11,55 @@
 
 ## Detailed descriptions
 
-* [Choosing Duplicati Type](detailed-descriptions/choosing-duplicati-type.md)
-* [Using the secret provider](detailed-descriptions/using-the-secret-provider/README.md)
-  * [Local providers](detailed-descriptions/using-the-secret-provider/local-providers.md)
-  * [Cloud providers](detailed-descriptions/using-the-secret-provider/cloud-providers.md)
-  * [Advanced configurations](detailed-descriptions/using-the-secret-provider/advanced-configurations.md)
-* [Using remote management](detailed-descriptions/using-remote-management/README.md)
-  * [Using remote control with agent](detailed-descriptions/using-remote-management/using-remote-control-with-agent.md)
-* [Migrating Duplicati to a new machine](detailed-descriptions/migrating-duplicati-to-a-new-machine.md)
-* [Scripts](detailed-descriptions/scripts.md)
-* [Sending reports](detailed-descriptions/sending-reports-via-email/README.md)
-  * [Monitoring with Duplicati Console](detailed-descriptions/sending-reports-via-email/monitoring-with-duplicati-console.md)
-  * [Sending reports with email](detailed-descriptions/sending-reports-via-email/sending-reports-with-email.md)
-  * [Sending Jabber/XMPP notifications](detailed-descriptions/sending-reports-via-email/sending-jabber-xmpp-notifications.md)
-  * [Sending HTTP notifications](detailed-descriptions/sending-reports-via-email/sending-http-notifications.md)
-  * [Sending Telegram notifications](detailed-descriptions/sending-reports-via-email/sending-telegram-notifications.md)
-  * [Custom message content](detailed-descriptions/sending-reports-via-email/custom-message-content.md)
-* [Duplicati Access Password](detailed-descriptions/duplicati-access-password.md)
-* [Import and export backup configurations](detailed-descriptions/import-and-export-backup-configurations.md)
-* [Filters in Duplicati](detailed-descriptions/filters-in-duplicati.md)
-* [The local database](detailed-descriptions/the-local-database.md)
-* [The server database](detailed-descriptions/the-server-database.md)
-* [Preload settings](detailed-descriptions/preload-settings.md)
-* [Retention settings](detailed-descriptions/retention-settings.md)
-* [Using Duplicati with Linux](detailed-descriptions/using-duplicati-with-linux.md)
-* [Using Duplicati from Docker](detailed-descriptions/using-duplicati-from-docker.md)
-* [Using Duplicati with MacOS](detailed-descriptions/using-duplicati-with-macos.md)
-* [Using Duplicati with Windows](detailed-descriptions/using-duplicati-with-windows.md)
-* [Running a self-hosted OAuth Server](detailed-descriptions/running-a-self-hosted-oauth-server.md)
-* [Telemetry collection](detailed-descriptions/telemetry-collection.md)
-* [Using remote file locking](detailed-descriptions/using-remote-file-locking.md)
-* [Office 365 backup and restore](detailed-descriptions/office-365-backup-and-restore.md)
-* [Using Duplicati to backup OpenClaw](detailed-descriptions/using-duplicati-to-backup-openclaw.md)
+### Platform-specific guides
+
+* [Choosing Duplicati Type](detailed-descriptions/platform-specific-guides/choosing-duplicati-type.md)
+* [Using Duplicati with Linux](detailed-descriptions/platform-specific-guides/using-duplicati-with-linux.md)
+* [Using Duplicati with MacOS](detailed-descriptions/platform-specific-guides/using-duplicati-with-macos.md)
+* [Using Duplicati with Windows](detailed-descriptions/platform-specific-guides/using-duplicati-with-windows.md)
+* [Using Duplicati from Docker](detailed-descriptions/platform-specific-guides/using-duplicati-from-docker.md)
+
+### Configuration & Management
+
+* [Import and export backup configurations](detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md)
+* [Migrating Duplicati to a new machine](detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine.md)
+* [Preload settings](detailed-descriptions/configuration-and-management/preload-settings.md)
+* [Retention settings](detailed-descriptions/configuration-and-management/retention-settings.md)
+* [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
+* [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
+
+### Security & Secrets
+
+* [Using the secret provider](detailed-descriptions/security-and-secrets/using-the-secret-provider/README.md)
+  * [Local providers](detailed-descriptions/security-and-secrets/using-the-secret-provider/local-providers.md)
+  * [Cloud providers](detailed-descriptions/security-and-secrets/using-the-secret-provider/cloud-providers.md)
+  * [Advanced configurations](detailed-descriptions/security-and-secrets/using-the-secret-provider/advanced-configurations.md)
+* [Filters in Duplicati](detailed-descriptions/security-and-secrets/filters-in-duplicati.md)
+* [Using remote file locking](detailed-descriptions/security-and-secrets/using-remote-file-locking.md)
+* [Telemetry collection](detailed-descriptions/security-and-secrets/telemetry-collection.md)
+
+### Monitoring & Notifications
+
+* [Sending reports](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/README.md)
+  * [Monitoring with Duplicati Console](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/monitoring-with-duplicati-console.md)
+  * [Sending reports with email](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-reports-with-email.md)
+  * [Sending Jabber/XMPP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-jabber-xmpp-notifications.md)
+  * [Sending HTTP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-http-notifications.md)
+  * [Sending Telegram notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-telegram-notifications.md)
+  * [Custom message content](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/custom-message-content.md)
+
+### Database & Storage
+
+* [The local database](detailed-descriptions/database-and-storage/the-local-database.md)
+* [The server database](detailed-descriptions/database-and-storage/the-server-database.md)
+
+### Automation & Integration
+
+* [Scripts](detailed-descriptions/automation-and-integration/scripts.md)
+* [Using remote management](detailed-descriptions/automation-and-integration/using-remote-management/README.md)
+  * [Using remote control with agent](detailed-descriptions/automation-and-integration/using-remote-management/using-remote-control-with-agent.md)
+* [Office 365 backup and restore](detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md)
+* [Using Duplicati to backup OpenClaw](detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw.md)
 
 ## Using tools
 

@@ -24,7 +24,7 @@ When running the server it will emit log messages to the system log and it will 
 
 When the Server is running it will lock down access to only listen on the loopback adapter and refuse connections not using an IP address as the hostname. If you need to access the Server from another machine, make sure you protect it and [enable remote access](../duplicati-programs/server.md#external-access-to-the-server) and also add [HTTPS protection](../duplicati-programs/server.md#ssl-tls-support).
 
-When running the Server you also need to [configure a password](duplicati-access-password.md), either by getting a [signing token from the logs](duplicati-access-password.md#temporary-signin-token), [changing the password](duplicati-access-password.md#change-password-with-serverutil), or [setting one explicitly](../duplicati-programs/server.md#configuring-the-server-password).
+When running the Server you also need to [configure a password](../configuration-and-management/duplicati-access-password.md), either by getting a [signing token from the logs](../configuration-and-management/duplicati-access-password.md#temporary-signin-token), [changing the password](../configuration-and-management/duplicati-access-password.md#change-password-with-serverutil), or [setting one explicitly](../duplicati-programs/server.md#configuring-the-server-password).
 
 ## The Agent
 
@@ -62,5 +62,5 @@ If you prefer to use the Server (or TrayIcon) but would like to trigger the back
 
 ### Using the CLI for on Server backups
 
-If you are using the Server (or TrayIcon) but you want to run a command that is not in the UI, it is possible to use the CLI to run commands on the backups defined in the Server. Note that the Server and CLI use different ways of keeping track of the [local database](the-local-database.md), so you need to obtain the storage destination url and the database path from the Server and then run the CLI.
+If you are using the Server (or TrayIcon) but you want to run a command that is not in the UI, it is possible to use the CLI to run commands on the backups defined in the Server. Note that the Server and CLI use different ways of keeping track of the [local database](../database-and-storage/the-local-database.md), so you need to obtain the storage destination url and the database path from the Server and then run the CLI.
 

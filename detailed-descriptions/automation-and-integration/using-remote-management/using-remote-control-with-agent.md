@@ -16,13 +16,13 @@ As long as the Agent is not registered, restarting it will make it attempt to co
 
 Once the agent is registered, it immediately enables the connection and will be listed as a registered machine in the [portal settings](https://app.duplicati.com/app/settings/registered-machines).
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-25 at 14.39.05.png" alt="" width="375"><figcaption><p>The machine is registered</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-25 at 14.39.05.png" alt="" width="375"><figcaption><p>The machine is registered</p></figcaption></figure>
 
 ## Simplified registration
 
 To skip the registration step and have the agent connect directly to the console without any user intervention, it is required to first create a link that is pre-authorized on the Console. To do this head to the [portal settings](https://app.duplicati.com/app/settings/registered-machines) and click the "Add registration url" button.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-25 at 14.55.30.png" alt="" width="375"><figcaption><p>Added a registration URL</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-25 at 14.55.30.png" alt="" width="375"><figcaption><p>Added a registration URL</p></figcaption></figure>
 
 Any machine can now use this pre-authorized url to add machines to your organization in the Console. You can click the "Copy" button to get the link to your clipboard and paste it in when registering a machine. Do not share this link with anyone as it could allow them to add machines to your account.
 
@@ -38,7 +38,7 @@ This will cause the Agent to immediately show up in the Console. Future invocati
 
 ### Registration with deployment
 
-To simplify starting the agent in larger scale deployments, it is possible to configure [a `preload.json`file](../preload-settings.md) with the registration url.
+To simplify starting the agent in larger scale deployments, it is possible to configure [a `preload.json`file](../../configuration-and-management/preload-settings.md) with the registration url.
 
 {% hint style="success" %}
 There is a button on the [Links page in the console](https://app.duplicati.com/app/machines/links) to download the file with the link inserted so you do not have to create the file manually. Using the generated file is recommended as it reduces the chance for typo errors.
@@ -60,7 +60,7 @@ To create a preload file manually, create a new file  named `preload.json`with t
 ```
 
 {% hint style="info" %}
-The first part in the example affects only the [Agent](../../duplicati-programs/agent.md), the second parts sets the environment variable for the [TrayIcon](../../duplicati-programs/trayicon.md) and [Server](../../duplicati-programs/server.md) configurations.
+The first part in the example affects only the [Agent](../../../duplicati-programs/agent.md), the second parts sets the environment variable for the [TrayIcon](../../../duplicati-programs/trayicon.md) and [Server](../../../duplicati-programs/server.md) configurations.
 {% endhint %}
 
-This file can then be distributed to the target machine before the package is installed. The [preload settings page](../preload-settings.md) describes the possible locations where Duplicati will look for such a file.
+This file can then be distributed to the target machine before the package is installed. The [preload settings page](../../configuration-and-management/preload-settings.md) describes the possible locations where Duplicati will look for such a file.

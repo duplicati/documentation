@@ -8,7 +8,7 @@ The most versatile reporting option is the ability to send messages via the HTTP
 
 To use the option, you only need to provide the url to send to:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 14.50.14.png" alt=""><figcaption><p>Configuring a HTTP notification</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 14.50.14.png" alt=""><figcaption><p>Configuring a HTTP notification</p></figcaption></figure>
 
 Besides the URL it is also possible to configure:
 

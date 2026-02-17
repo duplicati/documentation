@@ -3,3 +3,33 @@ root: ./
 ​structure:
   readme: README.md
   summary: SUMMARY.md​
+
+redirects:
+  # Platform-specific guides
+  detailed-descriptions/choosing-duplicati-type: detailed-descriptions/platform-specific-guides/choosing-duplicati-type
+  detailed-descriptions/using-duplicati-with-linux: detailed-descriptions/platform-specific-guides/using-duplicati-with-linux
+  detailed-descriptions/using-duplicati-with-macos: detailed-descriptions/platform-specific-guides/using-duplicati-with-macos
+  detailed-descriptions/using-duplicati-with-windows: detailed-descriptions/platform-specific-guides/using-duplicati-with-windows
+  detailed-descriptions/using-duplicati-from-docker: detailed-descriptions/platform-specific-guides/using-duplicati-from-docker
+  # Configuration & Management
+  detailed-descriptions/import-and-export-backup-configurations: detailed-descriptions/configuration-and-management/import-and-export-backup-configurations
+  detailed-descriptions/migrating-duplicati-to-a-new-machine: detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine
+  detailed-descriptions/preload-settings: detailed-descriptions/configuration-and-management/preload-settings
+  detailed-descriptions/retention-settings: detailed-descriptions/configuration-and-management/retention-settings
+  detailed-descriptions/duplicati-access-password: detailed-descriptions/configuration-and-management/duplicati-access-password
+  detailed-descriptions/running-a-self-hosted-oauth-server: detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server
+  # Security & Secrets
+  detailed-descriptions/using-the-secret-provider: detailed-descriptions/security-and-secrets/using-the-secret-provider
+  detailed-descriptions/filters-in-duplicati: detailed-descriptions/security-and-secrets/filters-in-duplicati
+  detailed-descriptions/using-remote-file-locking: detailed-descriptions/security-and-secrets/using-remote-file-locking
+  detailed-descriptions/telemetry-collection: detailed-descriptions/security-and-secrets/telemetry-collection
+  # Monitoring & Notifications
+  detailed-descriptions/sending-reports-via-email: detailed-descriptions/monitoring-and-notifications/sending-reports-via-email
+  # Database & Storage
+  detailed-descriptions/the-local-database: detailed-descriptions/database-and-storage/the-local-database
+  detailed-descriptions/the-server-database: detailed-descriptions/database-and-storage/the-server-database
+  # Automation & Integration
+  detailed-descriptions/scripts: detailed-descriptions/automation-and-integration/scripts
+  detailed-descriptions/using-remote-management: detailed-descriptions/automation-and-integration/using-remote-management
+  detailed-descriptions/office-365-backup-and-restore: detailed-descriptions/automation-and-integration/office-365-backup-and-restore
+  detailed-descriptions/using-duplicati-to-backup-openclaw: detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw

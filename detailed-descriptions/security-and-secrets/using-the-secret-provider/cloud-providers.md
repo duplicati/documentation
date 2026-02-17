@@ -136,13 +136,13 @@ First, visit Portal → Microsoft Entra ID → App registrations → New registr
 
 Enter a name for the application and create it. On the application screen, record the Application Id and Directory Id:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 21.04.58.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-12-01 at 21.04.58.png" alt=""><figcaption></figcaption></figure>
 
 Then visit: App → Certificates & secrets → Client secrets → New client secret.
 
 Create a new client secret, and make sure you copy the secret as it will not be shown again:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 21.09.19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-12-01 at 21.09.19.png" alt=""><figcaption></figcaption></figure>
 
 Event with all the information ,you still need to grant permissions for the app/client to access the key vault: Key Vault → Access control (IAM) → Add role assignment.
 

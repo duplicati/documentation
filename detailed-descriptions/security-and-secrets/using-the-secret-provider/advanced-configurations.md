@@ -2,9 +2,9 @@
 
 ## Sharing the secret provider
 
-If the secret provider is configured for the entry application (e.g., the [TrayIcon](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md) or [Agent](../../duplicati-programs/agent.md)) it will naturally work for that application, but will also be shared within that process.
+If the secret provider is configured for the entry application (e.g., the [TrayIcon](../../../duplicati-programs/trayicon.md), [Server](../../../duplicati-programs/server.md) or [Agent](../../../duplicati-programs/agent.md)) it will naturally work for that application, but will also be shared within that process.
 
-For the [Agent](../../duplicati-programs/agent.md), this means that setting the secret provider for the agent, will also let the server that it hosts use the same secret provider. When a backup or other operation is then executed by the server it will also have access to the same secret provider.
+For the [Agent](../../../duplicati-programs/agent.md), this means that setting the secret provider for the agent, will also let the server that it hosts use the same secret provider. When a backup or other operation is then executed by the server it will also have access to the same secret provider.
 
 This sharing simplifies the setup by only having a single secret provider configuration and then letting each of the other parts access secrets without further configuration. If needed, the secret providers can be specified for the individual backups, such that it is possible to opt-out of using the shared secret provider.
 

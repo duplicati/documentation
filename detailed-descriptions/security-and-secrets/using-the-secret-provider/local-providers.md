@@ -25,7 +25,7 @@ The `file-secret://` provider supports reading secrets from a file containing a 
 }
 ```
 
-The file provider also supports files encrypted with [AESCrypt](../../using-tools/encrypting-and-decrypting-files.md) and you supply the decryption key with the option `passphrase`.  Suppose the file is encrypted with the key `mypassword` you can then configure the provider:
+The file provider also supports files encrypted with [AESCrypt](../../../using-tools/encrypting-and-decrypting-files.md) and you supply the decryption key with the option `passphrase`.  Suppose the file is encrypted with the key `mypassword` you can then configure the provider:
 
 ```
 --secret-provider=file-secret:///home/user/secrets.json.aes?passphrase=my-password
@@ -33,7 +33,7 @@ The file provider also supports files encrypted with [AESCrypt](../../using-tool
 
 To avoid passing the encryption key via a commandline, see [the section on how to inject the secret provider configuration via an environment variable](advanced-configurations.md#how-to-avoid-passing-credentials-on-the-commandline).&#x20;
 
-To encrypt the file, you can use the [AESCrypt tool](../../duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md) provided with Duplicati:
+To encrypt the file, you can use the [AESCrypt tool](../../../duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md) provided with Duplicati:
 
 ```
 Duplicati.CommandLine.SharpAESCrypt.exe e my-password source.json destination.json.aes

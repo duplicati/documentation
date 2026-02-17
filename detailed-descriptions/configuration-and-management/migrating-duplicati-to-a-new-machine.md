@@ -20,9 +20,9 @@ Make sure to stop Duplicati before moving in the folder into the same location o
 
 ## Backup configurations are available
 
-If you have the backup configurations, see the section on [import/export configuration](import-and-export-backup-configurations.md) for a guide on how to create the backup jobs from the configuration files.
+If you have the backup configurations, see the section on [import/export configuration](./import-and-export-backup-configurations.md) for a guide on how to create the backup jobs from the configuration files.
 
-With the backup configurations, it is possible to re-create the backup configurations. The flow allows you to modify set setup before saving the configuration, in case some details have changed. Once the backup is re-created, it is required that you run the repair operation to make Duplicati recreate the [local database](the-local-database.md) for the backup.
+With the backup configurations, it is possible to re-create the backup configurations. The flow allows you to modify set setup before saving the configuration, in case some details have changed. Once the backup is re-created, it is required that you run the repair operation to make Duplicati recreate the [local database](../database-and-storage/the-local-database.md) for the backup.
 
 Once the local database has been recreated, it is then possible to run the backup as before with no modifications required.
 

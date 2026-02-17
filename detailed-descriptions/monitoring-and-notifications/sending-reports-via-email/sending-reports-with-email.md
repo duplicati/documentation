@@ -14,11 +14,11 @@ The basic options for sending email can be entered into the general settings, wh
 
 <div>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.04.png" alt=""><figcaption><p>Set up email with the default options editor</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.04.png" alt=""><figcaption><p>Set up email with the default options editor</p></figcaption></figure>
 
- 
+  
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.14.png" alt=""><figcaption><p>Set up email option with a text field</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 08.54.14.png" alt=""><figcaption><p>Set up email option with a text field</p></figcaption></figure>
 
 </div>
 

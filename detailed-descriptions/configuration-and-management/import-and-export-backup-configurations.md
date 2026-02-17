@@ -12,7 +12,7 @@ To export from within the user interface, expand the backup configuration and cl
 
 <div><figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 14.14.44.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 14.14.32 (1).png" alt=""></picture><figcaption><p>Expanded backup configuration</p></figcaption></figure> <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 14.15.07.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 14.15.15.png" alt=""></picture><figcaption><p>Choosing export options</p></figcaption></figure></div>
 
-On this page you should select "To File", which is default. The option to export "As commandline..." is not covered here, but allows you to get a string that can be used with the [Duplicati CLI executable](../duplicati-programs/command-line-interface-cli.md).
+On this page you should select "To File", which is default. The option to export "As commandline..." is not covered here, but allows you to get a string that can be used with the [Duplicati CLI executable](../../duplicati-programs/command-line-interface-cli.md).
 
 You then need to decide on how to handle secrets stored in the configuration. Since these secrets include both the credentials to connect to the remote destination as well as the encryption passphrase, it is important that the exported file is protected.
 
@@ -20,7 +20,7 @@ You can choose to not include any secrets by unchecking the "Export passwords" o
 
 You can also choose to encrypt the file before exporting it. If you choose this option, make sure you choose a strong unique passphrase, and store that passphrase in a safe location.
 
-After completing the export, you will get a file containing the backup configuration. The file is in JSON format and optionally encrypted with [AESCrypt](../using-tools/encrypting-and-decrypting-files.md).
+After completing the export, you will get a file containing the backup configuration. The file is in JSON format and optionally encrypted with [AESCrypt](../../using-tools/encrypting-and-decrypting-files.md).
 
 ## Import configuration
 
@@ -36,4 +36,4 @@ The option to "Import metadata" will create the new backup configuration and res
 
 If the option "Save immediately" is checked, the backup will be created when clicking import, skipping the option to edit the backup configuration.
 
-When all is configured as desired, click the "Import" button. If you have not checked "Save immediately", the flow will look like it does when [setting up the initial backup](../getting-started/set-up-a-backup-in-the-ui.md).
+When all is configured as desired, click the "Import" button. If you have not checked "Save immediately", the flow will look like it does when [setting up the initial backup](../../getting-started/set-up-a-backup-in-the-ui.md).

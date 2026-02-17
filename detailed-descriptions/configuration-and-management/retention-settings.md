@@ -6,7 +6,7 @@ description: This page describes the different retention settings available in D
 
 Even though Duplicati tries hard to reduce storage use as much as possible, it is inevitable that the remotely stored data grows as new versions of files are added. To avoid running out of space or paying for excessive storage use, it is important that unnecessary backups are removed regularly.
 
-In Duplicati there are a few different settings that can be used to configure when a "snapshot" is removed. All of these options are invoked automatically at the end of a backup to ensure that removal follows a new version. If you use the [Command Line Interface](../duplicati-programs/command-line-interface-cli.md), it is possible to disable the removal and run the delete command as a separate step.
+In Duplicati there are a few different settings that can be used to configure when a "snapshot" is removed. All of these options are invoked automatically at the end of a backup to ensure that removal follows a new version. If you use the [Command Line Interface](../../duplicati-programs/command-line-interface-cli.md), it is possible to disable the removal and run the delete command as a separate step.
 
 After deleting one or more versions, Duplicati will mark any data that can no longer be referenced as waste, and may occasionally choose to run a compact process that deletes unused volumes and creates new volumes with no wasted space.
 
@@ -28,7 +28,7 @@ Another special case is that if the source data has not changed at all, which is
 
 The retention policy is a "bucket" based strategy, where you define how many backups to keep in each "bucket" and what a "bucket" covers. With this strategy, it is possible to get something similar to [grandfather-father-son](https://en.wikipedia.org/wiki/Backup_rotation_scheme#Grandfather-father-son) style backup rotations.
 
-The syntax for the rentention policy uses the [time format](../technical-details/option-formats.md#timespans-timestamps-and-durations) to define the bucket and contents in that bucket. The bucket size is first, then a colon separator, and then the duration in the bucket. Multiple buckets can be defined with commas. As an example:
+The syntax for the rentention policy uses the [time format](../../technical-details/option-formats.md#timespans-timestamps-and-durations) to define the bucket and contents in that bucket. The bucket size is first, then a colon separator, and then the duration in the bucket. Multiple buckets can be defined with commas. As an example:
 
 ```
 7D:U,1Y:1W

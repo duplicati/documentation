@@ -11,7 +11,7 @@ Before you can install Duplicati, you need to decide on two different parameters
 
 ## Deciding on type
 
-To use Duplicati on MacOS, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](choosing-duplicati-type.md) has more details on each of the different types. For home users, the common choice is the GUI package in `.dmg`format. For enterprise rollouts, you can choose the `.pkg` packages.
+To use Duplicati on MacOS, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types. For home users, the common choice is the GUI package in `.dmg`format. For enterprise rollouts, you can choose the `.pkg` packages.
 
 ## Determine CPU architecture
 

@@ -49,7 +49,7 @@ With the credentials available, create a JSON text file similar to this:
 }
 ```
 
-If you are setting up a secure server, you should use [SharpAESCrypt](../duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md) to encrypt the file after you have created it. If you do, make a note of the passphrase used. Save the file either as `secrets.json` or `secrets.json.aes` if you have encrypted it.
+If you are setting up a secure server, you should use [SharpAESCrypt](../../duplicati-programs/command-line-interface-cli-1/sharpaescrypt.md) to encrypt the file after you have created it. If you do, make a note of the passphrase used. Save the file either as `secrets.json` or `secrets.json.aes` if you have encrypted it.
 
 In the following, we will only set up Full Access Google Drive, which for legacy reasons is called "`googledocs`" in the OAuth server. If you are looking to set up one of the other services, see [the configuration document](https://github.com/duplicati/oauth-server/blob/main/config.json), and pick the ids you need.
 
