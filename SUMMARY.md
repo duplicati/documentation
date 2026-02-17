@@ -59,6 +59,7 @@
 * [Using remote management](detailed-descriptions/automation-and-integration/using-remote-management/README.md)
   * [Using remote control with agent](detailed-descriptions/automation-and-integration/using-remote-management/using-remote-control-with-agent.md)
 * [Office 365 backup and restore](detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md)
+* [Google Workspace backup and restore](detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md)
 * [Using Duplicati to backup OpenClaw](detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw.md)
 
 ## Using tools
