@@ -9,9 +9,7 @@
 * [Running a backup](getting-started/running-a-backup.md)
 * [Restoring files](getting-started/restoring-files.md)
 
-## Detailed descriptions
-
-### Platform-specific guides
+## Platform-specific guides
 
 * [Choosing Duplicati Type](detailed-descriptions/platform-specific-guides/choosing-duplicati-type.md)
 * [Using Duplicati with Linux](detailed-descriptions/platform-specific-guides/using-duplicati-with-linux.md)
@@ -19,7 +17,7 @@
 * [Using Duplicati with Windows](detailed-descriptions/platform-specific-guides/using-duplicati-with-windows.md)
 * [Using Duplicati from Docker](detailed-descriptions/platform-specific-guides/using-duplicati-from-docker.md)
 
-### Configuration & Management
+## Configuration & Management
 
 * [Import and export backup configurations](detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md)
 * [Migrating Duplicati to a new machine](detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine.md)
@@ -28,7 +26,7 @@
 * [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
 
-### Security & Secrets
+## Security & Secrets
 
 * [Using the secret provider](detailed-descriptions/security-and-secrets/using-the-secret-provider/README.md)
   * [Local providers](detailed-descriptions/security-and-secrets/using-the-secret-provider/local-providers.md)
@@ -38,7 +36,7 @@
 * [Using remote file locking](detailed-descriptions/security-and-secrets/using-remote-file-locking.md)
 * [Telemetry collection](detailed-descriptions/security-and-secrets/telemetry-collection.md)
 
-### Monitoring & Notifications
+## Monitoring & Notifications
 
 * [Sending reports](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/README.md)
   * [Monitoring with Duplicati Console](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/monitoring-with-duplicati-console.md)
@@ -48,12 +46,12 @@
   * [Sending Telegram notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-telegram-notifications.md)
   * [Custom message content](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/custom-message-content.md)
 
-### Database & Storage
+## Database & Storage
 
 * [The local database](detailed-descriptions/database-and-storage/the-local-database.md)
 * [The server database](detailed-descriptions/database-and-storage/the-server-database.md)
 
-### Automation & Integration
+## Automation & Integration
 
 * [Scripts](detailed-descriptions/automation-and-integration/scripts.md)
 * [Using remote management](detailed-descriptions/automation-and-integration/using-remote-management/README.md)

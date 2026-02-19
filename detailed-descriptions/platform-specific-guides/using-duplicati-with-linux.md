@@ -6,21 +6,21 @@ description: This page describes how to use Duplicati with Linux
 
 Before you can install Duplicati, you need to decide on three different parameters:
 
-* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).&#x20;
+* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).
 * Your package manager: `apt`, `yum` or something else.
 * You machine CPU type: x64, Arm64 or Arm7
 
 ## Deciding on type
 
-To use Duplicati on Linux, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types.
+To use Duplicati on Linux, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](choosing-duplicati-type.md) has more details on each of the different types.
 
 ## Determine package manager
 
-Next step is checking what Linux distribution you are using. Duplicati supports running on most Linux distros, but does not yet support FreeBSD. &#x20;
+Next step is checking what Linux distribution you are using. Duplicati supports running on most Linux distros, but does not yet support FreeBSD.
 
-If you are using a Debian-based operating system, such as Ubuntu or Mint, you can use the `.deb` package, and for RedHat-based operating system, such as Fedora or SUSE, you can use the `.rpm` packages.&#x20;
+If you are using a Debian-based operating system, such as Ubuntu or Mint, you can use the `.deb` package, and for RedHat-based operating system, such as Fedora or SUSE, you can use the `.rpm` packages.
 
-For  other operating systems you can use the `.zip` package, or check if your package manager already carries Duplicati.
+For other operating systems you can use the `.zip` package, or check if your package manager already carries Duplicati.
 
 ## Determine CPU architecture
 
@@ -60,7 +60,7 @@ Besides the configuration listed below, it is also possible to run [Duplicati in
 
 If you would like to run the Server as a service the `.rpm` and `.deb` packages includes a regular systemd service. If you are installing from the `.zip` package, you can grab the [service file from the source code](https://github.com/duplicati/duplicati/tree/master/ReleaseBuilder/Resources/debian/systemd) and install it manually on your system.
 
-If you need to pass options to the server, edit the settings file, usually at `/etc/default/duplicati`.  Make sure you only edit the configuration file and not the service file as it will be overwritten when a new version is installed. The settings file should look something like this:
+If you need to pass options to the server, edit the settings file, usually at `/etc/default/duplicati`. Make sure you only edit the configuration file and not the service file as it will be overwritten when a new version is installed. The settings file should look something like this:
 
 ```
 # Defaults for duplicati initscript
@@ -73,9 +73,6 @@ If you need to pass options to the server, edit the settings file, usually at `/
 
 # Additional options that are passed to the Daemon.
 DAEMON_OPTS=""
-
-# Supplemantary groups to inherit if not running as root
-SUPPLIMENTARY_GROUPS=
 ```
 
 You can use `DAEMON_OPTS` to pass arguments to `duplicati-server`, such as `--webservice-password=<passsword>`.
@@ -89,7 +86,7 @@ sudo systemctl start duplicati.service
 sudo systemctl status duplicati.service
 ```
 
-The server is now running and will automatically start when you restart the machine.&#x20;
+The server is now running and will automatically start when you restart the machine.
 
 **Note:** the service runs in the `root` user context, so files will be stored in `/root/.config/Duplicati` on most systems, but in `/Duplicati` on other systems. Use the `DAEMON_OPTS` to add `--server-datafolder=<path to storage folder>` if you want a specific location.
 
@@ -103,20 +100,20 @@ sudo journalctl --unit=duplicati
 
 When Duplicati runs under a dedicated service account on Linux, systemd does not automatically include that user's supplementary groups. If you add the service account to additional groups (for example, to access NFS or Samba shares) you should explicitly configure the unit file so systemd grants those memberships when the service starts.
 
-To supply the groups, edit the setings file as mentioned above with the `DAEMON_OPTS`, and edit the line (add it if it does not exist):
+To supply the groups, use the edit functionality:
 
-```
-SUPPLIMENTARY_GROUPS=group1 group2
+```bash
+sudo systemctl edit duplicati.service
 ```
 
-{% hint style="info" %}
-For **Duplicati versions less than 2.2.0.102**, you also need to edit the service file and add the following:
-{% endhint %}
+Then edit the file and add the supplementary groups:
 
 ```
 [Service]
-SupplementaryGroups=$SUPPLIMENTARY_GROUPS
+SupplementaryGroups=group1 group2
 ```
+
+When you save and exit, an override file will be created, typically in `/etc/systemd/system/duplicati.service.d/override.conf` . This method ensures that a package upgrade does not erase you edits.
 
 Finally reload and restart the service so the new group membership takes effect:
 
