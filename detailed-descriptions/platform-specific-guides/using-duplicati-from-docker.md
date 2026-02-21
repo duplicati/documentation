@@ -42,7 +42,7 @@ services:
       DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
 ```
 
-But you can make it a bit more secure by using [Docker secrets](https://docs.docker.com/compose/how-tos/use-secrets/) which are abstracted as files that are mounted under `/run/secrets/`. Since Duplicati does not support reading files in place of the environment variables, you can either use a [preload configuration file](preload-settings.md) or use one of [the secret providers](using-the-secret-provider/).
+But you can make it a bit more secure by using [Docker secrets](https://docs.docker.com/compose/how-tos/use-secrets/) which are abstracted as files that are mounted under `/run/secrets/`. Since Duplicati does not support reading files in place of the environment variables, you can either use a [preload configuration file](../configuration-and-management/preload-settings.md) or use one of [the secret providers](../security-and-secrets/using-the-secret-provider/).
 
 ### Using a preload file
 

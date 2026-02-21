@@ -6,12 +6,12 @@ description: This page describes common scenarios for configuring Duplicati with
 
 Before you can install Duplicati, you need to decide on three different parameters:
 
-* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).&#x20;
+* The type you want: [GUI](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md).&#x20;
 * You machine CPU type: x64, Arm64, or x86 (32 bit)
 
 ## Deciding on type
 
-To use Duplicati on Windows, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types.
+To use Duplicati on Windows, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../../duplicati-programs/trayicon.md)), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md)). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types.
 
 ## Determine CPU architecture
 
@@ -29,7 +29,7 @@ Once you have decided the on package you want, you are ready to download the pac
 
 ## Using the TrayIcon
 
-For users with a desktop environment and no special requirements, the [TrayIcon](../duplicati-programs/trayicon.md) instance is the recommended way to run Duplicati. If you are using the `.msi` package to install Duplicati, you will see an option to automatically start Duplicati, as well as create a shortcut on your desktop and in the start menu. If you need to manually start Duplicati, you can find the executable in:
+For users with a desktop environment and no special requirements, the [TrayIcon](../../duplicati-programs/trayicon.md) instance is the recommended way to run Duplicati. If you are using the `.msi` package to install Duplicati, you will see an option to automatically start Duplicati, as well as create a shortcut on your desktop and in the start menu. If you need to manually start Duplicati, you can find the executable in:
 
 ```
 C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe
@@ -39,13 +39,13 @@ When running the TrayIcon in a user context, it will create a folder in your hom
 
 ## Using the Server
 
-The [Server](../duplicati-programs/server.md) is a regular executable and can simply be invoked with:
+The [Server](../../duplicati-programs/server.md) is a regular executable and can simply be invoked with:
 
 ```
 C:\Program Files\Duplicati 2\Duplicati.Server.exe
 ```
 
-When invoked as a regular user, it will use the same folder, `C:\Users\<username>\AppData\Local\Duplicati`, as the [TrayIcon](../duplicati-programs/trayicon.md) and share the configuration.
+When invoked as a regular user, it will use the same folder, `C:\Users\<username>\AppData\Local\Duplicati`, as the [TrayIcon](../../duplicati-programs/trayicon.md) and share the configuration.
 
 ### Running the Server as a Windows Service
 
@@ -64,7 +64,7 @@ C:\Program Files\Duplicati 2\Duplicati.WindowsService.exe INSTALL --webservice-p
 ```
 {% endcode %}
 
-You can also use the [preload.json](preload-settings.md) file to pass settings to the Server when running as a service, which allows you to change the settings without the uninstall/install cycle (you still need to restart the service).
+You can also use the [preload.json](../configuration-and-management/preload-settings.md) file to pass settings to the Server when running as a service, which allows you to change the settings without the uninstall/install cycle (you still need to restart the service).
 
 **Note**: When running the Windows Service it will default to use port 8200 and fail it that port is not available. If you are running the TrayIcon, that will run a **different** instance, usually at port 8300. If you want to connect the TrayIcon to the Windows Service, edit the shortcut to Duplicati:
 
@@ -76,7 +76,7 @@ C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe --no-hosted-server --hos
 
 ## Using the Agent
 
-With the [Agent](../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. The default installation is to install the Agent as a Windows Service, meaning it will run in the LocalService system account, instead of the local user. Due to this, it will not be able to open the browser and start the registration process for you. Instead, you must look into the Windows Event Viewer and extract the registration link from there.
+With the [Agent](../../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. The default installation is to install the Agent as a Windows Service, meaning it will run in the LocalService system account, instead of the local user. Due to this, it will not be able to open the browser and start the registration process for you. Instead, you must look into the Windows Event Viewer and extract the registration link from there.
 
 You can also register the Agent, using the Agent executable:
 
@@ -86,7 +86,7 @@ C:\Program Files\Duplicati 2\Duplicati.Agent.exe register <registration url>
 
 After the Agent has been registered, restart the service and it will now be available on the Duplicati Console.
 
-If you have  a [pre-authenticated link](../duplicati-programs/agent.md#registering-the-machine) for registering the machine, and would like to automate the process, you can place a file in `C:\ProgramData\Duplicati\preload.json` with content similar to:
+If you have  a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine) for registering the machine, and would like to automate the process, you can place a file in `C:\ProgramData\Duplicati\preload.json` with content similar to:
 
 ```json
 {
@@ -110,7 +110,7 @@ If you specify the `--dbpath` parameter, it will not use the `dbconfig.json` fil
 
 ## Using the support programs
 
-Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with their executable name and all contain built-in help. For example, to invoke [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
+Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with their executable name and all contain built-in help. For example, to invoke [ServerUtil](../../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
 
 ```sh
  C:\Program Files\Duplicati 2\Duplicati.CommandLine.ServerUtil.exe help

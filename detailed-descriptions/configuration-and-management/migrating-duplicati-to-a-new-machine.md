@@ -4,7 +4,7 @@ description: This page describes how to best migrate a Duplicati instance to a n
 
 # Migrating Duplicati to a new machine
 
-If you have moved to a new machine and want to restore files to the new machine, you can follow the steps outlined in [Restoring files](../getting-started/restoring-files.md). If instead, you have already moved files to the new machine and would like to set up the new machine to continue backups made on the previous machine, there are a few ways to do this.
+If you have moved to a new machine and want to restore files to the new machine, you can follow the steps outlined in [Restoring files](../../getting-started/restoring-files.md). If instead, you have already moved files to the new machine and would like to set up the new machine to continue backups made on the previous machine, there are a few ways to do this.
 
 **Note:** it is possible to restore files across operating systems, but due to path differences it is not possible to continue a backup made on Windows on a Linux/MacOS based operating system and vice versa.
 
@@ -22,7 +22,7 @@ Make sure to stop Duplicati before moving in the folder into the same location o
 
 If you have the backup configurations, see the section on [import/export configuration](./import-and-export-backup-configurations.md) for a guide on how to create the backup jobs from the configuration files.
 
-With the backup configurations, it is possible to re-create the backup configurations. The flow allows you to modify set setup before saving the configuration, in case some details have changed. Once the backup is re-created, it is required that you run the repair operation to make Duplicati recreate the [local database](../database-and-storage/the-local-database.md) for the backup.
+With the backup configurations, it is possible to re-create the backup configurations. The flow allows you to modify set setup before saving the configuration, in case some details have changed. Once the backup is re-created, it is required that you run the repair operation to make Duplicati recreate the [local database](../../database-and-storage/the-local-database.md) for the backup.
 
 Once the local database has been recreated, it is then possible to run the backup as before with no modifications required.
 

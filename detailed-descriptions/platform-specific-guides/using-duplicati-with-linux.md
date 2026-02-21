@@ -6,13 +6,13 @@ description: This page describes how to use Duplicati with Linux
 
 Before you can install Duplicati, you need to decide on three different parameters:
 
-* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).
+* The type you want: [GUI](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md).
 * Your package manager: `apt`, `yum` or something else.
 * You machine CPU type: x64, Arm64 or Arm7
 
 ## Deciding on type
 
-To use Duplicati on Linux, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](choosing-duplicati-type.md) has more details on each of the different types.
+To use Duplicati on Linux, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../../duplicati-programs/trayicon.md)), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md)). The section on [Choosing Duplicati Type](choosing-duplicati-type.md) has more details on each of the different types.
 
 ## Determine package manager
 
@@ -32,11 +32,11 @@ Finally you need to locate information on what CPU architecture you are using:
 
 ## Installing the package
 
-Once you have decided the on (type, distro, cpu) combination you are ready to download the package. The full list of packages can be obtained via the main [download page](https://duplicati.com/download), and then clicking "Other versions". Refer to the [installation page](../getting-started/installation.md) for details on how to install the packages, or simply use the package manager in your system.
+Once you have decided the on (type, distro, cpu) combination you are ready to download the package. The full list of packages can be obtained via the main [download page](https://duplicati.com/download), and then clicking "Other versions". Refer to the [installation page](../../getting-started/installation.md) for details on how to install the packages, or simply use the package manager in your system.
 
 ## Using the TrayIcon
 
-For users with a desktop environment and no special requirements, the [TrayIcon](../duplicati-programs/trayicon.md) instance is the recommended way to run Duplicati. If you are using either `.deb` or `.rpm` you should see Duplicati in the program menu, and you can launch it from there. If you do not see Duplicati in the program menu, you can start it with:
+For users with a desktop environment and no special requirements, the [TrayIcon](../../duplicati-programs/trayicon.md) instance is the recommended way to run Duplicati. If you are using either `.deb` or `.rpm` you should see Duplicati in the program menu, and you can launch it from there. If you do not see Duplicati in the program menu, you can start it with:
 
 ```
 duplicati
@@ -46,13 +46,13 @@ When running the TrayIcon in a user context, it will create a folder in your hom
 
 ## Using the Server
 
-The [Server](../duplicati-programs/server.md) is a regular executable and can simply be invoked with:
+The [Server](../../duplicati-programs/server.md) is a regular executable and can simply be invoked with:
 
 ```
 duplicati-server
 ```
 
-When invoked as a regular user, it will use the same folder, `~/.config/Duplicati`, as the [TrayIcon](../duplicati-programs/trayicon.md) and share the configuration.
+When invoked as a regular user, it will use the same folder, `~/.config/Duplicati`, as the [TrayIcon](../../duplicati-programs/trayicon.md) and share the configuration.
 
 Besides the configuration listed below, it is also possible to run [Duplicati in Docker](using-duplicati-from-docker.md).
 
@@ -124,7 +124,7 @@ sudo systemctl restart duplicati
 
 ## Using the Agent
 
-With the [Agent](../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. When installing either the `.rpm` or `.deb` packages, it will automatically register the `duplicati-agent.service` for startup. If you are using the `.zip` installation, you can find the [agent service in the source code](https://github.com/duplicati/duplicati/tree/master/ReleaseBuilder/Resources/debian/systemd) and manually register it:
+With the [Agent](../../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. When installing either the `.rpm` or `.deb` packages, it will automatically register the `duplicati-agent.service` for startup. If you are using the `.zip` installation, you can find the [agent service in the source code](https://github.com/duplicati/duplicati/tree/master/ReleaseBuilder/Resources/debian/systemd) and manually register it:
 
 ```sh
 sudo systemctl enable duplicati-agent.service
@@ -137,7 +137,7 @@ When the Agent starts, it will emit a registration link to the log, and you can 
 sudo journalctl --unit=duplicati
 ```
 
-If you are using a [pre-authenticated link](../duplicati-programs/agent.md#registering-the-machine), you can run the following command to activate the registration:
+If you are using a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine), you can run the following command to activate the registration:
 
 ```sh
 duplicati-agent register "<pre-authorized url>"
@@ -163,7 +163,7 @@ If you specify the `--dbpath` parameter, it will not use the `dbconfig.json` fil
 
 ## Using the support programs
 
-Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with a `duplicati-*` name and all contain built-in help. For example, to invoke [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
+Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with a `duplicati-*` name and all contain built-in help. For example, to invoke [ServerUtil](../../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
 
 ```sh
 duplicati-server-util help
