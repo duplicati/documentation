@@ -6,12 +6,12 @@ description: This page describes common scenarios for configuring Duplicati with
 
 Before you can install Duplicati, you need to decide on two different parameters:
 
-* The type you want: [GUI](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md).&#x20;
+* The type you want: [GUI](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md).&#x20;
 * You machine CPU type: Arm64 or x64
 
 ## Deciding on type
 
-To use Duplicati on MacOS, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../duplicati-programs/trayicon.md)), [Server](../duplicati-programs/server.md), [Agent](../duplicati-programs/agent.md), [CLI](../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types. For home users, the common choice is the GUI package in `.dmg`format. For enterprise rollouts, you can choose the `.pkg` packages.
+To use Duplicati on MacOS, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../../duplicati-programs/trayicon.md)), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types. For home users, the common choice is the GUI package in `.dmg`format. For enterprise rollouts, you can choose the `.pkg` packages.
 
 ## Determine CPU architecture
 
@@ -39,7 +39,7 @@ If you install the CLI package, Duplicati binaries are placed in `/usr/local/dup
 duplicati-server
 ```
 
-When invoked as a regular user, it will use the same folder, `~/Library/Application Support/Duplicati`, as the [TrayIcon](../duplicati-programs/trayicon.md) and share the configuration.
+When invoked as a regular user, it will use the same folder, `~/Library/Application Support/Duplicati`, as the [TrayIcon](../../duplicati-programs/trayicon.md) and share the configuration.
 
 **Note**: If you install the GUI package or install from homebrew, Duplicati's binaries are not symlinked into the paths searched by MacOS. You can invoke the binaries by supplying the full path:
 
@@ -49,11 +49,11 @@ When invoked as a regular user, it will use the same folder, `~/Library/Applicat
 
 ## Using the Agent
 
-With the [Agent](../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. When installing the Agent package, it will automatically register the Duplicati agent with a `launchAgent` that starts Duplicati in an Agent mode.
+With the [Agent](../../duplicati-programs/agent.md) there is a minimal setup required, which is to register the machine with the Duplicati Console. When installing the Agent package, it will automatically register the Duplicati agent with a `launchAgent` that starts Duplicati in an Agent mode.
 
 If the Agent is not registered with the Console, it will open the default browser and ask to be registered. Once registered, it will run in the background and be avilable on the Duplicati Console for management.
 
-If you have a [pre-authenticated link](../duplicati-programs/agent.md#registering-the-machine) for registering the machine, you can place a file in `/usr/local/share/Duplicati/preload.json` with content similar to:
+If you have a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine) for registering the machine, you can place a file in `/usr/local/share/Duplicati/preload.json` with content similar to:
 
 ```json
 {
@@ -83,7 +83,7 @@ If you specify the `--dbpath` parameter, it will not use the `dbconfig.json` fil
 
 ## Using the support programs
 
-Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with a `duplicati-*` name and all contain built-in help. For example, to invoke [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
+Each package of Duplicati contains a number of support utilities, such as the [RecoveryTool](../../duplicati-programs/command-line-interface-cli-1/recoverytool.md). Each of these can be invoked from the commandline with a `duplicati-*` name and all contain built-in help. For example, to invoke [ServerUtil](../../duplicati-programs/command-line-interface-cli-1/serverutil.md), run:
 
 ```sh
 duplicati-server-util help
