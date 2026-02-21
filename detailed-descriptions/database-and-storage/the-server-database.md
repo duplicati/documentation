@@ -4,9 +4,9 @@ description: This page describes the database kept by the Duplicati Server
 
 # The server database
 
-When the [Server](../duplicati-programs/server.md) is running, either stand-alone or as part of the [TrayIcon](../duplicati-programs/trayicon.md) or [Agent](../duplicati-programs/agent.md), it needs a place to store the configuration. All configuration data, logs and settings are stored inside the file `Duplicati-server.sqlite`. As the file extension reveals, this is an [SQLite](https://www.sqlite.org) database file and as such can be viewed and updated by any tool that works with SQLite databases.
+When the [Server](../../duplicati-programs/server.md) is running, either stand-alone or as part of the [TrayIcon](../../duplicati-programs/trayicon.md) or [Agent](../../duplicati-programs/agent.md), it needs a place to store the configuration. All configuration data, logs and settings are stored inside the file `Duplicati-server.sqlite`. As the file extension reveals, this is an [SQLite](https://www.sqlite.org) database file and as such can be viewed and updated by any tool that works with SQLite databases.
 
-The database file is by default located in a folder that belongs to the user account running it. See the section on the [database location](../duplicati-programs/server.md#storing-data-in-different-places) for details on where this is and how to change it.
+The database file is by default located in a folder that belongs to the user account running it. See the section on the [database location](../../duplicati-programs/server.md#storing-data-in-different-places) for details on where this is and how to change it.
 
 ## Securing the database
 
@@ -32,9 +32,9 @@ The simplest way to apply an encryption key, is to locate the server database, a
 }
 ```
 
-Both the commandline arguments and environment variables can be set with the [Preload settings](preload-settings.md) file, which makes it simpler to apply the same settings across executables, and removes the need for changing the service or launcher files.
+Both the commandline arguments and environment variables can be set with the [Preload settings](../configuration-and-management/preload-settings.md) file, which makes it simpler to apply the same settings across executables, and removes the need for changing the service or launcher files.
 
-For additional protection of the encryption key, the [operating system Keychain, or an external secret provider](using-the-secret-provider/), can be used to further secure the encryption key.
+For additional protection of the encryption key, the [operating system Keychain, or an external secret provider](../security-and-secrets/using-the-secret-provider/), can be used to further secure the encryption key.
 
 ## Database location
 
@@ -67,7 +67,7 @@ C:\ProgramData\Duplicati
 
 ### Database location on Linux
 
-The default location when running Duplicati on Linux is `~/.config/Duplicati`. For most distros, running Duplicati as a service means running it as the root users, resulting in `/root/.config/Duplicati`.&#x20;
+The default location when running Duplicati on Linux is `~/.config/Duplicati`. For most distros, running Duplicati as a service means running it as the root users, resulting in `/root/.config/Duplicati`.
 
 However, due to some compatibility mapping, the mapping is sometimes missing the prefix, causing Duplicati data to be stored in `/Duplicati`. From version 2.1.0.108, this location is avoided and the location `/var/lib/Duplicati` is used instead, if possible.
 
