@@ -37,9 +37,8 @@ For installation, Duplicati offers `.deb` packages for the Debian based distros,
 If you are using [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux), there is currently an extra step to ensure that the binaries, which are placed in `/usr/lib/duplicati`, are allowed to execute:
 
 ```
-semanage fcontext -a -t bin_t '/usr/lib/duplicati/duplicati'
-semanage fcontext -a -t bin_t '/usr/lib/duplicati/duplicati-*'
-restorecon -r /usr/lib/duplicati/
+semanage fcontext -a -t bin_t '/usr/lib/duplicati/duplicati(.*)?'
+restorecon -r /usr/lib/duplicati
 ```
 
 ## MacOS
