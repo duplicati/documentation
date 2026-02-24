@@ -49,6 +49,14 @@ To change the folder of an existing instance of Duplicati, perform these steps:
 3. Change the startup parameters (environment variables, commandline arguments, or preload.json)
 4. Start Duplicati again
 
+### Limited access to the database folder
+
+To limit unauthorized access to the server database and other settings, Duplicati will enforce access to the folder for only the account that is currently running Duplicati.&#x20;
+
+On Windows the permissions are set to include the current user, the Administrator and the System account. On Linux/MacOS the permissions are set to the current user only, as `root` always has access.
+
+For most uses, this setup does not cause issues, but if you rely on access from a different user account, you need to place a file called `insecure-permissions.txt` inside the data folder (it can be an empty file). When Duplicati starts, it will look for such a file, and if the file does not exist, it will reset the permissions, locking out any other account than the current user.
+
 ### Database location on Windows
 
 The default location for users running Duplicati is `%LOCALAPPDATA%\Duplicati` which usually resolves to something like `C:\Users\username\AppData\Local\Duplicati`. This folder is the non-roaming folder. Older versions of Duplicati used `%APPDATA%\Duplicati` which is the roaming folder, causing files to be synchronized across machines. However, since Duplicati is not meant to be an app that is useful for roaming, it is now using the non-roaming folder.

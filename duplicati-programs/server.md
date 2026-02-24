@@ -10,19 +10,19 @@ The server is responsible for saving backup configurations, starting scheduled b
 
 When the server runs any operation, such as a backup or restore, it will configure an environment from various settings, primarily the backup configuration. The actual implementation is the same code that is executed by the [command line interface](command-line-interface-cli.md), but runs within the server process.
 
-Unlike the command line interface, the Server keeps track of the local database to ensure the database is present for all operations. This is possible because the server has additional state in the [server database](../detailed-descriptions/the-server-database.md) and the path to the local database is kept there.
+Unlike the command line interface, the Server keeps track of the local database to ensure the database is present for all operations. This is possible because the server has additional state in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and the path to the local database is kept there.
 
 During the operation, the server will report progress and log messages, which can be viewed if a client is attached during the run. After the run, the Server will record metadata and log data in the database, to assist in troubleshooting later.
 
 ## Configuring the server password
 
-As described in the [access password](../detailed-descriptions/duplicati-access-password.md) section, it is possible to set or reset the server password by starting the server with the option:
+As described in the [access password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md) section, it is possible to set or reset the server password by starting the server with the option:
 
 ```
 --webservice-password=<new password>
 ```
 
-This new password is stored in the [server database](../detailed-descriptions/the-server-database.md) and does not need to be supplied on future launches. Note that changing the password does not invalidate [tokens](../technical-details/server-authentication-model.md) that are already issued. To clear any issued tokens, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
+This new password is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and does not need to be supplied on future launches. Note that changing the password does not invalidate [tokens](../technical-details/server-authentication-model.md) that are already issued. To clear any issued tokens, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
 
 ```
 --webservice-reset-jwt-config=true
@@ -38,7 +38,7 @@ It is also possible to disable the use of signin tokens, which are used in some 
 
 ## Configuring the server encryption
 
-Since the [server database is a critical resource to protect](../detailed-descriptions/the-server-database.md), it is possible to set a field-level encryption password:
+Since the [server database is a critical resource to protect](../detailed-descriptions/database-and-storage/the-server-database.md), it is possible to set a field-level encryption password:
 
 ```
 --settings-encryption-key=<encryption key>
@@ -66,7 +66,7 @@ Note that this is exclusive with `--disable-db-encryption` and that the server w
 
 ## External access to the server
 
-The server will by default only listen to requests on the local machine., which is done to ensure that requests from the local network cannot access the Duplicati instance. However, any applications that are running on the same machine will be able to send commands to Duplicati. To prevent local privilege escalation attacks, Duplicati requires a [password](../detailed-descriptions/duplicati-access-password.md) and a [valid token](../technical-details/server-authentication-model.md) for all requests.
+The server will by default only listen to requests on the local machine., which is done to ensure that requests from the local network cannot access the Duplicati instance. However, any applications that are running on the same machine will be able to send commands to Duplicati. To prevent local privilege escalation attacks, Duplicati requires a [password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md) and a [valid token](../technical-details/server-authentication-model.md) for all requests.
 
 To activate access from the local network, the server must be started with:
 
@@ -103,7 +103,7 @@ Once you have the desired certificate, in `.pfx` aka `.p12` format, you can prov
 --webservice-sslcertificatepassword=<password to ssl file>
 ```
 
-After starting the server with an SSL certificate, the certificate is stored in the [server database](../detailed-descriptions/the-server-database.md) with a randomly generated password. Any subsequent launches of the server will then use the certificate and the server will only communicate over https.
+After starting the server with an SSL certificate, the certificate is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) with a randomly generated password. Any subsequent launches of the server will then use the certificate and the server will only communicate over https.
 
 To change the certificate, exit all running instances, then run again once with the new certificate path, as shown above, and the internally stored certificate will be replaced.
 
@@ -127,7 +127,7 @@ If you are developing a new UI for Duplicati, or prefer to use a customized UI, 
 --webservice-api-only=true
 ```
 
-This option will fully disable the serving of static files and only leave the API available.&#x20;
+This option will fully disable the serving of static files and only leave the API available.
 
 If instead, you would like to serve a different folder, you can use the option to set the webroot:
 
@@ -185,7 +185,9 @@ By default, Duplicati will use the location that is recommended by the operating
 * Linux: `~/.config/Duplicati`
 * MacOS: `~/Library/Application Support`
 
-These paths are sensitive to the user context, meaning that the actual paths will change based on the user that is running the Server. This is especially important when running the server with elevated privileges, because this usually causes it to run in a different user context, resulting in different paths.
+These paths are sensitive to the user context, meaning that the actual paths will change based on the user that is running the Server. This is especially important when running the server with elevated privileges, because this usually causes it to run in a different user context, resulting in different paths.&#x20;
+
+For more details on the location in different versions, refer to the [storage section for the server database](../detailed-descriptions/database-and-storage/the-server-database.md). For details on security aspects of the database folder, see the [section on server database permissions](../detailed-descriptions/database-and-storage/the-server-database.md#limited-access-to-the-database-folder).
 
 To force a specific folder to be used, set the option:
 
@@ -205,7 +207,7 @@ If both are supplied, the commandline options are used.
 
 For the server options, it is also possible to supply them as environment variables. This makes it easier to toggle options from Docker-like setups where is is desirable to have then entire service config in a single file, and setting commandline arguments may be error prone.
 
-Any of the commandline options for the server an be applied by transforming the option name to an environment variable name. The transformation is to upper-case the option, change hyphen, `-`, to underscore, `_`, and prepend `DUPLICATI__`.&#x20;
+Any of the commandline options for the server an be applied by transforming the option name to an environment variable name. The transformation is to upper-case the option, change hyphen, `-`, to underscore, `_`, and prepend `DUPLICATI__`.
 
 For example, to set the commandline option `--webservice-api-only=true` with an environment variable:
 
