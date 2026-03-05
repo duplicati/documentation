@@ -19,6 +19,7 @@
 
 ## Configuration & Management
 
+* [Configuring HTTPS](detailed-descriptions/configuration-and-management/configuring-https.md)
 * [Import and export backup configurations](detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md)
 * [Migrating Duplicati to a new machine](detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine.md)
 * [Preload settings](detailed-descriptions/configuration-and-management/preload-settings.md)
@@ -125,6 +126,7 @@
   * [AutoUpdater](duplicati-programs/command-line-interface-cli-1/autoupdater.md)
   * [BackendTester](duplicati-programs/command-line-interface-cli-1/backendtester.md)
   * [BackendTool](duplicati-programs/command-line-interface-cli-1/backendtool.md)
+  * [ConfigureTool](duplicati-programs/command-line-interface-cli-1/configuretool.md)
   * [RecoveryTool](duplicati-programs/command-line-interface-cli-1/recoverytool.md)
   * [SecretTool](duplicati-programs/command-line-interface-cli-1/secrettool.md)
   * [ServerUtil](duplicati-programs/command-line-interface-cli-1/serverutil.md)
