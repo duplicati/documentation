@@ -6,20 +6,20 @@ description: This page describes common scenarios for configuring Duplicati with
 
 Before you can install Duplicati, you need to decide on three different parameters:
 
-* The type you want: [GUI](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md).&#x20;
-* You machine CPU type: x64, Arm64, or x86 (32 bit)
+- The type you want: [GUI](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md).&#x20;
+- You machine CPU type: x64, Arm64, or x86 (32 bit)
 
 ## Deciding on type
 
-To use Duplicati on Windows, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../../duplicati-programs/trayicon.md)), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md)). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types.
+To use Duplicati on Windows, you first need to decide which kind of instance you want: GUI (aka [TrayIcon](../../duplicati-programs/trayicon.md)), [Server](../../duplicati-programs/server.md), [Agent](../../duplicati-programs/agent.md), [CLI](../../duplicati-programs/command-line-interface-cli.md). The section on [Choosing Duplicati Type](./choosing-duplicati-type.md) has more details on each of the different types.
 
 ## Determine CPU architecture
 
 Finally you need to locate information on what CPU architecture you are using:
 
-* x64: 64bit Intel or AMD based CPU. This is the most common CPU at this time.
-* Arm64: 64bit ARM based CPU. Some laptops, tablets and servers use it.
-* x86: 32bit Intel or AMD based CPU. Note that Windows 10 was the last version to support 32 bit processors.
+- x64: 64bit Intel or AMD based CPU. This is the most common CPU at this time.
+- Arm64: 64bit ARM based CPU. Some laptops, tablets and servers use it.
+- x86: 32bit Intel or AMD based CPU. Note that Windows 10 was the last version to support 32 bit processors.
 
 If you are in doubt, you can try the x64 version, or use [Microsofts guide for determining the CPU](https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d).
 
@@ -59,9 +59,11 @@ C:\Program Files\Duplicati 2\Duplicati.WindowsService.exe UNINSTALL
 When installing the Service it will automatically start, and likewise, uninstalling it will stop the service. If you need to pass options to the server, you can provide them to the INSTALL command:
 
 {% code overflow="wrap" %}
+
 ```
 C:\Program Files\Duplicati 2\Duplicati.WindowsService.exe INSTALL --webservice-port=8100 --server-datafolder=<path>
 ```
+
 {% endcode %}
 
 You can also use the [preload.json](../configuration-and-management/preload-settings.md) file to pass settings to the Server when running as a service, which allows you to change the settings without the uninstall/install cycle (you still need to restart the service).
@@ -69,9 +71,11 @@ You can also use the [preload.json](../configuration-and-management/preload-sett
 **Note**: When running the Windows Service it will default to use port 8200 and fail it that port is not available. If you are running the TrayIcon, that will run a **different** instance, usually at port 8300. If you want to connect the TrayIcon to the Windows Service, edit the shortcut to Duplicati:
 
 {% code overflow="wrap" %}
+
 ```
 C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe --no-hosted-server --host-url=http://localhost:8200 --webservice-password=<password>
 ```
+
 {% endcode %}
 
 ## Using the Agent
@@ -86,12 +90,12 @@ C:\Program Files\Duplicati 2\Duplicati.Agent.exe register <registration url>
 
 After the Agent has been registered, restart the service and it will now be available on the Duplicati Console.
 
-If you have  a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine) for registering the machine, and would like to automate the process, you can place a file in `C:\ProgramData\Duplicati\preload.json` with content similar to:
+If you have a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine) for registering the machine, and would like to automate the process, you can place a file in `C:\ProgramData\Duplicati\preload.json` with content similar to:
 
 ```json
 {
   "args": {
-    "agent": [ "--agent-registration-url=<registration-url>" ]
+    "agent": ["--agent-registration-url=<registration-url>"]
   }
 }
 ```
