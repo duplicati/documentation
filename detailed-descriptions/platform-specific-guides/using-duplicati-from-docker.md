@@ -29,7 +29,7 @@ Setting this environment variable will enable using desired hostnames instead of
 
 ## Managing secrets in Docker
 
-&#x20;Ideally, you need at least the settings encryption key provided to the container, but perhaps also the webservice password. You can easily provide this via a regular environment variable:
+Ideally, you need at least the settings encryption key provided to the container, but perhaps also the webservice password. You can easily provide this via a regular environment variable:
 
 ```yaml
 services:
@@ -126,4 +126,95 @@ services:
       SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
       DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
       DOTNET_SYSTEM_IO_DISABLEFILELOCKING: true
+```
+
+## Running behind a proxy
+
+If you want to run Duplicati behind an nginx proxy, you can use a `docker-compose` configuration like this example
+
+```yaml
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - duplicati
+    restart: unless-stopped
+
+  duplicati:
+    image: duplicati/duplicati:latest
+    environment:
+      - DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+```
+
+And then use an `nginx.conf` file like this example:
+
+```nginx
+events {
+  worker_connections 1024;
+}
+
+http {
+  server {
+    listen 8200;
+    server_name localhost;
+
+    location / {
+      proxy_pass http://duplicati:8200;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+    }
+  }
+}
+```
+
+### Pre-authenticated with reverse proxy
+
+If your proxy setup already authenticates the user and you prefer not having to use another password to access Duplicati, you can configure the proxy to forward a preconfigured authentication header.
+
+It is not possible to disable authentication for Duplicati, as that would make it possible to accidentially expose the server without access control. To avoid being asked for a password on each accss, you need to generate a random token that you can pass from the nginx server to Duplicati that serves as authentication and grants access to Duplicati.
+
+{% hint style="danger" %}
+This setup bypasses the Duplicati authentication so make sure your authentication system is sufficiently secure before deploying it.
+{% endhint %}
+
+When you have a secure random token, make Duplicati trust it via the pre-authenticated header:
+
+```yaml
+services:
+  myapp:
+    image: duplicati/duplicati:latest
+    volumes:
+      - ./data:/data
+    environment:
+      SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      DUPLICATI__WEBSERVICE_PRE_AUTH_TOKENS: "<secure random token>"
+```
+
+Then make the nginx proxy forward the header on each request:
+
+```nginx
+http {
+  server {
+    listen 8200;
+    server_name localhost;
+
+    location / {
+      proxy_pass http://duplicati:8200;
+      proxy_set_header PreAuth <secure random token>
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+    }
+  }
+}
 ```
