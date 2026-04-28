@@ -10,6 +10,14 @@ When using Duplicati, you need to decide on what type of instance you want to us
 * Server backup or headless: [Server](../../duplicati-programs/server.md), [CLI](../../duplicati-programs/command-line-interface-cli.md) or [Agent](../../duplicati-programs/agent.md)
 * Multiple machines: [Server](../../duplicati-programs/server.md), [CLI](../../duplicati-programs/command-line-interface-cli.md) or [Agent](../../duplicati-programs/agent.md)
 
+## Duplicati Package Types
+
+The [Duplicati installation packages](../../installation-details/package-options.md) are available in the following formats:
+
+* **GUI** includes: [TrayIcon](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), and [CLI](../../duplicati-programs/command-line-interface-cli-1/)
+* **CLI** includes: [Server](../../duplicati-programs/server.md) and [CLI](../../duplicati-programs/command-line-interface-cli-1/)
+* **Agent** includes: [Agent](../../duplicati-programs/agent.md) and [CLI](../../duplicati-programs/command-line-interface-cli-1/)
+
 ## The TrayIcon
 
 The [TrayIcon](../../duplicati-programs/trayicon.md) is meant to be the simplest way to run Duplicati with the minimal amount of effort required. The TrayIcon starts as a single process, registers with the machine desktop environment and shows a small icon in the system status bar (usually to the right, either top or bottom of the screen).
@@ -63,4 +71,3 @@ If you prefer to use the Server (or TrayIcon) but would like to trigger the back
 ### Using the CLI for on Server backups
 
 If you are using the Server (or TrayIcon) but you want to run a command that is not in the UI, it is possible to use the CLI to run commands on the backups defined in the Server. Note that the Server and CLI use different ways of keeping track of the [local database](../../database-and-storage/the-local-database.md), so you need to obtain the storage destination url and the database path from the Server and then run the CLI.
-
