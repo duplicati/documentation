@@ -1,5 +1,7 @@
 ---
-description: This page describes how Google Workspace backup and restore works with Duplicati
+description: >-
+  This page describes how Google Workspace backup and restore works with
+  Duplicati
 ---
 
 # Google Workspace backup and restore
@@ -7,7 +9,7 @@ description: This page describes how Google Workspace backup and restore works w
 Duplicati supports backing up and restoring Google Workspace data through the Google APIs. The backup workflow captures content in native formats (for example, RFC 2822 for email and JSON for structured objects), and restore operations re-create items through the appropriate Google API endpoints.
 
 {% hint style="info" %}
-Google Workspace backup and restore was added in Canary 2.2.0.105
+Google Workspace backup and restore was added in Stable 2.3
 {% endhint %}
 
 {% hint style="warning" %}
@@ -20,11 +22,11 @@ A license is required to use Google Workspace backup in production. Contact Dupl
 
 **Key characteristics**
 
-- **Format preservation**: Data is stored in native formats such as RFC 2822 (EML), JSON, and standard document formats. Drive documents are stored in their exported formats, such as PDF, DOCX, or XLSX.
-- **Metadata retention**: Original timestamps, identifiers, and properties are preserved where possible.
-- **Restore to local disk**: It is possible to restore all data to a local destination for forensics or manual investigation.
-- **Cross-user support**: Data from one user can be restored into another user account.
-- **Domain-wide backup**: Supports backing up all users in a Google Workspace domain via domain-wide delegation.
+* **Format preservation**: Data is stored in native formats such as RFC 2822 (EML), JSON, and standard document formats. Drive documents are stored in their exported formats, such as PDF, DOCX, or XLSX.
+* **Metadata retention**: Original timestamps, identifiers, and properties are preserved where possible.
+* **Restore to local disk**: It is possible to restore all data to a local destination for forensics or manual investigation.
+* **Cross-user support**: Data from one user can be restored into another user account.
+* **Domain-wide backup**: Supports backing up all users in a Google Workspace domain via domain-wide delegation.
 
 ### Google Workspace configuration options
 
@@ -80,23 +82,23 @@ When making backups of a Google Workspace domain, the advanced option `--store-m
 
 | Data type            | Backup | Restore | Notes                                          |
 | -------------------- | ------ | ------- | ---------------------------------------------- |
-| Users                | ✅     | ✅      | Individual user accounts and their data        |
-| Groups               | ✅     | ❌      | Google Groups and their settings (backup only) |
-| Shared Drives        | ✅     | ✅      | Team/Shared drives                             |
-| Sites                | ✅     | ❌      | Google Sites (backup only)                     |
-| Organizational Units | ✅     | ⚠️      | OU structure and hierarchy (limited restore)   |
+| Users                | ✅      | ✅       | Individual user accounts and their data        |
+| Groups               | ✅      | ❌       | Google Groups and their settings (backup only) |
+| Shared Drives        | ✅      | ✅       | Team/Shared drives                             |
+| Sites                | ✅      | ❌       | Google Sites (backup only)                     |
+| Organizational Units | ✅      | ⚠️      | OU structure and hierarchy (limited restore)   |
 
 #### Per-user data types
 
 | Data type       | Backup | Restore | Notes                                               |
 | --------------- | ------ | ------- | --------------------------------------------------- |
-| Gmail           | ✅     | ✅      | Emails, labels, settings, filters                   |
-| Google Drive    | ✅     | ✅      | Files, folders, permissions, comments               |
-| Google Calendar | ✅     | ✅      | Events, calendars, ACLs                             |
-| Google Contacts | ✅     | ✅      | Contact information and groups                      |
-| Google Tasks    | ✅     | ✅      | Task lists and individual tasks                     |
-| Google Keep     | ✅     | ✅      | Notes and attachments (limited attachement restore) |
-| Google Chat     | ✅     | ⚠️      | Spaces and messages (limited restore)               |
+| Gmail           | ✅      | ✅       | Emails, labels, settings, filters                   |
+| Google Drive    | ✅      | ✅       | Files, folders, permissions, comments               |
+| Google Calendar | ✅      | ✅       | Events, calendars, ACLs                             |
+| Google Contacts | ✅      | ✅       | Contact information and groups                      |
+| Google Tasks    | ✅      | ✅       | Task lists and individual tasks                     |
+| Google Keep     | ✅      | ✅       | Notes and attachments (limited attachement restore) |
+| Google Chat     | ✅      | ⚠️      | Spaces and messages (limited restore)               |
 
 ### Backup and restore details by type
 
@@ -104,54 +106,54 @@ When making backups of a Google Workspace domain, the advanced option `--store-m
 
 **Backup**
 
-- Emails exported as RFC 2822 (`.eml`) format with full headers and attachments.
-- Folder hierarchy captured and preserved as labels.
-- Label definitions, colors, and visibility settings backed up.
-- Email filters backed up as JSON.
-- Forwarding settings, vacation responder, signatures, and IMAP settings captured.
+* Emails exported as RFC 2822 (`.eml`) format with full headers and attachments.
+* Folder hierarchy captured and preserved as labels.
+* Label definitions, colors, and visibility settings backed up.
+* Email filters backed up as JSON.
+* Forwarding settings, vacation responder, signatures, and IMAP settings captured.
 
 **Restore**
 
-- Messages imported with a "Restored" label by default.
-- Original folder structure recreated within the target.
-- Duplicate detection via `Message-ID` header.
-- Labels recreated with original colors and visibility.
-- Settings restored to their original values.
+* Messages imported with a "Restored" label by default.
+* Original folder structure recreated within the target.
+* Duplicate detection via `Message-ID` header.
+* Labels recreated with original colors and visibility.
+* Settings restored to their original values.
 
 #### Google Drive
 
 **Backup**
 
-- Files downloaded with original content.
-- Google Workspace native files exported to standard formats (Docs → DOCX, Sheets → XLSX, Slides → PPTX, Drawings → PNG).
-- Folder structure and metadata captured.
-- Sharing permissions and access controls recorded.
-- File comments and replies backed up.
-- Previous file versions backed up as binary data.
+* Files downloaded with original content.
+* Google Workspace native files exported to standard formats (Docs → DOCX, Sheets → XLSX, Slides → PPTX, Drawings → PNG).
+* Folder structure and metadata captured.
+* Sharing permissions and access controls recorded.
+* File comments and replies backed up.
+* Previous file versions backed up as binary data.
 
 **Restore**
 
-- Files restored to a "Restored" folder by default.
-- Folder hierarchy is recreated.
-- Binary files uploaded as new revisions when duplicates exist.
-- Permissions restored (except owner permissions which cannot be set via API).
-- Comments recreated on restored files.
-- Restores between shared and personal drives supported both ways.
+* Files restored to a "Restored" folder by default.
+* Folder hierarchy is recreated.
+* Binary files uploaded as new revisions when duplicates exist.
+* Permissions restored (except owner permissions which cannot be set via API).
+* Comments recreated on restored files.
+* Restores between shared and personal drives supported both ways.
 
 **Duplicate detection**
 
-- Name + path matching
-- Size comparison
-- Hash comparison
+* Name + path matching
+* Size comparison
+* Hash comparison
 
 #### Google Calendar
 
 **Backup**
 
-- Events exported as JSON and ICS formats.
-- Recurrence patterns captured.
-- Event attachments backed up as binary files.
-- Calendar sharing permissions (ACLs) captured.
+* Events exported as JSON and ICS formats.
+* Recurrence patterns captured.
+* Event attachments backed up as binary files.
+* Calendar sharing permissions (ACLs) captured.
 
 {% hint style="info" %}
 Calendar ACLs require write permissions to read. If your backup account does not have write permissions, use the `--google-ignore-calendar-acl` option to skip ACL backup.
@@ -159,54 +161,54 @@ Calendar ACLs require write permissions to read. If your backup account does not
 
 **Restore**
 
-- Events restored to a "Restored" calendar by default.
-- Duplicate detection based on `iCalUID`.
-- Attachments uploaded to Drive and linked to events.
-- ACLs recreated (except owner permissions).
+* Events restored to a "Restored" calendar by default.
+* Duplicate detection based on `iCalUID`.
+* Attachments uploaded to Drive and linked to events.
+* ACLs recreated (except owner permissions).
 
 #### Google Contacts
 
 **Backup**
 
-- Contacts exported as JSON and vCard formats.
-- Contact photos backed up as binary files.
-- Contact groups and membership captured.
-- Folder hierarchy preserved.
+* Contacts exported as JSON and vCard formats.
+* Contact photos backed up as binary files.
+* Contact groups and membership captured.
+* Folder hierarchy preserved.
 
 **Restore**
 
-- Contacts created with duplicate detection based on email address.
-- Contact photos uploaded separately after contact creation.
-- Contacts added to restored groups.
+* Contacts created with duplicate detection based on email address.
+* Contact photos uploaded separately after contact creation.
+* Contacts added to restored groups.
 
 #### Google Tasks
 
 **Backup**
 
-- Task lists enumerated with all properties.
-- Tasks captured with full details.
-- Task relationships and completion status preserved.
+* Task lists enumerated with all properties.
+* Tasks captured with full details.
+* Task relationships and completion status preserved.
 
 **Restore**
 
-- Task lists recreated with original titles.
-- Tasks restored to their respective lists.
-- Orphaned tasks placed in a "Restored" task list.
-- Duplicate detection based on task title.
+* Task lists recreated with original titles.
+* Tasks restored to their respective lists.
+* Orphaned tasks placed in a "Restored" task list.
+* Duplicate detection based on task title.
 
 #### Google Keep
 
 **Backup**
 
-- Notes captured with content, title, and metadata.
-- Attachments (images and other files) backed up as binary data (including Drive files).
+* Notes captured with content, title, and metadata.
+* Attachments (images and other files) backed up as binary data (including Drive files).
 
 **Restore**
 
-- Notes recreated with original titles and content.
-- Attachments uploaded to Drive and linked in the note.
-- Duplicate detection based on note title.
-- Note body includes links to restored attachments.
+* Notes recreated with original titles and content.
+* Attachments uploaded to Drive and linked in the note.
+* Duplicate detection based on note title.
+* Note body includes links to restored attachments.
 
 {% hint style="info" %}
 The Keep API does not support direct attachment uploads. Attachments are uploaded to Drive and referenced in the restored note.
@@ -216,31 +218,31 @@ The Keep API does not support direct attachment uploads. Attachments are uploade
 
 **Backup**
 
-- Chat spaces enumerated with settings.
-- Messages captured with content.
-- Message attachments backed up as binary files.
-- Membership information preserved.
+* Chat spaces enumerated with settings.
+* Messages captured with content.
+* Message attachments backed up as binary files.
+* Membership information preserved.
 
 **Restore**
 
-- Spaces can be recreated with original settings.
-- Messages can be posted to spaces (with limitations).
+* Spaces can be recreated with original settings.
+* Messages can be posted to spaces (with limitations).
 
 {% hint style="warning" %}
 Chat restore has significant limitations:
 
-- Messages appear as being created by the impersonated user, not the original sender
-- Use of the Import API is not currently supported
-  {% endhint %}
+* Messages appear as being created by the impersonated user, not the original sender
+* Use of the Import API is not currently supported
+{% endhint %}
 
 #### Google Groups (backup only)
 
 **Backup**
 
-- Group metadata and settings captured.
-- Membership lists backed up.
-- Group email aliases preserved.
-- Group email conversations backed up.
+* Group metadata and settings captured.
+* Membership lists backed up.
+* Group email aliases preserved.
+* Group email conversations backed up.
 
 **Restore**
 
@@ -250,8 +252,8 @@ Groups cannot be restored through the API. Group data is backed up for reference
 
 **Backup**
 
-- Site metadata captured.
-- Content backed up where API permits.
+* Site metadata captured.
+* Content backed up where API permits.
 
 {% hint style="warning" %}
 Sites cannot be restored through the API. The Sites API has limited export capabilities, and Sites data is backed up for reference purposes only.
@@ -261,27 +263,26 @@ Sites cannot be restored through the API. The Sites API has limited export capab
 
 **Backup**
 
-- Shared drive metadata captured.
-- Drive-level permissions recorded.
-- Files and folders backed up (same as user Drive).
+* Shared drive metadata captured.
+* Drive-level permissions recorded.
+* Files and folders backed up (same as user Drive).
 
 **Restore**
 
-- Shared drive permissions restored (with role limitations).
-- Content restored maintaining folder structure.
-- File organizer and organizer roles only valid for shared drives.
+* Shared drive permissions restored (with role limitations).
+* Content restored maintaining folder structure.
+* File organizer and organizer roles only valid for shared drives.
 
 #### Organizational Units
 
 **Backup**
 
-- Organizational unit hierarchy captured.
-- OU-specific settings backed up.
+* Organizational unit hierarchy captured.
+* OU-specific settings backed up.
 
 **Restore**
 
-OU data is backed up for reference purposes only.
-Manual configuration is required for restores.
+OU data is backed up for reference purposes only. Manual configuration is required for restores.
 
 ### Technical limitations
 
@@ -322,8 +323,8 @@ For restores into Google Workspace, data is technically "created again" as the A
 
 Google APIs have usage quotas. The implementation includes exponential backoff for:
 
-- HTTP 429 (Too Many Requests)
-- HTTP 503 (Service Unavailable)
+* HTTP 429 (Too Many Requests)
+* HTTP 503 (Service Unavailable)
 
 | API          | Default Quota               | Recommendation            |
 | ------------ | --------------------------- | ------------------------- |
@@ -419,11 +420,11 @@ Permissions are divided by operation (backup vs restore). All permissions requir
 
 #### Storage requirements
 
-- Email: RFC 2822 content + JSON metadata per message
-- Files: Original file size + metadata overhead
-- Calendar: JSON per event (typically 1–10 KB)
-- Contacts: JSON per contact (typically 1–5 KB)
-- Tasks: JSON per task (typically 0.5–2 KB)
+* Email: RFC 2822 content + JSON metadata per message
+* Files: Original file size + metadata overhead
+* Calendar: JSON per event (typically 1–10 KB)
+* Contacts: JSON per contact (typically 1–5 KB)
+* Tasks: JSON per task (typically 0.5–2 KB)
 
 ### Best practices
 
@@ -466,13 +467,13 @@ Permissions are divided by operation (backup vs restore). All permissions requir
 
 ### References
 
-- [Google Workspace Admin SDK Directory API](https://developers.google.com/admin-sdk/directory)
-- [Gmail API Reference](https://developers.google.com/gmail/api/reference/rest)
-- [Google Drive API Reference](https://developers.google.com/drive/api/reference/rest/v3)
-- [Google Calendar API Reference](https://developers.google.com/calendar/api/v3/reference)
-- [Google People API Reference](https://developers.google.com/people/api/rest)
-- [Google Tasks API Reference](https://developers.google.com/tasks/reference/rest)
-- [Google Keep API Reference](https://developers.google.com/keep/api/reference/rest)
-- [Google Chat API Reference](https://developers.google.com/chat/api/reference/rest)
-- [Google Cloud Console](https://console.cloud.google.com/)
-- [Google Admin Console](https://admin.google.com/)
+* [Google Workspace Admin SDK Directory API](https://developers.google.com/admin-sdk/directory)
+* [Gmail API Reference](https://developers.google.com/gmail/api/reference/rest)
+* [Google Drive API Reference](https://developers.google.com/drive/api/reference/rest/v3)
+* [Google Calendar API Reference](https://developers.google.com/calendar/api/v3/reference)
+* [Google People API Reference](https://developers.google.com/people/api/rest)
+* [Google Tasks API Reference](https://developers.google.com/tasks/reference/rest)
+* [Google Keep API Reference](https://developers.google.com/keep/api/reference/rest)
+* [Google Chat API Reference](https://developers.google.com/chat/api/reference/rest)
+* [Google Cloud Console](https://console.cloud.google.com/)
+* [Google Admin Console](https://admin.google.com/)
