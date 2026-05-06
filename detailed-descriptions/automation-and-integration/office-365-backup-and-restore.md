@@ -7,7 +7,7 @@ description: This page describes how Microsoft 365 backup and restore works with
 Duplicati supports backing up and restoring Microsoft 365 (Office 365) data through the Microsoft Graph API. The backup workflow captures content in native formats (for example, MIME for email and JSON for structured objects), and restore operations re-create items through the appropriate Graph API endpoints.
 
 {% hint style="info" %}
-Office 365 backup and restore was added in Stable 2.3
+Microsoft 365 backup and restore was added in Stable 2.3
 {% endhint %}
 
 {% hint style="warning" %}
