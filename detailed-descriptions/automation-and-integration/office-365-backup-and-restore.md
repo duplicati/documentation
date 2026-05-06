@@ -1,19 +1,19 @@
 ---
-description: This page describes how Office 365 backup and restore works with Duplicati
+description: This page describes how Microsoft 365 backup and restore works with Duplicati
 ---
 
-# Office 365 backup and restore
+# Microsoft 365 backup and restore
 
-Duplicati supports backing up and restoring Microsoft Office 365 (Microsoft 365) data through the Microsoft Graph API. The backup workflow captures content in native formats (for example, MIME for email and JSON for structured objects), and restore operations re-create items through the appropriate Graph API endpoints.
+Duplicati supports backing up and restoring Microsoft 365 (Office 365) data through the Microsoft Graph API. The backup workflow captures content in native formats (for example, MIME for email and JSON for structured objects), and restore operations re-create items through the appropriate Graph API endpoints.
 
 {% hint style="info" %}
-Office 365 backup and restore was added in Canary 2.2.0.104
+Office 365 backup and restore was added in Stable 2.3
 {% endhint %}
 
 {% hint style="warning" %}
-The Office 365 backup feature has a limit that covers up to **5 mailboxes or sites**. The Office 365 backup feature is source-available, but **not open-source** like the rest of Duplicati. There are no limitations on restore.
+The Microsoft 365 backup feature has a limit that covers up to **5 mailboxes or sites**. The Office 365 backup feature is source-available, but **not open-source** like the rest of Duplicati. There are no limitations on restore.
 
-A license is required to use Office 365 backup in production. Contact Duplicati Inc. support or sales to obtain a license.
+A license is required to use Microsoft 365 backup in production. Contact Duplicati Inc. support or sales to obtain a license.
 {% endhint %}
 
 ### Overview
@@ -26,11 +26,11 @@ A license is required to use Office 365 backup in production. Contact Duplicati 
 * **Cross-tenant support**: Data can be restored into different tenants.
 * **Cross-target support**: Data from one user/group/site can be restored into another.
 
-### Office 365 configuration options
+### Microsoft 365 configuration options
 
-To use the Office 365 backup source you must supply a tenant ID and either a client secret or a certificate. When choosing what to back up, it is possible to filter on types (users, groups, etc), and possible to apply filters to obtain fine-grained exclusion of data.
+To use the Microsoft 365 backup source you must supply a tenant ID and either a client secret or a certificate. When choosing what to back up, it is possible to filter on types (users, groups, etc), and possible to apply filters to obtain fine-grained exclusion of data.
 
-When making backups of an Office 365 tenant, the advanced option `--store-metadata-content-in-database` must be activated.
+When making backups of an Microsoft 365 tenant, the advanced option `--store-metadata-content-in-database` must be activated.
 
 #### Authentication methods
 
@@ -278,7 +278,7 @@ All OneNote items require delegated permissions
 #### Data fidelity limitations
 
 {% hint style="info" %}
-For restores into an Office 365 tenant, data is technically "created again" as the API does not support restoring content. Visually the data looks the same but internal values, such as timestamps or references may be different in the restored version.
+For restores into a Microsoft 365 tenant, data is technically "created again" as the API does not support restoring content. Visually the data looks the same but internal values, such as timestamps or references may be different in the restored version.
 {% endhint %}
 
 | Data type | Limitation                                                   |
