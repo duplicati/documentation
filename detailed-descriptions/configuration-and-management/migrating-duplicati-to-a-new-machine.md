@@ -16,11 +16,21 @@ If you have access to backup configurations, jump to the [section for moving wit
 
 If the previous machine is still accessible, you can copy over the contents of the `Duplicati` folder containing the the configuration database `Duplicati-server.sqlite` and the other support database. This approach is by far the fastest as Duplicati has all the information and does not need to check up with the remote storage.
 
-Make sure to stop Duplicati before moving in the folder into the same location on the new machine. After moving in the folder, you can start Duplicati again and everything will be working as before. If it has been a while since the previous instance was running, this may trigger the scheduled backups on startup. Use the option `--startup-delay=5min` to start Duplicati in pause mode for 5 minutes if you want to check up before it starts running.
+{% hint style="info" %}
+From version 2.3 the default is to encrypt the configuration database, and you need to decrypt it before copying. If you have disabled database encryption, you can skip the decryption step.
+{% endhint %}
+
+Before making a copy you need to decrypt the settings database so it can be read on the new machine. The new machine will encrypt it when Duplicati starts, using a new unique key for that machine. To decrypt the database, follow these steps on the machine you are moving from:
+
+1. Stop Duplicati
+2. Start Duplicati with the commandline option `--disable-db-encryption=true`
+3. Stop Duplicati again
+
+Make sure Duplicati is stopped before moving in the folder into the same location on the new machine. After moving in the folder, you can start Duplicati on the new machine and everything will be working as before. If it has been a while since the previous instance was running, this may trigger the scheduled backups on startup. Use the option `--startup-delay=5min` to start Duplicati in pause mode for 5 minutes if you want to check up before it starts running.
 
 ## Backup configurations are available
 
-If you have the backup configurations, see the section on [import/export configuration](./import-and-export-backup-configurations.md) for a guide on how to create the backup jobs from the configuration files.
+If you don't have the backup configurations, see the section on [import/export configuration](import-and-export-backup-configurations.md) for a guide on how to create the backup jobs from the configuration files.
 
 With the backup configurations, it is possible to re-create the backup configurations. The flow allows you to modify set setup before saving the configuration, in case some details have changed. Once the backup is re-created, it is required that you run the repair operation to make Duplicati recreate the [local database](../../database-and-storage/the-local-database.md) for the backup.
 
