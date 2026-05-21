@@ -16,11 +16,9 @@ This mechanism works for most default installations and is secure as long as the
 
 The downside is that you can bookmark the Duplicati page, but you may be asked for a password that you do not know when accessing the page. In this case, re-launching from the TrayIcon will log you in again.
 
-If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.&#x20;
+If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.
 
 Login with the TrayIcon is shown here for MacOS, but the same works on Linux and Windows:
-
-<figure><img src="../.gitbook/assets/Launch From TrayIcon.gif" alt="" width="358"><figcaption><p>Log in with the TrayIcon</p></figcaption></figure>
 
 ## Temporary signin token
 
@@ -38,7 +36,7 @@ For MacOS you can use the [Console app](https://support.apple.com/lt-lt/guide/co
 
 Once you have obtained the link, simply click it or paste it into a browser. Note that the sign-in token has a short lifetime to prevent it being used to gain unathorized access from someone who obtains the logs. If the link has expired, simply restart the service or application and a new link will be generated.
 
-After a password has been set, the link will no longer be generated.&#x20;
+After a password has been set, the link will no longer be generated.
 
 ## Change password with ServerUtil
 
@@ -87,11 +85,28 @@ If the other options are not available, it is possible to restart the [Server](.
 --webservice-password=<new password>
 ```
 
-This will write a hashed ([PBKDF](https://en.wikipedia.org/wiki/PBKDF2)) version of the new password to the database and use this going forward. This process requires restarting the server, but is persisted in the database, so it is only required to start the server once with with the `--webservice-password` option and future starts can be done without the password.&#x20;
+This will write a hashed ([PBKDF](https://en.wikipedia.org/wiki/PBKDF2)) version of the new password to the database and use this going forward. This process requires restarting the server, but is persisted in the database, so it is only required to start the server once with with the `--webservice-password` option and future starts can be done without the password.
 
 Since commandline arguments and environment variables can be viewed through various system tools, it is recommended that the option is not set on every launch. A prefered way to set this would be to stop all running instances, start once with the new password from a commandline terminal, shut down, and then start again normally.
 
 The option can also be supplied to the [TrayIcon](../../duplicati-programs/trayicon.md) and [Agent](../../duplicati-programs/agent.md) processes, which will pass it on to their internal instance of the Server.
+
+### Change the password for a service
+
+To change the password for a running service, you can grab the [temporary signin token from the logs as explained above](duplicati-access-password.md#temporary-signin-token). If that approach is not possible, and the [ServerUtil approach](duplicati-access-password.md#change-password-with-serverutil) is not an option either, you can also instruct the service to change the password. This works by passing the `--webservice-password` command to the service, instructing it to reset the password. To avoid leaking the actual password, it is recommended that you choose a temporary password and  run the following steps (example for Windows):
+
+```
+Duplicati.WindowsService.exe UNINSTALL
+Duplicati.WindowsService.exe INSTALL --webservice-password=<temporary-password>
+Duplicati.WindowsService.exe UNINSTALL
+Duplicati.WindowsService.exe INSTALL
+```
+
+After this sequence, you can now log in to Duplicati using the temporary password, and change it to a real password. It is recommended that you use a temporary password because there is a chance that the password given to `INSTALL` will be written to a log. By using a temporary password you ensure that the real password is never persisted.
+
+Since the `UNINSTALL` and `INSTALL` steps will automatically stop/start the service, this sequence will make the service start once with the `--webservice-password=<temporary-password>` option, and then restart without the option.
+
+If you only run the first two steps, the service will continue to reset the password on each startup, and your password will be present in the service commandline and possibly also captured in logs.
 
 ## Disable sign-in tokens
 
@@ -101,6 +116,6 @@ It is possible to disable the use of sign-in tokens completely, which can increa
 --webservice-disable-signin-tokens=true
 ```
 
-This will make the [Server](../../duplicati-programs/server.md) reject any sign-in tokens and prevent the access from the TrayIcon and ServerUtil without explicitly passing the password. With this option, it will require write access to the database to create a new token, but it will also require handling the password in a safe manner from all instances where this is needed.&#x20;
+This will make the [Server](../../duplicati-programs/server.md) reject any sign-in tokens and prevent the access from the TrayIcon and ServerUtil without explicitly passing the password. With this option, it will require write access to the database to create a new token, but it will also require handling the password in a safe manner from all instances where this is needed.
 
 This option can also be supplied to the [TrayIcon](../../duplicati-programs/trayicon.md) process and is default enabled by the [Agent](../../duplicati-programs/agent.md).
