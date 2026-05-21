@@ -1,5 +1,7 @@
 ---
-description: This page describes the Duplicati ConfigureTool for managing HTTPS certificates.
+description: >-
+  This page describes the Duplicati ConfigureTool for managing HTTPS
+  certificates.
 ---
 
 # ConfigureTool
@@ -15,6 +17,8 @@ The configure tool was added in Canary 2.2.0.106
 ## Overview
 
 Duplicati can automatically generate HTTPS certificates for secure web UI access. Since Duplicati uses localhost serving by default, there is no external Certificate Authority (CA) to request certificates from. Instead, Duplicati generates its own local CA and uses it to sign server certificates. This approach allows automatic certificate renewal without requiring manual intervention every 90 days.
+
+After running the `generate` command once, Duplicati will be configured for HTTPS access and will automatically handle certificate generation and renewal with no further action required.
 
 {% hint style="warning" %}
 **Security Notice:** The CA private key is stored in the Duplicati database. If someone gains access to the database, they could use the CA to sign certificates for other domains, potentially enabling man-in-the-middle attacks. Enable database encryption for maximum security.
@@ -122,9 +126,9 @@ duplicati-configure https remove
 
 This is useful when:
 
-- You no longer need HTTPS
-- You suspect the CA has been compromised
-- You want to clean up before uninstalling Duplicati
+* You no longer need HTTPS
+* You suspect the CA has been compromised
+* You want to clean up before uninstalling Duplicati
 
 #### Options
 
@@ -146,10 +150,10 @@ duplicati-configure https show
 
 This displays:
 
-- CA certificate details (subject, issuer, validity dates, trust store status)
-- Server certificate details (subject, issuer, validity dates, DNS names, IP addresses)
-- Database encryption status
-- Certificate expiration status
+* CA certificate details (subject, issuer, validity dates, trust store status)
+* Server certificate details (subject, issuer, validity dates, DNS names, IP addresses)
+* Database encryption status
+* Certificate expiration status
 
 #### Options
 
@@ -223,24 +227,24 @@ For Flatpak or Snap installations, browsers run in a sandbox that may restrict f
 
 ### Local-Only CA
 
-- The CA is generated locally on your machine and is not shared with any external service
-- The CA certificate is installed only in your system's local trust store
-- Other machines do not trust this CA unless explicitly configured to do so
-- The CA should never be exported or shared with other systems
+* The CA is generated locally on your machine and is not shared with any external service
+* The CA certificate is installed only in your system's local trust store
+* Other machines do not trust this CA unless explicitly configured to do so
+* The CA should never be exported or shared with other systems
 
 ### CA Constraints
 
 The CA certificate has `pathLenConstraint=0` in its Basic Constraints extension, which means:
 
-- The CA can sign end-entity (server) certificates
-- The CA **cannot** sign subordinate/intermediate CA certificates
-- This limits the scope of trust to only certificates directly signed by this CA
+* The CA can sign end-entity (server) certificates
+* The CA **cannot** sign subordinate/intermediate CA certificates
+* This limits the scope of trust to only certificates directly signed by this CA
 
 ### Certificate Validity Periods
 
-- **CA Certificate:** Valid for approximately 10 years
-- **Server Certificate:** Valid for 90 days (browser requirement)
-- **Auto-renewal:** Server certificates are automatically renewed 30 days before expiration
+* **CA Certificate:** Valid for approximately 10 years
+* **Server Certificate:** Valid for 90 days (browser requirement)
+* **Auto-renewal:** Server certificates are automatically renewed 30 days before expiration
 
 ### CA Key Storage Security
 
@@ -269,9 +273,9 @@ If you suspect your CA private key has been compromised:
 
 If you prefer providing your own certificate instead of using the auto-generated CA, you can do so by setting the `server-ssl-certificate` and `server-ssl-certificatepassword` settings. When using custom certificates:
 
-- Auto-renewal will not be activated
-- No CA will be generated
-- You are responsible for certificate renewal
+* Auto-renewal will not be activated
+* No CA will be generated
+* You are responsible for certificate renewal
 
 See the [Server documentation](../server.md) for details on configuring custom SSL certificates.
 
