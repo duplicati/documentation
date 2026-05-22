@@ -8,7 +8,7 @@ The main application in the Duplicati installation is the TrayIcon program, call
 
 The TrayIcon executable is a fairly small program that has as the primary task to register with the operating system desktop environment, and place a status icon in the desktop tray, menu, or statusbar.
 
-The TrayIcon is connected to the server and will change the displayed icon based on the server state. Opening the associated context menu, provides the option to quite, pause/resume, or open the UI.
+The TrayIcon is connected to the server and will change the displayed icon based on the server state. Opening the associated context menu, provides the option to quit, pause/resume, or open the UI.
 
 <div><figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 13.44.56.png" alt="" width="157"><figcaption><p>TrayIcon on Windows</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 13.49.11.png" alt="" width="186"><figcaption><p>Status icon on Ubuntu</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 12.18.52.png" alt="" width="129"><figcaption><p>Statusbar icon on MacOS</p></figcaption></figure></div>
 
