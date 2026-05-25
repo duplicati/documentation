@@ -6,7 +6,7 @@ description: >-
 
 # DatabaseTool
 
-The DatabaseTool is intended to assist with changing the databases used by Duplicati. Duplicati has a single [settings database for the server](../../detailed-descriptions/the-server-database.md) and a [local database for each backup job](../../detailed-descriptions/the-local-database.md), and the DatabaseTool can manage both.
+The DatabaseTool is intended to assist with changing the databases used by Duplicati. Duplicati has a single [settings database for the server](../../detailed-descriptions/database-and-storage/the-server-database.md) and a [local database for each backup job](../../detailed-descriptions/database-and-storage/the-local-database.md), and the DatabaseTool can manage both.
 
 The DatabaseTool is called `Duplicati.CommandLine.DatabaseTool.exe` on Windows and `duplicati-database-tool` on Linux and MacOS. The tool supports 4 operations: `downgrade`, `upgrade`, `list` and `execute`.
 

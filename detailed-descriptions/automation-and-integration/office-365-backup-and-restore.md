@@ -26,6 +26,24 @@ A license is required to use Microsoft 365 backup in production. Contact Duplica
 * **Cross-tenant support**: Data can be restored into different tenants.
 * **Cross-target support**: Data from one user/group/site can be restored into another.
 
+### Configure Microsoft 365 backup
+
+To add a Microsoft 365 tenant to the backup, [set up a backup following the regular steps](../../getting-started/set-up-a-backup-in-the-ui.md). Then on the source page, click "Add remote path" in the top right:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.52.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.14.png" alt=""></picture><figcaption></figcaption></figure>
+
+Type "365" in the search bar, or scroll down and find "Microsoft 365" in the list and click "Choose":
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.01.06.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.29.png" alt="" width="375"></picture><figcaption></figcaption></figure>
+
+Fill in the information to setup the configuration. You need a Tenant Id, Client Id and Client Secret for the regular setup:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.01.13.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.40.png" alt="" width="563"></picture><figcaption></figcaption></figure>
+
+Remember to test the configuration before clicking "Use remote source". You can also add the advanced options if you want to limit the content that is backed up. By default, everything is backed up:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.06.29.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.06.08.png" alt="" width="563"></picture><figcaption></figcaption></figure>
+
 ### Microsoft 365 configuration options
 
 To use the Microsoft 365 backup source you must supply a tenant ID and either a client secret or a certificate. When choosing what to back up, it is possible to filter on types (users, groups, etc), and possible to apply filters to obtain fine-grained exclusion of data.

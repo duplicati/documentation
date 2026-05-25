@@ -22,7 +22,7 @@ The **Access key** can be found on the Storage Account under "Security + Network
 Access keys are shared for the Storage Account and the key gives access to all containers in the Storage Account. If you want privilege separation, set up a Service SAS for each backup.
 {% endhint %}
 
-If you want to use key rotation, consider using a [secret provider](../../detailed-descriptions/using-the-secret-provider/) and store the keys in the secret provider, so they are always up-to-date.&#x20;
+If you want to use key rotation, consider using a [secret provider](../../detailed-descriptions/security-and-secrets/using-the-secret-provider/) and store the keys in the secret provider, so they are always up-to-date.&#x20;
 
 You do not need a separate container for each backup, you can use prefixes to distinguish them, but using individual containers makes it easier to manage rules for each backup.
 

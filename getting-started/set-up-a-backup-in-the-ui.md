@@ -4,13 +4,13 @@ description: Describes how to configure a backup in Duplicati
 
 # Set up a backup in the UI
 
-Once Duplicati is running, you can set up a backup through the UI. If the UI is not showing, you can use the [TrayIcon](../duplicati-programs/trayicon.md) in your system menu bar and choose "Open". If you are asked for a password before logging in to the UI, see [how to access without a password](../detailed-descriptions/duplicati-access-password.md).
+Once Duplicati is running, you can set up a backup through the UI. If the UI is not showing, you can use the [TrayIcon](../duplicati-programs/trayicon.md) in your system menu bar and choose "Open". If you are asked for a password before logging in to the UI, see [how to access without a password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md).
 
 In the UI, start by clicking "Add backup", and choose the option "Add a new backup":
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15 (1).png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32 (1).png" alt=""></picture><figcaption><p>Configuring a new backup</p></figcaption></figure>
 
-If you have an existing backup configuration you want to load in, see the [section on import/export](../detailed-descriptions/import-and-export-backup-configurations.md).
+If you have an existing backup configuration you want to load in, see the [section on import/export](../detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md).
 
 To set up a new backup there are some details that are required, and these are divided into 5 steps:
 
@@ -34,9 +34,7 @@ The encryption setup allows you to choose an encryption method and a passphrase.
 **Be sure to store the chosen or generated passphrase in a safe location** as it is not possible to recover anything if this passphrase is lost!
 {% endhint %}
 
-To avoid weak passphrases, Duplicati has a built-in passphrase generator as well as a passphrase strength measurer.&#x20;
-
-
+To avoid weak passphrases, Duplicati has a built-in passphrase generator as well as a passphrase strength measurer.
 
 ## 2. Storage destination
 
@@ -62,7 +60,7 @@ In the source picker view you can choose the files and folders you would like to
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.41.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.59.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
 
-For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/filters-in-duplicati.md) if your have advanced needs.
+For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) if your have advanced needs.
 
 Once you are satisfied with the source view, click the "Continue" button to continue to the schedule step.
 

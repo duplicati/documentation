@@ -38,9 +38,9 @@ duplicati-agent clear
 
 After the settings are cleared, the agent can be registered again.
 
-The Agent settings are stored in a file called `agent.json` in the same folder where the [Server database](../detailed-descriptions/the-server-database.md) is stored. The file path can be supplied with `--agent-settings-file` and the file can be encrypted with the setting `--agent-settings-file-passphrase`.
+The Agent settings are stored in a file called `agent.json` in the same folder where the [Server database](../detailed-descriptions/database-and-storage/the-server-database.md) is stored. The file path can be supplied with `--agent-settings-file` and the file can be encrypted with the setting `--agent-settings-file-passphrase`.
 
-To protect the settings file passphrase, it is possible to use the [secret provider](../detailed-descriptions/using-the-secret-provider/).
+To protect the settings file passphrase, it is possible to use the [secret provider](../detailed-descriptions/security-and-secrets/using-the-secret-provider/).
 
 ## Configuring the hosted server
 

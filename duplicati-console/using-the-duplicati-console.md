@@ -32,7 +32,7 @@ Navigate to [https://app.duplicati.com](https://app.duplicati.com) and sign in w
 
 Before you can manage backups through the console, you need to connect machines to your account. There are two primary methods:
 
-1. **Using the TrayIcon or Server** – For existing Duplicati installations, enable remote management from the local settings page. See [Using remote management](../detailed-descriptions/using-remote-management/) for detailed instructions.
+1. **Using the TrayIcon or Server** – For existing Duplicati installations, enable remote management from the local settings page. See [Using remote management](../detailed-descriptions/automation-and-integration/using-remote-management/) for detailed instructions.
 2. **Using the Agent** – For new installations, deploy the [Duplicati Agent](../duplicati-programs/agent.md) which is designed for headless environments and easier mass deployment. The Agent can be pre-configured with a registration link for seamless onboarding.
 
 ## Monitoring at Scale
@@ -185,7 +185,7 @@ For MSPs, use the three-level hierarchy to model your customer structure:
 
 ### 5. Automate Onboarding
 
-Use the Client or Agent with pre-authorized registration links and [preload configurations](../detailed-descriptions/preload-settings.md) for seamless mass deployment. The `preload.json` file can be downloaded directly from the Links page in the console and should be placed into the installation folder. When the Agent starts, it will automatically register with the console and any configured backups will be pushed to the agent.
+Use the Client or Agent with pre-authorized registration links and [preload configurations](../detailed-descriptions/configuration-and-management/preload-settings.md) for seamless mass deployment. The `preload.json` file can be downloaded directly from the Links page in the console and should be placed into the installation folder. When the Agent starts, it will automatically register with the console and any configured backups will be pushed to the agent.
 
 ## Summary
 

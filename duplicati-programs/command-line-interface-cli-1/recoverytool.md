@@ -50,11 +50,11 @@ Restores all files to their respective destinations. Use `--targetpath` to choos
 
 The restore process requires a fast lookup, which is optimal if all the hashes can be kept in memory. Use the option to `--reduce-memory-use=true` to toggle a slower low-memory restore. If the process is interrupted for any reason, note the file counter and use `--offset=<count>` to start the restore after the last restored file.
 
-Advanced performance options are:&#x20;
+Advanced performance options are:
 
-* `--reduce-memory-use`: Disables keeping all hashes in memory; use if memory is limited on the restoring machine&#x20;
-* `--disable-file-verify`: Disables the initial hashing of the restored file&#x20;
-* `--disable-wrapped-zip`: Disable using the faster .NET native ZIP archive in favor of the more resilient one in Duplicati&#x20;
+* `--reduce-memory-use`: Disables keeping all hashes in memory; use if memory is limited on the restoring machine
+* `--disable-file-verify`: Disables the initial hashing of the restored file
+* `--disable-wrapped-zip`: Disable using the faster .NET native ZIP archive in favor of the more resilient one in Duplicati
 * `--max-open-archives`: Sets the number of archives to keep open for faster access (uses some memory pr. archive); default 200
 
 ### List
@@ -79,11 +79,11 @@ duplicati-recovery-tool recompress zip <backend url> <working folder> \
 
 **Warning**: If `--reupload` is supplied it is advisable to specify `--reencrypt` otherwise the files will be uploaded unencrypted!
 
-**Warning**: Before recompress delete the [local database](../../detailed-descriptions/the-local-database.md) and after recompress recreate local database before executing any operation on backup. This allows Duplicati to read new file names from remote storage.
+**Warning**: Before recompress delete the [local database](../../detailed-descriptions/database-and-storage/the-local-database.md) and after recompress recreate local database before executing any operation on backup. This allows Duplicati to read new file names from remote storage.
 
 ### Supported Options
 
-The backend modules support all their normal options. To see what options a specific backend supports, type:&#x20;
+The backend modules support all their normal options. To see what options a specific backend supports, type:
 
 ```
 duplicati-cli help

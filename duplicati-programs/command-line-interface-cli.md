@@ -16,11 +16,11 @@ Each command also requires the option `--dbpath=<path to local database>`, but i
 
 Most options have no relationship and can be applied in any order, but some options, mostly the filter options, are order sensitive and must be supplied in the order they are evaluated. The remote url is a url-like representation of the storage destination and options. The [destination overview](../backup-destinations/destination-overview.md) page provides an overview of what is currently supported.
 
-The list of options that are supported is quite extensive and only the most common options are described on this page. For the sensitive options: `--passphrase`, `--auth-username`, and `--auth-password`, these can also be supplied thorugh the matching environment variables: `PASSPHRASE`, `AUTH_USERNAME`, and `AUTH_PASSWORD`. For further safeguarding of these values, see the section on [using the secret provider](../detailed-descriptions/using-the-secret-provider/).
+The list of options that are supported is quite extensive and only the most common options are described on this page. For the sensitive options: `--passphrase`, `--auth-username`, and `--auth-password`, these can also be supplied thorugh the matching environment variables: `PASSPHRASE`, `AUTH_USERNAME`, and `AUTH_PASSWORD`. For further safeguarding of these values, see the section on [using the secret provider](../detailed-descriptions/security-and-secrets/using-the-secret-provider/).
 
 All commands support the `--dry-run` parameter that will simulate the operations and provide output, but not actually change any local or remote files.
 
-## The `help` command&#x20;
+## The `help` command
 
 The commandline interface has full documentation for all supported options and some small examples for each of the supported operations. Running the help command will output the possible topics:
 
@@ -58,7 +58,7 @@ duplicati-cli backup <remote url> <source path> [options]
 
 The `source path` argument can be repeated to include multiple top-level folders. By default, backups are encrypted on the remote destination, and if no passphrase is supplied with `--passphrase`, the commandline interface will prompt for one. If the backups should be done unencrypted, provide the option `--no-encryption`.
 
-The most common additional option(s) supplied are the filter options. The filters can selectively change what files and folders are excluded from the source paths. The [page on filters](../detailed-descriptions/filters-in-duplicati.md) describe the format of filters. Filters are supplied with the `--include` and `--exclude` options. For example:
+The most common additional option(s) supplied are the filter options. The filters can selectively change what files and folders are excluded from the source paths. The [page on filters](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) describe the format of filters. Filters are supplied with the `--include` and `--exclude` options. For example:
 
 ```
 --exclude=*.iso
@@ -94,7 +94,7 @@ The find command is responsible for locating files within the backups:
 duplicati-cli find <remote url> <filename> <options>
 ```
 
-If no filename is specified, the command will instead list all the known backup versions (or "snapshots).  Multiple filenames can be specified, and they are all treated as [filter expressions](../detailed-descriptions/filters-in-duplicati.md). If a full file path is specified, the find command will instead list all versions of that file.
+If no filename is specified, the command will instead list all the known backup versions (or "snapshots). Multiple filenames can be specified, and they are all treated as [filter expressions](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md). If a full file path is specified, the find command will instead list all versions of that file.
 
 To list files in a specific version, use the `--version=<version>` option. To search across all versions, use the `--all-versions` option.
 
@@ -136,7 +136,6 @@ duplicati-cli purge-broken-files <remote url> <options>
 
 After succesfully purging the broken files, the local database and remote storage will be in sync and you can continue backups.
 
-The related command "purge" can be used to selectively remove files from the backup.&#x20;
+The related command "purge" can be used to selectively remove files from the backup.
 
 After purging files, you can run the compact command to release space that was held by the removed files.
-

@@ -12,7 +12,7 @@ The ServerUtil binaries are called `Duplicati.CommandLine.ServerUtil.exe` on Win
 
 ## Handling login
 
-The ServerUtil needs to authenticate with the Server, which requires a connection url and a password. To avoid needing this, the ServerUtil will attempt to read the [Server database](../../detailed-descriptions/the-server-database.md) and obtain information from there. If this succeeds, the ServerUtil will automatically configure an authenticated session with the server, without needing additional input.&#x20;
+The ServerUtil needs to authenticate with the Server, which requires a connection url and a password. To avoid needing this, the ServerUtil will attempt to read the [Server database](../../detailed-descriptions/database-and-storage/the-server-database.md) and obtain information from there. If this succeeds, the ServerUtil will automatically configure an authenticated session with the server, without needing additional input.
 
 By default, the ServerUtil will look for the database at the default path for the current user context, meaning that if you run Duplicati as a service, you should invoke ServerUtil as Administrat/root. If the default database path is not correct, you can specify the database path for each command with:
 
@@ -28,7 +28,7 @@ If the tool is intended to be invoked from a script, it is possible to secure a 
 duplicati-server-util login --password=<password> --hosturl=<hosturl>
 ```
 
-This will cause the ServerUtil to store a refresh token in the settings file, such that future operations do not need the password (but will still need the hosturl). To safeguard the token, it is possible to provide `--settings-encryption-key=<key>` that will encrypt the settings file. The [secret provider](../../detailed-descriptions/using-the-secret-provider/) can be used to further secure this key, or can be used to provide the password on the commandline.
+This will cause the ServerUtil to store a refresh token in the settings file, such that future operations do not need the password (but will still need the hosturl). To safeguard the token, it is possible to provide `--settings-encryption-key=<key>` that will encrypt the settings file. The [secret provider](../../detailed-descriptions/security-and-secrets/using-the-secret-provider/) can be used to further secure this key, or can be used to provide the password on the commandline.
 
 To revoke the stored refresh token, run the logout command with the host url:
 
@@ -88,7 +88,7 @@ duplicati-server-util resume
 
 ## Changing the Server password
 
-As explained in the section on the [access password](../../detailed-descriptions/duplicati-access-password.md), it is possible to use the ServerUtil to change the password. In the general case, this can be done with access to the [server database](../../detailed-descriptions/the-server-database.md), but in some cases it requires knowing the previous password. Change the password with the command:
+As explained in the section on the [access password](../../detailed-descriptions/configuration-and-management/duplicati-access-password.md), it is possible to use the ServerUtil to change the password. In the general case, this can be done with access to the [server database](../../detailed-descriptions/database-and-storage/the-server-database.md), but in some cases it requires knowing the previous password. Change the password with the command:
 
 ```
 duplicati-server-util change-password <new password>

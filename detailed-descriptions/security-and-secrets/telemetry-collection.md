@@ -14,7 +14,7 @@ Even though we try very hard to only collect non-sensitive information, you are 
 
 The easy way to opt out when using the UI is to visit the settings page, and simply choose "None / disabled":
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-10-03 at 15.33.13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-10-03 at 15.33.13.png" alt=""><figcaption></figcaption></figure>
 
 However, since Duplicati also collects the event of starting Duplicati, you will still be sending at least one telemetry data point. If you prefer not to send anything at all, you need to set an environment variable before starting Duplicati:
 

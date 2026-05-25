@@ -10,15 +10,15 @@ To start a restore process in Duplicati, start on the "Restore" page.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.39.31.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.39.41.png" alt=""></picture><figcaption><p>Choosing a restore approach</p></figcaption></figure>
 
-If the backup configuration is already existing on the machine, you can choose it from the list. In this case you can click "Restore" and skip to the section on [choosing the files to restore](restoring-files.md#choosing-files-to-restore).&#x20;
+If the backup configuration is already existing on the machine, you can choose it from the list. In this case you can click "Restore" and skip to the section on [choosing the files to restore](restoring-files.md#choosing-files-to-restore).
 
 The restore and browsing process are fastest when using a configured backup, because Duplicati can query a local database with information. If the local database is not present, Duplicati needs to fetch enough information from the remote storage to build a partial database when performing the restore.
 
-If you have exported the backup configuration and have the configuration available, you can click the "Start" button on "Restore from configuration" and skip to the [restore from configuration section](restoring-files.md#restore-from-configuration). You can also read up on how to [import and export configurations](../detailed-descriptions/import-and-export-backup-configurations.md).
+If you have exported the backup configuration and have the configuration available, you can click the "Start" button on "Restore from configuration" and skip to the [restore from configuration section](restoring-files.md#restore-from-configuration). You can also read up on how to [import and export configurations](../detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md).
 
 ## Direct restore from backup files
 
-To restore files from the backup, Duplicati needs only to know how to access the files and the encryption passphrase (if any). If you do not have the passphrase, it is not possible to restore.&#x20;
+To restore files from the backup, Duplicati needs only to know how to access the files and the encryption passphrase (if any). If you do not have the passphrase, it is not possible to restore.
 
 {% hint style="info" %}
 This option is useful restoring from another machine than the one that made the backup originally, but is not recommended for regular operations due to the need to download and process more data.
@@ -36,11 +36,11 @@ If the backup is not encrypted, leave the field empty. When ready, click "Contin
 
 ## Restore from configuration
 
-If you have a configuration file you can use the information in that file to avoid entering it manually. If you need to restore more than once, it may be faster to [import the configuration](../detailed-descriptions/import-and-export-backup-configurations.md) and [rebuild the local database](../detailed-descriptions/the-local-database.md). After the database is built, you can choose the configuration from the list and skip to [choosing files to restore](restoring-files.md#choosing-files-to-restore).
+If you have a configuration file you can use the information in that file to avoid entering it manually. If you need to restore more than once, it may be faster to [import the configuration](../detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md) and [rebuild the local database](../detailed-descriptions/database-and-storage/the-local-database.md). After the database is built, you can choose the configuration from the list and skip to [choosing files to restore](restoring-files.md#choosing-files-to-restore).
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.51.29.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.51.19.png" alt=""></picture><figcaption><p>Restoring with a backup configuration</p></figcaption></figure>
 
-In the dialog, provide the exported configuration file. If the file is encrypted, you will be asked to enter the file passphrase.&#x20;
+In the dialog, provide the exported configuration file. If the file is encrypted, you will be asked to enter the file passphrase.
 
 {% hint style="info" %}
 The passphrase the configuration file is encrypted with is not neccesarily the same as the passphrase used to encrypt the backup with.

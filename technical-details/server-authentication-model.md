@@ -4,7 +4,7 @@ description: This page provides an overview of the authentication in Duplicati
 
 # Server authentication model
 
-To authenticate with Duplicati, the authenticating system needs a password. There are several ways to define that password as described in the section on [Duplicati Access Password](../detailed-descriptions/duplicati-access-password.md). There is no username, as Duplicati does not support the concept of different users, so all access is the same.
+To authenticate with Duplicati, the authenticating system needs a password. There are several ways to define that password as described in the section on [Duplicati Access Password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md). There is no username, as Duplicati does not support the concept of different users, so all access is the same.
 
 The password is not stored in plain text, it is repeatedly hashes with a [PBKDF](https://en.wikipedia.org/wiki/PBKDF2) method to ensure it is not readable from the database. This ensures that even an attacker with access to the database will not be able to obtain a password that can be used to log in.
 
@@ -16,11 +16,11 @@ Once the Access Token expires, a new token must be issued. In the browser, this 
 
 For some external access, such as the one used by the [TrayIcon](../duplicati-programs/trayicon.md) and [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md), a third token type is issued: Signin Token. The Signin Token is a placeholder for the password and can be used to obtain either a Refresh Token or an Access Token, but it is very short-lived.
 
-As noted in the section on [Duplicati Access Password](../detailed-descriptions/duplicati-access-password.md), the issuing of tokens is done with keys stored in the local database. As a precaution, Duplicati keeps track of all refresh tokens it has created, meaning that even with the issuing keys, it is not possible to create a new Refresh Token that will be accepted by the server.
+As noted in the section on [Duplicati Access Password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md), the issuing of tokens is done with keys stored in the local database. As a precaution, Duplicati keeps track of all refresh tokens it has created, meaning that even with the issuing keys, it is not possible to create a new Refresh Token that will be accepted by the server.
 
-However, it is possible to issue Signin Tokens and Access Tokens, for anyone with access to the signing keys stored in the database. To limit this exposure, it is possible to [disable the issuance of Signin Tokens](../detailed-descriptions/duplicati-access-password.md), but the Access Tokens cannot currently be secured in case the database is compromised.
+However, it is possible to issue Signin Tokens and Access Tokens, for anyone with access to the signing keys stored in the database. To limit this exposure, it is possible to [disable the issuance of Signin Tokens](../detailed-descriptions/configuration-and-management/duplicati-access-password.md), but the Access Tokens cannot currently be secured in case the database is compromised.
 
-To avoid leaking the signing keys, it is recommended that the local database is protected by [setting the database field encryption password](../detailed-descriptions/the-server-database.md).
+To avoid leaking the signing keys, it is recommended that the local database is protected by [setting the database field encryption password](../detailed-descriptions/database-and-storage/the-server-database.md).
 
 Also, note that the default installation does not use SSL/TLS encryption for the server communication, but this can be manually configured with a self-issued certicate.
 

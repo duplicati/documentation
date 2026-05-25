@@ -30,7 +30,7 @@ Unfortunately, the security model in Google Drive sometimes resets the access, c
 
 To recover from this situation, you must download the files from Google Drive, then delete them in Google Drive, and finally re-upload the files using the [Duplicati BackendTool](../../duplicati-programs/command-line-interface-cli-1/backendtool.md).
 
-You can also choose to [run your own OAuth server](../../detailed-descriptions/running-a-self-hosted-oauth-server.md), and you can configure this to grant Duplicati full access to all files in Google Drive.
+You can also choose to [run your own OAuth server](../../detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md), and you can configure this to grant Duplicati full access to all files in Google Drive.
 
 ## Team folder
 

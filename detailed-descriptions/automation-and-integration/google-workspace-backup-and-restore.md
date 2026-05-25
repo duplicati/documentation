@@ -28,6 +28,24 @@ A license is required to use Google Workspace backup in production. Contact Dupl
 * **Cross-user support**: Data from one user can be restored into another user account.
 * **Domain-wide backup**: Supports backing up all users in a Google Workspace domain via domain-wide delegation.
 
+### Configure Google Workspace backup
+
+To add a Google Workspace tenant to the backup, [set up a backup following the regular steps](../../getting-started/set-up-a-backup-in-the-ui.md). Then on the source page, click "Add remote path" in the top right:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.52.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.14 (1).png" alt=""></picture><figcaption></figcaption></figure>
+
+Type "workspace" in the search bar, or scroll down and find "Google Workspace" in the list and click "Choose":
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.13.08.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.12.16.png" alt="" width="375"></picture><figcaption></figcaption></figure>
+
+Fill in the information to setup the configuration. You need an Admin ID and a Service Account JSON. You can drop the JSON file in, click the browse button, or paste in the value:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.13.17.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.12.32.png" alt="" width="563"></picture><figcaption></figcaption></figure>
+
+Remember to test the configuration before clicking "Use remote source". You can also add the advanced options if you want to limit the content that is backed up. By default, everything is backed up:
+
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.13.31.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.12.53.png" alt=""></picture><figcaption></figcaption></figure>
+
 ### Google Workspace configuration options
 
 To use the Google Workspace backup source you must supply credentials via either a service account with domain-wide delegation or OAuth 2.0 user credentials. When choosing what to back up, it is possible to filter on root types (users, groups, shared drives, sites, organizational units), and possible to apply filters to obtain fine-grained exclusion of data.

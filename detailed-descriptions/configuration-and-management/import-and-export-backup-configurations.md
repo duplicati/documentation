@@ -10,8 +10,6 @@ While it is not required that you keep a copy of the backup configuration, it ca
 
 To export from within the user interface, expand the backup configuration and click "Export ..."
 
-<div><figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 14.14.44.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 14.14.32 (1).png" alt=""></picture><figcaption><p>Expanded backup configuration</p></figcaption></figure> <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 14.15.07.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 14.15.15.png" alt=""></picture><figcaption><p>Choosing export options</p></figcaption></figure></div>
-
 On this page you should select "To File", which is default. The option to export "As commandline..." is not covered here, but allows you to get a string that can be used with the [Duplicati CLI executable](../../duplicati-programs/command-line-interface-cli.md).
 
 You then need to decide on how to handle secrets stored in the configuration. Since these secrets include both the credentials to connect to the remote destination as well as the encryption passphrase, it is important that the exported file is protected.
@@ -27,8 +25,6 @@ After completing the export, you will get a file containing the backup configura
 With an exported configuration, you can delete an existing configuration and re-create it by importing the configuration. You can optionally edit the parameters so the re-created backup configuration differs from the original.
 
 To import a configuration, go to the "Add backup" page and choose "Import from file":
-
-<div><figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15 (1).png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32 (1).png" alt=""></picture><figcaption><p>Adding a backup</p></figcaption></figure> <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 14.16.05.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 14.15.55.png" alt=""></picture><figcaption><p>Choosing import options</p></figcaption></figure></div>
 
 Pick the file or drag-n-drop it on the file chooser. If the file is encrypted, provide the file encryption passphrase here as well.
 

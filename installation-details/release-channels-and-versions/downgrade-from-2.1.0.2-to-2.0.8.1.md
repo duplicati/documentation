@@ -12,9 +12,9 @@ Before you downgrade, you should make sure you have removed database encryption.
 duplicati-server --disable-db-encryption=true
 ```
 
-This will remove the field-level encryption in the [server database](../../detailed-descriptions/the-server-database.md). After starting with this parameter, stop the server, uninstall 2.1.0.2 and install 2.0.8.1.
+This will remove the field-level encryption in the [server database](../../detailed-descriptions/database-and-storage/the-server-database.md). After starting with this parameter, stop the server, uninstall 2.1.0.2 and install 2.0.8.1.
 
-Since both the [server database](../../detailed-descriptions/the-server-database.md) and the [local database](../../detailed-descriptions/the-local-database.md) was updated, you need to downgrade both. Note that there is one local database for each backup you have configured, and all of those may need to be downgraded.
+Since both the [server database](../../detailed-descriptions/database-and-storage/the-server-database.md) and the [local database](../../detailed-descriptions/database-and-storage/the-local-database.md) was updated, you need to downgrade both. Note that there is one local database for each backup you have configured, and all of those may need to be downgraded.
 
 To downgrade the server database, use an SQLite tool, such as [SQLite Browser](https://sqlitebrowser.org/). Open the database and run the following query:
 
@@ -39,4 +39,3 @@ Close the SQLite editor, and then start Duplicati 2.0.8.1.
 ## Obtaining older releases
 
 The [installer packages for 2.0.8.1](https://github.com/duplicati/duplicati/releases/tag/v2.0.8.1-2.0.8.1_beta_2024-05-07) are available on Github. You can [browse the list of releases ](https://github.com/duplicati/duplicati/releases)for other versions you may want.
-

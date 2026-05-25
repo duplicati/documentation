@@ -8,7 +8,7 @@ description: >-
 
 Duplicati use a database named `Duplicati-server.sqlite` to keep track of all configured backups. This database contains sensitive information, such as connection credentials and encryption passphrases. To protect the information in the database, it is highly recommeded that you set up an encryption key. Setting a key will ensure that all sensitive fields are encrypted and protected against a future leak of the database.
 
-Besides the server database, Duplicati also has a [local database](../detailed-descriptions/the-local-database.md) which is created for each configured backup. The local database is essentially a cache of what data is stored remotely, so the backup and restore operations can make queries without needing access to the remote destination. This database can be recreated from the remote data so it should generally not be backed up It contains the paths from the local database, which may be sensitive information.
+Besides the server database, Duplicati also has a [local database](../detailed-descriptions/database-and-storage/the-local-database.md) which is created for each configured backup. The local database is essentially a cache of what data is stored remotely, so the backup and restore operations can make queries without needing access to the remote destination. This database can be recreated from the remote data so it should generally not be backed up It contains the paths from the local database, which may be sensitive information.
 
 ## Server database
 

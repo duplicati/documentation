@@ -42,7 +42,7 @@ This will cause the TrayIcon to connect to a Server that is already running. If 
 --hosturl=<host url>
 ```
 
-It may also be required to provide the password for the server in the detatched setup, as outlined in [Duplicati Access Password](../detailed-descriptions/duplicati-access-password.md). An alternative to providing the password is to use the option:
+It may also be required to provide the password for the server in the detatched setup, as outlined in [Duplicati Access Password](../detailed-descriptions/configuration-and-management/duplicati-access-password.md). An alternative to providing the password is to use the option:
 
 ```
 --read-config-from-db=true
@@ -50,7 +50,7 @@ It may also be required to provide the password for the server in the detatched 
 
 The TrayIcon will then attempt to extract signing information from the local database, provided that the TrayIcon process also has read access to the database, and that signin tokens are not disabled.
 
-It may be convienient to [use preload settings](../detailed-descriptions/preload-settings.md) to provide arguments to both the Server and TrayIcon when running in detached mode.
+It may be convienient to [use preload settings](../detailed-descriptions/configuration-and-management/preload-settings.md) to provide arguments to both the Server and TrayIcon when running in detached mode.
 
 ### Self-signed certificate
 
@@ -60,12 +60,12 @@ If the server is using a self-signed certificate (or a certificate not trusted b
 --host-cert-hash=<hash>
 ```
 
-When the TrayIcon is hosting the server, or has access to the database settings, it will automatically extract the certificate hash, so that particular certificate is accepted. This technique is secure and very  similar to [certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning).&#x20;
+When the TrayIcon is hosting the server, or has access to the database settings, it will automatically extract the certificate hash, so that particular certificate is accepted. This technique is secure and very similar to [certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning).
 
 For testing and debugging purposes, the certificate hash `*` means "any certificate". Beware that this settings is very insecure and should not be used in production settings.
 
 ## Server settings
 
-When hosting the server, the TrayIcon also accepts all the server settings and will forward any commandline options to the hosted server when starting it.&#x20;
+When hosting the server, the TrayIcon also accepts all the server settings and will forward any commandline options to the hosted server when starting it.
 
 It is possible to run Duplicati in "portable mode" where it can run from removable media, such as an USB-stick, see the [server data location](server.md#storing-data-in-different-places) section for more details.

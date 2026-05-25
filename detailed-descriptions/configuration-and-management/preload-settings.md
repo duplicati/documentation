@@ -6,12 +6,12 @@ description: This page describes how Preload settings are applied
 
 The preload settings allow configuring machine-wide or enterprise-wide default settings with a single file. Because of this usecase, all settings are applied only if they are not already present. This means a commandline argument could be set up to change the default blocksize, but if the user has applied another setting via the commandline or parameters-file, the preload setting has no effect.
 
-For single-machine users, the preload settings are a convenient way to change the arguments passed to either [TrayIcon](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), or [Agent](../duplicati-programs/agent.md), without needing to edit shortcuts or service files.
+For single-machine users, the preload settings are a convenient way to change the arguments passed to either [TrayIcon](../../duplicati-programs/trayicon.md), [Server](../../duplicati-programs/server.md), or [Agent](../../duplicati-programs/agent.md), without needing to edit shortcuts or service files.
 
 To support different ways of deploying the settings file, 3 locations are checked:
 
-* `%CommonApplicationData%\Duplicati\preload.json`&#x20;
-  * see this [SO thread](https://stackoverflow.com/questions/895723/environment-getfolderpath-commonapplicationdata-is-still-returning-c-docum) for details, but usually&#x20;
+* `%CommonApplicationData%\Duplicati\preload.json`
+  * see this [SO thread](https://stackoverflow.com/questions/895723/environment-getfolderpath-commonapplicationdata-is-still-returning-c-docum) for details, but usually
   * Linux: `/usr/share/Duplicati/preload.json`
   * MacOS: `/usr/local/share/Duplicati/preload.json`
   * Windows:`C:\ProgramData\Duplicati\preload.json`
