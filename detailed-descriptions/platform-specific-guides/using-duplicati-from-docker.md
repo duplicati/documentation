@@ -209,7 +209,7 @@ http {
 
     location / {
       proxy_pass http://duplicati:8200;
-      proxy_set_header PreAuth <secure random token>
+      proxy_set_header PreAuth <secure random token>;
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
