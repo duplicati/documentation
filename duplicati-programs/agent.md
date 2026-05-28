@@ -16,15 +16,19 @@ The Agent binary is called `Duplicati.Agent.exe` on Windows and `duplicati-agent
 
 ## Registering the machine
 
-When the Agent starts for the first time, it will attempt to register with the Duplicati Console. To do this, it will open a browser window where the user can accept the registration and add the machine to their account. If the Agent needs to be registered without user interaction, a pre-authorized link can be generated on the [Duplicati Console registration page](https://app.duplicati.com/app/settings/registered-machines):
+When the Agent starts for the first time, it will attempt to register with the Duplicati Console. To do this, it will open a browser window where the user can accept the registration and add the machine to their account. If the Agent needs to be registered without user interaction, a pre-authorized link can be generated on the [Duplicati Console registration page](https://app.duplicati.com/app/machines/links):
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-12-03 at 15.26.17.png" alt=""><figcaption><p>The Duplicati Console with a pre-authorized link</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2026-05-28 at 11.31.47.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2026-05-28 at 11.31.37.png" alt=""></picture><figcaption><p>The Duplicati Console with a pre-authorized link</p></figcaption></figure>
 
-To register the Agent, run the following command:
+You can use the "Download" button to download a `preload.json` file that configures the Agent to connect to the console. Simply place the file in the installation directory and restart the Agent and it will connect to the console. The file can be deleted after the Agent has restarted.
+
+### Manually configuring the Agent
+
+If you prefer a manual registration, use the "Copy" button to copy the link to the clipboard, then to register the Agent, run the following command:
 
 ```sh
 duplicati-agent run \ 
-  --agent-registration-url="<pre-authorized url>" \
+  --agent-registration-url="<copied-url>" \
   --agent-register-only
 ```
 
