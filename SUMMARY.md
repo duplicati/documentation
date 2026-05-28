@@ -14,7 +14,8 @@
 * [Choosing Duplicati Type](detailed-descriptions/platform-specific-guides/choosing-duplicati-type.md)
 * [Using Duplicati with Linux](detailed-descriptions/platform-specific-guides/using-duplicati-with-linux.md)
 * [Using Duplicati with MacOS](detailed-descriptions/platform-specific-guides/using-duplicati-with-macos.md)
-* [Using Duplicati with Windows](detailed-descriptions/platform-specific-guides/using-duplicati-with-windows.md)
+* [Using Duplicati with Windows](platform-specific-guides/using-duplicati-with-windows/README.md)
+  * [Run Duplicati as a Windows Service](platform-specific-guides/using-duplicati-with-windows/run-duplicati-as-a-windows-service.md)
 * [Using Duplicati from Docker](detailed-descriptions/platform-specific-guides/using-duplicati-from-docker.md)
 
 ## Configuration & Management
