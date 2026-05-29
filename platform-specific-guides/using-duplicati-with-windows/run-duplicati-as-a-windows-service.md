@@ -24,7 +24,7 @@ When running Duplicati as a Windows Service this means Duplicati has full access
 
 When running the Windows Installer package, simply check the "Install Duplicati as a Windows Service" option:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-05-28 at 12.34.42.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-05-29 at 14.23.28.png" alt="" width="563"><figcaption></figcaption></figure>
 
 After the installation has completed, you will get the option to copy the generated password by clicking "Copy password":
 
@@ -33,6 +33,8 @@ After the installation has completed, you will get the option to copy the genera
 The installer will automatically configure the current user, such that it can connect securely to the service. If you need to let another user access the service, or need to use some of the command line tools, you can copy the password by clicking the "Copy password" button.
 
 When you start Duplicati it will initially start in a disconnected state, and then connect to the server using the password stored in the Windows Credential Manager.
+
+The password is only applied on the first install and will not be retrivable later, including if you uninstall Duplicati. See the [password reset section below](run-duplicati-as-a-windows-service.md#reset-password-for-windows-service) if you need to change the password or later want to use the password.
 
 ## Automated installation with a service
 
@@ -76,6 +78,18 @@ Note that providing the password to the installer may cause it to be logged. If 
 
 You will need the password to access the UI and to allow the TrayIcon to connect to the service.
 
+## Installing a [preload.json](../../detailed-descriptions/configuration-and-management/preload-settings.md) file
+
+If you want to configure the installation, you can place a `preload.json` file in the same folder where the MSI is placed, and then launch with the option `INSTALL_PRELOAD=true` to have the installer pick up the `preload.json` file and install it along with the rest of the files:
+
+{% code overflow="wrap" %}
+```
+msiexec /i Duplicati.msi INSTALL_PRELOAD=true
+```
+{% endcode %}
+
+Without the option, the preload file is not installed even if it is found. This design prevents situations where a malicious file is placed in the source folder and unexpectedly configures the application.
+
 ## Reset password for Windows Service
 
 The [`WindowsService.exe`](../../duplicati-programs/service.md) program supports the command `reset-password` which will set a password and then restart the service. This provides a secure way to set a new password without risking that the password is shown in logs. If Duplicati was installed with a silent install, this option allows you to change the password via a command line operation:
@@ -87,3 +101,5 @@ The [`WindowsService.exe`](../../duplicati-programs/service.md) program supports
 {% endcode %}
 
 The program will ask you to enter a password or offer to generate one. You can also see the [section about access password](../../detailed-descriptions/configuration-and-management/duplicati-access-password.md) for more ways to set the password.
+
+If you are using the [TrayIcon](../../duplicati-programs/trayicon.md) to connect to the service, right-click the TrayIcon and choose "Change password", then enter the updated password.
