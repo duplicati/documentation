@@ -18,7 +18,17 @@ The downside is that you can bookmark the Duplicati page, but you may be asked f
 
 If you prefer, it is possible to choose the password so you can enter it when asked. Optionally, you can also choose to disable the feature that allows the TrayIcon to sign in without a password, through the settings page.
 
-Login with the TrayIcon is shown here for MacOS, but the same works on Linux and Windows:
+Login with the TrayIcon is shown here (click to choose operating system):
+
+{% tabs %}
+{% tab title="Windows" %}
+<figure><img src="../../.gitbook/assets/OpenTrayIconWindows.gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="MacOS" %}
+<figure><img src="../../.gitbook/assets/Launch From TrayIcon.gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## Temporary signin token
 
