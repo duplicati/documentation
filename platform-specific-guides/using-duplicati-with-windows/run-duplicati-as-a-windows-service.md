@@ -103,3 +103,7 @@ The [`WindowsService.exe`](../../duplicati-programs/service.md) program supports
 The program will ask you to enter a password or offer to generate one. You can also see the [section about access password](../../detailed-descriptions/configuration-and-management/duplicati-access-password.md) for more ways to set the password.
 
 If you are using the [TrayIcon](../../duplicati-programs/trayicon.md) to connect to the service, right-click the TrayIcon and choose "Change password", then enter the updated password.
+
+Manual install
+
+If you need additional customization beyond what the MSI package offers, see the [`WindowsService.exe`](../../duplicati-programs/service.md) page for details on how to configure the service from a commandline or scripts.
