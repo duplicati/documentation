@@ -26,7 +26,13 @@ Login with the TrayIcon is shown here (click to choose operating system):
 {% endtab %}
 
 {% tab title="MacOS" %}
-<figure><img src="../../.gitbook/assets/Launch From TrayIcon.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/OpenTrayIconMacOS.gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Linux (Ubuntu)" %}
+
+
+<figure><img src="../../.gitbook/assets/OpenTrayIconLinux.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
