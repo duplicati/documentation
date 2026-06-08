@@ -66,5 +66,8 @@ For other linux distributions you can use the `.zip` file that matches your syst
 
 The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
 
+## Upgrading an existing installation
+
+If you already have Duplicati installed, the regular way to upgrade is to uninstall the previous version and then install the new one. Duplicati does not delete your configurations or backup databases during uninstall, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
 
 
