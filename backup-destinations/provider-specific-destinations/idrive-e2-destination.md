@@ -27,5 +27,5 @@ To use iDrive e2, you can use the following URL format:
 ```
 e2://<bucket>/<prefix>
   ?access_key_id=<Access key id>
-  &access_secret_key=<Access secret key>
+  &access_key_secret=<Access secret key>
 ```
