@@ -56,7 +56,7 @@ ssh://server/home/backup
   &ssh-fingerprint=<fingerprint>
 ```
 
-Note that Duplicati does not currently support key agents so you must pass the password here.
+If the key file is encrypted, the password must be passed as shown. Duplicati can also authenticate through a running `ssh-agent`: if neither a password nor a key is supplied, the agent is used automatically. Set `--ssh-disable-agent=true` to prevent this. On MacOS, the keychain is queried for the private key passphrase as well.
 
 For best security it is recommended to use a separate identity and key files for the user, so a compromise of the keys does not grant more permissions than what is required.
 
@@ -72,9 +72,9 @@ If you are using the UI, you can click the "Test connection" button and it will 
 
 ## Timeout and keep-alive
 
-By default, Duplicati will assume that the connection works once it has been established. If the SSH server is malfunctioning it may cause operations to hang. To guard against this case, you can set the `--ssh-operation-timeout` option to enforce a maximum time the operation may take.&#x20;
+By default, Duplicati will assume that the connection works once it has been established. If the SSH server is malfunctioning it may cause operations to hang. To guard against this case, the generic timeout options apply to the SFTP destination: `--read-write-timeout` (default `30s`) raises an error if no data is transferred within the interval, `--list-timeout` (default `10m`) limits directory listings, and `--short-timeout` (default `30s`) limits short operations such as delete and create folder. The older `--ssh-operation-timeout` option is deprecated in favor of these.
 
 A different kind of timeout is when firewalls and other network equipment monitors the connections and closes them if there is no activity. Because Duplicati may open a connection and then perform a long operation locally, it may cause the connection to be closed due to inactivity. The option `--ssh-keepalive` can be used to define a keep-alive interval where messages are sent if there is no other activity.
 
-Both options are default disabled and should only be enabled if there are special conditions in a setup where the options are needed.
+The keep-alive is default disabled and should only be enabled if there are special conditions in a setup where it is needed.
 
