@@ -35,5 +35,5 @@ duplicati-aescrypt dc <password> <encrypted file> <plain-text file>
 To enable the compatibility check for regular Duplicati operations, add the environment variable:
 
 ```
-AES_IGNORE_PADDING_BYTES=1
+DUPLICATI__AES_IGNORE_PADDING_BYTES=1
 ```
