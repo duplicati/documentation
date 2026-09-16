@@ -22,10 +22,10 @@ To use Aliyun OSS, you can use the following URL format:
 
 ```
 aliyunoss://<prefix>
-  ?oss-bucket=<Bucket name>
+  ?oss-bucket-name=<Bucket name>
   &oss-endpoint=<Endpoint>
   &oss-access-key-id=<Access Key Id>
-  &oos-access-key-secret=<Access Key Secret>
+  &oss-access-key-secret=<Access Key Secret>
 ```
 
 The [endpoint is defined by Aliyun](https://www.alibabacloud.com/help/en/oss/user-guide/regions-and-endpoints) and needs to match the region the bucket is created it. The access key can be obtained or created in the Cloud Console.
