@@ -102,7 +102,7 @@ sudo systemctl start duplicati-agent.service
 sudo systemctl status duplicati-agent.service
 ```
 
-As is common for other services, additional start parameters can be added to `/etc/default/duplicati`.
+As is common for other services, additional start parameters can be added to the `DAEMON_OPTS` variable in `/etc/default/duplicati-agent` (`.deb` packages) or `/etc/sysconfig/duplicati-agent` (`.rpm` packages).
 
 Note that when running the service, the Agent does not have access to the desktop environment (if one even exists) and it cannot open the registration url in the browser. Instead, it will emit a url in the system logs that you need to open to register the machine. Alternatively, use the [method outlined above to register the machine](agent.md#registering-the-machine), but beware that you need to run in the same context as the service, or the `agent.json` file will be placed in another folder.
 
