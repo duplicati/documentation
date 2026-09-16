@@ -22,7 +22,7 @@ The CA private key is stored in the Duplicati database file, which is encrypted 
 **Security Warning:** While the CA is local, it is still a CA and can be used to sign certificates for other domains. If someone gains access to the Duplicati database, they can use the CA to sign certificates for other domains, essentially providing an undetected man-in-the-middle attack.
 {% endhint %}
 
-If you prefer providing your own certificate, you can do so by setting the `server-ssl-certificate` and `server-ssl-certificatepassword` settings. This will not activate auto-renewal or generate a CA.
+If you prefer providing your own certificate, you can do so by starting the Server with the `--webservice-sslcertificatefile` and `--webservice-sslcertificatepassword` options. This will not activate auto-renewal or generate a CA.
 
 ## Certificate Authority (CA) Security Model
 
@@ -254,7 +254,7 @@ This will:
 If you prefer to use your own certificates instead of the auto-generated CA:
 
 1. Obtain a certificate and private key from a trusted CA (or create your own)
-2. Configure Duplicati Server with the `server-ssl-certificate` and `server-ssl-certificatepassword` options
+2. Start Duplicati Server once with the `--webservice-sslcertificatefile` and `--webservice-sslcertificatepassword` options
 3. Note that auto-renewal will not be available when using custom certificates
 
 See the [Server documentation](../duplicati-programs/server.md) for details on configuring custom SSL certificates.
