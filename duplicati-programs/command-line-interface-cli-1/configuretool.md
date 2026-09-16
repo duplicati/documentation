@@ -50,7 +50,7 @@ This command will:
 | `--hostnames`               | Comma-separated list of hostnames to include in the certificate (defaults to auto-detected hostnames)                   |
 | `--no-trust`                | Skip installing the CA certificate in the system trust store                                                            |
 | `--auto-create-database`    | Create the database if it does not exist                                                                                |
-| `--data-folder`             | Path to the Duplicati data folder (defaults to standard location)                                                       |
+| `--datafolder`              | Path to the Duplicati data folder (defaults to standard location)                                                       |
 | `--settings-encryption-key` | Settings encryption key for the database (if settings are encrypted)                                                    |
 | `--store`                   | (Windows only) Certificate store location: `local` or `user`. Defaults to `local` if running as admin, otherwise `user` |
 | `--cert-dir`                | (Linux only) Custom certificate directory for installing CA certificate                                                 |
@@ -82,7 +82,7 @@ duplicati-configure https renew
 
 | Option                      | Description                              |
 | --------------------------- | ---------------------------------------- |
-| `--data-folder`             | Path to the Duplicati data folder        |
+| `--datafolder`              | Path to the Duplicati data folder        |
 | `--settings-encryption-key` | Settings encryption key for the database |
 
 ### Regenerating the CA
@@ -110,7 +110,7 @@ Regenerating the CA will invalidate any previously trusted certificates.
 | --------------------------- | ------------------------------------------------------------ |
 | `--hostnames`               | Comma-separated list of hostnames to include                 |
 | `--no-trust`                | Skip installing the CA certificate in the system trust store |
-| `--data-folder`             | Path to the Duplicati data folder                            |
+| `--datafolder`              | Path to the Duplicati data folder                            |
 | `--settings-encryption-key` | Settings encryption key for the database                     |
 | `--store`                   | (Windows only) Certificate store location                    |
 | `--cert-dir`                | (Linux only) Custom certificate directory                    |
@@ -134,7 +134,7 @@ This is useful when:
 
 | Option                      | Description                               |
 | --------------------------- | ----------------------------------------- |
-| `--data-folder`             | Path to the Duplicati data folder         |
+| `--datafolder`              | Path to the Duplicati data folder         |
 | `--settings-encryption-key` | Settings encryption key for the database  |
 | `--store`                   | (Windows only) Certificate store location |
 | `--cert-dir`                | (Linux only) Custom certificate directory |
@@ -159,7 +159,7 @@ This displays:
 
 | Option                      | Description                               |
 | --------------------------- | ----------------------------------------- |
-| `--data-folder`             | Path to the Duplicati data folder         |
+| `--datafolder`              | Path to the Duplicati data folder         |
 | `--settings-encryption-key` | Settings encryption key for the database  |
 | `--store`                   | (Windows only) Certificate store location |
 | `--cert-dir`                | (Linux only) Custom certificate directory |
@@ -215,7 +215,7 @@ For more information on the data folder permissions, see the [server database do
 
 | Option          | Description                                                          |
 | --------------- | -------------------------------------------------------------------- |
-| `--data-folder` | Path to the Duplicati data folder (defaults to standard location)    |
+| `--datafolder`  | Path to the Duplicati data folder (defaults to standard location)    |
 | `--for-service` | Set permissions for running as a service (excludes the current user) |
 
 ## Browser Trust Configuration
