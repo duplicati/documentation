@@ -65,20 +65,20 @@ To enable locking for a backup, add the following option to your configuration (
 This example locks every new file for 30 days. You can use units like `H` (hours), `D` (days), `W` (weeks), or `M` (months).
 
 {% hint style="info" %}
-Always test this with compliance mode (default) and use a short duration until you are sure it works as intended.
+Always test this with governance mode (default) and use a short duration until you are sure it works as intended.
 {% endhint %}
 
 #### 3. Provider-Specific Settings
 
 You can specify the mode depending on your provider:
 
-* S3: `--s3-object-lock-mode=governance` (default) or `compliance`
-* Backblaze B2: `--b2-retention-mode=governance` or `compliance`
+* S3: `--s3-lock-mode=governance` (default) or `compliance`
+* Backblaze B2: `--b2-lock-mode=governance` (default) or `compliance`
 * Azure: `--azure-blob-immutability-policy-mode=unlocked` or `locked`
 * Google Cloud Storage: `--gcs-retention-policy-mode=unlocked` or `locked`&#x20;
 
 {% hint style="info" %}
-**Google Cloud Storage** also requires using `--service-account-file` or `--service-account-json` as the default OAuth flow does not grant permissions to lock objects
+**Google Cloud Storage** also requires using `--gcs-service-account-file` or `--gcs-service-account-json` as the default OAuth flow does not grant permissions to lock objects
 {% endhint %}
 
 ***
