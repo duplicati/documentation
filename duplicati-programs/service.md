@@ -52,9 +52,9 @@ By default, the agent is installed as a service, but it is also possible to manu
 
 {% code overflow="wrap" %}
 ```
-Duplicati.WindowsService.exe AGENT-INSTALL [arguments ...]
-Duplicati.WindowsService.exe AGENT-INSTALL-ONLY [arguments ...]
-Duplicati.WindowsService.exe AGENT-UNINSTALL [arguments ...]
+Duplicati.WindowsService.exe INSTALL-AGENT [arguments ...]
+Duplicati.WindowsService.exe INSTALL-ONLY-AGENT [arguments ...]
+Duplicati.WindowsService.exe UNINSTALL-AGENT [arguments ...]
 ```
 {% endcode %}
 
