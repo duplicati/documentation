@@ -1,5 +1,7 @@
 ---
-description: This page describes how to back up and restore full disks and individual partitions with Duplicati
+description: >-
+  This page describes how to back up and restore full disks and individual
+  partitions with Duplicati
 ---
 
 # Full-disk backup and restore
@@ -8,10 +10,8 @@ Duplicati supports backing up an entire disk, or individual partitions on a disk
 
 **Key characteristics**
 
-- **Disk-level source**: Back up a complete disk, including the partition layout, or pick just the partitions you need.
-- **Flexible restore**: Restore disk-to-disk, partition-to-partition, or a partition from a full-disk backup onto another partition.
-- **File extraction**: Restore files from within a disk backup to a regular folder, without writing to a disk.
-- **Filter support**: Regular [filters](../security-and-secrets/filters-in-duplicati.md) can be applied to exclude content from the partitions being backed up.
+* **Disk-level source**: Back up a complete disk, including the partition layout, or pick just the partitions you need.
+* **Flexible restore**: Restore disk-to-disk, partition-to-partition, or a partition from a full-disk backup onto another partition.
 
 {% hint style="warning" %}
 Reading raw disks requires elevated privileges. Run Duplicati as a service or with administrator/root permissions, otherwise the backup or restore will fail.
@@ -45,11 +45,11 @@ On the "Restore options" page, choose where the restored data should go:
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-08-22 at 08.15.08.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-08-22 at 08.15.18.png" alt=""></picture><figcaption><p>Choosing the restore target</p></figcaption></figure>
 
-- **Target disk**: Writes the backup back to a physical disk or partition. Pick the target from the tree:
-  - Restoring a disk to a disk recreates the partition table and restores the partitions, producing a bootable disk.
-  - Restoring a partition to a partition writes only that partition, which is useful when the disk contains multiple partitions and only one should be restored.
-  - Restoring a partition to a disk creates a new partition on the target disk as needed.
-- **Local file system**: Extracts the files from within the disk backup to a regular folder. This is useful for forensics or for recovering data without touching any disk.
+* **Target disk**: Writes the backup back to a physical disk or partition. Pick the target from the tree:
+  * Restoring a disk to a disk recreates the partition table and restores the partitions, producing a bootable disk.
+  * Restoring a partition to a partition writes only that partition, which is useful when the disk contains multiple partitions and only one should be restored.
+  * Restoring a partition to a disk creates a new partition on the target disk as needed.
+* **Local file system**: Extracts the sectors from the disk backup to a regular folder. This is useful for forensics or for disk imaging tools.
 
 {% hint style="warning" %}
 Restoring to a target disk or partition **overwrites its contents**. Double-check that you have selected the correct target, and make sure the target is at least as large as the source. You cannot restore over the disk that the running operating system is on, so a full system restore is usually performed by booting from recovery media or by attaching the target disk to another machine.
