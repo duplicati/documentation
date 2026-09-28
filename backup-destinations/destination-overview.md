@@ -16,6 +16,10 @@ Each storage destination has a number of options that can be provided via a URL 
 Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
 {% endhint %}
 
+## Duplicati Storage
+
+[Duplicati Storage](../duplicati-console/duplicati-storage.md) is the storage that is integrated with the Duplicati Console. It requires no configuration of the destination, but requires that the machine is connected to the console.
+
 ## Standard based destinations
 
 Destinations in this category are general purpose enough, or commonly used, so they can be used across a range of storage providers. Destinations in this category are:
