@@ -77,6 +77,8 @@
 * [Organization management](duplicati-console/organizations-and-sub-organizations.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
 * [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
+* [Managed Microsoft 365 backup](duplicati-console/managed-microsoft-365-backup.md)
+* [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
 
 ## Backup destinations
 
