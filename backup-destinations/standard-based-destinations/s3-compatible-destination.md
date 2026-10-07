@@ -30,7 +30,7 @@ To use S3 as the storage destination, use a format such as:
 s3://<bucket name>/<prefix>
   ?aws-access-key-id=<account id or username>
   &aws-secret-access-key=<account key or password>
-  &s3-servername=<server ip or hostname>
+  &s3-server-name=<server ip or hostname>
   &use-ssl=true
 ```
 

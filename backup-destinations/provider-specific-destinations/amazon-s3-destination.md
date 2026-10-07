@@ -25,7 +25,7 @@ s3://<bucket name>/<prefix>
   &s3-location-constraint=<region-id>
 ```
 
-If you do not supply a hostname, but instead a region, such as `us-east-1`, the hostname will be auto-selected, based on the region. If the region is not supported by the library yet, you can supply the hostname via `--server-name=<hostname>`.
+If you do not supply a hostname, but instead a region, such as `us-east-1`, the hostname will be auto-selected, based on the region. If the region is not supported by the library yet, you can supply the hostname via `--s3-server-name=<hostname>`.
 
 Beware that S3 by default will not use an encrypted connection, and you need to add `--use-ssl=true`to get it working.
 
