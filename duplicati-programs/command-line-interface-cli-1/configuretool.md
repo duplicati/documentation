@@ -294,7 +294,7 @@ If you suspect your CA private key has been compromised:
 
 ## Using Custom Certificates
 
-If you prefer providing your own certificate instead of using the auto-generated CA, you can do so by setting the `server-ssl-certificate` and `server-ssl-certificatepassword` settings. When using custom certificates:
+If you prefer providing your own certificate instead of using the auto-generated CA, you can do so by starting the Server with the `--webservice-sslcertificatefile` and `--webservice-sslcertificatepassword` options. When using custom certificates:
 
 - Auto-renewal will not be activated
 - No CA will be generated
