@@ -90,6 +90,6 @@ For the retention setting, it is inevitable that the backups will grow as new an
 
 The setting "Smart backup retention" is meant to be useful for most users where it keeps one daily backup and then gradually fewer versions going back in time.
 
-Once you are satisfied with the settings, click the "Save" button.
+Once you are satisfied with the settings, click the "Submit" button.
 
 You have now configured your backup! 🎉
