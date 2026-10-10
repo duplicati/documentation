@@ -66,6 +66,10 @@ C:\Program Files\Duplicati 2\Duplicati.WindowsService.exe INSTALL --webservice-p
 
 You can also use the [preload.json](../../detailed-descriptions/configuration-and-management/preload-settings.md) file to pass settings to the Server when running as a service, which allows you to change the settings without the uninstall/install cycle (you still need to restart the service).
 
+{% hint style="warning" %}
+Starting with version 2.3.1.0, the server refuses to use a data folder that other users can access. If you pass your own `--server-datafolder`, lock it down from an elevated prompt with `Duplicati.CommandLine.ConfigureTool.exe secure-datafolder --for-service --datafolder=<path>`, see [limited access to the database folder](../../detailed-descriptions/database-and-storage/the-server-database.md#limited-access-to-the-database-folder).
+{% endhint %}
+
 **Note**: When running the Windows Service it will default to use port 8200 and fail it that port is not available. If you are running the TrayIcon, that will run a **different** instance, usually at port 8300. If you want to connect the TrayIcon to the Windows Service, edit the shortcut to Duplicati:
 
 {% code overflow="wrap" %}
