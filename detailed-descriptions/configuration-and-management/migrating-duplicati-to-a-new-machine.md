@@ -26,7 +26,7 @@ Before making a copy you need to decrypt the settings database so it can be read
 2. Start Duplicati with the commandline option `--disable-db-encryption=true`
 3. Stop Duplicati again
 
-Make sure Duplicati is stopped before moving in the folder into the same location on the new machine. After moving in the folder, you can start Duplicati on the new machine and everything will be working as before. If it has been a while since the previous instance was running, this may trigger the scheduled backups on startup. Use the option `--startup-delay=5min` to start Duplicati in pause mode for 5 minutes if you want to check up before it starts running.
+Make sure Duplicati is stopped before moving in the folder into the same location on the new machine. After moving in the folder, you can start Duplicati on the new machine and everything will be working as before. If it has been a while since the previous instance was running, this may trigger the scheduled backups on startup. If you want to check up before it starts running, set "Pause after startup or hibernation" on the Settings page before moving the folder, or pause the scheduler right after starting with [ServerUtil](../../duplicati-programs/command-line-interface-cli-1/serverutil.md#pausing-and-resuming-the-server): `duplicati-server-util pause 5m`.
 
 ## Backup configurations are available
 
