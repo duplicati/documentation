@@ -8,7 +8,7 @@ The SourceTool lists or downloads the files that a remote source exposes. It is 
 
 The SourceTool is called `Duplicati.CommandLine.SourceTool.exe` on Windows and `duplicati-source-tool` on Linux and MacOS.
 
-The URL can be any source provider, such as the [Microsoft 365](../../detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md) or [Google Workspace](../../detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md) sources, or any [destination](../../backup-destinations/destination-overview.md) that supports folders, such as SSH or WebDAV.
+The URL can be any source provider, such as the [Microsoft 365](../../detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md) or [Google Workspace](../../detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md) sources, or a [destination](../../backup-destinations/destination-overview.md) that supports browsing folders. In 2.4 these are the File, SSH, SMB, S3, IDrive e2, Box, Dropbox, Google Drive, and Microsoft Graph based (OneDrive, SharePoint, Microsoft Group) destinations.
 
 ## List
 
