@@ -158,7 +158,7 @@ services:
   duplicati:
     image: duplicati/duplicati:latest
     environment:
-      - DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
+      DUPLICATI__WEBSERVICE_PASSWORD: "<ui password>"
     volumes:
       - ./data:/data
     restart: unless-stopped
