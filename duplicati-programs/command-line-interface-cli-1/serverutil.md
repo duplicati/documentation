@@ -70,6 +70,14 @@ duplicati-server-util import <filename> <passphrase>
 
 Note that this will create a new backup with the same configuration, so make sure you have removed the previous backup configuration first.
 
+To delete a backup configuration, run:
+
+```
+duplicati-server-util delete <backup id or name>
+```
+
+The delete is queued in the server like other tasks. By default only the configuration is removed; add `--delete-local-db` to also delete the [local database](../../detailed-descriptions/database-and-storage/the-local-database.md), and `--delete-remote-files` to also delete the backup data on the destination. A running backup is not deleted unless `--force` is given.
+
 ## Pausing and resuming the server
 
 A common use for the ServerUtil is to pause and resume the server, which can be done to avoid running backups during peak hours. To pause the server, invoke the ServerUtil with a [duration value](../../technical-details/option-formats.md#timespans-timestamps-and-durations):
@@ -86,6 +94,26 @@ To resume the server, run the following command:
 duplicati-server-util resume
 ```
 
+## Checking the server state
+
+The `health` command calls the server health endpoint and prints "Server is healthy" (exit code `0`) or "Server is unhealthy" (exit code `1`), which makes it usable for monitoring scripts:
+
+```
+duplicati-server-util health
+```
+
+The `status` command prints the server state (running or paused), the active task, and the scheduled tasks:
+
+```
+duplicati-server-util status
+```
+
+Add `--json` to any command to get the output as JSON instead of text.
+
+## Connecting to a server with HTTPS
+
+If the server uses a certificate that is not trusted by the operating system, pass the SHA1 hash of the certificate with `--host-cert=<hash>`. The options `--insecure` (or `--host-cert=*`) accept any certificate and should only be used for testing. Use `--ignore-revocation-failure` if the certificate revocation status cannot be checked.
+
 ## Changing the Server password
 
 As explained in the section on the [access password](../../detailed-descriptions/configuration-and-management/duplicati-access-password.md), it is possible to use the ServerUtil to change the password. In the general case, this can be done with access to the [server database](../../detailed-descriptions/database-and-storage/the-server-database.md), but in some cases it requires knowing the previous password. Change the password with the command:
@@ -98,7 +126,7 @@ Note that this will not revoke access that is already granted, as such [access l
 
 ## Issuing a "forever token"
 
-The "`issue-forever-token`" command was added to Duplicati beta 2.1.0.3 and canary 2.0.102.
+The "`issue-forever-token`" command was added to Duplicati beta 2.1.0.3 and canary 2.1.0.102.
 
 All requests to the Duplicati server needs to be authenticated with a valid token. Usually the token is obtained by providing the password to the server and receiving a token in the response. For some advanced setups, especially when running Duplicati behind an authenticated proxy server. In such a setup, the Duplicati password is an unwanted "double authentication".
 
