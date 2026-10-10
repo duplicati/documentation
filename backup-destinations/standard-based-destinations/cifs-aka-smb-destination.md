@@ -4,6 +4,10 @@ description: This page describes the CIFS storage destination
 
 # SMB (aka CIFS) Destination
 
+{% hint style="info" %}
+The destination can be selected with both `smb://` and `cifs://`. The `cifs://` name is deprecated and only kept for existing configurations; use `smb://` for new backups.
+{% endhint %}
+
 The Server Message Block (SMB) / Common Internet File System (CIFS) backend provides native support for accessing shared network resources using the SMB/CIFS protocol. This backend enables direct interaction with Windows shares and other SMB-compatible network storage systems.
 
 ## User interface

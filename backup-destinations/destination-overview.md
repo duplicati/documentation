@@ -16,6 +16,18 @@ Each storage destination has a number of options that can be provided via a URL 
 Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
 {% endhint %}
 
+## Timeouts
+
+All destinations share three timeout options that guard against a connection that stops responding:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `--short-timeout` | `30s` | The timeout for short operations, such as deleting a file or creating a folder. |
+| `--list-timeout` | `10m` | The timeout for listing the files in the destination. |
+| `--read-write-timeout` | `30s` | The timeout for uploads and downloads. The timeout is reset whenever data is transferred, so it only triggers if there is no activity for the given period. |
+
+Like other destination options, they can be added to the destination URL or set as advanced options. The Rclone destination does not support `--read-write-timeout`.
+
 ## Duplicati Storage
 
 [Duplicati Storage](../duplicati-console/duplicati-storage.md) is the storage that is integrated with the Duplicati Console. It requires no configuration of the destination, but requires that the machine is connected to the console.
@@ -31,6 +43,7 @@ Destinations in this category are general purpose enough, or commonly used, so t
 * [WebDAV](standard-based-destinations/webdav-destination.md)
 * [OpenStack](standard-based-destinations/openstack-destination.md)
 * [Rclone](standard-based-destinations/rclone-destination.md) (binary required)
+* [SMB](standard-based-destinations/cifs-aka-smb-destination.md) (aka CIFS, Windows network shares)
 
 ## Provider specific destinations
 
@@ -39,7 +52,8 @@ Storage destinations in this category are specific to one particular provider an
 * [Backblaze B2](provider-specific-destinations/backblaze-b2-destination.md)
 * [Amazon S3](provider-specific-destinations/amazon-s3-destination.md)
 * [Box.com](provider-specific-destinations/box.com-destination.md)
-* [Mega.nz](provider-specific-destinations/mega.nz-destination.md)
+* [Mega.nz](provider-specific-destinations/mega.nz-destination.md) (deprecated)
+* [IDrive e2](provider-specific-destinations/idrive-e2-destination.md)
 * [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md)
 * [Tencent COS](provider-specific-destinations/tencent-cos-destination.md)
 * [Jottacloud](provider-specific-destinations/jottacloud-destination.md)
@@ -47,10 +61,12 @@ Storage destinations in this category are specific to one particular provider an
 * [Azure Blob Storage](provider-specific-destinations/azure-blob-storage-destination.md)
 * [Google Cloud Storage](provider-specific-destinations/google-cloud-storage-destination.md)
 * [Microsoft Group Drive](provider-specific-destinations/microsoft-group-destination.md)
-* [SharePoint](provider-specific-destinations/sharepoint-destination.md)
-* [FileJump](provider-specific-destinations/filejump.md)
+* [SharePoint](provider-specific-destinations/sharepoint-v2-graph-api.md) (Microsoft Graph API)
+* [SharePoint, legacy API](provider-specific-destinations/sharepoint-destination.md) (deprecated)
+* [FileJump](provider-specific-destinations/filejump.md) (deprecated)
 * [Filen.io](provider-specific-destinations/filen.io.md)
 * [Drime Cloud](provider-specific-destinations/drime-cloud.md)
+* [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md)
 
 ## File synchronization providers
 
@@ -59,7 +75,7 @@ Storage destinations in this category are also specific to one particular provid
 * [Dropbox](file-synchronization-providers/dropbox-destination.md)
 * [GoogleDrive](file-synchronization-providers/googledrive-destination.md)
 * [OneDrive](file-synchronization-providers/onedrive-destination.md)
-* [OneDrive for business](file-synchronization-providers/onedrive-for-business-destination.md)
+* [OneDrive for business](file-synchronization-providers/onedrive-for-business-destination.md) (deprecated, use OneDrive)
 
 ## Decentralized providers
 
@@ -67,3 +83,12 @@ Storage destinations in this category are utilizing a decentralized storage stra
 
 * [Storj](decentralized-providers/storj-destination.md) (previously Tardigrade)
 * [TahoeLAFS](decentralized-providers/tahoelafs-destination.md)
+
+## Deprecated and untested destinations
+
+Some destinations are marked as deprecated or untested:
+
+* **Deprecated** destinations still work, but should be migrated away from: [Mega.nz](provider-specific-destinations/mega.nz-destination.md), [OneDrive for Business](file-synchronization-providers/onedrive-for-business-destination.md) (`od4b://`), the legacy [SharePoint](provider-specific-destinations/sharepoint-destination.md) (`mssp://`), [FileJump](provider-specific-destinations/filejump.md), and the `cifs://` name for the [SMB destination](standard-based-destinations/cifs-aka-smb-destination.md).
+* **Untested** destinations are implemented, but the Duplicati team does not have an account to test them with: [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md), [Tencent COS](provider-specific-destinations/tencent-cos-destination.md), and [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md).
+
+These destinations are not shown in the destination list in the user interface. To select one, type its exact protocol name (such as `mega` or `cos`) in the search field, or turn on "Show all" next to the search field.

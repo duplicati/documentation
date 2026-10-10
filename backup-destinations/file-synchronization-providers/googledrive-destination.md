@@ -1,5 +1,5 @@
 ---
-description: This page describes the Dropbox storage destination
+description: This page describes the Google Drive storage destination
 ---
 
 # Google Drive Destination
