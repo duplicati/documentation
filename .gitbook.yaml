@@ -9,7 +9,7 @@ redirects:
   detailed-descriptions/choosing-duplicati-type: detailed-descriptions/platform-specific-guides/choosing-duplicati-type
   detailed-descriptions/using-duplicati-with-linux: detailed-descriptions/platform-specific-guides/using-duplicati-with-linux
   detailed-descriptions/using-duplicati-with-macos: detailed-descriptions/platform-specific-guides/using-duplicati-with-macos
-  detailed-descriptions/using-duplicati-with-windows: detailed-descriptions/platform-specific-guides/using-duplicati-with-windows
+  detailed-descriptions/using-duplicati-with-windows: platform-specific-guides/using-duplicati-with-windows
   detailed-descriptions/using-duplicati-from-docker: detailed-descriptions/platform-specific-guides/using-duplicati-from-docker
   # Configuration & Management
   detailed-descriptions/import-and-export-backup-configurations: detailed-descriptions/configuration-and-management/import-and-export-backup-configurations
@@ -30,6 +30,6 @@ redirects:
   detailed-descriptions/the-server-database: detailed-descriptions/database-and-storage/the-server-database
   # Automation & Integration
   detailed-descriptions/scripts: detailed-descriptions/automation-and-integration/scripts
-  detailed-descriptions/using-remote-management: detailed-descriptions/automation-and-integration/using-remote-management
+  detailed-descriptions/using-remote-management: duplicati-console/connecting-to-the-duplicati-console
   detailed-descriptions/office-365-backup-and-restore: detailed-descriptions/automation-and-integration/office-365-backup-and-restore
   detailed-descriptions/using-duplicati-to-backup-openclaw: detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw
