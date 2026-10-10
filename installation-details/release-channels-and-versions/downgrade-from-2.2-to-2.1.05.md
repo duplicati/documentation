@@ -1,5 +1,5 @@
 ---
-description: This page describes how to downgrade from Duplicati 2.1.0.5 to 2.0.8.1
+description: This page describes how to downgrade from Duplicati 2.2 to 2.1.0.5
 ---
 
 # Downgrade from 2.2 to 2.1.05
@@ -20,4 +20,4 @@ After the downgrade is complete, uninstall Duplicati 2.2 and install 2.1.0.5.
 
 ## Obtaining older releases
 
-The [installer packages for 2.1.0.5](https://github.com/duplicati/duplicati/releases/tag/v2.0.8.1-2.0.8.1_beta_2024-05-07) are available on Github. You can [browse the list of releases ](https://github.com/duplicati/duplicati/releases)for other versions you may want.
+The [installer packages for 2.1.0.5](https://github.com/duplicati/duplicati/releases/tag/v2.1.0.5_stable_2025-03-04) are available on Github. You can [browse the list of releases ](https://github.com/duplicati/duplicati/releases)for other versions you may want.
