@@ -21,3 +21,11 @@ duplicati-secret-tool info <provider url>
 ```
 
 Note that to protect the secrets, the tool will not report the actual values, but just report if it was able to obtain a value from the secret provider.
+
+For providers that support storing secrets, the tool can also write a secret:
+
+```
+duplicati-secret-tool set <provider url> <key> [value]
+```
+
+If the value is left out, the tool asks for it twice on the console, so it does not end up in the shell history. Add `--overwrite` to replace a secret that already exists. After storing the value, the tool reads it back to check that it was stored correctly.

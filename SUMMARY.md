@@ -141,6 +141,8 @@
   * [Snapshots](duplicati-programs/command-line-interface-cli-1/snapshots.md)
   * [SyncTool](duplicati-programs/command-line-interface-cli-1/synctool.md)
   * [DatabaseTool](duplicati-programs/command-line-interface-cli-1/databasetool.md)
+  * [AutoTuneTool](duplicati-programs/command-line-interface-cli-1/autotunetool.md)
+  * [SourceTool](duplicati-programs/command-line-interface-cli-1/sourcetool.md)
 * [LICENSE](duplicati-programs/license/README.md)
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
   * [License Agreement](duplicati-programs/license/license-agreement.md)
