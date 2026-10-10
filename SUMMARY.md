@@ -27,6 +27,9 @@
 * [Migrating Duplicati to a new machine](detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine.md)
 * [Preload settings](detailed-descriptions/configuration-and-management/preload-settings.md)
 * [Retention settings](detailed-descriptions/configuration-and-management/retention-settings.md)
+* [Multiple backup destinations](detailed-descriptions/configuration-and-management/multiple-backup-destinations.md)
+* [Remote sources](detailed-descriptions/configuration-and-management/remote-sources.md)
+* [Sync jobs](detailed-descriptions/configuration-and-management/sync-jobs.md)
 * [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
 
