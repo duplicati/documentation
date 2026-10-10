@@ -51,6 +51,7 @@ Storage destinations in this category are specific to one particular provider an
 * [FileJump](provider-specific-destinations/filejump.md)
 * [Filen.io](provider-specific-destinations/filen.io.md)
 * [Drime Cloud](provider-specific-destinations/drime-cloud.md)
+* [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md)
 
 ## File synchronization providers
 
@@ -73,6 +74,6 @@ Storage destinations in this category are utilizing a decentralized storage stra
 Some destinations are marked as deprecated or untested:
 
 * **Deprecated** destinations still work, but should be migrated away from: [Mega.nz](provider-specific-destinations/mega.nz-destination.md), [OneDrive for Business](file-synchronization-providers/onedrive-for-business-destination.md) (`od4b://`), the legacy [SharePoint](provider-specific-destinations/sharepoint-destination.md) (`mssp://`), [FileJump](provider-specific-destinations/filejump.md), and the `cifs://` name for the [SMB destination](standard-based-destinations/cifs-aka-smb-destination.md).
-* **Untested** destinations are implemented, but the Duplicati team does not have an account to test them with: [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md) and [Tencent COS](provider-specific-destinations/tencent-cos-destination.md).
+* **Untested** destinations are implemented, but the Duplicati team does not have an account to test them with: [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md), [Tencent COS](provider-specific-destinations/tencent-cos-destination.md), and [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md).
 
 These destinations are not shown in the destination list in the user interface. To select one, type its exact protocol name (such as `mega` or `cos`) in the search field, or turn on "Show all" next to the search field.
