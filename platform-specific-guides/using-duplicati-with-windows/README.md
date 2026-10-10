@@ -66,6 +66,10 @@ C:\Program Files\Duplicati 2\Duplicati.WindowsService.exe INSTALL --webservice-p
 
 You can also use the [preload.json](../../detailed-descriptions/configuration-and-management/preload-settings.md) file to pass settings to the Server when running as a service, which allows you to change the settings without the uninstall/install cycle (you still need to restart the service).
 
+{% hint style="warning" %}
+Starting with version 2.3.1.0, the server refuses to use a data folder that other users can access. If you pass your own `--server-datafolder`, lock it down from an elevated prompt with `Duplicati.CommandLine.ConfigureTool.exe secure-datafolder --for-service --datafolder=<path>`, see [limited access to the database folder](../../detailed-descriptions/database-and-storage/the-server-database.md#limited-access-to-the-database-folder).
+{% endhint %}
+
 **Note**: When running the Windows Service it will default to use port 8200 and fail it that port is not available. If you are running the TrayIcon, that will run a **different** instance, usually at port 8300. If you want to connect the TrayIcon to the Windows Service, edit the shortcut to Duplicati:
 
 {% code overflow="wrap" %}
@@ -137,3 +141,22 @@ To enable VSS, set the advanced option `--snapshot-policy=required` . If you are
 The BackupRead method does not create a snapshot and instead relies on a Windows API call that allows a program to read files for backup purposes. The benefit from this is that you do not need to create disk snapshots, which requires extra disk space and co-operation from other programs.
 
 To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../../detailed-descriptions/installation-details/release-channels-and-versions/).
+
+## Alternate data streams
+
+NTFS files can carry alternate data streams (ADS) next to the main file content. From Duplicati 2.4.0.0, these can be included in the backup by setting the advanced option `--enable-ads-backup`. It is off by default.
+
+If a backup contains alternate data streams, they are restored together with the files. Use `--disable-ads-restore` to restore only the main file content.
+
+## Backup status icons in File Explorer
+
+From Duplicati 2.3.0.0, File Explorer can show an overlay icon on folders that are part of a backup, indicating whether the last backup succeeded, had warnings or errors, or is running. The feature is off by default and needs two steps:
+
+1. Start the [Server](../../duplicati-programs/server.md) or TrayIcon with `--webservice-enable-folder-status-service`. This lets the overlay handler ask the local server for the status without logging in, which also means that any local process can read the source folder paths and backup status.
+2. Register the shell extension by running the script that is installed next to the Duplicati executables from an elevated PowerShell:
+
+```
+& "C:\Program Files\Duplicati 2\RegisterFolderStatusExtension.ps1"
+```
+
+Restart File Explorer (or sign out and in) to see the icons. To remove the extension again, run the script with `-Unregister`.

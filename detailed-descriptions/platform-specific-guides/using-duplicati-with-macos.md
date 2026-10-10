@@ -94,3 +94,7 @@ duplicati-server-util help
 ```sh
 /Applications/Duplicati.app/Contents/MacOS/duplicati-server-util help
 ```
+
+## ACLs and file flags
+
+From Duplicati 2.4.0.0, backups on MacOS also store the extended ACL and the file flags (such as `hidden` or `uchg`) of each file and folder. They are restored together with the other permissions when `--restore-permissions` is set; without it, they are not restored.

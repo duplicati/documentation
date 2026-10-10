@@ -90,6 +90,10 @@ The server is now running and will automatically start when you restart the mach
 
 **Note:** the service runs in the `root` user context, so files will be stored in `/root/.config/Duplicati` on most systems, but in `/var/lib/Duplicati` on other systems. Use the `DAEMON_OPTS` to add `--server-datafolder=<path to storage folder>` if you want a specific location.
 
+{% hint style="warning" %}
+Starting with version 2.3.1.0, the server refuses to use a data folder that is readable by other users. If you point `--server-datafolder` to a folder you created yourself, lock it down with `sudo duplicati-configure secure-datafolder --for-service --datafolder=<path>`, see [limited access to the database folder](../database-and-storage/the-server-database.md#limited-access-to-the-database-folder).
+{% endhint %}
+
 To check the logs (and possibly obtain a signin link), the following command can usually be used:
 
 ```sh
