@@ -48,6 +48,7 @@
   * [Sending Jabber/XMPP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-jabber-xmpp-notifications.md)
   * [Sending HTTP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-http-notifications.md)
   * [Sending Telegram notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-telegram-notifications.md)
+  * [Sending live status reports](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-live-status-reports.md)
   * [Custom message content](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/custom-message-content.md)
 
 ## Database & Storage

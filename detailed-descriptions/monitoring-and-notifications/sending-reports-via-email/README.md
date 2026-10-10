@@ -15,3 +15,4 @@ To avoid discovering too late that the backup had stopped working for some reaso
 * [Send Jabber/XMPP](sending-jabber-xmpp-notifications.md)
 * [Send HTTP message](sending-http-notifications.md)
 * [Send Telegram message](sending-telegram-notifications.md)
+* [Send live status reports](sending-live-status-reports.md) (progress of running operations)
