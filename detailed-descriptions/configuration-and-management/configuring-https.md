@@ -53,11 +53,25 @@ The CA private key is stored with multiple layers of protection:
 **Important:** The security of your HTTPS certificates depends on the security of your Duplicati database file. Ensure that database encryption is enabled.
 {% endhint %}
 
+## Generating the certificates from the Server
+
+Instead of running the ConfigureTool, the [Server](../../duplicati-programs/server.md) (or TrayIcon) can generate and install the certificates on startup:
+
+```
+duplicati-server --configure-https
+```
+
+Use `--configure-https-hostnames=<host1>,<host2>` to choose the hostnames in the certificate. The certificates are stored in the server database like with the ConfigureTool.
+
 ## Platform-Specific Configuration
 
 ### Windows
 
 On Windows, the CA certificate is installed in the certificate store. By default, it uses the LocalMachine store when running as Administrator, or CurrentUser store when running as a regular user. A dialog is shown to confirm the installation location when installing without Administrator privileges.
+
+#### Using the Windows installer
+
+The Windows installer has a checkbox "Generate and use TLS (HTTPS) certificates" that sets up the certificates as part of the installation. If Duplicati runs as a [Windows Service](../../platform-specific-guides/using-duplicati-with-windows/run-duplicati-as-a-windows-service.md), the certificates must be generated in the service context; use `Duplicati.WindowsService.exe INSTALL-CERTS` for this, as described on the [Service page](../../duplicati-programs/service.md#manage-tls-https-certificates).
 
 #### Generating Certificates on Windows
 
