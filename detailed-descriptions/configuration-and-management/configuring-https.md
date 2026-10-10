@@ -257,7 +257,7 @@ If you prefer to use your own certificates instead of the auto-generated CA:
 2. Start Duplicati Server once with the `--webservice-sslcertificatefile` and `--webservice-sslcertificatepassword` options
 3. Note that auto-renewal will not be available when using custom certificates
 
-See the [Server documentation](../duplicati-programs/server.md) for details on configuring custom SSL certificates.
+See the [Server documentation](../../duplicati-programs/server.md) for details on configuring custom SSL certificates.
 
 ## See Also
 
