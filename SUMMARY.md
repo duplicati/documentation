@@ -156,6 +156,8 @@
   * [Upgrading and downgrading](installation-details/release-channels-and-versions/upgrading-and-downgrading.md)
   * [Downgrade from 2.1.0.5 to 2.0.8.1](installation-details/release-channels-and-versions/downgrade-from-2.1.0.2-to-2.0.8.1.md)
   * [Downgrade from 2.2 to 2.1.05](installation-details/release-channels-and-versions/downgrade-from-2.2-to-2.1.05.md)
+  * [Downgrade from 2.3 to 2.2](installation-details/release-channels-and-versions/downgrade-from-2.3-to-2.2.md)
+  * [Downgrade from 2.4 to 2.3](installation-details/release-channels-and-versions/downgrade-from-2.4-to-2.3.md)
 * [Package options](installation-details/package-options.md)
 * [Developer](installation-details/developer.md)
 
