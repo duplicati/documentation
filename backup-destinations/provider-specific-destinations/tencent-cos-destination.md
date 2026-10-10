@@ -4,6 +4,10 @@ description: This page describes the Tencent COS storage destination
 
 # Tencent COS Destination
 
+{% hint style="info" %}
+This destination is marked as untested, as the Duplicati team does not have an account to test it with. It is hidden from the destination list in the user interface, see [deprecated and untested destinations](../destination-overview.md#deprecated-and-untested-destinations).
+{% endhint %}
+
 Duplicati supports storing files on [Tencent Cloud Object Storage (COS)](https://www.tencentcloud.com/products/cos) which is a large-scale object storage, similar to S3. In Tencent COS you store "objects" (similar to files) in "buckets" which define various properties shared between the objects. If you use a `/` in the object prefix, they can be displayed as virtual folders when listing them.
 
 ## User interface

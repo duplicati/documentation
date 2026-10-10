@@ -8,6 +8,8 @@ Duplicati supports using [FileJump](https://filejump.com) as the storage destina
 
 {% hint style="warning" %}
 As of 2025-11-01 FileJump has announced that they will change the solution including the API so Duplicati will likely stop working with Filejump on 2025-12-31. If API docs are updated before, Duplicati may be updated to support FileJump again. Until this happens, we do not recommend using Filejump with Duplicati.
+
+The FileJump destination is marked as deprecated in Duplicati, so it is hidden from the destination list in the user interface. See [deprecated and untested destinations](../destination-overview.md#deprecated-and-untested-destinations) for how to select it anyway.
 {% endhint %}
 
 ## User interface
