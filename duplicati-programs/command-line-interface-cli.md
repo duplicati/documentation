@@ -27,17 +27,23 @@ The commandline interface has full documentation for all supported options and s
 ```
 See duplicati-cli help <topic> for more information.
   General: example, changelog
-  Commands: backup, sync, find, restore, delete, compact, test, compare, purge, vacuum
+  Commands: backup, sync, find, restore, delete, compact, test, compare,
+  purge, vacuum
+  Searching: list-filesets, list-folder-contents, list-file-versions,
+  search-files
   Repair: repair, affected, list-broken-files, purge-broken-files
+  Locking: set-locks, read-lock-info
   Debug: debug, logging, create-report, test-filters, system-info, send-mail
-  Targets: aliyunoss, azure, b2, box, cloudfiles, dropbox, ftp, aftp, file, gcs, googledrive, e2,
-  jottacloud, mega, msgroup, onedrivev2, openstack, rclone, s3, ssh, od4b, mssp, sharepoint, sia,
-  storj, tahoe, cos, webdav
-  Modules: aes, gpg, zip, console-password-input, http-options, hyperv-options, mssql-options,
-  runscript, sendhttp, sendxmpp, sendtelegram, sendmail
+  Targets: aliyunoss, azure, b2, box, duplicati, dropbox, ftp, aftp, file,
+  gcs, googledrive, e2, jottacloud, mega, msgroup, movistarcloud, onedrivev2,
+  openstack, rclone, s3, ssh, od4b, mssp, sharepoint, storj, tahoe, cos,
+  webdav, pcloud, smb, cifs, filen, filejump, drimecloud
+  Modules: aes, gpg, zip, common-options, console-password-input,
+  httpreportstatus, hyperv-options, mssql-options, runscript, sendhttp,
+  sendxmpp, sendmail, sendtelegram
   Formats: date, time, size, decimal, encryption, compression
   Advanced: mail, advanced, returncodes, filter, filter-groups, <option>
-  Secrets: secret, <provider>
+  Secrets: password, secret, <provider>
 ```
 
 To list all options supported by the commandline interface, run the following command:
