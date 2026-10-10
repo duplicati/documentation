@@ -49,3 +49,23 @@ To set up a secret provider for the [TrayIcon](../../../duplicati-programs/trayi
 <figure><picture><source srcset="../../../.gitbook/assets/Screenshot 2026-06-25 at 10.03.57.png" media="(prefers-color-scheme: dark)"><img src="../../../.gitbook/assets/Screenshot 2026-06-25 at 10.03.37.png" alt=""></picture><figcaption></figcaption></figure>
 
 Remember to click "Save settings" after configuring the provider.
+
+## The default secret provider
+
+Starting with Duplicati 2.3, the [Server](../../../duplicati-programs/server.md), [TrayIcon](../../../duplicati-programs/trayicon.md) and [Agent](../../../duplicati-programs/agent.md) also use a default secret provider for the operating system, even if `--secret-provider` is not set:
+
+* Windows: the Windows Credential Manager (`wincred://`)
+* MacOS: the Keychain (`keychain://`)
+* Linux: `libsecret://`, if it is installed and has a default collection. Otherwise there is no default secret provider.
+
+The default secret provider is used to store secrets that Duplicati creates itself, most importantly the key used to encrypt the [server database](../../database-and-storage/the-server-database.md). If `--secret-provider` is set to a provider that can store secrets, that provider is used instead. To turn the default secret provider off, start with `--disable-default-secret-provider`.
+
+## Changing the placeholder pattern
+
+By default, values that start with `$` are looked up in the secret provider. If this clashes with values that legitimately start with `$`, a different pattern can be set with `--secret-provider-pattern`. The pattern is a prefix, optionally with braces around the key name. For example, with:
+
+```
+--secret-provider-pattern=!secret{}
+```
+
+the value `!secret{backup-passphrase}` is replaced with the secret named `backup-passphrase`.
