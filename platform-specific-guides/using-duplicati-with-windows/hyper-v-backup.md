@@ -4,7 +4,7 @@ description: This page describes how to make backups of Hyper-V machines
 
 # Hyper-V backup
 
-On Windows, Duplicati has built-in support for finding Hyper-V machines if running with sufficient privileges. To include a Hyper-V machine in a backup, visit the [Source Data](../../getting-started/set-up-a-backup-in-the-ui.md#id-3.-source-data) step, and find "Hyper-V  Machines" in the treeview:
+On Windows, Duplicati has built-in support for finding Hyper-V machines if running with sufficient privileges. To include a Hyper-V machine in a backup, visit the [Source Data](../../getting-started/set-up-a-backup-in-the-ui.md#id-2.-source-data) step, and find "Hyper-V  Machines" in the treeview:
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-06-22 at 11.19.12.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-06-22 at 11.18.56.png" alt=""></picture><figcaption></figcaption></figure>
 

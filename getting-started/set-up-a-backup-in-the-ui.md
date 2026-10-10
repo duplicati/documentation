@@ -12,13 +12,17 @@ In the UI, start by clicking "Add backup", and choose the option "Add a new back
 
 If you have an existing backup configuration you want to load in, see the [section on import/export](../detailed-descriptions/configuration-and-management/import-and-export-backup-configurations.md).
 
+{% hint style="info" %}
+The order of the steps below is the one used from Duplicati 2.4.0.1. In earlier versions, the storage destination step comes before the source data step.
+{% endhint %}
+
 To set up a new backup there are some details that are required, and these are divided into 5 steps:
 
-1. [Basic configuration](set-up-a-backup-in-the-ui.md#basic-configuration) (descriptive name, passphrase)
-2. [Storage destination](set-up-a-backup-in-the-ui.md#storage-destination) (where to store the backups)
-3. [Source data](set-up-a-backup-in-the-ui.md#source-data) (what data should be backed up)
-4. [Schedule](set-up-a-backup-in-the-ui.md#schedule) (automatically run backups)
-5. [Retention and miscellaneous](set-up-a-backup-in-the-ui.md#retention-and-miscellaneous) (when to delete old backups and more)
+1. [Basic configuration](set-up-a-backup-in-the-ui.md#id-1.-basic-configuration) (descriptive name, passphrase)
+2. [Source data](set-up-a-backup-in-the-ui.md#id-2.-source-data) (what data should be backed up)
+3. [Storage destination](set-up-a-backup-in-the-ui.md#id-3.-storage-destination) (where to store the backups)
+4. [Schedule](set-up-a-backup-in-the-ui.md#id-4.-schedule) (automatically run backups)
+5. [Retention and miscellaneous](set-up-a-backup-in-the-ui.md#id-5.-retention-and-miscellaneous) (when to delete old backups and more)
 
 ## 1. Basic configuration
 
@@ -36,7 +40,19 @@ The encryption setup allows you to choose an encryption method and a passphrase.
 
 To avoid weak passphrases, Duplicati has a built-in passphrase generator as well as a passphrase strength measurer.
 
-## 2. Storage destination
+## 2. Source data
+
+In the second step you need to define what data should be backed up. This part depends on your use. If you are a home user, you may want to back up images and documents. An IT professional may want to back up databases.
+
+In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to unselect some items that you want to exclude, and they will show up without a selection marker.
+
+<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.41.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.59.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
+
+For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) if you have advanced needs.
+
+Once you are satisfied with the source view, click the "Continue" button to continue to the storage destination step.
+
+## 3. Storage destination
 
 The storage destination is arguably the most technical step because it is where you specify how to connect to the storage provider you want to hold your information. Some destinations require only a single setting, where others require multiple.
 
@@ -50,19 +66,7 @@ Due to the number of supported backends, this page does not contain the instruct
 
 When the details are entered, it is recommended that you use the "Test destination" button which will perform some connection tests that helps reveal any issues with the entered information.
 
-When the destination is configured as desired, click the "Continue" button.
-
-## 3. Source data
-
-In the third step you need to define what data should be backed up. This part depends on your use. If you are a home user, you may want to back up images and documents. An IT professional may want to back up databases.
-
-In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to unselect some items that you want to exclude, and they will show up without a selection marker.
-
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.41.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.59.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
-
-For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) if you have advanced needs.
-
-Once you are satisfied with the source view, click the "Continue" button to continue to the schedule step.
+When the destination is configured as desired, click the "Continue" button to continue to the schedule step.
 
 ## 4. Schedule
 
