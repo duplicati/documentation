@@ -143,3 +143,16 @@ To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=
 NTFS files can carry alternate data streams (ADS) next to the main file content. From Duplicati 2.4.0.0, these can be included in the backup by setting the advanced option `--enable-ads-backup`. It is off by default.
 
 If a backup contains alternate data streams, they are restored together with the files. Use `--disable-ads-restore` to restore only the main file content.
+
+## Backup status icons in File Explorer
+
+From Duplicati 2.3.0.0, File Explorer can show an overlay icon on folders that are part of a backup, indicating whether the last backup succeeded, had warnings or errors, or is running. The feature is off by default and needs two steps:
+
+1. Start the [Server](../../duplicati-programs/server.md) or TrayIcon with `--webservice-enable-folder-status-service`. This lets the overlay handler ask the local server for the status without logging in, which also means that any local process can read the source folder paths and backup status.
+2. Register the shell extension by running the script that is installed next to the Duplicati executables from an elevated PowerShell:
+
+```
+& "C:\Program Files\Duplicati 2\RegisterFolderStatusExtension.ps1"
+```
+
+Restart File Explorer (or sign out and in) to see the icons. To remove the extension again, run the script with `-Unregister`.
