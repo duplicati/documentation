@@ -16,6 +16,18 @@ Each storage destination has a number of options that can be provided via a URL 
 Each backup created by Duplicati **requires a separate folder**. Do not create two backups that use the same destination folder as they will keep breaking each other.
 {% endhint %}
 
+## Timeouts
+
+All destinations share three timeout options that guard against a connection that stops responding:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `--short-timeout` | `30s` | The timeout for short operations, such as deleting a file or creating a folder. |
+| `--list-timeout` | `10m` | The timeout for listing the files in the destination. |
+| `--read-write-timeout` | `30s` | The timeout for uploads and downloads. The timeout is reset whenever data is transferred, so it only triggers if there is no activity for the given period. |
+
+Like other destination options, they can be added to the destination URL or set as advanced options. The Rclone destination does not support `--read-write-timeout`.
+
 ## Duplicati Storage
 
 [Duplicati Storage](../duplicati-console/duplicati-storage.md) is the storage that is integrated with the Duplicati Console. It requires no configuration of the destination, but requires that the machine is connected to the console.
