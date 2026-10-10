@@ -31,6 +31,7 @@ Destinations in this category are general purpose enough, or commonly used, so t
 * [WebDAV](standard-based-destinations/webdav-destination.md)
 * [OpenStack](standard-based-destinations/openstack-destination.md)
 * [Rclone](standard-based-destinations/rclone-destination.md) (binary required)
+* [SMB](standard-based-destinations/cifs-aka-smb-destination.md) (aka CIFS, Windows network shares)
 
 ## Provider specific destinations
 
@@ -39,7 +40,8 @@ Storage destinations in this category are specific to one particular provider an
 * [Backblaze B2](provider-specific-destinations/backblaze-b2-destination.md)
 * [Amazon S3](provider-specific-destinations/amazon-s3-destination.md)
 * [Box.com](provider-specific-destinations/box.com-destination.md)
-* [Mega.nz](provider-specific-destinations/mega.nz-destination.md)
+* [Mega.nz](provider-specific-destinations/mega.nz-destination.md) (deprecated)
+* [IDrive e2](provider-specific-destinations/idrive-e2-destination.md)
 * [Aliyun OSS](provider-specific-destinations/aliyun-oss-destination.md)
 * [Tencent COS](provider-specific-destinations/tencent-cos-destination.md)
 * [Jottacloud](provider-specific-destinations/jottacloud-destination.md)
@@ -47,8 +49,9 @@ Storage destinations in this category are specific to one particular provider an
 * [Azure Blob Storage](provider-specific-destinations/azure-blob-storage-destination.md)
 * [Google Cloud Storage](provider-specific-destinations/google-cloud-storage-destination.md)
 * [Microsoft Group Drive](provider-specific-destinations/microsoft-group-destination.md)
-* [SharePoint](provider-specific-destinations/sharepoint-destination.md)
-* [FileJump](provider-specific-destinations/filejump.md)
+* [SharePoint](provider-specific-destinations/sharepoint-v2-graph-api.md) (Microsoft Graph API)
+* [SharePoint, legacy API](provider-specific-destinations/sharepoint-destination.md) (deprecated)
+* [FileJump](provider-specific-destinations/filejump.md) (deprecated)
 * [Filen.io](provider-specific-destinations/filen.io.md)
 * [Drime Cloud](provider-specific-destinations/drime-cloud.md)
 * [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md)
@@ -60,7 +63,7 @@ Storage destinations in this category are also specific to one particular provid
 * [Dropbox](file-synchronization-providers/dropbox-destination.md)
 * [GoogleDrive](file-synchronization-providers/googledrive-destination.md)
 * [OneDrive](file-synchronization-providers/onedrive-destination.md)
-* [OneDrive for business](file-synchronization-providers/onedrive-for-business-destination.md)
+* [OneDrive for business](file-synchronization-providers/onedrive-for-business-destination.md) (deprecated, use OneDrive)
 
 ## Decentralized providers
 
