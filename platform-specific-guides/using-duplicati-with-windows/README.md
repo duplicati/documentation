@@ -70,7 +70,7 @@ You can also use the [preload.json](../../detailed-descriptions/configuration-an
 
 {% code overflow="wrap" %}
 ```
-C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe --no-hosted-server --host-url=http://localhost:8200 --webservice-password=<password>
+C:\Program Files\Duplicati 2\Duplicati.GUI.TrayIcon.exe --no-hosted-server --hosturl=http://localhost:8200 --webservice-password=<password>
 ```
 {% endcode %}
 
