@@ -40,6 +40,6 @@ Once the local database has been recreated, it is then possible to run the backu
 
 If you do not have access to the previous setup, you can still continue the backups, but this requires that you re-create the backups manually. You need at least the storage destination details, the passphrase and to select the sources.
 
-Once the backup configuration has been created it works the same as if you had imported it from a file. Before running a backup, you need to run the repair operation to make Duplicati recreate the [local database](the-local-database.md) for the backup.
+Once the backup configuration has been created it works the same as if you had imported it from a file. Before running a backup, you need to run the repair operation to make Duplicati recreate the [local database](../database-and-storage/the-local-database.md) for the backup.
 
 Once the local database has been recreated, it is then possible to run the backup as before with no modifications required.

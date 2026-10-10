@@ -136,4 +136,4 @@ To enable VSS, set the advanced option `--snapshot-policy=required` . If you are
 
 The BackupRead method does not create a snapshot and instead relies on a Windows API call that allows a program to read files for backup purposes. The benefit from this is that you do not need to create disk snapshots, which requires extra disk space and co-operation from other programs.
 
-To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../../detailed-descriptions/installation-details/release-channels-and-versions/).
+To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../../installation-details/release-channels-and-versions/README.md).
