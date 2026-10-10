@@ -36,7 +36,7 @@ The first time Duplicati starts up, it will open the user interface in your brow
 
 ## Install Duplicati on Linux
 
-Most Linux distributions work well with Duplicati but there are only packages for Debian based distributions (Ubuntu, Mint, etc) and for RedHat based distributions (Fedora, SUSE, etc). For other distributions you may need to manually install some dependencies.
+Most Linux distributions work well with Duplicati but there are only packages for Debian based distributions (Ubuntu, Mint, etc) and for RPM based distributions (Fedora, RHEL, SUSE, etc). For other distributions you may need to manually install some dependencies.
 
 For Linux distributions there are packages for the most common 64-bit based system with `x64`, support for `Arm64` and the predecessor `Arm7` aka `ArmHF` which are commonly found in NAS boxes and the older Raspberry Pi series.
 
@@ -50,13 +50,15 @@ sudo dpkg -i duplicati-version-arch.deb
 
 This will install all dependencies and place Duplicati in the default location on the target system. The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
 
-### Install on RedHat-based Linux (Fedora, SUSE, etc)
+### Install on RPM-based Linux (Fedora, RHEL, SUSE, etc)
 
-To install Duplicati on a RedHat-based system, first download the `.rpm` package matching the system architecture, then run:
+To install Duplicati on an RPM-based system, first download the `.rpm` package matching the system architecture, then run:
 
 ```sh
-sudo yum -i duplicati-version-arch.rpm
+sudo dnf install ./duplicati-version-arch.rpm
 ```
+
+On older RedHat-based systems use `sudo yum install ./duplicati-version-arch.rpm`, and on SUSE use `sudo zypper install ./duplicati-version-arch.rpm`.
 
 This will install all dependencies and place Duplicati in the default location on the target system. The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
 
