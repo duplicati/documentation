@@ -54,6 +54,7 @@
 
 * [The local database](detailed-descriptions/database-and-storage/the-local-database.md)
 * [The server database](detailed-descriptions/database-and-storage/the-server-database.md)
+* [Parity error correction](detailed-descriptions/database-and-storage/parity-error-correction.md)
 
 ## Automation & Integration
 
