@@ -137,3 +137,9 @@ To enable VSS, set the advanced option `--snapshot-policy=required` . If you are
 The BackupRead method does not create a snapshot and instead relies on a Windows API call that allows a program to read files for backup purposes. The benefit from this is that you do not need to create disk snapshots, which requires extra disk space and co-operation from other programs.
 
 To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../../detailed-descriptions/installation-details/release-channels-and-versions/).
+
+## Alternate data streams
+
+NTFS files can carry alternate data streams (ADS) next to the main file content. From Duplicati 2.4.0.0, these can be included in the backup by setting the advanced option `--enable-ads-backup`. It is off by default.
+
+If a backup contains alternate data streams, they are restored together with the files. Use `--disable-ads-restore` to restore only the main file content.
