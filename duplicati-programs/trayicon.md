@@ -30,6 +30,10 @@ By default, the Duplicati TrayIcon will use the operating systems standard metho
 --browser-command=<path to binary>
 ```
 
+## Console output on Windows
+
+On Windows, the TrayIcon attaches to the console of the program that started it, so that its output, such as the `--help` output, is shown in the terminal. Use the option `--detached-process=true` to start the TrayIcon without attaching to the console.
+
 ## Detached TrayIcon
 
 In some cases it may be useful to run the server in one process and the TrayIcon in another. For this setup, the TrayIcon can run without a hosted server. To disable the Server, start the TrayIcon application with the commandline option:
@@ -65,6 +69,8 @@ If the server is using a self-signed certificate (or a certificate not trusted b
 When the TrayIcon is hosting the server, or has access to the database settings, it will automatically extract the certificate hash, so that particular certificate is accepted. This technique is secure and very similar to [certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning).
 
 For testing and debugging purposes, the certificate hash `*` means "any certificate". Beware that this settings is very insecure and should not be used in production settings.
+
+If the revocation status of the certificate cannot be checked, for instance because the revocation server is offline, the option `--ignore-revocation-failure=true` ignores that failure. This option is available from Duplicati 2.4.0.0.
 
 ## Server settings
 
