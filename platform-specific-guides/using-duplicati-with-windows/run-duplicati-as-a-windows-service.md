@@ -34,6 +34,8 @@ The installer will automatically configure the current user, such that it can co
 
 When you start Duplicati it will initially start in a disconnected state, and then connect to the server using the password stored in the Windows Credential Manager.
 
+The installer also has the option "Generate and use TLS (HTTPS) certificates", which sets up HTTPS for the user interface. See [configuring HTTPS](../../detailed-descriptions/configuration-and-management/configuring-https.md) for details.
+
 The password is only applied on the first install and will not be retrivable later, including if you uninstall Duplicati. See the [password reset section below](run-duplicati-as-a-windows-service.md#reset-password-for-windows-service) if you need to change the password or later want to use the password.
 
 ## Automated installation with a service
