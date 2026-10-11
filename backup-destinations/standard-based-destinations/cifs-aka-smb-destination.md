@@ -31,9 +31,7 @@ smb://<hostname>/<share>/<path>
 
 SMB supports two distinct transport protocols, each with its own characteristics:
 
-
-
-**DirectTCP (**&#x64;irecttcp)
+#### DirectTCP (directtcp)
 
 * **Port**: 445
 * **Characteristics**:
