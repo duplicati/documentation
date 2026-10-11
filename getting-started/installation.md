@@ -19,6 +19,7 @@ Jump to the section that is relevant to you:
 * [Install on Windows](installation.md#install-duplicati-on-windows)
 * [Install on Linux](installation.md#install-duplicati-on-linux)
 * [Install on MacOS](installation.md#install-duplicati-on-macos)
+* [Install on Synology](installation.md#install-duplicati-on-synology)
 
 ## Install Duplicati on Windows
 
@@ -31,6 +32,8 @@ Simply head over to the [Duplicati download page](https://duplicati.com/download
 For MacOS the common installation method is to use a DMG file with the application file. Most modern MacOS machines are using the Apple Silicon which is called `Arm64` in Duplicati's packages. If you are on an older Mac that has a 64-bit Intel processor, you can use the `x64` package instead.
 
 Once you know which kind of Mac you have, head over to the  [Duplicati download page](https://duplicati.com/download) and download the relevant DMG file. Open the file and drag Duplicati into the Application folder, and then you can start Duplicati.
+
+The GUI package is also available as a `.pkg` installer, which also sets up Duplicati to start automatically when you log in. See [package options](../installation-details/package-options.md#macos) for details.
 
 The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
 
@@ -45,7 +48,7 @@ For Linux distributions there are packages for the most common 64-bit based syst
 To install Duplicati on a Debian based system, first download the `.deb` package matching the system architecture, then run:
 
 ```sh
-sudo dpkg -i duplicati-version-arch.deb
+sudo apt install ./duplicati-version-arch.deb
 ```
 
 This will install all dependencies and place Duplicati in the default location on the target system. The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
@@ -68,8 +71,25 @@ For other linux distributions you can use the `.zip` file that matches your syst
 
 The first time Duplicati starts up, it will open the user interface in your browser. At this point you are ready to [set up a backup](set-up-a-backup-in-the-ui.md).
 
+### Install as an AppImage
+
+The GUI package is also available as an AppImage, which runs on most distributions without installing anything. Download the `.appimage` file that matches your system architecture, make it executable and start it:
+
+```sh
+chmod +x duplicati-version-arch-gui.appimage
+./duplicati-version-arch-gui.appimage
+```
+
+## Install Duplicati on Synology
+
+For Synology NAS devices, download the `.spk` package that matches your device and install it with "Manual Install" in the DSM Package Center. See [package options](../installation-details/package-options.md#synology) for details on how the package works and which permissions it needs.
+
+## The first start
+
+The first time you open the user interface, it shows a welcome page that offers to connect Duplicati to the [Duplicati Console](https://app.gitbook.com/s/7cMJiGuXy340g9NzpxLY/duplicati-console). Choose "Connect to console" to connect, or "Proceed without connecting to console" and confirm with "Proceed without connecting" to use Duplicati on its own. You can also connect to the console later from the "Settings" page.
+
 ## Upgrading an existing installation
 
-If you already have Duplicati installed, the regular way to upgrade is to uninstall the previous version and then install the new one. Duplicati does not delete your configurations or backup databases during uninstall, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
+If you already have Duplicati installed, you can upgrade by installing the new version over the existing one; you do not need to uninstall the previous version first. Duplicati does not delete your configurations or backup databases when it is upgraded or uninstalled, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
 
 
