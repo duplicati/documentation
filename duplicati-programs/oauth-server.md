@@ -22,6 +22,12 @@ This service is the default as it is the most convenient for most users. To gene
 
 Click the button for your preferred provider, complete the login, and obtain the AuthID, that you can then use on another machine as needed.
 
+The [pCloud](../backup-destinations/provider-specific-destinations/pcloud-destination.md) destination uses a newer hosted service instead:
+
+[https://oauth-service.duplicati.com](https://oauth-service.duplicati.com)
+
+The environment variable `DUPLICATI_OAUTH_SERVICE` changes the default service for all providers, including pCloud. The value is the refresh url of the service, such as `https://oauth-service.duplicati.com/refresh`.
+
 If you are using the UI, you can click the `AuthID` label/link to start the process. Once you complete it, the UI will automatically fill in the ID, no interaction required.
 
 If you want to remove access, you can either revoke a specific AuthID at the same place where you created it, using the [revoke AuthID feature](https://duplicati-oauth-handler.appspot.com/revoke). You can also go to the provider, say Dropbox or OneDrive, and remove the authorization for Duplicati, which will immediately revoke all tokens issued for your account.
