@@ -53,3 +53,13 @@ This will then use an HTTPS secured connection subject to the operating system c
 This technique is similar to certificate pinning and prevents rotating the certificate and blocks man-in-the-middle attacks. If you are using the graphical user interface, the "Test connection" button will detect untrusted certificates and ask to pin the certificate.
 
 For testing setups you can also use `--accept-any-ssl-certificate` that will disable certificate validation. As this enables various attacks it is not recommended besides for testing.
+
+If the revocation status of the certificate cannot be checked, for instance because the revocation server is offline, the option `--ignore-revocation-failure` ignores that failure. This option is available from Duplicati 2.4.0.0.
+
+## Listing files
+
+Duplicati lists the files on the server with a WebDAV `PROPFIND` request. If the listing fails or returns wrong file names, these options can help:
+
+* `--use-extended-propfind=true` sends a request body that explicitly asks for all properties, instead of an empty body. This is required for some servers.
+* `--use-legacy-parsing=true` uses the older logic to read the file names from the response. The current logic already falls back to the older logic for names it cannot read, so this is only needed if the current logic returns wrong names.
+* `--debug-propfind-file=<path>` writes the response from the server to the given file, which is useful when reporting a problem with the listing. The file is overwritten on each listing.
