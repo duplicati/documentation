@@ -32,7 +32,9 @@ The **CLI** package has very few dependencies, as everything is bundled with the
 
 The **Agent** form is a reduced version of Duplicati, usable for integrating with the [Duplicati Console](https://app.gitbook.com/s/7cMJiGuXy340g9NzpxLY/duplicati-console) and is intended to run without any local access possible.
 
-For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS. There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thing missing is the service files used to integrate with `launchctl`. Duplicati is also available as an AppImage for a self-contained, portable install.
+For installation, Duplicati offers `.deb` packages for the Debian based distros, such as Ubuntu and Mint, as well as `.rpm` packages for the Redhat based distros, such as CentOS. There are also `.zip` packages available, which allows you to fully self-manage the installation and dependencies. If you are using the `.zip` packages the only thing missing is the systemd service files that the `.deb` and `.rpm` packages install. The `.zip` packages include a `set-permissions.sh` script that sets the executable flags, in case your unzip tool does not keep them.
+
+The GUI package is also available as an AppImage for a self-contained, portable install. Running the AppImage starts the [TrayIcon](../duplicati-programs/trayicon.md). To run one of the other programs, pass its name as the first argument, such as `--duplicati-cli` or `--duplicati-server`, or run the AppImage with `--help` to see the list.
 
 If you are using [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux), there is currently an extra step to ensure that the binaries, which are placed in `/usr/lib/duplicati`, are allowed to execute:
 
@@ -51,4 +53,8 @@ The **Agent** form is a reduced version of Duplicati, usable for integrating wit
 
 ## Synology
 
-Duplicati provides a Synology DSM `.spk` package to install on Synology NAS devices. After installation, make sure to grant Duplicati access to the shared folders you want to back up (or restore to); DSM permissions must allow Duplicati to read or write those shares for backups and restores to succeed.
+Duplicati provides a Synology DSM `.spk` package to install on Synology NAS devices. The package requires DSM 7.0 or later and is available for `x64`, `arm64` and `arm7` devices. It is built from the **CLI** package and runs the [Server](../duplicati-programs/server.md) as a DSM package service, so there is no TrayIcon.
+
+After installation, open Duplicati from the DSM main menu. The user interface is shown through DSM, so you sign in with your DSM account instead of a separate Duplicati password.
+
+Duplicati runs as the DSM user `duplicati`. Make sure to grant this user access to the shared folders you want to back up (or restore to); DSM permissions must allow Duplicati to read or write those shares for backups and restores to succeed.
