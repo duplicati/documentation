@@ -4,7 +4,7 @@ description: This page describes how to make backups of MSSQL databases
 
 # MSSQL backup
 
-On Windows, Duplicati has built-in support for finding MSSQL Servers if running with sufficient privileges. To include MSSQL databases in a backup, visit the [Source Data](../../getting-started/set-up-a-backup-in-the-ui.md#id-3.-source-data) step, and find "Microsoft SQL Servers" in the treeview:
+On Windows, Duplicati has built-in support for finding MSSQL Servers if running with sufficient privileges. To include MSSQL databases in a backup, visit the [Source Data](../../getting-started/set-up-a-backup-in-the-ui.md#id-2.-source-data) step, and find "Microsoft SQL Servers" in the treeview:
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-06-22 at 11.28.26.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-06-22 at 11.27.05.png" alt=""></picture><figcaption></figcaption></figure>
 

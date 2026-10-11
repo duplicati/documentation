@@ -27,6 +27,9 @@
 * [Migrating Duplicati to a new machine](detailed-descriptions/configuration-and-management/migrating-duplicati-to-a-new-machine.md)
 * [Preload settings](detailed-descriptions/configuration-and-management/preload-settings.md)
 * [Retention settings](detailed-descriptions/configuration-and-management/retention-settings.md)
+* [Multiple backup destinations](detailed-descriptions/configuration-and-management/multiple-backup-destinations.md)
+* [Remote sources](detailed-descriptions/configuration-and-management/remote-sources.md)
+* [Sync jobs](detailed-descriptions/configuration-and-management/sync-jobs.md)
 * [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
 
@@ -48,12 +51,14 @@
   * [Sending Jabber/XMPP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-jabber-xmpp-notifications.md)
   * [Sending HTTP notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-http-notifications.md)
   * [Sending Telegram notifications](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-telegram-notifications.md)
+  * [Sending live status reports](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/sending-live-status-reports.md)
   * [Custom message content](detailed-descriptions/monitoring-and-notifications/sending-reports-via-email/custom-message-content.md)
 
 ## Database & Storage
 
 * [The local database](detailed-descriptions/database-and-storage/the-local-database.md)
 * [The server database](detailed-descriptions/database-and-storage/the-server-database.md)
+* [Parity error correction](detailed-descriptions/database-and-storage/parity-error-correction.md)
 
 ## Automation & Integration
 
@@ -112,6 +117,7 @@
   * [Filen.io](backup-destinations/provider-specific-destinations/filen.io.md)
   * [FileJump](backup-destinations/provider-specific-destinations/filejump.md)
   * [Drime Cloud](backup-destinations/provider-specific-destinations/drime-cloud.md)
+  * [Movistar Cloud](backup-destinations/provider-specific-destinations/movistar-cloud-destination.md)
 * [File synchronization providers](backup-destinations/file-synchronization-providers/README.md)
   * [Dropbox Destination](backup-destinations/file-synchronization-providers/dropbox-destination.md)
   * [Google Drive Destination](backup-destinations/file-synchronization-providers/googledrive-destination.md)
@@ -141,6 +147,8 @@
   * [Snapshots](duplicati-programs/command-line-interface-cli-1/snapshots.md)
   * [SyncTool](duplicati-programs/command-line-interface-cli-1/synctool.md)
   * [DatabaseTool](duplicati-programs/command-line-interface-cli-1/databasetool.md)
+  * [AutoTuneTool](duplicati-programs/command-line-interface-cli-1/autotunetool.md)
+  * [SourceTool](duplicati-programs/command-line-interface-cli-1/sourcetool.md)
 * [LICENSE](duplicati-programs/license/README.md)
   * [Duplicati Inc & Open Source](duplicati-programs/license/duplicati-inc-and-open-source.md)
   * [License Agreement](duplicati-programs/license/license-agreement.md)
@@ -156,6 +164,8 @@
   * [Upgrading and downgrading](installation-details/release-channels-and-versions/upgrading-and-downgrading.md)
   * [Downgrade from 2.1.0.5 to 2.0.8.1](installation-details/release-channels-and-versions/downgrade-from-2.1.0.2-to-2.0.8.1.md)
   * [Downgrade from 2.2 to 2.1.05](installation-details/release-channels-and-versions/downgrade-from-2.2-to-2.1.05.md)
+  * [Downgrade from 2.3 to 2.2](installation-details/release-channels-and-versions/downgrade-from-2.3-to-2.2.md)
+  * [Downgrade from 2.4 to 2.3](installation-details/release-channels-and-versions/downgrade-from-2.4-to-2.3.md)
 * [Package options](installation-details/package-options.md)
 * [Developer](installation-details/developer.md)
 

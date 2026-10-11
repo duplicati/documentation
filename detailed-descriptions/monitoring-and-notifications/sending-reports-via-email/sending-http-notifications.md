@@ -29,3 +29,11 @@ You can now specify multiple urls, using the options:
 ```
 
 These two options greatly simplify sending notifications to multiple destinations. Additionally, the options make it possible to send both the form-encoded result in text format as well as in JSON format.
+
+### Retries and certificates
+
+If the request fails, it is retried `--send-http-retries` times (default `3`), waiting `--send-http-retry-delay` (default `1s`) between attempts.
+
+For servers with a self-signed certificate, use `--send-http-accept-specified-ssl-hash=<sha1 hash>` to accept that specific certificate. `--send-http-accept-any-ssl-certificate` accepts any certificate and should only be used for testing, and `--send-http-ignore-revocation-failure` ignores failures to check whether the certificate is revoked.
+
+To send the progress of running operations instead of a report when they finish, see [Sending live status reports](sending-live-status-reports.md).
