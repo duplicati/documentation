@@ -60,7 +60,7 @@ Besides the configuration listed below, it is also possible to run [Duplicati in
 
 If you would like to run the Server as a service the `.rpm` and `.deb` packages includes a regular systemd service. If you are installing from the `.zip` package, you can grab the [service file from the source code](https://github.com/duplicati/duplicati/tree/master/ReleaseBuilder/Resources/debian/systemd) and install it manually on your system.
 
-If you need to pass options to the server, edit the settings file, usually at `/etc/default/duplicati`. Make sure you only edit the configuration file and not the service file as it will be overwritten when a new version is installed. The settings file should look something like this:
+If you need to pass options to the server, edit the settings file at `/etc/default/duplicati` (`.deb` packages) or `/etc/sysconfig/duplicati` (`.rpm` packages). Make sure you only edit the configuration file and not the service file as it will be overwritten when a new version is installed. The settings file should look something like this:
 
 ```
 # Defaults for duplicati initscript
@@ -138,7 +138,7 @@ sudo systemctl start duplicati-agent.service
 When the Agent starts, it will emit a registration link to the log, and you can usually see it with the following command:
 
 ```sh
-sudo journalctl --unit=duplicati
+sudo journalctl --unit=duplicati-agent
 ```
 
 If you are using a [pre-authenticated link](../../duplicati-programs/agent.md#registering-the-machine), you can run the following command to activate the registration:
