@@ -31,7 +31,7 @@ Values provided as sizes are parsed as a number with a multiplier suffix, for ex
 
 If no suffix is given, the context has a default suffix that is applied, usually either `kb` or `mb` .
 
-Despite the naming, the sizes are interpreted as [kiki-bytes](https://simple.wikipedia.org/wiki/Kibibyte). Supported suffixes are:
+Despite the naming, the sizes are interpreted as [kibibytes](https://simple.wikipedia.org/wiki/Kibibyte). Supported suffixes are:
 
 * `b` (or no suffix): bytes, multiplier is 1
 * `kb`: kilobytes, multiplier is 1024

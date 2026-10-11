@@ -136,11 +136,17 @@ The most robust and heavy handed way of making a backup on Windows is to use VSS
 
 To enable VSS, set the advanced option `--snapshot-policy=required` . If you are using Duplicati 2.1.1.0 or later, VSS will be enabled by default if the user context has the SeBackupPrivilege.
 
+Duplicati has three implementations for creating the VSS snapshot, which can be chosen with the option `--snapshot-provider`:
+
+* `AlphaVSS`: the legacy provider, which requires the Visual C++ Redistributable to be installed. This is the default on x64 and x86.
+* `Wmic`: uses WMI to create the snapshot. It is slightly more portable but has fewer features. This is the default on Arm64, from Duplicati 2.3.0.0.
+* `Vanara`: integrates directly with Windows on all versions and architectures.
+
 ### BackupRead
 
 The BackupRead method does not create a snapshot and instead relies on a Windows API call that allows a program to read files for backup purposes. The benefit from this is that you do not need to create disk snapshots, which requires extra disk space and co-operation from other programs.
 
-To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. Note that the `--backupread-policy` option is currently only available in the [canary builds](../../installation-details/release-channels-and-versions/README.md).
+To enable BackupRead, set `--backupread-policy=required` and `--snapshot-policy=off` to ensure you are only using BackupRead. The `--backupread-policy` option is available from Duplicati 2.3.0.0.
 
 ## Alternate data streams
 

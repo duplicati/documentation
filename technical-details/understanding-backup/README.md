@@ -10,4 +10,6 @@ Each backup will produce a "filelist" (aka `.dlist`) file on the remote storage 
 
 The index volumes are optional, and not required for restores, but are created by default as they reduce the amount of data that needs to be processed if the [local database](../../detailed-descriptions/database-and-storage/the-local-database.md) is lost.
 
+If [parity error correction](../../detailed-descriptions/database-and-storage/parity-error-correction.md) is enabled, each `.dblock` and `.dlist` file also gets a companion file with the extension `.par2` that contains error-correction data. The index volumes do not get parity data.
+
 The backup process is described in the next section and explains how these files are constructed.
