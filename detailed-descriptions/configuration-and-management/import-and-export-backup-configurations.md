@@ -8,11 +8,11 @@ While it is not required that you keep a copy of the backup configuration, it ca
 
 ## Export
 
-To export from within the user interface, expand the backup configuration and click "Export ..."
+To export from within the user interface, open the menu of the backup on the home page and choose "Export".
 
 <div><figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.14.44.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.14.32 (1).png" alt=""></picture><figcaption><p>Expanded backup configuration</p></figcaption></figure> <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.07.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.15.png" alt=""></picture><figcaption><p>Choosing export options</p></figcaption></figure></div>
 
-On this page you should select "To File", which is default. The option to export "As commandline..." is not covered here, but allows you to get a string that can be used with the [Duplicati CLI executable](../../duplicati-programs/command-line-interface-cli.md).
+On this page you should select "To file", which is default. The option to export "As command line" is not covered here, but allows you to get a string that can be used with the [Duplicati CLI executable](../../duplicati-programs/command-line-interface-cli.md).
 
 You then need to decide on how to handle secrets stored in the configuration. Since these secrets include both the credentials to connect to the remote destination as well as the encryption passphrase, it is important that the exported file is protected.
 
@@ -32,11 +32,11 @@ To import a configuration, go to the "Add backup" page and choose "Import from f
 
 Pick the file or drag-n-drop it on the file chooser. If the file is encrypted, provide the file encryption passphrase here as well.
 
-The option to "Import metadata" will create the new backup configuration and restore the statistics, including backup size, number of versions, etc. from the data in the file. If not checked, these will not be filled, and will be updated when the first backup is executed.
+The option "Import Metadata" will create the new backup configuration and restore the statistics, including backup size, number of versions, etc. from the data in the file. If not checked, these will not be filled, and will be updated when the first backup is executed.
 
-If the option "Save immediately" is checked, the backup will be created when clicking import, skipping the option to edit the backup configuration.
+If the option "Save now" is checked, the backup will be created when clicking import, skipping the option to edit the backup configuration.
 
-When all is configured as desired, click the "Import" button. If you have not checked "Save immediately", the flow will look like it does when [setting up the initial backup](../../getting-started/set-up-a-backup-in-the-ui.md).
+When all is configured as desired, click the "Import" button. If you have not checked "Save now", the flow will look like it does when [setting up the initial backup](../../getting-started/set-up-a-backup-in-the-ui.md).
 
 If the backup was created with the [store-task-config](import-and-export-backup-configurations.md#storing-configuration-with-the-backup) option enabled, you can also retrieve the configuration directly from the backup destination when restoring or setting up a new machine.
 
