@@ -68,7 +68,7 @@ On the first connection to the SSH server, Duplicati will throw an exception tha
 
 If the host key changes, you will get a different message, but also reporting the new host key, so you can update it. The option `--ssh-accept-any-fingerprints=true` is only recommended for testing and not for production setups as it will disable the man-in-the-middle protection.
 
-If you are using the UI, you can click the "Test connection" button and it will guide you to set the host key parameters based on what the server reports.
+If you are using the UI, you can click the "Test now" button and it will guide you to set the host key parameters based on what the server reports.
 
 ## Timeout and keep-alive
 
