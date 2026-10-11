@@ -79,6 +79,37 @@ The last option sets the UI password, which would otherwise be a randomly genera
 
 You may also want to re-enable the signin tokens with `--webservice-disable-signin-tokens=false`.
 
+## Options for the run command
+
+The `run` command accepts these options:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `--agent-registration-url` | `https://api.duplicati.com/remotecontrol/register` | The url used to register the Agent. |
+| `--agent-settings-file` | `agent.json` in the data folder | The file to use for the Agent settings. |
+| `--agent-settings-file-passphrase` | | The passphrase for the Agent settings file. |
+| `--agent-register-only` | `false` | Register the Agent, then exit. |
+| `--webservice-interface` | `loopback` | The interface the hosted server listens on. |
+| `--webservice-port` | `8210` | The port the hosted server listens on. |
+| `--webservice-password` | random | The password for the hosted server. If it is not set, or set to `random`, a random value is used. |
+| `--keep-webservice-password` | `false` | Do not assign a random password on startup if no password is given. |
+| `--webservice-allowed-hostnames` | `127.0.0.1` | The allowed hostnames for the hosted server. |
+| `--webservice-api-only` | `true` | Only allow API access to the hosted server. |
+| `--webservice-disable-signin-tokens` | `true` | Disable signin tokens for the hosted server. |
+| `--webservice-reset-jwt-config` | `true` | Reset the JWT configuration on startup. |
+| `--disable-pre-shared-key` | `false` | Disable the pre-shared key that prevents outside access to the hosted server. |
+| `--settings-encryption-key` | | The encryption key for the server database. |
+| `--disable-db-encryption` | `false` | Disable the database encryption. |
+| `--disable-default-secret-provider` | `false` | Disable the default secret provider. |
+| `--secret-provider` | | The [secret provider](../detailed-descriptions/security-and-secrets/using-the-secret-provider/) to use. |
+| `--secret-provider-cache` | `None` | The secret provider cache level: `None`, `InMemory` or `Persistent`. |
+| `--secret-provider-pattern` | `$` | The secret provider pattern. |
+| `--server-datafolder` | | The data folder for the database and configuration. |
+| `--portable-mode` | | Use portable mode for locating the database and storing configuration, see [storing data in different places](server.md#storing-data-in-different-places). |
+| `--allow-insecure-datafolder` | `false` | Allow a data folder in a shared location without restricted permissions. Available from Duplicati 2.4.0.0. |
+| `--windows-eventlog` | | Write log messages to the Windows event log with this source name. The source is created if it does not exist. |
+| `--reduced-reporting` | | Switch reduced reporting on or off for this machine, so every report leaving it carries log message ids only. A value enforced by the console cannot be switched off. If not given, the stored setting is kept. Available from Duplicati 2.4.0.1. |
+
 ## WindowsService support
 
 The `Duplicati.WindowsService.exe` installer can also install the Agent as a service:
