@@ -46,6 +46,8 @@ To support self signed certificates, the FTP destination also supports the `--ac
 
 For testing, it is also possible to use `--accept-any-ssl-certificate` which will bypass certificate checks completely and enable man-in-the-middle attacks on the connection.
 
+If the revocation status of the certificate cannot be checked, for instance because the revocation server is offline, the option `--ignore-revocation-failure` ignores that failure. This option is available from Duplicati 2.4.0.0.
+
 ## Path resolution
 
 The FTP protcol is tied to a Posix-style path where `/` is the root folder and subfolders are described using the forward-slash separator. On some systems the filesystem is virtual, so the user can only see the root path, but has no knowledge of the underlying real filesystem. On others, the paths are mapped directly to the user home, like `/home/user`.&#x20;
@@ -63,6 +65,14 @@ A related setting `--ftp-upload-delay` adjusts the delay that is inserted after 
 ## Debugging commands
 
 Because the FTP protocol can sometimes be difficult to diagnose, the option `--ftp-log-to-console` will enable logging various diagnostics output to the terminal. This option works best with the [BackendTool](../../duplicati-programs/command-line-interface-cli-1/backendtool.md) or [BackendTester](../../duplicati-programs/command-line-interface-cli-1/backendtester.md) application. The option `--ftp-log-privateinfo-to-console` will also enable logging of usernames and passwords being transmitted, to further track down issues. Neither option should be set outside of testing and evaluation scenarios.
+
+The option `--ftp-log-diagnostics` writes the diagnostics messages from the FTP library to the regular Duplicati log instead of the terminal. Each message is logged with the matching log level (verbose, information, warning or error), so the verbose messages are only shown when the log level is set to verbose.
+
+## PureFTPd servers
+
+PureFTPd limits the number of files returned in a folder listing (10000 files with the default settings). If a listing is truncated, Duplicati stops with an error, because an incomplete listing can lead to wrong results for backups and restores.
+
+When Duplicati detects a PureFTPd server, it logs a warning about this limit on each listing, and the connection test fails. If the server is configured with a higher limit, or you do not expect to store more than 10000 files in the folder, set `--ignore-pureftpd-limit-issue` to suppress the warning and the failing test. A truncated listing is still reported as an error.
 
 ## Notes on `aFTP`
 
