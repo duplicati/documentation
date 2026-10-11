@@ -6,7 +6,7 @@ description: >-
 
 # Duplicati Access Password
 
-If you are starting Duplicati for the first time, it will ask you to pick a password. Picking a strong password is important to ensure unwanted access to Duplicati from other processes on the system. By default, Duplicati has chosen a strong random password and it is recommended for most users to not change the random password. It is not possible to extract the current password in any way and it is not possible to disable the password.
+If you are starting the [Server](../../duplicati-programs/server.md) for the first time, the user interface will ask you to pick a password. When Duplicati is started from the [TrayIcon](../../duplicati-programs/trayicon.md), this question is skipped, because the TrayIcon logs in for you (see below); instead, a welcome page offers to connect to the Duplicati Console. Picking a strong password is important to ensure unwanted access to Duplicati from other processes on the system. By default, Duplicati has chosen a strong random password and it is recommended for most users to not change the random password. It is not possible to extract the current password in any way and it is not possible to disable the password.
 
 ## Access from the TrayIcon
 
@@ -108,6 +108,10 @@ Since commandline arguments and environment variables can be viewed through vari
 The option can also be supplied to the [TrayIcon](../../duplicati-programs/trayicon.md) and [Agent](../../duplicati-programs/agent.md) processes, which will pass it on to their internal instance of the Server.
 
 ### Change the password for a service
+
+{% hint style="info" %}
+For a Windows Service, Duplicati 2.4 and later have a simpler way: `Duplicati.WindowsService.exe RESET-PASSWORD` sets a new password and restarts the service, without the password ending up in logs. See [Service and WindowsService](../../duplicati-programs/service.md#password-management). The steps below also work for older versions.
+{% endhint %}
 
 To change the password for a running service, you can grab the [temporary signin token from the logs as explained above](duplicati-access-password.md#temporary-signin-token). If that approach is not possible, and the [ServerUtil approach](duplicati-access-password.md#change-password-with-serverutil) is not an option either, you can also instruct the service to change the password. This works by passing the `--webservice-password` command to the service, instructing it to reset the password. To avoid leaking the actual password, it is recommended that you choose a temporary password and  run the following steps (example for Windows):
 
