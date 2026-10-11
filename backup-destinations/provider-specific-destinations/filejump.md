@@ -35,3 +35,9 @@ filejump://<hostname>/<folder>/<subfolder>?auth-username=email&auth-password=***
 ```
 
 If you use the username/password method, Duplicati will create and use an API token, but will negotiate with Filejump to get the token, which may slow things down a bit.
+
+## Advanced options
+
+* `--soft-delete`: When enabled, files deleted by Duplicati are moved to the trash instead of being permanently deleted. This is disabled by default.
+* `--page-size`: Adjusts how many entries are requested per page when listing files. Defaults to `1000`.
+* `--api-url`: Set the FileJump API URL if using a non-standard URL. Defaults to `https://drive.filejump.com/api/v1/`.
