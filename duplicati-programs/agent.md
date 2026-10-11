@@ -65,7 +65,7 @@ The hosted agent server will use the port `8210` by default, to not clash with t
 To make the hosted server fully accessible from the local machine that it is running on, add the following settings:
 
 ```
-duplicati-agent \
+duplicati-agent run \
   --disable-pre-shared-key \
   --webservice-api-only=false \
   --webservice-password=<password>
