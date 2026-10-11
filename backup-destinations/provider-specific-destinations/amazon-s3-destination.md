@@ -44,3 +44,5 @@ Since Duplicati stable version 2.2, Duplicati recognizes data in Glacier and wil
 However, if you have retention enabled, you must set `--no-auto-compact` as Duplicati will otherwise attempt to download the files from cold storage, in order to compact them.
 
 Similarly, for a restore, you must manually move files from cold storage into the bucket before attempting the restore operation.
+
+The storage classes that Duplicati treats as cold storage are set with `--s3-archive-classes`. The default is `DEEP_ARCHIVE,GLACIER,GLACIER_IR,SNOW`. This option only applies to the AWS client.
