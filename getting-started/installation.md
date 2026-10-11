@@ -70,6 +70,6 @@ The first time Duplicati starts up, it will open the user interface in your brow
 
 ## Upgrading an existing installation
 
-If you already have Duplicati installed, the regular way to upgrade is to uninstall the previous version and then install the new one. Duplicati does not delete your configurations or backup databases during uninstall, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
+If you already have Duplicati installed, you can upgrade by installing the new version over the existing one; you do not need to uninstall the previous version first. Duplicati does not delete your configurations or backup databases when it is upgraded or uninstalled, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
 
 
