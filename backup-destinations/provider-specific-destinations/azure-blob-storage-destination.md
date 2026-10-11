@@ -40,7 +40,7 @@ azure://<container>/<prefix>
 
 You can create the container via the Azure portal, but if you prefer, you can also let Duplicati create the container for you. The [container names are unique within the storage account and has a number of restrictions](https://learn.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
-If you use the UI, the "Test connection" button will prompt you if the container needs to be created.
+If you use the UI, the "Test now" button will prompt you if the container needs to be created.
 
 ## Using a Shared Access Signature (SAS) token
 

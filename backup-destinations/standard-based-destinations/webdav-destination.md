@@ -50,6 +50,6 @@ webdav://<hostname>/<path>
 
 This will then use an HTTPS secured connection subject to the operating system certificate validation rules. If you need to use a self-signed certificate that is not trusted by the operating system, you can use the option `--accept-specified-ssl-hash=<hash>` to specifically trust a certain certificate. The hash value is reported if you attempt to connect and the certificate is not trusted.
 
-This technique is similar to certificate pinning and prevents rotating the certificate and blocks man-in-the-middle attacks. If you are using the graphical user interface, the "Test connection" button will detect untrusted certificates and ask to pin the certificate.
+This technique is similar to certificate pinning and prevents rotating the certificate and blocks man-in-the-middle attacks. If you are using the graphical user interface, the "Test now" button will detect untrusted certificates and ask to pin the certificate.
 
 For testing setups you can also use `--accept-any-ssl-certificate` that will disable certificate validation. As this enables various attacks it is not recommended besides for testing.

@@ -21,7 +21,7 @@ With all required values obtained, you can set up the Telegram notifications in 
 
 <div><figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 15.21.57.png" alt=""><figcaption><p>Set up Telegram notifications with the default options editor</p></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-20 at 15.22.08.png" alt=""><figcaption><p>Set up Telegram option with a text field</p></figcaption></figure></div>
 
-You can toggle between the two views using the "Edit as list" and "Edit as text" links.
+You can toggle between the two views using the "Edit contents as text" and "Show editor" buttons.
 
 Besides the mandatory options, it is also possible to configure:
 

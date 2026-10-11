@@ -16,7 +16,7 @@ Note that iDrive has a similar offering called [iDrive Cloud Backup](https://www
 
 To use iDrive e2, you must supply: bucket, path in bucket, access id, and access secret.
 
-If you use the "Test connection" and the bucket does not exist, Duplicati will offer to create it for you.
+If you use the "Test now" button and the bucket does not exist, Duplicati will offer to create it for you.
 
 As the iDrive e2 backend is S3 based, there are many advanced options that can be configured.
 
