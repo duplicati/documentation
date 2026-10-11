@@ -34,6 +34,14 @@ duplicati-agent run \
 
 This will cause the Agent to register using the token from the url and the `--agent-register-only` option will cause it to exit after registration has completed. If the Agent is already registered, it will simply exit.
 
+The `register` command does the same in a shorter form:
+
+```sh
+duplicati-agent register "<copied-url>"
+```
+
+The `register` command also accepts `--agent-settings-file`, `--agent-settings-file-passphrase`, `--secret-provider` and `--secret-provider-pattern`.
+
 To remove the registration information, use the command:
 
 ```
