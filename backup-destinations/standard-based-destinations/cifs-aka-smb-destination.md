@@ -27,6 +27,8 @@ smb://<hostname>/<share>/<path>
   &transport=directtcp
 ```
 
+If the account belongs to a Windows domain, enter the domain in the user interface, or add `&auth-domain=<domain>` to the URL.
+
 ## Transport
 
 SMB supports two distinct transport protocols, each with its own characteristics:
