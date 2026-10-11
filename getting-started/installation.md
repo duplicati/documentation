@@ -84,6 +84,10 @@ chmod +x duplicati-version-arch-gui.appimage
 
 For Synology NAS devices, download the `.spk` package that matches your device and install it with "Manual Install" in the DSM Package Center. See [package options](../installation-details/package-options.md#synology) for details on how the package works and which permissions it needs.
 
+## The first start
+
+The first time you open the user interface, it shows a welcome page that offers to connect Duplicati to the [Duplicati Console](https://app.gitbook.com/s/7cMJiGuXy340g9NzpxLY/duplicati-console). Choose "Connect to console" to connect, or "Proceed without connecting to console" and confirm with "Proceed without connecting" to use Duplicati on its own. You can also connect to the console later from the "Settings" page.
+
 ## Upgrading an existing installation
 
 If you already have Duplicati installed, you can upgrade by installing the new version over the existing one; you do not need to uninstall the previous version first. Duplicati does not delete your configurations or backup databases when it is upgraded or uninstalled, so your settings and jobs will remain intact. For more details, see [Upgrading and downgrading](../installation-details/release-channels-and-versions/upgrading-and-downgrading.md).
