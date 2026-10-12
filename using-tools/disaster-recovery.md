@@ -84,7 +84,7 @@ There is one .dlist file for each backup version. The data itself is stored in a
 
 ## Inventory of files that are going to be corrupted
 
-Prior to corrupting the consistent backup, we can inventory what the consequences are if these files get lost. You can use the Duplicati command `affected` to see which files are affected by a remote file. The `affected` command needs the local database, so you can perform this operation only if you have a fully working Duplicati installation for this backup job. See [The AFFECTED command](../community-docs/community-docs-using-duplicati-from-the-commandline.md#the-affected-command) for more information.
+Prior to corrupting the consistent backup, we can inventory what the consequences are if these files get lost. You can use the Duplicati command `affected` to see which files are affected by a remote file. The `affected` command needs the local database, so you can perform this operation only if you have a fully working Duplicati installation for this backup job. Run `duplicati-cli help affected` for more information.
 
 The first command returns which source files need information from the remote file `duplicati-b69a2a32a50bb4c6d8780389efdbf7442.dblock.zip.aes`.
 
@@ -450,7 +450,7 @@ After all backup files are downloaded, decrypted and indexed, you can start with
 
 `Duplicati.RecoveryTool.exe restore <localfolder> [version] [options]`
 
-`<localfolder>` is a required option. It should point to the location where your downloaded remote files are stored. Optionally add `--targetpath` to specify where files must be restored to, otherwise the files are restored to their original locations. Use filters or the `--exclude` option to perform a partial restore. See [exclude](../community-docs/community-docs-advanced-options.md#exclude-) and [Filters](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md#filters-in-duplicati)) for more information.
+`<localfolder>` is a required option. It should point to the location where your downloaded remote files are stored. Optionally add `--targetpath` to specify where files must be restored to, otherwise the files are restored to their original locations. Use filters or the `--exclude` option to perform a partial restore. See [Filters](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) for more information.
 
 In this example, files are restored to `C:\Restore`, so an empty folder `C:\Restore` is created first.
 
