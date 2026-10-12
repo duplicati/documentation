@@ -1,20 +1,20 @@
 ---
-description: This page describes the SharePoint v2 storage destination
+description: This page describes the SharePoint storage destination
 ---
 
-# SharePoint v2 (Graph API)
+# SharePoint Destination
 
 {% hint style="info" %}
 As of Duplicati 2.3.1.0 the "SharePoint v2" backend has been renamed to just "SharePoint". The previous legacy "SharePoint" backend is now [deprecated](sharepoint-destination.md).
 {% endhint %}
 
-Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the SharePoint that uses the Graph API, for the [SharePoint provider that uses the legacy API, see SharePoint](sharepoint-destination.md).
+Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This destination uses the Microsoft Graph API. For the deprecated destination that uses the legacy SharePoint API, see [SharePoint (legacy API)](sharepoint-destination.md).
 
 ## User interface
 
-<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.40.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.26.png" alt="Configure the SharePoint v2 destination"></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.40.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 15.40.26.png" alt="Configure the SharePoint destination"></picture><figcaption></figcaption></figure>
 
-To configure the SharePoint v2 destination you need to pick a unique folder name for the backups, provide the site id, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
+To configure the SharePoint destination you need to pick a unique folder name for the backups, provide the site id, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
 
 ## URL format for Commandline
 
@@ -26,7 +26,7 @@ sharepoint://<folder>/<subfolder>
   &site-id=<site-id>
 ```
 
-To use SharePoint v2 you must first obtain an `AuthID` by using a Duplicati service to log in to Microsoft and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
+To use SharePoint you must first obtain an `AuthID` by using a Duplicati service to log in to Microsoft and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
 
 ## Performance tuning options
 
