@@ -20,7 +20,7 @@ As noted in the section on [Duplicati Access Password](../detailed-descriptions/
 
 However, it is possible to issue Signin Tokens and Access Tokens, for anyone with access to the signing keys stored in the database. To limit this exposure, it is possible to [disable the issuance of Signin Tokens](../detailed-descriptions/configuration-and-management/duplicati-access-password.md), but the Access Tokens cannot currently be secured in case the database is compromised.
 
-To avoid leaking the signing keys, it is recommended that the local database is protected by [setting the database field encryption password](../detailed-descriptions/database-and-storage/the-server-database.md).
+To avoid leaking the signing keys, the local database should be protected with the [database field encryption](../detailed-descriptions/database-and-storage/the-server-database.md). Starting with Duplicati 2.3, the field encryption is enabled by default with a random key stored in the default secret provider for the operating system. If there is no default secret provider, such as on a Linux server without a keyring, the fields are not encrypted unless you supply a key yourself.
 
 Also, note that the default installation does not use SSL/TLS encryption for the server communication, but this can be manually configured with a self-issued certificate.
 
