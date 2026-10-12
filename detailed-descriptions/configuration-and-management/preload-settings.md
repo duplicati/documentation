@@ -55,7 +55,23 @@ The implementation here follows the format:
 }
 ```
 
-The file has 3 sections that are all similar and all optional: `env`, `db`, and `args`. Each section can apply to all executables (`*`) or a specific executable. The executable names can be seen in the source, but the most common ones are `tray` and `server`.
+The file has 3 sections that are all similar and all optional: `env`, `db`, and `args`. Each section can apply to all executables (`*`) or a specific executable. The most common ones are `tray` and `server`, and the full list of names is:
+
+| Name | Executable |
+| --- | --- |
+| `tray` | [TrayIcon](../../duplicati-programs/trayicon.md) |
+| `server` | [Server](../../duplicati-programs/server.md) |
+| `agent` | [Agent](../../duplicati-programs/agent.md) |
+| `service` | [Service](../../duplicati-programs/service.md) (`Duplicati.Service.exe` / `duplicati-service`) |
+| `winservice` | [WindowsService](../../duplicati-programs/service.md#windowsservice) (`Duplicati.WindowsService.exe`) |
+| `cli` | [Commandline](../../duplicati-programs/command-line-interface-cli.md) (`duplicati-cli`) |
+| `backendtool` | BackendTool |
+| `backendtester` | BackendTester |
+| `recoverytool` | RecoveryTool |
+| `serverutil` | ServerUtil, and also DatabaseTool and SourceTool |
+| `configuretool` | ConfigureTool |
+
+The SecretTool only reads the `*` settings. The AutoUpdater, SharpAESCrypt, Snapshots, SyncTool and AutoTuneTool programs do not read the preload settings.
 
 In the case where the `*` section and specific executable has the same variable, the specific one is used. If multiple settings files are found, they are loaded in the order described above. Here the last file loaded will be able to overwrite the others. The `*` settings are collected from all three files, as are the executable specific options, and only after all parsing is done, are the specific executable options applied (see below for an example).
 
