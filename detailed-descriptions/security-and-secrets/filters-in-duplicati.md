@@ -90,6 +90,19 @@ To use a filter group, supply one or more names inside curly braces `{ }`, separ
 {CacheFiles,TemporaryFiles}
 ```
 
+The group names are not case sensitive, and each group also has shorter aliases:
+
+| Group | Aliases |
+| --- | --- |
+| SystemFiles | `System`, `Sys` |
+| OperatingSystem | `OS` |
+| CacheFiles | `CacheFolders`, `Caches`, `Cache` |
+| TemporaryFiles | `TemporaryFolders`, `TempFolders`, `TempFiles`, `Temp`, `Tmp` |
+| Applications | `Application`, `Apps`, `App` |
+| DefaultExcludes | `DefaultExclude`, `Excludes`, `Exclude`, `Exc` |
+
+Run `duplicati-cli help filter-groups` to see the paths that each group contains on your system.
+
 ## Apply filters
 
 By default, Duplicati will recurse the source folders and include every file and folder found. For this reason, most of the filters will be exclude filters that removes something from the backup. Include filters are prefixed with a `+` and exclude filters are prefixed with a `-`.
