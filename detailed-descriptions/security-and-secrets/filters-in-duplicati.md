@@ -103,6 +103,18 @@ The group names are not case sensitive, and each group also has shorter aliases:
 
 Run `duplicati-cli help filter-groups` to see the paths that each group contains on your system.
 
+## Environment variables
+
+Filters can contain environment variables in the format `%NAME%`, which are replaced with the value of the variable when the filter is used. This format is used on all operating systems; the `$NAME` format is not supported. For example, with the environment variable `EXT` set to `iso`:
+
+```
+-*.%EXT%
+```
+
+excludes all files with the `.iso` extension.
+
+In the filters of a backup configuration, the special folder names that the user interface uses for common folders, such as `%MY_DOCUMENTS%`, `%DESKTOP%` and `%HOME%`, are also replaced. In a regular expression filter of a backup configuration, the value is escaped, so it is matched literally.
+
 ## Apply filters
 
 By default, Duplicati will recurse the source folders and include every file and folder found. For this reason, most of the filters will be exclude filters that removes something from the backup. Include filters are prefixed with a `+` and exclude filters are prefixed with a `-`.
