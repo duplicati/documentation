@@ -7,7 +7,7 @@ description: >-
 # Run Duplicati as a Windows Service
 
 {% hint style="info" %}
-The setup described here was introduced in Canary 2.4
+The setup described here is available from Duplicati 2.4.0.0 (it was first introduced in canary 2.3.0.104)
 {% endhint %}
 
 On Windows the operating system will lock files while they are in use. While there are advantages to this, it is problematic for a backup system because the files cannot be read by the backup tool either. To get access to locked files you need Administrator privileges, meaning you need to run Duplicati in a special way.
@@ -33,6 +33,8 @@ After the installation has completed, you will get the option to copy the genera
 The installer will automatically configure the current user, such that it can connect securely to the service. If you need to let another user access the service, or need to use some of the command line tools, you can copy the password by clicking the "Copy password" button.
 
 When you start Duplicati it will initially start in a disconnected state, and then connect to the server using the password stored in the Windows Credential Manager.
+
+The installer also has the option "Generate and use TLS (HTTPS) certificates", which sets up HTTPS for the user interface. See [configuring HTTPS](../../detailed-descriptions/configuration-and-management/configuring-https.md) for details.
 
 The password is only applied on the first install and will not be retrivable later, including if you uninstall Duplicati. See the [password reset section below](run-duplicati-as-a-windows-service.md#reset-password-for-windows-service) if you need to change the password or later want to use the password.
 
