@@ -64,7 +64,7 @@ Due to the number of supported backends, this page does not contain the instruct
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.10.33.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.08.27.png" alt=""></picture><figcaption><p>Storage destination list</p></figcaption></figure>
 
-When the details are entered, it is recommended that you use the "Test destination" button which will perform some connection tests that helps reveal any issues with the entered information.
+When the details are entered, it is recommended that you use the "Test now" button which will perform some connection tests that helps reveal any issues with the entered information.
 
 When the destination is configured as desired, click the "Continue" button to continue to the schedule step.
 
