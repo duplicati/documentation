@@ -49,6 +49,10 @@ To change this logic to instead use the operating system `move`command to move t
 
 Because a local storage destination is expected to have a very low latency, the file backend will verify the length of the file after copy. This additional call is usually very fast and does not impact transfers speeds, but can be disabled for slightly faster uploads with `--disable-length-verification`.
 
+## File name sanitation
+
+Some mounted storage, such as SharePoint folders mounted on the local system, reports file names with extra null characters. To handle this, the file backend removes null characters at the start and end of the file names. If this causes problems with your storage, set `--disable-filename-sanitation` to use the file names exactly as the file system reports them.
+
 ## Removable drives (mostly Windows)
 
 For removable drives, the mount path can sometimes change when inserting the drive. This is most prominent on Windows, where the drive letters are assigned based on what order the drives are connected. To support different paths, you can supply multiple alternate paths with `--alternate-target-paths`, where each path is separated with the system path separator (`;`on Windows, `:`on Linux/MacOS):

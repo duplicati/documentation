@@ -61,3 +61,13 @@ Since Duplicati stable version 2.2, Duplicati recognizes data in cold storage an
 However, if you have retention enabled, you must set `--no-auto-compact` as Duplicati will otherwise attempt to download the files from cold storage, in order to compact them.
 
 Similarly, for a restore, you must manually move files from cold storage into the bucket before attempting the restore operation.
+
+The access tiers that Duplicati treats as cold storage are set with `--azure-archive-classes`. The default is `Cold,Archive`.
+
+## Access tier
+
+By default, new blobs get the default access tier of the storage account. To upload the blobs with a specific access tier instead, set `--azure-access-tier`, for instance to `Hot`, `Cool`, `Cold` or `Archive`.
+
+## Retries
+
+The Azure library retries failed requests on its own, in addition to the retries done by Duplicati. The number of retries in the library is set with `--azure-internal-retries` (default `3`). Set it to `0` to disable these retries.

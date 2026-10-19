@@ -25,6 +25,8 @@ ssh://<hostname>/<path>
 
 You can supply a non-standard port through the hostname, such as `ssh://hostname:2222/folder`.
 
+The path is an absolute path on the server, so `ssh://hostname/backup` uses the folder `/backup`. If you do not know the full path, set `--ssh-relative-path` to treat the path as relative to the folder the server starts in after login, usually the home folder of the user. This requires that the server reports that starting folder as an absolute path.
+
 ## Using key-based authentication
 
 It is very common, and more secure, to use key-based authentication, and Duplicati supports this as well. You can either provide the entire key as part of the URL or give a path to the key file. If the key is encrypted, you can supply the encryption key with `--auth-password`.
