@@ -29,7 +29,7 @@ With the above assumptions and observations, the core of Duplicati was designed 
 
 These choices are the foundation from which the rest of Duplicati is built. With the use of client-side encryption, Duplicati can be classified as a [Trust-no-one / Zero-Trust](https://en.wikipedia.org/wiki/Zero_trust_architecture) system, where the possession of the encryption key decides who has access to the data.
 
-To ensure that Duplicati can work with different storage destinations, such as S3 and a network share, any interaction with the storage destination is limited to 4 commands: GET, PUT, LIST, and DELETE. Any storage system that supports these 4 commands can work with Duplicati.
+To ensure that Duplicati can work with different storage destinations, such as S3 and a network share, the interaction with the storage destination is built on 4 basic commands: GET, PUT, LIST, and DELETE. Any storage system that supports these 4 commands can work with Duplicati. Besides these, a destination can create its folder and test the connection, and some destinations support optional features, such as reporting the available space or [locking files](../detailed-descriptions/security-and-secrets/using-remote-file-locking.md), that Duplicati uses when they are available.
 
 The deduplication and block-level tracking makes it possible to avoid the traditional full+incremental cycle, where the full backup is always required to get to a specific version.
 

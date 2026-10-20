@@ -12,7 +12,7 @@ The [AWS S3](https://aws.amazon.com/s3/) storage destination is implemented with
 
 To use an AWS S3 destination you need to fill out: bucket, folder path, server, AWS Access Key Id, AWS Secret Access Key. You can decide on the bucket name and path, and get the Key Id and Access Key from the IAM center.
 
-The server must be set to the region-based server that matches the location where the bucket is created. If you type a non-existing bucket and use the "Test connection" button, Duplicati will ask to create a bucket for you. If you choose "Yes", the bucket will be created in the region you have selected with the advanced options.
+The server must be set to the region-based server that matches the location where the bucket is created. If you type a non-existing bucket and use the "Test now" button, Duplicati will ask to create a bucket for you. If you choose "Yes", the bucket will be created in the region you have selected with the advanced options.
 
 ## URL format for Commandline
 
@@ -25,7 +25,7 @@ s3://<bucket name>/<prefix>
   &s3-location-constraint=<region-id>
 ```
 
-If you do not supply a hostname, but instead a region, such as `us-east-1`, the hostname will be auto-selected, based on the region. If the region is not supported by the library yet, you can supply the hostname via `--server-name=<hostname>`.
+If you do not supply a hostname, but instead a region, such as `us-east-1`, the hostname will be auto-selected, based on the region. If the region is not supported by the library yet, you can supply the hostname via `--s3-server-name=<hostname>`.
 
 Beware that S3 by default will not use an encrypted connection, and you need to add `--use-ssl=true`to get it working.
 
@@ -44,3 +44,5 @@ Since Duplicati stable version 2.2, Duplicati recognizes data in Glacier and wil
 However, if you have retention enabled, you must set `--no-auto-compact` as Duplicati will otherwise attempt to download the files from cold storage, in order to compact them.
 
 Similarly, for a restore, you must manually move files from cold storage into the bucket before attempting the restore operation.
+
+The storage classes that Duplicati treats as cold storage are set with `--s3-archive-classes`. The default is `DEEP_ARCHIVE,GLACIER,GLACIER_IR,SNOW`. This option only applies to the AWS client.

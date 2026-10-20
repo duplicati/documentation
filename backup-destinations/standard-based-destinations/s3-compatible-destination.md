@@ -30,7 +30,7 @@ To use S3 as the storage destination, use a format such as:
 s3://<bucket name>/<prefix>
   ?aws-access-key-id=<account id or username>
   &aws-secret-access-key=<account key or password>
-  &s3-servername=<server ip or hostname>
+  &s3-server-name=<server ip or hostname>
   &use-ssl=true
 ```
 
@@ -49,6 +49,14 @@ Generally, both libraries will work with most providers, but the AWS library has
 Most providers other than AWS S3 use an older version of the protocol, so to connect to them you often need to set either the option `--s3-disable-chunk-encoding` or use the Minio client with `--s3-client=minio` (but not both):
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.36.22.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.36.28.png" alt="Advanced options picked for compatibility with non-AWS storage"></picture><figcaption></figcaption></figure>
+
+Other options that can help with some providers:
+
+* `--s3-disable-payload-signing` disables payload signing, which is not supported by all providers. This only applies to the AWS client.
+* `--s3-authentication-region` sets the region used when signing requests. If it is not set, the region from `--s3-location-constraint` is used. This option is available from Duplicati 2.3.0.0.
+* `--s3-recursive-list` lists all objects below the folder path, including objects in subfolders. By default, only the objects directly in the folder path are listed.
+
+The AWS client also accepts the settings of the AWS library with the prefix `--s3-ext-`, for instance `--s3-ext-forcepathstyle=true`. Run `duplicati-cli help s3` to see the full list. For servers that do not end with `.amazonaws.com`, Duplicati sets `--s3-ext-forcepathstyle=true` unless you set it yourself.
 
 ## Creating the bucket
 

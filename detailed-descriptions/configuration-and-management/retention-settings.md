@@ -40,7 +40,7 @@ The second bucket is defined as 1 year, keeping a backup for each 1 week, result
 
 Any backups outside the buckets are deleted, meaning anything older than a year would be removed.
 
-In the UI, a helpful default is called "Smart retention" which sets the following retention policy:
+In the UI, a helpful default is called "Smart backup retention" which sets the following retention policy:
 
 ```
 1W:1D,4W:1W,12M:1M

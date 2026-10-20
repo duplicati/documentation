@@ -29,13 +29,15 @@ The download feature checks what [package](../../installation-details/package-op
 By default, Duplicati uses the domains `updates.duplicati.com` and `alt.updates.duplicati.com` to find updates. If you are running Duplicati within a controlled environment, you can use the environment variables to change where Duplicati is looking for the updates:
 
 ```
-AUTOUPDATER_Duplicati_URLS=https://example.com/stable/latest.manifest
+AUTOUPDATER_Duplicati_URLS=https://example.com/stable/latest-v2.manifest
 ```
 
-Duplicati will detect the `/stable/` part of the url and replace with the channel the user has chosen.
+Duplicati will detect the `/stable/` part of the url and replace with the channel the user has chosen. Multiple urls can be separated with `;`, and the manifest that Duplicati publishes for each channel is called `latest-v2.manifest`.
 
 It is also possible to set the [channel](../../installation-details/release-channels-and-versions/) with an environment variable:
 
 ```
 AUTOUPDATER_Duplicati_CHANNEL=canary
 ```
+
+To stop the [Server](../server.md) from checking for updates automatically, start it with the option `--disable-update-check`.

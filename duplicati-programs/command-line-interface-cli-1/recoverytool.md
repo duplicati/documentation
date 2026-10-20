@@ -30,7 +30,7 @@ The recovery tool is called `Duplicati.CommandLine.RecoveryTool.exe` on Windows 
 duplicati-recovery-tool download <backend url> <working folder> [options]
 ```
 
-Downloads all files matching the Duplicati filenames from the remote storage to the current directory, and decrypts them in the process. The remote url must be one supported by Duplicati. Use `duplicati-cli help backends` to see backends and options.
+Downloads all files matching the Duplicati filenames from the remote storage to the current directory, and decrypts them in the process. The remote url must be one supported by Duplicati. Run `duplicati-cli help` to see the supported backends (listed under "Targets") and `duplicati-cli help <backend>` to see the options for a specific backend.
 
 ### Index
 

@@ -14,7 +14,7 @@ Note that the bucket id is globally unique, so it is recommended using a name th
 
 To configure the Google Cloud Storage destination you need to supply the bucket name, then pick a unique folder name for the backups, and then authorize Duplicati to work on your behalf. Simply click the "AuthID" link in the text field and the authentication process will start and fill out the "AuthID" when you are done.
 
-If you use the "Test connection" button and the bucket does not exist, Duplicati will offer to create the bucket, using the parameters set in advanced options.
+If you use the "Test now" button and the bucket does not exist, Duplicati will offer to create the bucket, using the parameters set in advanced options.
 
 ## URL format for Commandline
 

@@ -36,6 +36,10 @@ It is also possible to disable the use of signin tokens, which are used in some 
 --webservice-disable-signin-tokens=true
 ```
 
+For automated installations, the option `--webservice-password-init=<password>` sets the password only if no password has been set yet, and then exits without starting the server. This makes it safe to run on every install or upgrade.
+
+The refresh token that keeps a browser logged in expires after a period without activity. Use `--webservice-token-duration=<duration>` to change this period; the value is capped at 30 days.
+
 ## Configuring the server encryption
 
 Since the [server database is a critical resource to protect](../detailed-descriptions/database-and-storage/the-server-database.md), it is possible to set a field-level encryption password:
@@ -90,7 +94,13 @@ The server will attempt to use port `8200` and terminate if that port is not ava
 --webservice-port=<port number>
 ```
 
+If a web application on another origin needs to call the API, the allowed origins can be listed with `--webservice-cors-origins=<origin1>;<origin2>`. Each origin must be a full URL, such as `https://example.com`.
+
+If Duplicati runs behind a proxy that already authenticates the user, the proxy can authenticate to Duplicati with a pre-shared token instead of the password. Start the server with `--webservice-pre-auth-tokens=<token>` (multiple tokens separated with semicolons, each at least 10 characters), and make the proxy send the header `Authorization: PreAuth <token>` on each request. See the [Docker guide](../detailed-descriptions/platform-specific-guides/using-duplicati-from-docker.md#pre-authenticated-with-reverse-proxy) for an nginx example.
+
 ## SSL/TLS support
+
+Duplicati can generate and manage its own certificates. Start the server once with `--configure-https` (and optionally `--configure-https-hostnames=<host1>,<host2>`) to generate a local certificate authority and server certificate, as described in [Configuring HTTPS](../detailed-descriptions/configuration-and-management/configuring-https.md). The rest of this section describes how to use your own certificate instead.
 
 To ensure all communication is secure, Duplicati supports adding a TLS certificate. The certificate can be a self-signed certificate, but in this case the browser will not accept it, and extra tweaks must be made.
 
@@ -143,6 +153,10 @@ To better support SPA type applications, the Server can be started with:
 
 For the SPA enabled path, any attempt to access a non-existing page will serve the `index.html` file, which can then render the appropriate view. Multiple paths can be supplied with semicolons.
 
+The option `--webservice-disable-api-extensions` hides the API extensions that the server reports, so clients only use the basic API. The functionality itself is not disabled.
+
+On the first visit, the user interface shows a welcome page that offers to connect to the Duplicati Console. Use `--webservice-suppress-welcome-page=true` to skip it.
+
 ## Timezone
 
 Internally, all time operations are recorded in UTC to avoid issues with daylight savings and changes caused by changing the machine timezone. The only difference to this rule is the scheduler, which is timezone aware.
@@ -170,6 +184,8 @@ The log data that is stored in the database is by default kept for 30 days, but 
 --log-retention=<time to keep logs>
 ```
 
+To also write log messages to the console, add `--log-console`.
+
 On Windows, it is also possible to log data to the Windows Eventlog. To activate this, set the options:
 
 ```
@@ -183,7 +199,7 @@ By default, Duplicati will use the location that is recommended by the operating
 
 * Windows: `%LOCALAPPDATA%\Duplicati`
 * Linux: `~/.config/Duplicati`
-* MacOS: `~/Library/Application Support`
+* MacOS: `~/Library/Application Support/Duplicati`
 
 These paths are sensitive to the user context, meaning that the actual paths will change based on the user that is running the Server. This is especially important when running the server with elevated privileges, because this usually causes it to run in a different user context, resulting in different paths.&#x20;
 
@@ -203,6 +219,10 @@ DUPLICATI_HOME=<path to storage folder>
 
 If both are supplied, the commandline options are used.
 
+To run Duplicati from removable media, use `--portable-mode`. This places the data folder in a folder called `data` next to the program files.
+
+By default, the server creates an empty database if none is found in the data folder. If the data folder is on a mount that may be missing, such as in a container, use `--webservice-dont-autocreate-database` to make the server fail instead of starting with an empty configuration.
+
 ## Environment variables
 
 For the server options, it is also possible to supply them as environment variables. This makes it easier to toggle options from Docker-like setups where it is desirable to have the entire service config in a single file, and setting commandline arguments may be error prone.
@@ -216,3 +236,12 @@ DUPLICATI__WEBSERVICE_API_ONLY=true
 ```
 
 Any arguments supplied on the commandline will take precedence over an environment variable, as commandline arguments are considered more "local".
+
+## Other options
+
+* `--disable-update-check`: Disables the automatic check for new versions. A manual check is still possible.
+* `--reduced-reporting`: Limits everything that is sent outside the machine, such as reports and console messages, to log message ids, counters and dates, without message text, error messages or file names. If the setting is enforced from the Duplicati Console, it cannot be switched off with this option.
+* `--register-remote-control=<url>`: Registers the machine with the Duplicati Console using a pre-authenticated link, see [Connecting to the Duplicati console](../duplicati-console/connecting-to-the-duplicati-console.md). The option has no effect if the machine is already registered, unless `--register-remote-control-force` is also given.
+* `--allowed-backend-modules`, `--allowed-encryption-modules`, `--allowed-compression-modules`: Comma-separated lists that restrict which destinations, encryption modules, and compression modules the server will load. If not set, all modules are allowed.
+* `--webservice-enable-folder-status-service` (Windows): Enables the folder status service that shows backup status overlay icons in File Explorer. When enabled, the folder status endpoints can be queried without logging in from the local machine, which exposes the source folder paths and backup status to local processes.
+* `--ping-pong-keepalive`: Used by the service wrappers to check that the server is responding. The server reads lines from standard input and answers each one. This is not needed when starting the server manually.

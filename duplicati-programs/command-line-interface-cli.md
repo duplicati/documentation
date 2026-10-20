@@ -27,17 +27,23 @@ The commandline interface has full documentation for all supported options and s
 ```
 See duplicati-cli help <topic> for more information.
   General: example, changelog
-  Commands: backup, sync, find, restore, delete, compact, test, compare, purge, vacuum
+  Commands: backup, sync, find, restore, delete, compact, test, compare,
+  purge, vacuum
+  Searching: list-filesets, list-folder-contents, list-file-versions,
+  search-files
   Repair: repair, affected, list-broken-files, purge-broken-files
+  Locking: set-locks, read-lock-info
   Debug: debug, logging, create-report, test-filters, system-info, send-mail
-  Targets: aliyunoss, azure, b2, box, cloudfiles, dropbox, ftp, aftp, file, gcs, googledrive, e2,
-  jottacloud, mega, msgroup, onedrivev2, openstack, rclone, s3, ssh, od4b, mssp, sharepoint, sia,
-  storj, tahoe, cos, webdav
-  Modules: aes, gpg, zip, console-password-input, http-options, hyperv-options, mssql-options,
-  runscript, sendhttp, sendxmpp, sendtelegram, sendmail
+  Targets: aliyunoss, azure, b2, box, duplicati, dropbox, ftp, aftp, file,
+  gcs, googledrive, e2, jottacloud, mega, msgroup, movistarcloud, onedrivev2,
+  openstack, rclone, s3, ssh, od4b, mssp, sharepoint, storj, tahoe, cos,
+  webdav, pcloud, smb, cifs, filen, filejump, drimecloud
+  Modules: aes, gpg, zip, common-options, console-password-input,
+  httpreportstatus, hyperv-options, mssql-options, runscript, sendhttp,
+  sendxmpp, sendmail, sendtelegram
   Formats: date, time, size, decimal, encryption, compression
   Advanced: mail, advanced, returncodes, filter, filter-groups, <option>
-  Secrets: secret, <provider>
+  Secrets: password, secret, <provider>
 ```
 
 To list all options supported by the commandline interface, run the following command:
@@ -117,6 +123,8 @@ To restore to a different location than the original, such as to a staging folde
 If you are sure you want to restore the files, and potentially lose existing files, use the option `--overwrite`.
 
 The restore command will restore from the latest version of the backup, but other versions can be selected with the `--version=<version>`. As with backups, the `--include` and `--exclude` options can be used to filter down the desired files to restore.
+
+To restore the files from several versions at once, add `--restore-all-files=True` together with `--restore-path`. Each version is then restored into its own subfolder of the restore path, named after the time of the backup (such as `20261010-214426`). With `--restore-all-files=Unique`, a file is only restored the first time a given content is seen, so later versions only contain the files that changed. The versions can be limited with `--version`, and the files with filters. This option is available from Duplicati 2.4.0.0 and is not available in the user interface.
 
 ## Find
 

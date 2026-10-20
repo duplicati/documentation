@@ -10,6 +10,8 @@ The TrayIcon executable is a fairly small program that has as the primary task t
 
 The TrayIcon is connected to the server and will change the displayed icon based on the server state. Opening the associated context menu, provides the option to quit, pause/resume, or open the UI.
 
+From Duplicati 2.4.0.0, the TrayIcon also shows the notifications from the server, such as backup errors and warnings, as notifications of the operating system: toast notifications on Windows (clicking one opens the UI), the notification center on MacOS, and the desktop notification service (over DBus) on Linux.
+
 <div><figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 13.44.56.png" alt="" width="157"><figcaption><p>TrayIcon on Windows</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 13.49.11.png" alt="" width="186"><figcaption><p>Status icon on Ubuntu</p></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2024-11-28 at 12.18.52.png" alt="" width="129"><figcaption><p>Statusbar icon on MacOS</p></figcaption></figure></div>
 
 The second task the TrayIcon is usually responsible for, is to host the [Server component](server.md). The server is responsible for handling stored backup configurations, provide a user interface, run scheduled tasks and more. When launching the TrayIcon, it will also transparently launch and host the server. It uses this hosted instance to subscribe to changes, so it can change the icon and signal the server state.
@@ -27,6 +29,10 @@ By default, the Duplicati TrayIcon will use the operating systems standard metho
 ```
 --browser-command=<path to binary>
 ```
+
+## Console output on Windows
+
+On Windows, the TrayIcon attaches to the console of the program that started it, so that its output, such as the `--help` output, is shown in the terminal. Use the option `--detached-process=true` to start the TrayIcon without attaching to the console.
 
 ## Detached TrayIcon
 
@@ -63,6 +69,8 @@ If the server is using a self-signed certificate (or a certificate not trusted b
 When the TrayIcon is hosting the server, or has access to the database settings, it will automatically extract the certificate hash, so that particular certificate is accepted. This technique is secure and very similar to [certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning).
 
 For testing and debugging purposes, the certificate hash `*` means "any certificate". Beware that this settings is very insecure and should not be used in production settings.
+
+If the revocation status of the certificate cannot be checked, for instance because the revocation server is offline, the option `--ignore-revocation-failure=true` ignores that failure. This option is available from Duplicati 2.4.0.0.
 
 ## Server settings
 
