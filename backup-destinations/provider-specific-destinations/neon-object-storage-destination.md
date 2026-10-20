@@ -31,7 +31,7 @@ neon credentials create --project-id <project-id> --branch <branch-id> \
   --name duplicati --scope storage:read --scope storage:write
 ```
 
-The output contains a `token_id`, which is the access key id, and an `s3_secret_access_key`, which is the secret access key. The secret is only shown once, so store it somewhere safe.
+The output contains a `token_id`, which is the access key id, and an `s3_secret_access_key`, which is the secret access key. Store the secret somewhere safe. If you lose it, show it again with `neon credentials reveal <token_id> --project-id <project-id> --branch <branch-id>`.
 
 Look up the branch endpoint:
 
@@ -71,7 +71,6 @@ Make sure to include `use-ssl=true`. The S3 destination uses unencrypted connect
 
 ## Known limitations
 
-Duplicati's regular backup, restore, verify, repair, delete and compact operations work with the default settings. A few S3 features behave differently on Neon:
+Duplicati's regular backup, restore, verify, repair, delete and compact operations work with the default settings, including renames from `--soft-delete-prefix`. One S3 feature behaves differently on Neon:
 
-* **Renaming files.** Duplicati renames remote files when the `--soft-delete-prefix` option is used, and when synchronizing remote destinations. With the default AWS library, these renames currently fail on Neon. If you use these features, either switch to the Minio library with `--s3-client=minio`, or set `--prevent-backend-rename=true` to make Duplicati download and re-upload the file instead.
-* **Object locking.** Neon stores object lock configuration but has [limited enforcement](https://neon.com/docs/storage/s3-compatibility), so do not rely on Duplicati's object locking options to protect backups stored on Neon.
+* **Object locking.** Neon accepts object lock settings, and `--remote-file-lock-duration` runs without errors. Neon blocks deleting a locked file, but it does not keep object versions, so uploading a new file with the same name replaces the locked file and removes its lock. Anyone holding the access keys can overwrite your backups this way. Do not rely on Duplicati's object locking options to protect backups stored on Neon. See [S3 compatibility](https://neon.com/docs/storage/s3-compatibility) in the Neon documentation.
