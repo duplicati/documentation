@@ -66,6 +66,7 @@ Storage destinations in this category are specific to one particular provider an
 * [FileJump](provider-specific-destinations/filejump.md) (deprecated)
 * [Filen.io](provider-specific-destinations/filen.io.md)
 * [Drime Cloud](provider-specific-destinations/drime-cloud.md)
+* [Neon Object Storage](provider-specific-destinations/neon-object-storage-destination.md)
 * [Movistar Cloud](provider-specific-destinations/movistar-cloud-destination.md)
 
 ## File synchronization providers
