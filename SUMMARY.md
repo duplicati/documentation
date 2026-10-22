@@ -38,6 +38,7 @@
   * [Advanced configurations](detailed-descriptions/security-and-secrets/using-the-secret-provider/advanced-configurations.md)
 * [Filters in Duplicati](detailed-descriptions/security-and-secrets/filters-in-duplicati.md)
 * [Using remote file locking](detailed-descriptions/security-and-secrets/using-remote-file-locking.md)
+* [Restoring from a point in time](detailed-descriptions/security-and-secrets/restoring-from-a-point-in-time.md)
 * [Telemetry collection](detailed-descriptions/security-and-secrets/telemetry-collection.md)
 
 ## Monitoring & Notifications
@@ -78,6 +79,7 @@
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
 * [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
 * [Duplicati Storage](duplicati-console/duplicati-storage.md)
+  * [Duplicati Storage configuration](duplicati-console/duplicati-storage-configuration.md)
 * [Managed Microsoft 365 backup](duplicati-console/managed-microsoft-365-backup.md)
 * [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
 

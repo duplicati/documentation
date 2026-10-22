@@ -100,6 +100,8 @@ The **Default region** is used to choose where the data is stored for machines t
 
 Changing the default region only applies to machines that have not stored any data yet. The data for machines that are already using Duplicati Storage stays in the region shown for the machine.
 
+See [Duplicati Storage configuration](duplicati-storage-configuration.md) for more details on the region, and for how to configure object locking.
+
 ### Delete stored backups
 
 Data can be removed for a single backup, or for a machine with all the backups that belong to it:
@@ -218,6 +220,19 @@ Make sure the backup ID is exactly the same as the one used by the backup. If th
 {% endhint %}
 
 See [Disaster recovery](../using-tools/disaster-recovery.md) for more details on restoring without the original machine.
+
+### Restore from a point in time
+
+When object locking is enabled for the storage, every uploaded file is locked for the default lock period, and earlier versions of the files are kept. If the backup files have been deleted or damaged, for instance after the machine was compromised, add the `--remote-point-in-time` option to the restore to read the storage as it was before the incident:
+
+```sh
+duplicati-cli restore "<restore connection string>" "*" \
+  --remote-point-in-time=3D \
+  --restore-path="/path/to/restore" \
+  --passphrase="<passphrase>"
+```
+
+See [Restoring from a point in time](../detailed-descriptions/security-and-secrets/restoring-from-a-point-in-time.md) for more details.
 
 ### Revoke the restore connection string
 

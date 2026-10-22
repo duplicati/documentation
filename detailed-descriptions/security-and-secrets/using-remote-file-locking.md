@@ -55,6 +55,7 @@ Supported Backends:
 * Backblaze B2
 * Azure Blob Storage
 * Google Cloud Storage
+* [Duplicati Storage](../../duplicati-console/duplicati-storage.md), when object locking is enabled for the storage
 
 #### 2. Enabling Locking in a Backup Job
 
@@ -102,6 +103,14 @@ If you changed locks manually on the server, update Duplicati’s local records:
 ```shellscript
 duplicati-cli read-lock-info <storage-url> --refresh-lock-info-complete=true
 ```
+
+***
+
+### Restoring after an incident
+
+Locking prevents the backup files from being removed, but an attacker or a faulty cleanup can still delete or overwrite the files, leaving only older versions behind. On destinations that use versioning, such as Amazon S3 and Duplicati Storage, Duplicati can read the destination as it was before the incident with the `--remote-point-in-time` option, and restore directly from the old versions.
+
+See [Restoring from a point in time](restoring-from-a-point-in-time.md) for how to set this up and how to restore.
 
 ***
 
