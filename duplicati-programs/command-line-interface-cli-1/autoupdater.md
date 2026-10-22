@@ -41,3 +41,11 @@ AUTOUPDATER_Duplicati_CHANNEL=canary
 ```
 
 To stop the [Server](../server.md) from checking for updates automatically, start it with the option `--disable-update-check`.
+
+To stop all update checks, set this environment variable:
+
+```
+AUTOUPDATER_Duplicati_SKIP_UPDATE=true
+```
+
+This stops the automatic check, the manual check in the user interface, the `--auto-update` option of the [Commandline](../command-line-interface-cli.md) and the `check` and `download` commands of the AutoUpdater. This variable is available from Duplicati 2.4.1.0. Builds made with the Debug configuration do not check for updates unless the variable is set to `false`.
