@@ -65,7 +65,9 @@
 
 * [Scripts](detailed-descriptions/automation-and-integration/scripts.md)
 * [Microsoft 365 backup and restore](detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md)
+* [Microsoft 365 credentials setup](detailed-descriptions/automation-and-integration/microsoft-365-credentials-setup.md)
 * [Google Workspace backup and restore](detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md)
+* [Google Workspace credentials setup](detailed-descriptions/automation-and-integration/google-workspace-credentials-setup.md)
 * [Full-disk backup and restore](detailed-descriptions/automation-and-integration/full-disk-backup-and-restore.md)
 * [Using Duplicati to backup OpenClaw](detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw.md)
 

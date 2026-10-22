@@ -39,7 +39,7 @@ Type "365" in the search bar, or scroll down and find "Microsoft 365" in the lis
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.01.06.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.29.png" alt="" width="375"></picture><figcaption></figcaption></figure>
 
-Fill in the information to set up the configuration. You need a Tenant Id, Client Id and Client Secret for the regular setup:
+Fill in the information to set up the configuration. You need a Tenant Id, Client Id and Client Secret for the regular setup. See [Microsoft 365 credentials setup](microsoft-365-credentials-setup.md) for how to create them:
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.01.13.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.00.40.png" alt="" width="563"></picture><figcaption></figcaption></figure>
 

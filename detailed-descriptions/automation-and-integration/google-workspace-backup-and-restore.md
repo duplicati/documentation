@@ -38,7 +38,7 @@ Type "workspace" in the search bar, or scroll down and find "Google Workspace" i
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.13.08.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.12.16.png" alt="" width="375"></picture><figcaption></figcaption></figure>
 
-Fill in the information to set up the configuration. You need an Admin ID and a Service Account JSON. You can drop the JSON file in, click the browse button, or paste in the value:
+Fill in the information to set up the configuration. You need an Admin ID and a Service Account JSON. See [Google Workspace credentials setup](google-workspace-credentials-setup.md) for how to create them. You can drop the JSON file in, click the browse button, or paste in the value:
 
 <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2026-05-25 at 11.13.17.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2026-05-25 at 11.12.32.png" alt="" width="563"></picture><figcaption></figcaption></figure>
 

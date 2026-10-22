@@ -63,15 +63,9 @@ If the domain contains more users, groups, shared drives or sites than there are
 
 ## Prepare the Google Workspace domain
 
-The managed backup accesses the domain with a **service account** that uses **domain-wide delegation** to act on behalf of the users in the domain. Before creating the backup, a Google Workspace super administrator needs to set up the service account:
+The managed backup accesses the domain with a **service account** that uses **domain-wide delegation** to act on behalf of the users in the domain. Before creating the backup, the service account needs to be created in a Google Cloud project, and a Google Workspace super administrator needs to authorize it for the required scopes. The steps are described in [Google Workspace credentials setup](../detailed-descriptions/automation-and-integration/google-workspace-credentials-setup.md).
 
-1. In the [Google Cloud console](https://console.cloud.google.com), create a project, or choose an existing one.
-2. Under **APIs & Services**, enable the APIs for the data you want to back up: Admin SDK, Gmail, Google Drive, Google Calendar, People, Tasks, Google Keep, Google Chat and Groups Settings.
-3. Under **IAM & Admin → Service Accounts**, create a service account, such as "duplicati-backup".
-4. On the service account, create a new **key** of type JSON and download the file.
-5. Note the **client ID** (unique ID) of the service account.
-6. In the [Google Admin console](https://admin.google.com), go to **Security → Access and data control → API controls → Manage domain-wide delegation**.
-7. Click **Add new**, enter the client ID of the service account and the list of scopes that are required. The full list is in the [API permissions reference](../detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md#api-permissions-reference).
+When done, you have the **service account JSON key** and the **admin email** needed to create the backup.
 
 {% hint style="info" %}
 The backup only needs the read-only scopes, while a restore needs the scopes with write access. For better security, you can grant only the backup scopes to the service account used for the backup, and supply a different service account with the restore scopes when you need to restore.

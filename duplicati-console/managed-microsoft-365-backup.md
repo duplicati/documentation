@@ -69,14 +69,9 @@ If the tenant contains more users, groups or sites than there are seats assigned
 
 ## Prepare the Microsoft 365 tenant
 
-The managed backup accesses the tenant as an application, using a client ID and a client secret. Before creating the backup, a tenant administrator needs to register an application in Microsoft Entra ID:
+The managed backup accesses the tenant as an application, using a client ID and a client secret. Before creating the backup, a tenant administrator needs to register an application in Microsoft Entra ID, grant it the required Microsoft Graph application permissions, and create a client secret. The steps are described in [Microsoft 365 credentials setup](../detailed-descriptions/automation-and-integration/microsoft-365-credentials-setup.md).
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and go to **App registrations**.
-2. Click **New registration**, give the application a name, such as "Duplicati backup", and register it.
-3. Note the **Application (client) ID** and the **Directory (tenant) ID** from the overview page.
-4. Under **API permissions**, add the Microsoft Graph **application permissions** that are required. The full list is in the [API permissions reference](../detailed-descriptions/automation-and-integration/office-365-backup-and-restore.md#api-permissions-reference).
-5. Click **Grant admin consent** for the tenant.
-6. Under **Certificates & secrets**, create a new **client secret** and note the secret value.
+When done, you have the **Directory (tenant) ID**, the **Application (client) ID** and the **client secret value** needed to create the backup.
 
 {% hint style="info" %}
 The backup only needs read permissions, while a restore needs write permissions. For better security, you can grant only the read permissions to the application used for the backup, and supply a different set of credentials with write permissions when you need to restore.
