@@ -28,7 +28,7 @@ To restore directly from the backup files, the first step is to provide the dest
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.44.55.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.44.45.png" alt=""></picture><figcaption><p>Supply storage destination details</p></figcaption></figure>
 
-Once the details are entered, it is recommended to use the "Test connection" button to ensure that the connection is working correctly. Then click the "Continue" button.
+Once the details are entered, it is recommended to use the "Test now" button to ensure that the connection is working correctly. Then click the "Continue" button.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.49.24.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.49.31.png" alt=""></picture><figcaption><p>Supply the encryption passphrase</p></figcaption></figure>
 

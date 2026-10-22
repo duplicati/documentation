@@ -9,7 +9,7 @@ redirects:
   detailed-descriptions/choosing-duplicati-type: detailed-descriptions/platform-specific-guides/choosing-duplicati-type
   detailed-descriptions/using-duplicati-with-linux: detailed-descriptions/platform-specific-guides/using-duplicati-with-linux
   detailed-descriptions/using-duplicati-with-macos: detailed-descriptions/platform-specific-guides/using-duplicati-with-macos
-  detailed-descriptions/using-duplicati-with-windows: detailed-descriptions/platform-specific-guides/using-duplicati-with-windows
+  detailed-descriptions/using-duplicati-with-windows: platform-specific-guides/using-duplicati-with-windows
   detailed-descriptions/using-duplicati-from-docker: detailed-descriptions/platform-specific-guides/using-duplicati-from-docker
   # Configuration & Management
   detailed-descriptions/import-and-export-backup-configurations: detailed-descriptions/configuration-and-management/import-and-export-backup-configurations
@@ -30,6 +30,22 @@ redirects:
   detailed-descriptions/the-server-database: detailed-descriptions/database-and-storage/the-server-database
   # Automation & Integration
   detailed-descriptions/scripts: detailed-descriptions/automation-and-integration/scripts
-  detailed-descriptions/using-remote-management: detailed-descriptions/automation-and-integration/using-remote-management
+  detailed-descriptions/using-remote-management: duplicati-console/connecting-to-the-duplicati-console
   detailed-descriptions/office-365-backup-and-restore: detailed-descriptions/automation-and-integration/office-365-backup-and-restore
   detailed-descriptions/using-duplicati-to-backup-openclaw: detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw
+  # Removed community docs
+  community-docs/community-docs-home: README.md
+  community-docs/community-docs-introduction: README.md
+  community-docs/community-docs-installation: getting-started/installation
+  community-docs/community-docs-using-the-graphical-user-interface: getting-started/set-up-a-backup-in-the-ui
+  community-docs/community-docs-using-duplicati-from-the-commandline: duplicati-programs/command-line-interface-cli
+  community-docs/community-docs-storage-providers: backup-destinations/destination-overview
+  community-docs/community-docs-advanced-options: duplicati-programs/command-line-interface-cli
+  community-docs/community-docs-other-commandline-utilities: duplicati-programs/command-line-interface-cli-1
+  community-docs/community-docs-disaster-recovery: technical-details/understanding-restore/disaster-recovery
+  community-docs/community-docs-how-the-backup-process-works: technical-details/understanding-backup/how-backup-works
+  community-docs/community-docs-how-the-restore-process-works: technical-details/understanding-restore/how-restore-works
+  community-docs/community-docs-choosing-sizes-in-duplicati: technical-details/understanding-backup/backup-size-parameters
+  community-docs/community-docs-filters: detailed-descriptions/security-and-secrets/filters-in-duplicati
+  community-docs/community-docs-how-we-get-along-with-oauth: duplicati-programs/oauth-server
+  community-docs/community-docs-example-scripts: detailed-descriptions/automation-and-integration/scripts

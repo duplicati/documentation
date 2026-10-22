@@ -4,8 +4,8 @@ description: This page describes the Sia storage destination
 
 # Sia Destination
 
-{% hint style="warning" %}
-The Sia destination is currently deprecated as it is incompatible with the current version of the network.
+{% hint style="danger" %}
+The Sia destination has been **removed**, as the implementation was not compatible with the hard-fork of the Sia network (canary 2.1.0.119, first stable release without it: 2.2.0.0). The `sia://` URL is no longer recognized. This page is kept for reference only.
 {% endhint %}
 
 Duplicati supports backups to the [Sia network](https://sia.tech) which is a large-scale decentralized storage network. To use the Sia destination, use this URL format:

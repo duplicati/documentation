@@ -8,6 +8,8 @@ Duplicati supports using [FileJump](https://filejump.com) as the storage destina
 
 {% hint style="warning" %}
 As of 2025-11-01 FileJump has announced that they will change the solution including the API so Duplicati will likely stop working with Filejump on 2025-12-31. If API docs are updated before, Duplicati may be updated to support FileJump again. Until this happens, we do not recommend using Filejump with Duplicati.
+
+The FileJump destination is marked as deprecated in Duplicati, so it is hidden from the destination list in the user interface. See [deprecated and untested destinations](../destination-overview.md#deprecated-and-untested-destinations) for how to select it anyway.
 {% endhint %}
 
 ## User interface
@@ -33,3 +35,9 @@ filejump://<hostname>/<folder>/<subfolder>?auth-username=email&auth-password=***
 ```
 
 If you use the username/password method, Duplicati will create and use an API token, but will negotiate with Filejump to get the token, which may slow things down a bit.
+
+## Advanced options
+
+* `--soft-delete`: When enabled, files deleted by Duplicati are moved to the trash instead of being permanently deleted. This is disabled by default.
+* `--page-size`: Adjusts how many entries are requested per page when listing files. Defaults to `1000`.
+* `--api-url`: Set the FileJump API URL if using a non-standard URL. Defaults to `https://drive.filejump.com/api/v1/`.

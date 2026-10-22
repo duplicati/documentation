@@ -22,7 +22,7 @@ The basic options for sending XMPP notifications can be entered into the general
 
 </div>
 
-You can toggle between the two views using the "Edit as list" and "Edit as text" links.
+You can toggle between the two views using the "Edit contents as text" and "Show editor" buttons.
 
 Besides the mandatory options, it is also possible to configure:
 

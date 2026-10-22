@@ -34,6 +34,14 @@ duplicati-agent run \
 
 This will cause the Agent to register using the token from the url and the `--agent-register-only` option will cause it to exit after registration has completed. If the Agent is already registered, it will simply exit.
 
+The `register` command does the same in a shorter form:
+
+```sh
+duplicati-agent register "<copied-url>"
+```
+
+The `register` command also accepts `--agent-settings-file`, `--agent-settings-file-passphrase`, `--secret-provider` and `--secret-provider-pattern`.
+
 To remove the registration information, use the command:
 
 ```
@@ -57,7 +65,7 @@ The hosted agent server will use the port `8210` by default, to not clash with t
 To make the hosted server fully accessible from the local machine that it is running on, add the following settings:
 
 ```
-duplicati-agent \
+duplicati-agent run \
   --disable-pre-shared-key \
   --webservice-api-only=false \
   --webservice-password=<password>
@@ -70,6 +78,37 @@ The second option, `--webservice-api-only=false` will enable the access to the s
 The last option sets the UI password, which would otherwise be a randomly generated password.
 
 You may also want to re-enable the signin tokens with `--webservice-disable-signin-tokens=false`.
+
+## Options for the run command
+
+The `run` command accepts these options:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `--agent-registration-url` | `https://api.duplicati.com/remotecontrol/register` | The url used to register the Agent. |
+| `--agent-settings-file` | `agent.json` in the data folder | The file to use for the Agent settings. |
+| `--agent-settings-file-passphrase` | | The passphrase for the Agent settings file. |
+| `--agent-register-only` | `false` | Register the Agent, then exit. |
+| `--webservice-interface` | `loopback` | The interface the hosted server listens on. |
+| `--webservice-port` | `8210` | The port the hosted server listens on. |
+| `--webservice-password` | random | The password for the hosted server. If it is not set, or set to `random`, a random value is used. |
+| `--keep-webservice-password` | `false` | Do not assign a random password on startup if no password is given. |
+| `--webservice-allowed-hostnames` | `127.0.0.1` | The allowed hostnames for the hosted server. |
+| `--webservice-api-only` | `true` | Only allow API access to the hosted server. |
+| `--webservice-disable-signin-tokens` | `true` | Disable signin tokens for the hosted server. |
+| `--webservice-reset-jwt-config` | `true` | Reset the JWT configuration on startup. |
+| `--disable-pre-shared-key` | `false` | Disable the pre-shared key that prevents outside access to the hosted server. |
+| `--settings-encryption-key` | | The encryption key for the server database. |
+| `--disable-db-encryption` | `false` | Disable the database encryption. |
+| `--disable-default-secret-provider` | `false` | Disable the default secret provider. |
+| `--secret-provider` | | The [secret provider](../detailed-descriptions/security-and-secrets/using-the-secret-provider/) to use. |
+| `--secret-provider-cache` | `None` | The secret provider cache level: `None`, `InMemory` or `Persistent`. |
+| `--secret-provider-pattern` | `$` | The secret provider pattern. |
+| `--server-datafolder` | | The data folder for the database and configuration. |
+| `--portable-mode` | | Use portable mode for locating the database and storing configuration, see [storing data in different places](server.md#storing-data-in-different-places). |
+| `--allow-insecure-datafolder` | `false` | Allow a data folder in a shared location without restricted permissions. Available from Duplicati 2.4.0.0. |
+| `--windows-eventlog` | | Write log messages to the Windows event log with this source name. The source is created if it does not exist. |
+| `--reduced-reporting` | | Switch reduced reporting on or off for this machine, so every report leaving it carries log message ids only. A value enforced by the console cannot be switched off. If not given, the stored setting is kept. Available from Duplicati 2.4.0.1. |
 
 ## WindowsService support
 
@@ -102,7 +141,7 @@ sudo systemctl start duplicati-agent.service
 sudo systemctl status duplicati-agent.service
 ```
 
-As is common for other services, additional start parameters can be added to `/etc/default/duplicati`.
+As is common for other services, additional start parameters can be added to the `DAEMON_OPTS` variable in `/etc/default/duplicati-agent` (`.deb` packages) or `/etc/sysconfig/duplicati-agent` (`.rpm` packages).
 
 Note that when running the service, the Agent does not have access to the desktop environment (if one even exists) and it cannot open the registration url in the browser. Instead, it will emit a url in the system logs that you need to open to register the machine. Alternatively, use the [method outlined above to register the machine](agent.md#registering-the-machine), but beware that you need to run in the same context as the service, or the `agent.json` file will be placed in another folder.
 

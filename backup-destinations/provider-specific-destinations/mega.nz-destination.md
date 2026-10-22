@@ -26,4 +26,4 @@ mega://<folder>/<subfolder>
 
 ## Two-factor authorization
 
-It is possible to provide a two-factor key with the option `--auth-two-factor-key` but since this value changes often, it is not suitable to use in most automated backup settings. This is a design choice from Mega.nz and cannot be fixed by Duplicati.
+If the account has two-factor authentication enabled, provide the shared secret with the option `--auth-two-factor-key`. This is the Base32 string shown when two-factor authentication was set up on the account (the value behind the QR code), not the 6-digit code from the authenticator app. Duplicati uses the secret to compute the current TOTP code on each login, so the value does not change and is suitable for automated backups.

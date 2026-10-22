@@ -14,9 +14,17 @@ These options allow you to integrate custom scripts with Duplicati operations, p
 
 **`--run-script-after`**`(Path)` Run a script on exit. Executes a script after performing an operation. The script will receive the operation results written to stdout.
 
+**`--run-script-post-backup`**`(Path)` Run a script post-backup, before verification. Executes a script after the backup data has been written and source resources, such as VSS snapshots, have been released, but before the remote verification and compacting start. Use this to resume services that were paused for the backup as early as possible. The script receives the operation results like `--run-script-after`, and `DUPLICATI__EVENTNAME` is set to `POST-BACKUP`. Available from Duplicati 2.4.0.0.
+
 **`--run-script-before-required`**`(Path)` Run a required script on startup. Executes a script before performing an operation. The operation will block until the script has completed or timed out. If the script returns a non-zero error code or times out, the operation will be aborted.
 
 **`--run-script-timeout`**`(Timespan)` Sets the script timeout. Sets the maximum time a script is allowed to execute. If the script has not completed within this time, it will continue to execute but the operation will continue too, and no script output will be processed. Default value: `60s`
+
+**`--run-script-result-output-format`**`(Enumeration)` The format of the operation results passed to `--run-script-after` and `--run-script-post-backup`: `Duplicati` (default) or `Json`.
+
+**`--run-script-log-level`**`(Enumeration)` The log level of the log messages included in the results. Default value: `Warning`
+
+**`--run-script-log-filter`**`(String)` A filter expression that selects the log messages included in the results.
 
 ### Script Output Integration with Duplicati Logging
 

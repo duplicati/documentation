@@ -11,12 +11,12 @@ git clone https://github.com/duplicati/duplicati
 dotnet build Duplicati.slnx
 ```
 
-The build artifacts & executables of other components, such as the [Tray Icon](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [CLI utilities](../duplicati-programs/command-line-interface-cli-1/) will be located under Executables/net8 directory.
+The build artifacts & executables of other components, such as the [Tray Icon](../duplicati-programs/trayicon.md), [Server](../duplicati-programs/server.md), [CLI utilities](../duplicati-programs/command-line-interface-cli-1/) will be located under `Executables/<Project>/bin/Debug/net10.0/` (for example `Executables/Duplicati.GUI.TrayIcon/bin/Debug/net10.0/`).
 
 To run the tray icon:
 
 ```
-dotnet run Executables/net10Duplicati.GUI.TrayIcon/Duplicati.GUI.TrayIcon.csproj
+dotnet run --project Executables/Duplicati.GUI.TrayIcon/Duplicati.GUI.TrayIcon.csproj
 ```
 
 Optionally to run all Unit tests:

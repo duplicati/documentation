@@ -26,7 +26,7 @@ The tool will do the following:
 
 On **Windows**, this will use VSS to create snapshots, which require elevated privileges, usually Administrator.
 
-On **Linux**, this will use LVM and a set of shell scripts to obtain the `vgroup` and manipulate it. These scripts are located in the source folder `lvmscripts` and are named:
+On **Linux**, this will use LVM and a set of shell scripts to obtain the `vgroup` and manipulate it. These scripts are located in the source folder `Duplicati/Library/Snapshots/lvm-scripts` and are named:
 
 * `find-volume.sh`: Locates the volume where the given folder path is in.
 * `create-lvm-snapshot.sh`: Creates the LVM snapshot and returns the path to it.
@@ -34,5 +34,5 @@ On **Linux**, this will use LVM and a set of shell scripts to obtain the `vgroup
 
 Usually, the operations require elevated privileges, for example root permissions.
 
-For **MacOS**, the snapshots are not currently supported.
+On **MacOS**, this will use APFS local snapshots created with `tmutil`, driven by a similar set of scripts located in `Duplicati/Library/Snapshots/apfs-scripts` (`find-volume.sh`, `create-apfs-snapshot.sh`, `remove-apfs-snapshot.sh`). Creating and mounting the snapshot also requires elevated privileges. Snapshot support on MacOS was added in Duplicati 2.2.0.104 (stable 2.3.0.0).
 

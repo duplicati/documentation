@@ -8,7 +8,15 @@ description: >-
 
 ## Upgrading
 
-The regular approach to upgrade Duplicati is to uninstall the previous version and then install the new one. Duplicati does not delete your configurations or backup databases during uninstall, so your settings and jobs will remain intact.
+To upgrade Duplicati, install the new version over the existing one. You do not need to uninstall the previous version first:
+
+* Windows: run the new MSI package. It replaces the installed version and keeps the installation folder.
+* Linux: install the new `.deb` or `.rpm` package in the same way as the first installation.
+* MacOS: open the new `.dmg` file and replace the application, or run the new `.pkg` installer.
+
+Duplicati does not delete your configurations or backup databases when it is upgraded or uninstalled, so your settings and jobs will remain intact.
+
+The server regularly checks for new versions and shows "New update found" in the user interface when one is available. You can also check from the "About Duplicati" page with "Check for updates", and download a new version from the "Download update" link on the same page. From the commandline, the [AutoUpdater](../../duplicati-programs/command-line-interface-cli-1/autoupdater.md) can check for a new version with `duplicati-autoupdater check` and download the package that matches your system with `duplicati-autoupdater download`.
 
 When Duplicati starts and discovers an older version of its configuration, it will automatically update the configuration and databases to the new version.
 

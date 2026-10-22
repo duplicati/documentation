@@ -25,3 +25,13 @@ To use OneDrive you must first obtain an `AuthID` by using a Duplicati service t
 ## Drive ID
 
 A default drive will be used to store the data. If you require another drive to be used to store data, such as a shared drive, use the `--drive-id=<drive id>` option.
+
+## Performance tuning options
+
+Large files are uploaded in fragments. If you need to gain more performance you can fine-tune the performance of these transfers with the options:
+
+* `--fragment-size`: The size of each fragment. The default is 10 MiB. It is recommended to be between 5 and 10 MiB and a multiple of 320 KiB.
+* `--fragment-retry-count`: The number of retries for each fragment before the upload fails. The default is 5.
+* `--fragment-retry-delay`: The delay in milliseconds between retries of a fragment. The default is 1000.
+
+For most uses, it is recommended that these are kept at their default settings and only changed after confirming that there is a gain to be made by changing them.

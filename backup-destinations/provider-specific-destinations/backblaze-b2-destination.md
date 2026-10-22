@@ -12,7 +12,7 @@ Duplicati supports storing files with Backblaze B2, which is a large-scale objec
 
 To configure the B2 destination you must supply: bucket, path in bucket, application id, and application key.
 
-If you use the "Test connection" button and the bucket does not exist, Duplicati will offer to create the bucket for you.
+If you use the "Test now" button and the bucket does not exist, Duplicati will offer to create the bucket for you.
 
 ## URL format for Commandline
 

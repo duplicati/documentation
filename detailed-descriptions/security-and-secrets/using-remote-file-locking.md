@@ -66,20 +66,20 @@ To enable locking for a backup, add the following option to your configuration (
 This example locks every new file for 30 days. You can use units like `H` (hours), `D` (days), `W` (weeks), or `M` (months).
 
 {% hint style="info" %}
-Always test this with compliance mode (default) and use a short duration until you are sure it works as intended.
+Always test this with governance mode (default) and use a short duration until you are sure it works as intended.
 {% endhint %}
 
 #### 3. Provider-Specific Settings
 
 You can specify the mode depending on your provider:
 
-* S3: `--s3-object-lock-mode=governance` (default) or `compliance`
-* Backblaze B2: `--b2-retention-mode=governance` or `compliance`
+* S3: `--s3-lock-mode=governance` (default) or `compliance`
+* Backblaze B2: `--b2-lock-mode=governance` (default) or `compliance`
 * Azure: `--azure-blob-immutability-policy-mode=unlocked` or `locked`
 * Google Cloud Storage: `--gcs-retention-policy-mode=unlocked` or `locked`&#x20;
 
 {% hint style="info" %}
-**Google Cloud Storage** also requires using `--service-account-file` or `--service-account-json` as the default OAuth flow does not grant permissions to lock objects
+**Google Cloud Storage** also requires using `--gcs-service-account-file` or `--gcs-service-account-json` as the default OAuth flow does not grant permissions to lock objects
 {% endhint %}
 
 ***
@@ -129,3 +129,23 @@ In Azure, the file remains visible and cannot be deleted. If Duplicati attempts 
 #### Mixed (Google Cloud Storage)
 
 Google Cloud Storage can use both a WORM approach as well as a soft-delete and/or versioning approach. Depending on the bucket settings you will get either a soft-delete approach or a WORM setup. If you disable versioning and soft-delete, but enable object lock retention, this gives a WORM behavior that rejects deletes. Enabling soft-delete will allow the files to be marked as deleted but they are not actually deleted before the lock expires. Additionally, the soft-delete rules may keep the objects in the bucket even after the lock expires.
+
+***
+
+### Soft delete
+
+{% hint style="info" %}
+Soft delete is available from Duplicati 2.3.0.0.
+{% endhint %}
+
+An alternative, or addition, to object locking is soft delete. With `--soft-delete-prefix`, Duplicati never deletes a file on the destination. Instead it renames the file by adding the prefix to its name:
+
+```
+--soft-delete-prefix=deleted/
+```
+
+With this setting, a file `duplicati-b1234.dblock.zip.aes` that Duplicati wants to delete is renamed to `deleted/duplicati-b1234.dblock.zip.aes`. If the prefix contains a folder, the folder must already exist on the destination.
+
+This makes it possible to give Duplicati credentials that can create and rename files, but not delete them, and let a lifecycle rule on the storage provider delete the renamed files after a period. If a deletion was a mistake, the files can be renamed back.
+
+Most destinations support renaming files. For destinations that do not, or with `--prevent-backend-rename`, the file is downloaded, uploaded again with the new name, and the original is then deleted, which requires delete permission and transfers the whole file.

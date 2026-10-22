@@ -1,14 +1,14 @@
 ---
-description: This page describes the SharePoint storage destination
+description: This page describes the deprecated SharePoint storage destination that uses the legacy API
 ---
 
-# SharePoint Destination
+# SharePoint (legacy API)
 
 {% hint style="danger" %}
 This backend is **deprecated** as Microsoft has shut down the API it was calling. Use the [SharePoint](sharepoint-v2-graph-api.md) backend (formerly "SharePoint v2") which uses the Microsoft Graph API. Migrate existing backups to the new backend.
 {% endhint %}
 
-Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the SharePoint that uses the legacy API, for the [SharePoint provider that uses the Graph API, see SharePoint v2](sharepoint-v2-graph-api.md).
+Duplicati supports using [Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration) as a storage destination. This page describes the deprecated destination that uses the legacy SharePoint API (`mssp://`). For the current destination that uses the Microsoft Graph API, see [SharePoint](sharepoint-v2-graph-api.md).
 
 ## User interface
 
