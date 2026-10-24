@@ -9,11 +9,15 @@ description: >-
 
 If the backup destination keeps old versions of each file, Duplicati can read the destination as it looked at an earlier point in time. This makes it possible to restore from a backup after the remote files have been deleted, overwritten or damaged, for instance by ransomware, leaked credentials, or an accidental cleanup, without first having to repair the files on the storage.
 
+{% hint style="warning" %}
+When Duplicati makes a backup it creates a snapshot version of the content. This page describes versioning of backup data files in remote storage, not the versions Duplicati itself manages.
+{% endhint %}
+
 {% hint style="info" %}
 Point-in-time restore was introduced in Canary 2.4.0.105
 {% endhint %}
 
----
+***
 
 ### How it works
 
@@ -25,7 +29,7 @@ While the option is set, the destination is **read-only**. Any attempt to upload
 
 Versioning on its own keeps the old versions, but anyone with sufficient access to the bucket can still delete them. To make sure the versions are still there when you need them, combine versioning with [object locking](using-remote-file-locking.md), so the versions cannot be removed until the lock expires.
 
----
+***
 
 ### Supported destinations
 
@@ -37,7 +41,7 @@ Versioning on its own keeps the old versions, but anyone with sufficient access 
 
 The credentials used for the restore must be allowed to list and read object versions. For Amazon S3 this means the `s3:ListBucketVersions` and `s3:GetObjectVersion` permissions, in addition to the permissions needed for a normal restore.
 
----
+***
 
 ### Step 1: Protect the destination
 
@@ -73,7 +77,7 @@ The lock duration, and any lifecycle rule that removes old versions, decides how
 If you use lifecycle rules to remove non-current versions, as described in [Using remote file locking](using-remote-file-locking.md#soft-deletion-s3-b2-and-others), make sure the rules keep the versions for at least as long as you want to be able to restore from.
 {% endhint %}
 
----
+***
 
 ### Step 2: Restore after an incident
 
@@ -81,8 +85,8 @@ When something has gone wrong with the destination, use a direct restore from th
 
 #### Before you start
 
-- **Stop the backups** that use the destination. A backup, compact or repair running against the damaged destination can make the situation harder to understand, and may delete versions that are not locked.
-- **Find a time before the incident.** Pick a time where the destination was known to be good, for example the time of the last successful backup before the incident. If a backup was running at the chosen time, pick an earlier time, so the restore does not see a half-finished backup.
+* **Stop the backups** that use the destination. A backup, compact or repair running against the damaged destination can make the situation harder to understand, and may delete versions that are not locked.
+* **Find a time before the incident.** Pick a time where the destination was known to be good, for example the time of the last successful backup before the incident. If a backup was running at the chosen time, pick an earlier time, so the restore does not see a half-finished backup.
 
 #### Choosing the point in time
 
@@ -127,17 +131,17 @@ duplicati-cli find "<destination url>" "*" \
 
 For Duplicati Storage, use the restore connection string with the backup ID as the destination URL, as described in [Restore from the command line](../../duplicati-console/duplicati-storage.md#restore-from-the-command-line).
 
----
+***
 
 ### After the restore
 
 The point-in-time option only affects reading. It does not undo the changes on the storage, so the current state of the destination is still the damaged one. Once the data is restored:
 
-- Find and fix the cause of the incident, and rotate any credentials that may have been leaked.
-- Start a new backup to a clean destination, or a new folder in the bucket, rather than continuing the old backup on top of the damaged files.
-- Keep the old bucket, with its versions, until you are sure that everything needed has been restored.
+* Find and fix the cause of the incident, and rotate any credentials that may have been leaked.
+* Start a new backup to a clean destination, or a new folder in the bucket, rather than continuing the old backup on top of the damaged files.
+* Keep the old bucket, with its versions, until you are sure that everything needed has been restored.
 
----
+***
 
 ### Troubleshooting
 
