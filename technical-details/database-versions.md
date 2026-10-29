@@ -10,6 +10,8 @@ Duplicati use a database named `Duplicati-server.sqlite` to keep track of all co
 
 Besides the server database, Duplicati also has a [local database](../detailed-descriptions/database-and-storage/the-local-database.md) which is created for each configured backup. The local database is essentially a cache of what data is stored remotely, so the backup and restore operations can make queries without needing access to the remote destination. This database can be recreated from the remote data so it should generally not be backed up. It contains the paths from the local database, which may be sensitive information.
 
+[Sync jobs](../detailed-descriptions/configuration-and-management/sync-jobs.md) use a separate sync database for each job instead of a local database. It keeps track of the files that were transferred, so later runs can find what has changed. Like the local database, it does not contain secrets, but it does contain the paths that are synchronized.
+
 ## Server database
 
 <figure><picture><source srcset="../.gitbook/assets/server-database-3.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/server-database-4.png" alt=""></picture><figcaption><p>Schema overview of the server database</p></figcaption></figure>
@@ -45,3 +47,13 @@ Version 14: 2.1.0.0
 Version 17: 2.2.0.0
 
 Version 19: 2.3.0.0
+
+Version 22: 2.4.1.0
+
+## Sync database
+
+The sync database was added with sync jobs and was updated in these versions:
+
+Version 0: 2.4.0.0
+
+Version 1: 2.4.1.0

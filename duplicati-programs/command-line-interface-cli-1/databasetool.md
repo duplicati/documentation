@@ -6,7 +6,7 @@ description: >-
 
 # DatabaseTool
 
-The DatabaseTool is intended to assist with changing the databases used by Duplicati. Duplicati has a single [settings database for the server](../../detailed-descriptions/database-and-storage/the-server-database.md) and a [local database for each backup job](../../detailed-descriptions/database-and-storage/the-local-database.md), and the DatabaseTool can manage both.
+The DatabaseTool is intended to assist with changing the databases used by Duplicati. Duplicati has a single [settings database for the server](../../detailed-descriptions/database-and-storage/the-server-database.md) a [local database for each backup job](../../detailed-descriptions/database-and-storage/the-local-database.md), and a sync database for each [sync job](../../detailed-descriptions/configuration-and-management/sync-jobs.md). The DatabaseTool can manage all of them.
 
 The DatabaseTool is called `Duplicati.CommandLine.DatabaseTool.exe` on Windows and `duplicati-database-tool` on Linux and MacOS. The tool supports the operations `downgrade`, `upgrade`, `list`, `execute`, `verify`, `cleanup`, and `wipe-encryption`. The last three were added in Duplicati 2.4.
 
@@ -28,7 +28,7 @@ This will scan the storage folders for databases that should be downgraded and d
 duplicati-database-tool downgrade --server-datafolder=/path/to/folder
 ```
 
-It is also possible to provide the path to one or more databases as arguments, and the tool will then only work on those database. For more fine-grained control, use the `--server-version` and `--local-version` to specify the versions that the databases will be downgraded to.
+It is also possible to provide the path to one or more databases as arguments, and the tool will then only work on those database. For more fine-grained control, use the `--server-version`, `--local-version`, and `--sync-version` options to specify the versions that the databases will be downgraded to. See [Database versions](../../technical-details/database-versions.md) for the versions used by each release.
 
 ## Upgrade
 
