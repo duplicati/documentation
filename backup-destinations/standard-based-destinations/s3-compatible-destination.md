@@ -67,3 +67,7 @@ If you use Duplicati to create the bucket, you can also set the option `--s3-loc
 ## Storage class
 
 With S3 it is also possible to set the storage class which is sometimes used to fine-tune the cost/performance/durability of the files. The storage class is set with `--s3-storage-class`, but the possible settings depends on the provider.
+
+## List API version
+
+Duplicati lists the files in the bucket with the S3 ListObjects API. Some S3-compatible providers have problems with this API, but work with the newer ListObjectsV2 API. If listing the files fails with your provider, you can switch to ListObjectsV2 with the option `--s3-list-api-version=v2`. The possible values are `v1` and `v2`, and the default is `v1`. This option applies to the AWS client, which is the default client. This option is available from Duplicati 2.4.1.0.

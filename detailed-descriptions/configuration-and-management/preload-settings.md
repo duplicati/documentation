@@ -68,10 +68,17 @@ The file has 3 sections that are all similar and all optional: `env`, `db`, and 
 | `backendtool` | BackendTool |
 | `backendtester` | BackendTester |
 | `recoverytool` | RecoveryTool |
-| `serverutil` | ServerUtil, and also DatabaseTool and SourceTool |
+| `serverutil` | ServerUtil |
+| `databasetool` | DatabaseTool |
+| `sourcetool` | SourceTool |
+| `secrettool` | SecretTool |
 | `configuretool` | ConfigureTool |
+| `synctool` | SyncTool |
+| `autotunetool` | AutoTuneTool |
+| `autoupdater` | AutoUpdater |
+| `snapshots` | Snapshots |
 
-The SecretTool only reads the `*` settings. The AutoUpdater, SharpAESCrypt, Snapshots, SyncTool and AutoTuneTool programs do not read the preload settings.
+The SharpAESCrypt program does not read the preload settings. The names `databasetool`, `sourcetool`, `secrettool`, `synctool`, `autotunetool`, `autoupdater` and `snapshots` are available from Duplicati 2.4.1.0. In earlier versions, DatabaseTool and SourceTool read the `serverutil` settings, SecretTool only reads the `*` settings, and SyncTool, AutoTuneTool, AutoUpdater and Snapshots do not read the preload settings.
 
 In the case where the `*` section and specific executable has the same variable, the specific one is used. If multiple settings files are found, they are loaded in the order described above. Here the last file loaded will be able to overwrite the others. The `*` settings are collected from all three files, as are the executable specific options, and only after all parsing is done, are the specific executable options applied (see below for an example).
 
