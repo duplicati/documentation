@@ -82,13 +82,18 @@
 
 * [Using the Duplicati Console](duplicati-console/using-the-duplicati-console.md)
 * [Connecting to the Duplicati console](duplicati-console/connecting-to-the-duplicati-console.md)
+* [The machine list](duplicati-console/the-machine-list.md)
+* [Backup configurations](duplicati-console/backup-configurations.md)
 * [Organization management](duplicati-console/organizations-and-sub-organizations.md)
+* [Confidential processing](duplicati-console/confidential-processing.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
 * [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
 * [Duplicati Storage](duplicati-console/duplicati-storage.md)
   * [Duplicati Storage configuration](duplicati-console/duplicati-storage-configuration.md)
+* [Managed backups](duplicati-console/managed-backups.md)
 * [Managed Microsoft 365 backup](duplicati-console/managed-microsoft-365-backup.md)
 * [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
+* [Restore test policies](duplicati-console/restore-test-policies.md)
 
 ## Backup destinations
 

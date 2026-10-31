@@ -48,7 +48,7 @@ The **Machine Dashboard** serves as your command center for all connected device
 * **Registration Links** – Manage pre-authorized registration tokens for onboarding new machines at scale.
 * **Machine Tags** – Apply custom tags to machines for better organization and filtering.
 
-For MSPs and enterprises managing many devices, the ability to see all machines at a glance eliminates the need to log into each device individually.
+For MSPs and enterprises managing many devices, the ability to see all machines at a glance eliminates the need to log into each device individually. See [The machine list](the-machine-list.md) for the columns, filters and actions on each machine.
 
 ### Backup Dashboard
 
@@ -73,6 +73,10 @@ Create custom profiles to detect abnormalities before they become problems:
 * **Modified Files Threshold** – Alert when the number of modified files exceeds a defined threshold, potentially indicating unusual activity.
 * **Duration Monitoring** – Track backup duration deviations that might indicate performance issues or network problems.
 
+#### Restore Tests
+
+Use [restore test policies](restore-test-policies.md) to decide how often backups must pass a restore test, and get an alert when a backup falls behind.
+
 #### Notification Channels
 
 Configure multiple channels to receive alerts where your team will see them:
@@ -84,34 +88,24 @@ Configure multiple channels to receive alerts where your team will see them:
 
 ## Managing Backups Centrally (Enterprise feature)
 
-### Creating Backup Configurations
+The console allows you to create backup configurations and push them to multiple machines, ensuring consistency across your organization:
 
-The console allows you to create backup configurations that can be applied to multiple machines, ensuring consistency across your organization:
+* **Source** – Paths, filters and exclusions for hidden, system and temporary files or files above a given size.
+* **Destination** – The same storage providers as the client.
+* **Schedule and retention** – When the backup runs and how long the versions are kept.
+* **Encryption** – A generated key, or a key stored in the console.
 
-#### Source Configuration
+A configuration is assigned to a connected machine, or added to a connection link so machines receive it when they register. When a configuration changes, the assigned machines are updated, so all machines follow the same backup policy without manual configuration on each device.
 
-* **Custom Paths** – Specify exact file or folder paths to back up.
-* **Filters** – Add inclusion or exclusion filters based on file patterns.
-* **Built-in Exclusions** – Toggle options to exclude Hidden, System, and Temporary files, or files larger than a specific size.
+See [Backup configurations](backup-configurations.md) for how to set this up.
 
-#### Destination Support
+### Managed Backups
 
-The console supports the full range of Duplicati storage providers:
+The console can also run backups of Microsoft 365 and Google Workspace for you, without a machine of your own. These [managed backups](managed-backups.md) are licensed per managed backup user and do not require an Enterprise plan.
 
-* **Local Storage** – File System backups.
-* **Cloud Object Storage** – S3 Compatible (AWS, MinIO), Azure Blob Storage, Google Cloud Storage.
-* **Cloud Drives** – Google Drive, OneDrive (Personal & Business), pCloud, Microsoft SharePoint.
-* **Network Storage** – SSH/SFTP.
+### Confidential Processing
 
-#### Scheduling and Encryption
-
-* **Automatic Scheduling** – Set backups to run automatically at specific times with configurable frequency (daily, weekly, or custom intervals).
-* **Manual Triggers** – Option to trigger backups manually when needed.
-* **Encryption Management** – Manage encryption keys centrally to ensure data security across all backups.
-
-### Applying Configurations to Machines
-
-Once a backup configuration is created, it can be deployed to any connected machine in your organization. This ensures that all machines follow the same backup policy without requiring manual configuration on each device.
+For organizations that handle confidential or protected information, [confidential processing](confidential-processing.md) limits what the console stores: machines send reduced reports, and configurations, managed backups and AI summaries are turned off.
 
 ## Organization Management (Enterprise feature)
 
@@ -143,9 +137,12 @@ Securely add new machines to your organization using unique registration tokens.
 
 Generate pre-configured links to easily onboard clients or new devices:
 
-* **Pre-authorized URLs** – Create links that allow machines to register automatically without manual approval.
+* **Pre-authorized URLs** – Create links that allow machines to register automatically, with optional manual approval of each machine.
 * **Mass Deployment** – Use registration links with deployment tools or preload configurations for unattended installations.
-* **Security** – Revoke links at any time to prevent unauthorized registrations.
+* **Backup Configurations** – Add [backup configurations](backup-configurations.md) to a link so machines receive them when they register.
+* **Security** – Links expire, and can be deleted at any time to prevent unauthorized registrations.
+
+See [Connecting to the Duplicati console](connecting-to-the-duplicati-console.md#connect-with-a-link) for the options on a link.
 
 ### Remote Access
 

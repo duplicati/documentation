@@ -18,7 +18,7 @@ The Agent binary is called `Duplicati.Agent.exe` on Windows and `duplicati-agent
 
 When the Agent starts for the first time, it will attempt to register with the Duplicati Console. To do this, it will open a browser window where the user can accept the registration and add the machine to their account. If the Agent needs to be registered without user interaction, a pre-authorized link can be generated on the [Duplicati Console registration page](https://app.duplicati.com/app/machines/links):
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2026-05-28 at 11.31.47.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2026-05-28 at 11.31.37.png" alt=""></picture><figcaption><p>The Duplicati Console with a pre-authorized link</p></figcaption></figure>
+<figure><picture><source srcset="../.gitbook/assets/console-links-list-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-links-list-light.png" alt="The Links page in the Duplicati Console"></picture><figcaption><p>The Duplicati Console with a pre-authorized link</p></figcaption></figure>
 
 You can use the "Download" button to download a `preload.json` file that configures the Agent to connect to the console. Simply place the file in the installation directory and restart the Agent and it will connect to the console. The file can be deleted after the Agent has restarted.
 

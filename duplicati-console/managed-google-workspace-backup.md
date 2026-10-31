@@ -15,7 +15,7 @@ Managed backups require **managed backup users** on your subscription. They are 
 {% endhint %}
 
 {% hint style="warning" %}
-Managed backups are not available for organizations that have **confidential processing** enabled.
+Managed backups are not available for organizations that have [confidential processing](confidential-processing.md) enabled. See [Managed backups](managed-backups.md) for an overview of how managed backups are licensed and run.
 {% endhint %}
 
 ## How it works
