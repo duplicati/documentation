@@ -67,3 +67,23 @@ While an operation is running, Duplicati posts a JSON document to the URL at mos
 | `--http-report-status-accept-specified-ssl-hash` | | Accept a server certificate with this SHA1 hash, for self-signed certificates. |
 | `--http-report-status-accept-any-ssl-certificate` | `false` | Accept any server certificate. Only for testing. |
 | `--http-report-status-ignore-revocation-failure` | `false` | Ignore failures to check if the certificate is revoked. |
+
+## Heartbeat monitoring
+
+Because a report is posted when an operation starts and again when it finishes, the module can also feed a heartbeat monitoring service, which alerts you when a backup does not run on time or reports a failure. No scripts are needed. The reports to look for are:
+
+* `"status":"Started"` is sent when the operation starts.
+* `"status":"Completed"` is sent when it finishes.
+* `"status":"Failed"` is sent with an `errorMessage` when the operation stops because of an error.
+
+An operation that finishes with errors but keeps running to the end still reports `"status":"Completed"`, and adds an `errorMessage`, so treat any report that contains `"errorMessage"` as a failure. A run with only warnings is reported as completed without an `errorMessage`.
+
+While the operation runs, reports with `"status":"Progress"` are sent as well. They match none of the keywords below, so the monitoring service can ignore them. If you only need the start and the end, a longer interval, for example `--http-report-status-interval=1h`, sends fewer of them.
+
+This configuration works with monitoring services, such as [Watchgoose](https://watchgoose.com), that can classify a request by keywords in its body. For example:
+
+* Start keyword: `"status":"Started"`
+* Success keyword: `"status":"Completed"`
+* Failure keywords: `"status":"Failed"` and `"errorMessage"`
+
+The failure keywords must be checked before the success keyword, so that a completed run with errors is reported as a failure.
