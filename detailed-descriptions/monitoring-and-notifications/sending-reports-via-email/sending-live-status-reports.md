@@ -80,7 +80,7 @@ An operation that finishes with errors but keeps running to the end still report
 
 While the operation runs, reports with `"status":"Progress"` are sent as well. They match none of the keywords below, so the monitoring service can ignore them. If you only need the start and the end, a longer interval, for example `--http-report-status-interval=1h`, sends fewer of them.
 
-This configuration was tested and works with [Watchgoose](https://watchgoose.com) monitoring service, but can also work with other platforms that are API compatible and can can classify a request by keywords in its body. For example:
+This configuration works with monitoring services, such as [Watchgoose](https://watchgoose.com), that can classify a request by keywords in its body. For example:
 
 * Start keyword: `"status":"Started"`
 * Success keyword: `"status":"Completed"`
