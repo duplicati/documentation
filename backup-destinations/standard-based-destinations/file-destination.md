@@ -43,7 +43,11 @@ For most cases it will also work without the `file://` prefix, but adding the pr
 
 Since Duplicati is intended to be used with remote systems, it will make a temporary file, and then copy the temporary file to the new location. This enables various retry mechanisms, progress reporting and failure handling that may not be desired with local filesystems.
 
-To change this logic to instead use the operating system `move`command to move the file into place, avoiding a copy, set the option `--use-move-for-put`, on the file backend and also set `--disable-streaming-transfers`. With these two options, all special handling will be removed and the transfer speed should be the optimal possible with the current operating system. Note that setting `--disable-streaming-transfers`will not show any progress during transfers, if you are using the UI, because the underlying copy or move method cannot be monitored.
+To change this logic to instead use the operating system `move` command to move the file into place, avoiding a copy, set the option `--use-move-for-put` on the file backend. Moving needs the whole file, so this option also turns off streaming transfers for the destination; `--disable-streaming-transfers` is not needed. With this option, all special handling will be removed and the transfer speed should be the optimal possible with the current operating system. Note that without streaming transfers no progress is shown during transfers, if you are using the UI, because the underlying move method cannot be monitored.
+
+{% hint style="info" %}
+In Duplicati 2.2.0.3 and earlier, `--use-move-for-put` only had an effect when `--disable-streaming-transfers` was also set.
+{% endhint %}
 
 ### Disabling length verification
 
