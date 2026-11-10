@@ -88,6 +88,7 @@
 * [Confidential processing](duplicati-console/confidential-processing.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)
 * [User management in the Duplicati Console](duplicati-console/user-management-in-the-duplicati-console.md)
+  * [Inviting users to an organization](duplicati-console/inviting-users-to-an-organization.md)
 * [Duplicati Storage](duplicati-console/duplicati-storage.md)
   * [Duplicati Storage configuration](duplicati-console/duplicati-storage-configuration.md)
 * [Managed backups](duplicati-console/managed-backups.md)
