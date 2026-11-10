@@ -86,6 +86,23 @@ Configure multiple channels to receive alerts where your team will see them:
 * **Slack** – Send notifications to a Slack workspace.
 * **Webhooks** – Integrate with custom endpoints or other services for advanced automation.
 
+#### Delivery Status and Delivery Log
+
+The list of notification channels, in the Alert Center settings and under **Settings** → **Notifications**, has a **Delivery** column that shows how the latest deliveries to each channel went:
+
+* **Healthy** – The latest delivery to the channel succeeded.
+* **_N_ failed** – The latest deliveries failed. Hover over the status to see the last error and when it happened.
+* **_N_ failures in a row** – The channel has failed so many times in a row that the console no longer sends new notifications to it.
+
+Click the delivery log button next to the status to open the **Delivery log** for the channel. It lists every notification queued for the channel, with the time it was queued, the event, the number of attempts, the time of the last attempt and the status:
+
+* **Pending** – The notification is queued and has not been tried yet.
+* **Delivered** – The receiving service accepted the notification.
+* **Failed, retrying** – The last attempt failed and another attempt is scheduled. Hover over the warning icon to see the error.
+* **Gave up** – All attempts failed. A failed delivery is retried for up to two days before the console gives up.
+
+When 10 deliveries to a channel fail in a row, the console stops sending new notifications to it and sends the owners of the organization one email saying that the channel is failing, with the last error. The notifications that are already queued are still retried. Delivery resumes when a retry succeeds, or when the channel is tested or edited and saved, so after fixing the address, channel or URL, use **Test** to check it and resume delivery.
+
 ## Managing Backups Centrally (Enterprise feature)
 
 The console allows you to create backup configurations and push them to multiple machines, ensuring consistency across your organization:
@@ -118,6 +135,12 @@ For MSPs and large enterprises, the console provides powerful multi-organization
 * **Tenant Isolation** – Each organization is isolated, ensuring data and access boundaries between customers or departments.
 
 See [Organization management](organizations-and-sub-organizations.md) for detailed information on setting up hierarchies.
+
+### Summary Reports for Sub-Organizations
+
+The weekly and monthly summary reports are set up under **Settings** → **General** → **Summary reports**, by choosing the **Weekly report day** and the **Monthly report day**. By default, the reports of an organization cover only the machines of that organization.
+
+When the organization has sub-organizations, check **Include the machines of sub-organizations in the reports** to have the reports cover the machines of all organizations below it as well. The report then groups its findings by organization, and the subject of the email names the number of sub-organizations that are included. Sub-organizations that use [confidential processing](confidential-processing.md) are always left out of the reports.
 
 ### User and Team Management
 

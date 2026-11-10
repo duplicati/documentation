@@ -20,7 +20,7 @@ For an organization with confidential processing, the following applies:
 - **Reduced backup reports.** Machines send reports with log message ids only, and not the log text. The console rejects reports that contain full log text, so a machine that is set up to send full reports has its reports refused until it is reconfigured.
 - **No backup configurations.** [Backup configurations](backup-configurations.md) cannot be created or assigned, and the **Configurations** tab is hidden. Connection links do not offer configurations to apply.
 - **No managed backups.** [Managed backups](managed-backups.md) cannot be created, and the **Managed backups** tab is hidden.
-- **No AI summaries and summary reports.** The AI analysis of backup reports and the summary reports are not available, and the settings for them are hidden.
+- **No AI summaries and summary reports.** The AI analysis of backup reports and the summary reports are not available, and the settings for them are hidden. A confidential sub-organization is also left out of the summary reports of the organizations above it, even when they [include the machines of sub-organizations](using-the-duplicati-console.md#summary-reports-for-sub-organizations).
 
 Monitoring, alerts, restore tests, remote access, [Duplicati Storage](duplicati-storage.md) and the other console features work as usual. The backend enforces the same limits as the console, so the features cannot be reached through the API either.
 
