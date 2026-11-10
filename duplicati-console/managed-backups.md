@@ -77,12 +77,13 @@ Click **Managed backup** to start the wizard for a new backup. For each backup i
 | Run now            | Starts a backup right away instead of waiting for the schedule                                     |
 | Edit               | Opens the wizard again to change the name, seats, schedule or filters                              |
 | Restore            | Restores data from the backup to the cloud service or to a download                                |
+| eDiscovery         | Searches the backup for content and shares the matching files with a recipient, see [eDiscovery](ediscovery.md) |
 | Repair             | Repairs inconsistencies between the local database and the storage destination                     |
 | Purge broken files | Removes files from the backup that can no longer be restored due to missing data. Cannot be undone |
 | Recreate database  | Rebuilds the local database from the storage destination. No backups run until it has finished     |
 | Delete database    | Deletes the local database. Backups fail until the database is recreated                           |
 | Archive            | Removes the managed backup and releases the seats assigned to it                                   |
 
-An archived backup stays in the list with an **Archived** chip, so it can still be restored from, but it no longer runs on a schedule.
+An archived backup stays in the list with an **Archived** chip and no longer runs on a schedule. The backup data is kept and can still be restored, but not from the console: **Restore** and **eDiscovery** are not available for an archived backup.
 
 The results of each backup are reported to the console in the same way as for regular machines, and can be found in the backup reports for the runner machine. See [Using the Duplicati Console](using-the-duplicati-console.md) for details on reports and alerts.

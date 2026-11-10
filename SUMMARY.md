@@ -93,6 +93,7 @@
 * [Managed backups](duplicati-console/managed-backups.md)
 * [Managed Microsoft 365 backup](duplicati-console/managed-microsoft-365-backup.md)
 * [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
+* [eDiscovery](duplicati-console/ediscovery.md)
 * [Restore test policies](duplicati-console/restore-test-policies.md)
 
 ## Backup destinations
