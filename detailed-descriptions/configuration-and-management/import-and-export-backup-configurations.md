@@ -28,7 +28,7 @@ With an exported configuration, you can delete an existing configuration and re-
 
 To import a configuration, go to the "Add backup" page and choose "Import from file":
 
-<div><figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 13.11.15 (1).png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 13.07.32 (1).png" alt=""></picture><figcaption><p>Adding a backup</p></figcaption></figure> <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.16.05.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.55.png" alt=""></picture><figcaption><p>Choosing import options</p></figcaption></figure></div>
+<div><figure><picture><source srcset="../../.gitbook/assets/setup-backup-add-backup-dark.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/setup-backup-add-backup-light.png" alt=""></picture><figcaption><p>Adding a backup</p></figcaption></figure> <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.16.05.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.55.png" alt=""></picture><figcaption><p>Choosing import options</p></figcaption></figure></div>
 
 Pick the file or drag-n-drop it on the file chooser. If the file is encrypted, provide the file encryption passphrase here as well.
 
