@@ -88,11 +88,13 @@ Configure multiple channels to receive alerts where your team will see them:
 
 #### Delivery Status and Delivery Log
 
-The list of notification channels, in the Alert Center settings and under **Settings** → **Notifications**, has a **Delivery** column that shows how the latest deliveries to each channel went:
+The list of notification channels, under **Channels** on the **Settings** tab of the Alert Center, has a **Delivery** column that shows how the latest deliveries to each channel went:
 
 * **Healthy** – The latest delivery to the channel succeeded.
 * **_N_ failed** – The latest deliveries failed. Hover over the status to see the last error and when it happened.
 * **_N_ failures in a row** – The channel has failed so many times in a row that the console no longer sends new notifications to it.
+
+<figure><picture><source srcset="../.gitbook/assets/console-notifications-delivery-tooltip-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-notifications-delivery-tooltip-light.png" alt="The list of channels with the Delivery column, and the last error of a failing webhook shown on hover"></picture><figcaption></figcaption></figure>
 
 Click the delivery log button next to the status to open the **Delivery log** for the channel. It lists every notification queued for the channel, with the time it was queued, the event, the number of attempts, the time of the last attempt and the status:
 
@@ -101,11 +103,15 @@ Click the delivery log button next to the status to open the **Delivery log** fo
 * **Failed, retrying** – The last attempt failed and another attempt is scheduled. Hover over the warning icon to see the error.
 * **Gave up** – All attempts failed. A failed delivery is retried for up to two days before the console gives up.
 
+<figure><picture><source srcset="../.gitbook/assets/console-notifications-delivery-log-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-notifications-delivery-log-light.png" alt="The delivery log of a webhook channel with pending, retrying, delivered and given up notifications"></picture><figcaption></figcaption></figure>
+
 When 10 deliveries to a channel fail in a row, the console stops sending new notifications to it and sends the owners of the organization one email saying that the channel is failing, with the last error. The notifications that are already queued are still retried. Delivery resumes when a retry succeeds, or when the channel is tested or edited and saved, so after fixing the address, channel or URL, use **Test** to check it and resume delivery.
 
 #### Webhook Signing Secrets
 
 Requests from a webhook channel are signed, so the receiver can verify that they come from the Duplicati Console. When you add a webhook, the console generates a signing secret and shows it once, after you save. Copy it and store it with the receiver before clicking **Done**, as it cannot be shown again.
+
+<figure><picture><source srcset="../.gitbook/assets/console-notifications-webhook-secret-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-notifications-webhook-secret-light.png" alt="The dialog that shows the signing secret once" width="500"></picture><figcaption></figcaption></figure>
 
 Each signed request carries these headers:
 
@@ -118,6 +124,8 @@ Each signed request carries these headers:
 The signature is the lowercase hex HMAC-SHA256 of `<timestamp>.<request body>`, with the signing secret as the key. To verify a request, compute the same value from the timestamp in the header and the raw request body, compare it with the signature, and reject requests where the timestamp is too far from the current time, such as more than 5 minutes, so a captured request cannot be replayed later.
 
 To replace the secret, edit the webhook and click **Rotate signing secret**. The new secret is shown once, and the old secret stops working right away, so update the receiver at the same time. Webhooks that were created before signing was introduced are not signed. Edit the webhook and click **Generate signing secret** to start signing its requests.
+
+<figure><picture><source srcset="../.gitbook/assets/console-notifications-webhook-edit-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-notifications-webhook-edit-light.png" alt="Editing a webhook, with the Rotate signing secret button under Request signing" width="500"></picture><figcaption></figcaption></figure>
 
 ## Managing Backups Centrally (Enterprise feature)
 
@@ -158,6 +166,8 @@ The weekly and monthly summary reports are set up under **Settings** → **Gener
 
 When the organization has sub-organizations, check **Include the machines of sub-organizations in the reports** to have the reports cover the machines of all organizations below it as well. The report then groups its findings by organization, and the subject of the email names the number of sub-organizations that are included. Sub-organizations that use [confidential processing](confidential-processing.md) are always left out of the reports.
 
+<figure><picture><source srcset="../.gitbook/assets/console-settings-summary-reports-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-settings-summary-reports-light.png" alt="The Summary reports settings with the option to include the machines of sub-organizations"></picture><figcaption></figcaption></figure>
+
 ### Subscription Usage
 
 The subscription covers the root organization and all organizations below it. On the root organization, **Settings** → **Usage** shows the plan, the current subscription period and the resources in use across the whole hierarchy: licensed machines, Microsoft 365 and Google Workspace seats, managed backup users and storage. Click **Refresh** to update the numbers.
@@ -165,9 +175,11 @@ The subscription covers the root organization and all organizations below it. On
 * On a **fixed subscription**, each resource is shown next to what the subscription includes, with the amount that is still available or the amount that is over the subscription.
 * On a **usage-based subscription**, the usage is reported for billing once a day, so the numbers are what you are billed for if nothing changes before the next report. Every machine and every managed backup user includes an amount of storage, which the page shows.
 
+<figure><picture><source srcset="../.gitbook/assets/console-settings-usage-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/console-settings-usage-light.png" alt="The Usage page for a fixed subscription, with the resources in use next to what the subscription includes"></picture><figcaption></figcaption></figure>
+
 ### User and Team Management
 
-* **User Invitation** – Invite new members to your organization via email with predefined roles.
+* **User Invitation** – Invite new members to your organization via email. See [Inviting users to an organization](inviting-users-to-an-organization.md).
 * **Teams** – Group users into teams for easier permission management.
 * **Access Control** – Granularly assign access rights to specific machines or backup sets for different teams.
 
@@ -194,9 +206,11 @@ See [Connecting to the Duplicati console](connecting-to-the-duplicati-console.md
 
 Once a machine is connected, you can access its local Duplicati interface directly from the console:
 
-1. Navigate to **Settings → Registered Machines**.
-2. Find the machine you want to access.
-3. Click **Connect** to open the machine's local interface.
+1. Navigate to **Machines**.
+2. Find the machine you want to access. The machine must be online.
+3. Open the **Details** menu at the end of the row and click **Start Session** to open the machine's local interface.
+
+See [The machine list](the-machine-list.md) for the other actions on a machine.
 
 This eliminates the need for VPNs or remote desktop connections to manage individual machines.
 
