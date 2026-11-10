@@ -74,8 +74,8 @@ duplicati-recovery-tool recompress zip <backend url> <working folder> \
 
 1. Downloads whole remote storage to the current working folder.
 2. Recompress from existing compression type to the chosen compression format.
-3. If `--reencrypt` is supplied, again reencrypts using **same passphrase** (needs to be decrypted for compression type change).  If the `--new-passphrase` option is present, encryption happens using the new passphrase instead (needs to be decrypted for compression type change) `Duplicati.CommandLine.RecoveryTool.exe recompress <targetcompression> <remoteurl> <localfolder> --reencrypt --passphrase="OLD_passphrase" --new-passphrase="NEW_passphrase"`
-4. If `--reupload` is supplied, files with old compression are deleted and recompressed files are uploaded back to remote storage (it is recommended to take at least temporary copy of remote storage before enabling this switch)
+3. If `--reencrypt` is supplied, again reencrypts using **same passphrase** (needs to be decrypted for compression type change).  If the `--new-passphrase` option is present, encryption happens using the new passphrase instead (needs to be decrypted for compression type change) `Duplicati.CommandLine.RecoveryTool.exe recompress <targetcompression> <remoteurl> <localfolder> --reencrypt --passphrase="OLD_passphrase" --new-passphrase="NEW_passphrase"`. Files that are not encrypted are not encrypted by `--reencrypt`.
+4. If `--reupload` is supplied, each recompressed file is uploaded back to remote storage, and then the original file is deleted (it is recommended to take at least temporary copy of remote storage before enabling this switch)
 
 **Warning**: If `--new-passphrase` is supplied, do not use '--reupload' but proceed with manual upload to the remote URL.
 
