@@ -115,6 +115,10 @@ Use your Okta domain (from the Okta URL or Issuer field) in:
 https://{yourOktaDomain}/.well-known/openid-configuration
 ```
 
+#### Test the metadata address
+
+Click **Test** next to the **metadata address** field to check that the console can read the OpenID configuration. When it works, the console shows **Found OpenID configuration for** followed by the issuer, which should match your Okta domain. If the address does not end in `/.well-known/openid-configuration`, the console suggests an address that does, and you can click **Use and test this address** to switch to it.
+
 ### Initial configured OIDC dialog
 
 Your configuration should look similar to the example shown in the guide once the fields are filled.

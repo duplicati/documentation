@@ -103,6 +103,22 @@ Click the delivery log button next to the status to open the **Delivery log** fo
 
 When 10 deliveries to a channel fail in a row, the console stops sending new notifications to it and sends the owners of the organization one email saying that the channel is failing, with the last error. The notifications that are already queued are still retried. Delivery resumes when a retry succeeds, or when the channel is tested or edited and saved, so after fixing the address, channel or URL, use **Test** to check it and resume delivery.
 
+#### Webhook Signing Secrets
+
+Requests from a webhook channel are signed, so the receiver can verify that they come from the Duplicati Console. When you add a webhook, the console generates a signing secret and shows it once, after you save. Copy it and store it with the receiver before clicking **Done**, as it cannot be shown again.
+
+Each signed request carries these headers:
+
+| Header                  | Content                                                                                       |
+| ----------------------- | --------------------------------------------------------------------------------------------- |
+| `X-Duplicati-Signature` | `t=<timestamp>,v1=<signature>`, where the timestamp is in Unix seconds                         |
+| `X-Duplicati-Event`     | The event the notification is about, such as `backupreport.received.failed`                        |
+| `X-Duplicati-Delivery`  | An id that is unique to the delivery and the same on every retry, so retries can be detected |
+
+The signature is the lowercase hex HMAC-SHA256 of `<timestamp>.<request body>`, with the signing secret as the key. To verify a request, compute the same value from the timestamp in the header and the raw request body, compare it with the signature, and reject requests where the timestamp is too far from the current time, such as more than 5 minutes, so a captured request cannot be replayed later.
+
+To replace the secret, edit the webhook and click **Rotate signing secret**. The new secret is shown once, and the old secret stops working right away, so update the receiver at the same time. Webhooks that were created before signing was introduced are not signed. Edit the webhook and click **Generate signing secret** to start signing its requests.
+
 ## Managing Backups Centrally (Enterprise feature)
 
 The console allows you to create backup configurations and push them to multiple machines, ensuring consistency across your organization:
@@ -141,6 +157,13 @@ See [Organization management](organizations-and-sub-organizations.md) for detail
 The weekly and monthly summary reports are set up under **Settings** → **General** → **Summary reports**, by choosing the **Weekly report day** and the **Monthly report day**. By default, the reports of an organization cover only the machines of that organization.
 
 When the organization has sub-organizations, check **Include the machines of sub-organizations in the reports** to have the reports cover the machines of all organizations below it as well. The report then groups its findings by organization, and the subject of the email names the number of sub-organizations that are included. Sub-organizations that use [confidential processing](confidential-processing.md) are always left out of the reports.
+
+### Subscription Usage
+
+The subscription covers the root organization and all organizations below it. On the root organization, **Settings** → **Usage** shows the plan, the current subscription period and the resources in use across the whole hierarchy: licensed machines, Microsoft 365 and Google Workspace seats, managed backup users and storage. Click **Refresh** to update the numbers.
+
+* On a **fixed subscription**, each resource is shown next to what the subscription includes, with the amount that is still available or the amount that is over the subscription.
+* On a **usage-based subscription**, the usage is reported for billing once a day, so the numbers are what you are billed for if nothing changes before the next report. Every machine and every managed backup user includes an amount of storage, which the page shows.
 
 ### User and Team Management
 

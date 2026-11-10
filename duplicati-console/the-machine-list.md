@@ -71,7 +71,7 @@ A machine needs a machine license to be monitored and to receive configurations.
 | Revoke License  | Takes the license away from the machine, so it frees a license for another machine. The machine stays connected and in the list, but is no longer monitored, and the configurations that were pushed to it are removed from it. |
 | Delete Machine  | Revokes the license and removes the machine from the console. The machine must be registered again to come back, and the connection must be removed on the machine as well, or it will keep trying to connect.                  |
 
-Deleting a machine does not delete any backups or backup data. The reports that the machine sent are kept in the console.
+Deleting a machine does not delete any backups or backup data. The backup reports that the machine sent are deleted from the console, together with the notifications about them.
 
 ### Working with the machine
 

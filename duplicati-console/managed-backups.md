@@ -52,7 +52,7 @@ If the source contains more items than there are seats assigned to the backup, t
 
 ### Usage-based subscriptions
 
-On a usage-based subscription there is no fixed pool of seats to assign. Each backup is instead billed by the number of seats the latest backup used, and the list shows that number. Contact Duplicati if you want a usage-based subscription.
+On a usage-based subscription there is no fixed pool of seats to assign. Each backup is instead billed by the number of seats the latest backup used, and the list shows that number. The total that is billed is shown on the [Usage page](using-the-duplicati-console.md#subscription-usage). Contact Duplicati if you want a usage-based subscription.
 
 ### Storage
 
