@@ -86,6 +86,7 @@
 * [Connecting to the Duplicati console](duplicati-console/connecting-to-the-duplicati-console.md)
 * [The machine list](duplicati-console/the-machine-list.md)
 * [Backup configurations](duplicati-console/backup-configurations.md)
+  * [Machine variables](duplicati-console/machine-variables.md)
 * [Organization management](duplicati-console/organizations-and-sub-organizations.md)
 * [Confidential processing](duplicati-console/confidential-processing.md)
 * [Single Sign-On (SSO)](duplicati-console/single-sign-on-sso.md)

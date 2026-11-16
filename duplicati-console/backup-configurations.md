@@ -80,7 +80,8 @@ There are a few differences from setting up a destination in the client:
 - The console does not test the connection, and you cannot browse for folders. The destination is first used when a machine runs the backup, so check the first run on one machine before you assign the configuration widely.
 - Paths are evaluated on the machine. A **File system** path must exist on every machine that receives the configuration.
 - Destinations that sign in with an AuthID have a button that creates the AuthID, and all machines then use the same AuthID.
-- Credentials entered here are stored in the console and sent to every machine. To give each machine its own credentials instead, [use a secret manager on the machines](backup-configurations.md#use-a-secret-manager-on-the-machines).
+- Credentials entered here are stored in the console and sent to every machine. To give each machine its own credentials instead, use [machine variables](machine-variables.md) or [a secret manager on the machines](backup-configurations.md#use-a-secret-manager-on-the-machines).
+- The fields can hold the [machine placeholders](backup-configurations.md#machine-placeholders) and [machine variables](machine-variables.md), which are filled in for each machine. A hint above the fields lists them.
 
 {% hint style="warning" %}
 Each machine needs its own destination folder, because two machines cannot share one backup. See [Use a configuration on several machines](backup-configurations.md#use-a-configuration-on-several-machines).
@@ -144,6 +145,8 @@ To push configurations to a machine that is already connected:
 
 You can see what each machine has by adding the **Assigned Backups** column to the machine list.
 
+If a configuration uses a [machine variable](machine-variables.md) that the machine does not have, the configuration is held back from the machine until the variable is set, and the **Variables** dialog for the machine opens after you click **Save**.
+
 ## Apply a configuration with a connection link
 
 A [connection link](connecting-to-the-duplicati-console.md#connect-with-a-link) can carry configurations, so a machine has its backups from the moment it connects. This is the simplest way to roll out a standard backup to many new machines.
@@ -166,7 +169,7 @@ Several machines can share a configuration, but each machine needs its own place
 
 The simplest choice is [Duplicati Storage](duplicati-storage.md). Each machine has its own bucket, so a configuration with Duplicati Storage can be assigned to any number of machines. The machines need a storage API key, which is issued by default when a machine registers.
 
-With any other destination, create one configuration for each machine, each with its own folder. The exception is when the credentials decide where the data ends up, such as an SFTP account that is locked to its own folder. A single configuration can then serve all machines if each machine has its own credentials from a [secret manager](backup-configurations.md#use-a-secret-manager-on-the-machines).
+With any other destination, give each machine its own folder with a [placeholder](backup-configurations.md#machine-placeholders) such as `${machinename}` in the folder path. If the machines also need their own credentials, or the destination differs in other ways, put the parts that differ in [machine variables](machine-variables.md), or let each machine look up its credentials in a [secret manager](backup-configurations.md#use-a-secret-manager-on-the-machines).
 
 ### Machine placeholders
 
@@ -178,11 +181,11 @@ The following placeholders are replaced with the value for each machine when the
 | `${machinename}` | The name of the machine in the console |
 | `${orgid}`       | The ID of the organization             |
 
-The placeholders can be used in the backup name, the source paths, the filters and the advanced options, for instance to give each machine a backup named `Documents on ${machinename}`.
+The placeholders can be used in the destination, the backup name, the source paths, the filters and the advanced options. For instance, a folder path of `backups/${machinename}` gives each machine its own folder at the destination, and a backup named `Documents on ${machinename}` shows which machine it belongs to.
 
-{% hint style="warning" %}
-Do not use the placeholders in the destination. The console URL-encodes the destination when it is saved, so the placeholder is not replaced. All machines would then use the same folder, with the placeholder text as part of the name.
-{% endhint %}
+### Machine variables
+
+For values that the console does not know, such as the credentials for each machine or the address of a local server, define your own variables on each machine and refer to them as `${var:name}` in the configuration. With variables, a single configuration can be shared by all machines, also when each machine needs its own credentials. See [Machine variables](machine-variables.md).
 
 ### Use a secret manager on the machines
 
