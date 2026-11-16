@@ -110,6 +110,30 @@ duplicati-server-util status
 
 Add `--json` to any command to get the output as JSON instead of text.
 
+## Giving AI agents access with MCP
+
+When the [MCP endpoint](../../detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md) is enabled on the server, the ServerUtil can issue, list and revoke the access tokens that AI agents use to connect:
+
+```
+duplicati-server-util issue-mcp-token --name=<name> --level=<Read|Backup|Restore> --backup=<backup id or name> --expires-in=90D
+```
+
+```
+duplicati-server-util list-mcp-tokens
+```
+
+```
+duplicati-server-util revoke-mcp-token <token id or name>
+```
+
+The issued token is printed once and cannot be retrieved again. For agents that start MCP servers as local commands, such as Claude Desktop, the `mcp` command runs a bridge on standard input and output that forwards to the MCP endpoint. It reads the token from the environment variable `DUPLICATI_MCP_TOKEN` or from a file given with `--token-file`:
+
+```
+duplicati-server-util mcp --hosturl=<hosturl>
+```
+
+Without a token, the bridge logs in like the other commands, which gives the agent full access. See [Using Duplicati with AI agents (MCP)](../../detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md) for the details.
+
 ## Connecting to a server with HTTPS
 
 If the server uses a certificate that is not trusted by the operating system, pass the SHA1 hash of the certificate with `--host-cert=<hash>`. The options `--insecure` (or `--host-cert=*`) accept any certificate and should only be used for testing. Use `--ignore-revocation-failure` if the certificate revocation status cannot be checked.

@@ -30,6 +30,7 @@
 * [Multiple backup destinations](detailed-descriptions/configuration-and-management/multiple-backup-destinations.md)
 * [Remote sources](detailed-descriptions/configuration-and-management/remote-sources.md)
 * [Sync jobs](detailed-descriptions/configuration-and-management/sync-jobs.md)
+* [File system watcher](detailed-descriptions/configuration-and-management/file-system-watcher.md)
 * [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
 
@@ -70,6 +71,7 @@
 * [Google Workspace credentials setup](detailed-descriptions/automation-and-integration/google-workspace-credentials-setup.md)
 * [Full-disk backup and restore](detailed-descriptions/automation-and-integration/full-disk-backup-and-restore.md)
 * [Using Duplicati to backup OpenClaw](detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw.md)
+* [Using Duplicati with AI agents (MCP)](detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md)
 
 ## Using tools
 
