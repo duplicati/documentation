@@ -17,3 +17,11 @@ If you need to automate starting a backup without using the UI, you can use [Ser
 After running a backup, the view will change slightly and show some information about the backup.
 
 <figure><picture><source srcset="../.gitbook/assets/Screenshot 2025-11-03 at 13.37.25.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2025-11-03 at 13.37.16.png" alt=""></picture><figcaption><p>After the backup has completed it shows backup details</p></figcaption></figure>
+
+## Disabling a backup
+
+From canary 2.4.1.101, a backup can be disabled without deleting it or its schedule. Open the menu of the backup on the home page and choose "Disable". A disabled backup is shown as "Disabled" and skips its scheduled runs, but it can still be started manually. Choose "Enable" in the same menu to turn the schedule back on.
+
+{% hint style="info" %}
+The enabled flag is stored in a new column in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md). To go back to an earlier version, the server database must first be downgraded with the [DatabaseTool](../duplicati-programs/command-line-interface-cli-1/databasetool.md).
+{% endhint %}

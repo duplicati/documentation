@@ -20,6 +20,10 @@ The list of options that are supported is quite extensive and only the most comm
 
 All commands support the `--dry-run` parameter that will simulate the operations and provide output, but not actually change any local or remote files.
 
+{% hint style="info" %}
+From canary 2.4.1.102, an option typed on the command line that Duplicati does not know, such as a misspelled option, stops the command with an error. Earlier versions gave a warning and ran the operation without the option. Options read from a parameters file, and jobs run from the UI, still only give a warning.
+{% endhint %}
+
 ## The `help` command
 
 The commandline interface has full documentation for all supported options and some small examples for each of the supported operations. Running the help command will output the possible topics:
@@ -74,6 +78,8 @@ The most common additional option(s) supplied are the filter options. The filter
 
 When supplying only exclude filters, any file not matching will be included; likewise, if only includes are present, anything else will be included. The order of the arguments define the order the filters are evaluated. Beware that some symbols, such as `*` and `\` needs to be escaped on the commandline, and rules vary based on operating system and terminal application/shell.
 
+If the destination limits how much can be transferred per day or month, use `--max-upload-per-run` to limit how much a single backup uploads, for example `--max-upload-per-run=5GB`. A value without a unit is in megabytes. When the limit is reached, the backup stops after the current file, as if stopped by the user, and is saved as a partial backup. The next run continues with the files that were not reached. The volumes that are being made or uploaded are finished, so a backup can upload somewhat more than the limit.
+
 If either of the `--keep-time`, `--keep-versions`, or `--retention-policy` options are set, a successful backup will subsequently invoke the delete and compact operation as needed. This enables a single command to run all required maintenance, but can optionally be invoked as manual steps.
 
 ## Sync
@@ -104,6 +110,10 @@ The sync behavior is controlled by the following options:
 | `--sync-remote-state` | Controls how the sync determines the remote state of each folder. `UseRemoteState` (default) enumerates the remote destination per folder (safest, one listing per folder). `UseLocalState` uses the local database and assumes it is up to date (faster, no extra listings). `BlindlyUpload` uploads every local file unconditionally without checking remote state (fastest, deletes are skipped with a warning). |
 | `--sync-then-delete`  | Deletes files on the remote that no longer exist locally, keeping the destination an exact mirror of the source. Default is `false`. Has no effect with `--sync-remote-state=BlindlyUpload`.                                                                                                                                                                                                                        |
 | `--sync-verify-hash`  | Verifies file content using SHA-256 hashes when size and time match, to detect files that changed without updating the timestamp. Default is `false`.                                                                                                                                                                                                                                                               |
+| `--sync-snapshot-folders` | Writes each run into its own folder below the destination, named after the UTC start time of the run (`yyyy-MM-ddTHHmmssZ`). Each snapshot folder holds a complete copy of the source. Unchanged files are hard linked from the previous snapshot when the destination supports it (`file://` and `smb://`), otherwise copied. `--sync-then-delete` has no effect in this mode. |
+| `--sync-keep-snapshots` | With `--sync-snapshot-folders`, the number of snapshot folders to keep. After a successful run, the oldest snapshot folders beyond this number are deleted. Zero keeps all snapshot folders. |
+| `--sync-snapshot-disable-hardlinks` | With `--sync-snapshot-folders`, copies unchanged files into each snapshot instead of hard linking them, so changing a file in one snapshot never changes it in another. Takes more space and time. |
+| `--sync-keep-modification-time` | Gives the uploaded files the modification time of the local files instead of the time of the upload. Works with a local folder, and with WebDAV servers that accept the `X-OC-Mtime` header, such as Nextcloud and ownCloud. Other destinations keep the time of the upload. |
 | `--sync-recheck`      | Forces a full remote listing to rebuild the local sync cache. Under `UseLocalState` this effectively behaves as `UseRemoteState` for the run and refreshes the local inventory. Default is `false`.                                                                                                                                                                                                                 |
 
 As with the backup command, the `--include` and `--exclude` filters can be used to selectively change what files and folders are included from the sources. All commands also support the `--dry-run` parameter to simulate the operation without changing any local or remote files.
@@ -123,6 +133,8 @@ To restore to a different location than the original, such as to a staging folde
 If you are sure you want to restore the files, and potentially lose existing files, use the option `--overwrite`.
 
 The restore command will restore from the latest version of the backup, but other versions can be selected with the `--version=<version>`. As with backups, the `--include` and `--exclude` options can be used to filter down the desired files to restore.
+
+From canary 2.4.1.100, a restore that could not restore some of the files exits with code 3, in the same way as a backup that finished with errors. Earlier versions exited with code 0. A block that cannot be read from its volume only fails the files that use it, and the other files are restored.
 
 To restore the files from several versions at once, add `--restore-all-files=True` together with `--restore-path`. Each version is then restored into its own subfolder of the restore path, named after the time of the backup (such as `20261010-214426`). With `--restore-all-files=Unique`, a file is only restored the first time a given content is seen, so later versions only contain the files that changed. The versions can be limited with `--version`, and the files with filters. This option is available from Duplicati 2.4.0.0 and is not available in the user interface.
 

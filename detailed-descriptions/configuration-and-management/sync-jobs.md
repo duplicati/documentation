@@ -26,4 +26,20 @@ The operation mode can only be chosen when the job is created. Backup and sync j
 
 By default, Duplicati lists the destination before copying to find out which files need to be uploaded. Files that were deleted from the source are kept on the destination unless `--sync-then-delete` is set. Folders are never deleted from the destination.
 
+The sync can also keep the modification times of the local files with `--sync-keep-modification-time`, for local folders and for WebDAV servers that accept the `X-OC-Mtime` header, such as Nextcloud and ownCloud.
+
+## Snapshot folders
+
+By default, a sync job keeps a single copy of the source on the destination. To keep earlier states as well, set `--sync-snapshot-folders`. Each run then writes into its own folder below the destination, named after the UTC start time of the run, such as `2026-11-14T083000Z`. Every snapshot folder holds a complete copy of the source and can be browsed directly. A marker file in the destination root names the latest completed snapshot.
+
+On `file://` and `smb://` destinations, unchanged files are hard linked from the previous snapshot, so they do not take up extra space. On other destinations they are uploaded again. Set `--sync-snapshot-disable-hardlinks` to always copy them, so that changing a file in one snapshot never changes it in another.
+
+Use `--sync-keep-snapshots=<number>` to delete the oldest snapshot folders after a successful run, keeping the given number. Zero, the default, keeps all snapshot folders. `--sync-then-delete` has no effect with snapshot folders, as each snapshot starts empty.
+
+## Restoring from a sync job
+
+The destination of a sync job holds plain files, so they can be copied back without Duplicati. The new UI can also restore from a sync job in the same way as from a backup, and can configure the sync mode for secondary destinations of a job with [multiple destinations](multiple-backup-destinations.md).
+
+## Sync options
+
 The options that control the sync, such as `--sync-remote-state` and `--sync-verify-hash`, are described in the [sync section of the commandline page](../../duplicati-programs/command-line-interface-cli.md#sync). They can be added as advanced options to a sync job in the UI.

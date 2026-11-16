@@ -187,6 +187,8 @@ http {
 }
 ```
 
+If the proxy serves Duplicati below a path, such as `/duplicati/`, have it set the `X-Forwarded-Prefix` header to that path. From canary 2.4.1.100, Duplicati then sets the login cookie on the prefixed path, so logins are kept.
+
 ### Pre-authenticated with reverse proxy
 
 If your proxy setup already authenticates the user and you prefer not having to use another password to access Duplicati, you can configure the proxy to forward a preconfigured authentication header.

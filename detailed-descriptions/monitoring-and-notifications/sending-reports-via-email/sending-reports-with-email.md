@@ -33,4 +33,19 @@ Besides the mandatory options, it is also possible to configure:
 
 For details on how to customize the subject line and message body, see the [section on customizing message content](custom-message-content.md).
 
+To send the body as HTML instead of plain text, set `--send-mail-body-html=true`. The values put into the body, such as `%RESULT%`, are escaped as HTML. The result only keeps its line breaks inside an element such as `<pre>`, for example:
+
+```
+--send-mail-body=<h1>%OPERATIONNAME% of %backup-name%</h1><pre>%RESULT%</pre>
+--send-mail-body-html=true
+```
+
+## Server certificates
+
+The certificate of the mail server is validated. If the server uses a self-signed certificate, or the check of whether the certificate is revoked cannot complete, which has been seen on several Macs, these options are available from canary 2.4.1.101:
+
+* `--send-mail-accept-specified-ssl-hash=<sha1 hash>` accepts a specific certificate, given as its SHA1 hash in hex format without spaces or colons. Several hashes can be separated with commas.
+* `--send-mail-accept-any-ssl-certificate` accepts any certificate. Use the specified hash instead whenever possible.
+* `--send-mail-ignore-revocation-failure` ignores failures to check whether the certificate is revoked.
+
 If you prefer email logs, but would also like to get reports, check out the community provided [dupReport](https://forum.duplicati.com/t/announcing-dupreport-a-duplicati-email-report-summary-generator/1116) tool that can summarize the emails into overviews.

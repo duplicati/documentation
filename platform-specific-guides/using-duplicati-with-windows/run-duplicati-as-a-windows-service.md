@@ -38,6 +38,8 @@ The installer also has the option "Generate and use TLS (HTTPS) certificates", w
 
 The password is only applied on the first install and will not be retrivable later, including if you uninstall Duplicati. See the [password reset section below](run-duplicati-as-a-windows-service.md#reset-password-for-windows-service) if you need to change the password or later want to use the password.
 
+If the server crashes inside the service, the service reports the stop as a failure, and Windows restarts the service after 60 seconds. Earlier versions than canary 2.4.1.102 reported a crash as a normal stop, so the service was not restarted.
+
 ## Automated installation with a service
 
 By default, Duplicati will install as a regular application and will be able to run as the logged in user. To configure the installer to install the service you need to pass options to `msiexec` explaining what you want. A few examples:

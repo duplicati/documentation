@@ -30,6 +30,8 @@ Version 11: Duplicati 2.3.0.0
 
 Version 12: Duplicati 2.4.0.0
 
+Version 13: Duplicati 2.4.1.101 (canary), adds the enabled flag for backups
+
 ## Local database
 
 <figure><picture><source srcset="../.gitbook/assets/local-database.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/local-database-2.png" alt=""></picture><figcaption><p>Schema overview of the local database</p></figcaption></figure>

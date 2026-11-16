@@ -22,7 +22,7 @@ As described in the [access password](../detailed-descriptions/configuration-and
 --webservice-password=<new password>
 ```
 
-This new password is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and does not need to be supplied on future launches. Note that changing the password does not invalidate [tokens](../technical-details/server-authentication-model.md) that are already issued. To clear any issued tokens, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
+This new password is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and does not need to be supplied on future launches. From canary 2.4.1.101, changing the password also resets the authentication: the signing keys are replaced, so existing logins are dropped and all issued [tokens](../technical-details/server-authentication-model.md), including [MCP access tokens](../detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md), stop working. Starting the server with the same password again does not reset anything. In earlier versions, changing the password did not invalidate issued tokens. To clear any issued tokens without changing the password, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
 
 ```
 --webservice-reset-jwt-config=true
@@ -161,11 +161,15 @@ On the first visit, the user interface shows a welcome page that offers to conne
 
 Internally, all time operations are recorded in UTC to avoid issues with daylight savings and changes caused by changing the machine timezone. The only difference to this rule is the scheduler, which is timezone aware.
 
-The scheduler needs to be timezone aware so scheduled backups run at the same local time, even during daylight savings time. On the initial startup, the system timezone is detected and stored in the server database. It is possible to change the timezone from the UI, but it can also be set with the commandline option:
+The scheduler needs to be timezone aware so scheduled backups run at the same local time, even during daylight savings time. By default, the scheduler uses the time zone of the machine running Duplicati. The time zone can be changed in the new UI under "Settings", "Server time zone", or set with the commandline option:
 
 ```
 --webservice-timezone=<timezone>
 ```
+
+{% hint style="info" %}
+Before canary 2.4.1.101, the scheduler used UTC unless a time zone had been chosen, which only the old UI offered, so schedules moved by an hour across daylight saving changes. From 2.4.1.101, the local time zone is the default.
+{% endhint %}
 
 ## Configuring logging
 
@@ -239,6 +243,7 @@ Any arguments supplied on the commandline will take precedence over an environme
 
 ## Other options
 
+* `--force-locale=<locale>`: Sets the language of the server and the TrayIcon, such as `de-DE`. This is useful on Windows, where the `LC_LANG` environment variable is not read. Use an empty value for the invariant culture.
 * `--disable-update-check`: Disables the automatic check for new versions. A manual check is still possible.
 * `--reduced-reporting`: Limits everything that is sent outside the machine, such as reports and console messages, to log message ids, counters and dates, without message text, error messages or file names. If the setting is enforced from the Duplicati Console, it cannot be switched off with this option.
 * `--register-remote-control=<url>`: Registers the machine with the Duplicati Console using a pre-authenticated link, see [Connecting to the Duplicati console](../duplicati-console/connecting-to-the-duplicati-console.md). The option has no effect if the machine is already registered, unless `--register-remote-control-force` is also given.

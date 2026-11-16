@@ -40,6 +40,18 @@ The setting `--ftp-encryption-mode=Auto` is the most compatible setting, but als
 
 To further lock down the encryption mode, the option `--ftp-ssl-protocols` can be used to limit the accepted protocols. **Note:** that due to unfortunate naming in .NET, the option `--ftp-ssl-protocols=None` means "use the system defaults".&#x20;
 
+### TLS implementation
+
+Some FTPS servers, such as FileZilla Server 1.x and vsftpd with `require_ssl_reuse`, require each data connection to resume the TLS session of its control connection, which the TLS implementation of the system does not always do. Transfers then fail with only `Status is Failed`, and can leave empty files on the server. vsftpd can also abort some TLS 1.3 uploads with `426 Failure reading network stream`.
+
+The option `--ftp-tls-implementation` (`--aftp-tls-implementation` for aFTP) chooses the TLS implementation:
+
+* `Auto` (default): uses the TLS of the system, and switches to Bouncy Castle and tries again when the server refuses a data connection for one of these reasons.
+* `BouncyCastle`: uses Bouncy Castle from the start.
+* `System`: always uses the TLS of the system.
+
+Bouncy Castle supports TLS 1.2, but not TLS 1.3 or client certificates. This option is available from canary 2.4.1.101.
+
 ### Self-signed certificates
 
 To support self signed certificates, the FTP destination also supports the `--accept-specified-ssl-hash` option is also supported which takes an SHA1 certificate digest and approves the certificate if it matches that hash. This is similar to a manual certificate pinning and allows trusting a specific certificate outside the operating systems normal trust chain.&#x20;

@@ -131,6 +131,7 @@
   * [FileJump](backup-destinations/provider-specific-destinations/filejump.md)
   * [Drime Cloud](backup-destinations/provider-specific-destinations/drime-cloud.md)
   * [Neon Object Storage Destination](backup-destinations/provider-specific-destinations/neon-object-storage-destination.md)
+  * [Internxt Drive Destination](backup-destinations/provider-specific-destinations/internxt-drive-destination.md)
   * [Movistar Cloud](backup-destinations/provider-specific-destinations/movistar-cloud-destination.md)
 * [File synchronization providers](backup-destinations/file-synchronization-providers/README.md)
   * [Dropbox Destination](backup-destinations/file-synchronization-providers/dropbox-destination.md)

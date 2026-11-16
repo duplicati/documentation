@@ -49,6 +49,18 @@ To change this logic to instead use the operating system `move` command to move 
 In Duplicati 2.2.0.3 and earlier, `--use-move-for-put` only had an effect when `--disable-streaming-transfers` was also set.
 {% endhint %}
 
+### Concurrent transfers
+
+A local folder is often an external hard disk, where several transfers at once are slower than one. For this reason, a local folder destination uploads one volume at a time, and a restore reads it with one volume downloader. To use more, set `--asynchronous-upload-limit` and `--restore-volume-downloaders`. Setting `--asynchronous-upload-limit=0` removes the limit.
+
+{% hint style="info" %}
+The one-at-a-time default for local folders was added in canary 2.4.1.102. Before that, `--asynchronous-upload-limit=0` allowed only one upload at a time, despite the help text saying it meant no limit.
+{% endhint %}
+
+### Linking instead of copying downloaded files
+
+When a volume is read from the destination, for example to compact or restore, it is copied to the temporary folder. If the temporary folder is on the same volume as the destination, set `--use-hardlink-for-get` to create a hard link instead, which avoids copying large volumes. If the link cannot be made, the file is copied. As the link shares its contents with the stored file, this option also turns off streaming transfers for the destination.
+
 ### Disabling length verification
 
 Because a local storage destination is expected to have a very low latency, the file backend will verify the length of the file after copy. This additional call is usually very fast and does not impact transfers speeds, but can be disabled for slightly faster uploads with `--disable-length-verification`.
@@ -78,7 +90,9 @@ Because using multiple paths could end up attempting to make a backup to the wro
 file://F:\backupdata?alternate-destination-marker=<filename>
 ```
 
-Using this option will scan all paths provided, either using the `*` drive letter or `--alternate-target-paths`, and check if the folder contains a folder with the given filename.
+Using this option will scan all paths provided, either using the `*` drive letter or `--alternate-target-paths`, and check if the folder contains a file with the given filename. Only the existence of the file is checked, not its contents.
+
+The marker can also be used without alternate paths. This protects a network share or disk that is mounted on a folder: if the share is not mounted, the empty mount point does not have the marker file, and Duplicati does not write the backup into it.
 
 ## Authentication (Windows Only)
 

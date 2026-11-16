@@ -146,7 +146,7 @@ As explained in the section on the [access password](../../detailed-descriptions
 duplicati-server-util change-password <new password>
 ```
 
-Note that this will not revoke access that is already granted, as such [access lives in refresh and access tokens](../../technical-details/server-authentication-model.md). Restart the Server with `--webservice-reset-jwt-config=true` as explained in the [Server](../server.md#configuring-the-server-password) section.
+From canary 2.4.1.101, changing the password also revokes access that is already granted: the signing keys of the [refresh and access tokens](../../technical-details/server-authentication-model.md) are replaced, so all existing logins and tokens stop working. In earlier versions, restart the Server with `--webservice-reset-jwt-config=true` to revoke them, as explained in the [Server](../server.md#configuring-the-server-password) section.
 
 ## Issuing a "forever token"
 

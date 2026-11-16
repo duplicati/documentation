@@ -11,12 +11,14 @@ The DatabaseTool is intended to assist with changing the databases used by Dupli
 The DatabaseTool is called `Duplicati.CommandLine.DatabaseTool.exe` on Windows and `duplicati-database-tool` on Linux and MacOS. The tool supports the operations `downgrade`, `upgrade`, `list`, `execute`, `verify`, `cleanup`, and `wipe-encryption`. The last three were added in Duplicati 2.4.
 
 {% hint style="info" %}
-Note: The database tool must be in the most-recent version for the downgrade to work, so be sure to run the DatabaseTool **before** you downgrade the installed Duplicati version.
+Note: For databases written by versions before canary 2.4.1.100, the database tool must be in the most-recent version for the downgrade to work, so be sure to run the DatabaseTool **before** you downgrade the installed Duplicati version.
+
+From canary 2.4.1.100, the upgrade and downgrade scripts are stored in the databases, in a `SchemaScript` table. The DatabaseTool can then downgrade a database written by a newer version using these stored scripts, even if the tool does not know the newer schema. This works for databases that were last upgraded by 2.4.1.100 or later.
 {% endhint %}
 
 ## Downgrade
 
-The most common command to use is the `downgrade` command. Running the tool will downgrade the database to the version used in the most-recent stable release version. Simply invoke the tool from the commandline:
+The most common command to use is the `downgrade` command. Running the tool will downgrade the databases to the newest version the tool itself supports, so running the tool from the version you are going back to downgrades the databases for that version. To downgrade over several versions, give the target version as described below. Simply invoke the tool from the commandline:
 
 ```
 duplicati-database-tool downgrade

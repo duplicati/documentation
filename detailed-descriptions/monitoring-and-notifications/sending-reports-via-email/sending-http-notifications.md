@@ -30,6 +30,12 @@ You can now specify multiple urls, using the options:
 
 These two options greatly simplify sending notifications to multiple destinations. Additionally, the options make it possible to send both the form-encoded result in text format as well as in JSON format.
 
+### Authentication
+
+If the server requires a username and password, put them in the URL, for example `https://user:password@example.com/report`. From canary 2.4.1.102, they are sent as HTTP Basic authentication, and are left out of the request URL and the logs. Earlier versions ignored them.
+
+Use HTTPS when sending credentials, as Basic authentication does not encrypt them.
+
 ### Retries and certificates
 
 If the request fails, it is retried `--send-http-retries` times (default `3`), waiting `--send-http-retry-delay` (default `1s`) between attempts.

@@ -93,6 +93,25 @@ When making backups of a Google Workspace domain, the advanced option `--store-m
 | `--google-included-user-types` | User data types to backup: `Gmail`, `Drive`, `Calendar`, `Contacts`, `Tasks`, `Keep`, `Chat`. Default: all types |
 | `--google-ignore-calendar-acl` | Skip reading calendar ACLs if the backup account does not have write permission. Default: false                  |
 | `--google-ignore-existing`     | When restoring, skip items that already exist instead of updating them. Default: false                           |
+| `--google-use-user-ids-in-paths` | Name each user folder by the user id instead of the primary email address. Default: false |
+| `--google-use-ou-paths`        | Place user and shared drive folders in a folder per organizational unit. Default: false |
+
+#### Paths in the backup
+
+From canary 2.4.1.102, items are stored in the backup under stable ids instead of their names, as names could collide or be invalid in a path. The UI shows the names when you browse a backup for a restore.
+
+By default, the folder of each user is named by the user's primary email address. With `--google-use-user-ids-in-paths`, the folder is named by the user id instead, which stays the same when the address changes.
+
+By default, every user folder is placed directly below the Users folder, and every shared drive directly below the Shared Drives folder. With `--google-use-ou-paths`, each user folder and shared drive folder is placed in a folder per organizational unit, nested in the same way as the units. A whole organizational unit can then be selected or excluded with a filter, and users and shared drives added to it later are included. Some details:
+
+* User folders are always named by the user id with this option, as if `--google-use-user-ids-in-paths` was set.
+* The organizational unit of a shared drive can only be read by an administrator with access to all shared drives. Without that access, every shared drive stays directly below the Shared Drives folder.
+* The shared drives listed below each user are not placed by organizational unit.
+* A user or shared drive that is moved to another organizational unit gets a new path, and is read in full once. The items below the old path are not part of new versions.
+
+{% hint style="warning" %}
+Changing either option on an existing backup changes the path of every item of every user. The items are then seen as new and read in full by the next backup, and filters and selections that contain the old paths must be updated.
+{% endhint %}
 
 ### Supported data types
 

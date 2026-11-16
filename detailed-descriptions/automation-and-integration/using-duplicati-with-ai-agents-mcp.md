@@ -60,7 +60,7 @@ An access token only works on the MCP endpoint and cannot be used for the rest o
 
 The token is shown only once, right after it is created. Duplicati does not store it and cannot show it again; if it is lost, delete it and create a new one.
 
-A deleted token stops working at once. Tokens are also invalidated when the server is started with `--webservice-reset-jwt-config=true`, as they are signed with the same key as the other [server tokens](../../technical-details/server-authentication-model.md).
+A deleted token stops working at once. Tokens are also invalidated when the server password is changed, or the server is started with `--webservice-reset-jwt-config=true`, as they are signed with the same key as the other [server tokens](../../technical-details/server-authentication-model.md).
 
 {% hint style="info" %}
 Restore folders limit where the agent can ask the restore to write. They are not a security boundary against someone who can create symbolic links inside those folders, as the restore follows such links.

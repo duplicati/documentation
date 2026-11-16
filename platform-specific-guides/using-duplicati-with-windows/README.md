@@ -27,6 +27,14 @@ If you are in doubt, you can try the x64 version, or use [Microsofts guide for d
 
 Once you have decided the on package you want, you are ready to download the package. The default version shown on the main [download page](https://duplicati.com/download) is the x64 GUI version in `.msi` format. The full list of packages can be obtained via the main [download page](https://duplicati.com/download), and then clicking "Other versions".
 
+By default, the installer adds a shortcut that starts Duplicati at logon for every user of the computer. To start it only for the user that installs it, check "Only for the current user, not for every user of this computer" in the installer. For an unattended install, pass the property on the `msiexec` command line:
+
+```
+msiexec /i Duplicati.msi /qn STARTUP_FOR_CURRENT_USER=1
+```
+
+An upgrade through the installer user interface and the automatic updater keep this choice. A silent upgrade with `/qn` does not, so `STARTUP_FOR_CURRENT_USER=1` must be given again. This option is available from canary 2.4.1.102.
+
 ## Using the TrayIcon
 
 For users with a desktop environment and no special requirements, the [TrayIcon](../../duplicati-programs/trayicon.md) instance is the recommended way to run Duplicati. If you are using the `.msi` package to install Duplicati, you will see an option to automatically start Duplicati, as well as create a shortcut on your desktop and in the start menu. If you need to manually start Duplicati, you can find the executable in:
@@ -134,7 +142,7 @@ For simplicity, most users prefer to [run Duplicati as a service](./#running-the
 
 The most robust and heavy handed way of making a backup on Windows is to use VSS to create a snapshot of the current disk, and then read this. The implementation on Windows signals all programs that want to write to disk that a snapshot is being prepared, waits for them to flush to disk, makes the snapshot and lets all programs continue. This approach ensures that the disk snapshot is in a consistent state so there are not partial writes being backed up.
 
-To enable VSS, set the advanced option `--snapshot-policy=required` . If you are using Duplicati 2.1.1.0 or later, VSS will be enabled by default if the user context has the SeBackupPrivilege.
+To enable VSS, set the advanced option `--snapshot-policy=required` . If another program is creating a shadow copy at the same time, Duplicati retries the snapshot until `--vss-timeout` has passed, from canary 2.4.1.101. If you are using Duplicati 2.1.1.0 or later, VSS will be enabled by default if the user context has the SeBackupPrivilege.
 
 Duplicati has three implementations for creating the VSS snapshot, which can be chosen with the option `--snapshot-provider`:
 

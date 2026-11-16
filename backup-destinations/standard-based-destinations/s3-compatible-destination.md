@@ -22,6 +22,8 @@ To use the S3 backend you must fill in details for all the fields: bucket, folde
 
 With the advanced options you can choose many extra settings as described below.
 
+In the new UI, you can pick a server from the list, or paste the endpoint or bucket URL from your provider into the server or bucket field. The server, bucket and folder are then filled in from the URL. Some providers, such as dosya, also have their own entry in the destination list, which fills in the server for you.
+
 ## URL format for Commandline
 
 To use S3 as the storage destination, use a format such as:
@@ -71,3 +73,24 @@ With S3 it is also possible to set the storage class which is sometimes used to 
 ## List API version
 
 Duplicati lists the files in the bucket with the S3 ListObjects API. Some S3-compatible providers have problems with this API, but work with the newer ListObjectsV2 API. If listing the files fails with your provider, you can switch to ListObjectsV2 with the option `--s3-list-api-version=v2`. The possible values are `v1` and `v2`, and the default is `v1`. This option applies to the AWS client, which is the default client. This option is available from Duplicati 2.4.1.0.
+
+## Server-side encryption
+
+Duplicati encrypts the volumes itself before uploading them. In addition, you can ask the server to encrypt the files it stores with `--s3-server-side-encryption`, which sends the `x-amz-server-side-encryption` header with each upload:
+
+* `AES256` uses keys managed by the server.
+* `aws:kms` uses keys managed by the key management service. Choose the key by its id, alias or ARN with `--s3-server-side-encryption-kms-key-id`; without it, the default key of the account is used.
+
+If the option is not set, the server applies the default encryption of the bucket, if any.
+
+## Assuming an IAM role
+
+Instead of giving the access key direct access to the bucket, you can let Duplicati reach the bucket through an IAM role with temporary credentials from STS. Give the role with `--s3-assume-role-arn`, such as `arn:aws:iam::123456789012:role/backup`. The access key is then only used to assume the role, and the requests are signed with the temporary credentials of the role, which are renewed before they expire.
+
+These options adjust how the role is assumed:
+
+* `--s3-assume-role-session-name` names the session, which shows in the AWS logs.
+* `--s3-assume-role-external-id` gives the external id that the trust policy of the role requires.
+* `--s3-sts-endpoint` uses another STS endpoint than the one of AWS, such as the one of a MinIO server, given as a URL. Without it, the global AWS endpoint is used, or the one of the authentication region.
+
+Assuming a role is only supported by the AWS client, so it cannot be combined with `--s3-client=minio`.

@@ -26,6 +26,8 @@ sharepoint://<folder>/<subfolder>
   &site-id=<site-id>
 ```
 
+From canary 2.4.1.100, the site is found from the URL, so `--site-id` is optional. If both are given and `--site-id` names another site than the URL, the backend reports a conflict.
+
 To use SharePoint you must first obtain an `AuthID` by using a Duplicati service to log in to Microsoft and approve the access. See the [page on the OAuth Server](../../duplicati-programs/oauth-server.md) for different ways to obtain an AuthID.
 
 ## Performance tuning options

@@ -16,6 +16,12 @@ Remote sources are also used for the [Microsoft 365](../automation-and-integrati
 
 In Duplicati 2.4 the following [destinations](../../backup-destinations/destination-overview.md) can also be used as remote sources: File, SFTP (SSH), SMB, S3, IDrive e2, Box, Dropbox, Google Drive, and the Microsoft Graph based destinations (OneDrive, SharePoint, Microsoft Group).
 
+## Lost connections and timeouts
+
+From canary 2.4.1.100, a file read from a remote source is resumed if the connection is lost while reading. Duplicati reconnects, reads the file again up to where it stopped, and checks that this part did not change, before it continues. A file that the remote source cuts short is rejected with a warning and not stored, instead of being stored as if it was complete.
+
+When the remote source is faster than the destination, reading is paused while a volume is uploaded. The timeouts only count the time spent waiting for the remote service, not these pauses, so a slow destination does not cause the remote source to time out.
+
 ## Adding a remote source in the UI
 
 On the "Source Data" step of the backup setup, click "Add remote path". Pick the type of remote source and fill in the connection details as you would for a destination, then test the connection and click "Use remote source". The button is only enabled after the connection has been tested.
