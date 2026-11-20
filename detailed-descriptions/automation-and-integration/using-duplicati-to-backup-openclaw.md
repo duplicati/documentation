@@ -76,6 +76,29 @@ Navigate to the path identified in Step 1.
 
 On the last screen (Options), keep the default Remote volume size (50MB). Click Save and then click Run now to start your first backup.
 
+***
+
+### Step 7: Let OpenClaw take checkpoints (optional)
+
+OpenClaw can also use Duplicati itself: take a backup before it makes risky changes, and restore files if something goes wrong. This uses the [MCP endpoint](using-duplicati-with-ai-agents-mcp.md) of Duplicati and the `duplicati-backup` skill:
+
+1. Turn on the MCP endpoint and create an access token for OpenClaw, limited to the backup from the steps above, as described in [Using Duplicati with AI agents (MCP)](using-duplicati-with-ai-agents-mcp.md).
+2. Add the Duplicati server to OpenClaw and check the connection:
+
+    ```
+    openclaw mcp set duplicati '{"url":"http://localhost:8200/mcp","transport":"streamable-http","headers":{"Authorization":"Bearer <token>"}}'
+    ```
+
+    ```
+    openclaw mcp doctor duplicati --probe
+    ```
+
+3. Install the skill from ClawHub:
+
+    ```
+    clawhub install @duplicati/duplicati-backup
+    ```
+
 #### ⚠️ A Note on Security
 
 Recent security audits (Jan 2026) have highlighted that OpenClaw stores credentials in cleartext. If your Duplicati destination AND passphrase is compromised, anyone who finds those files has full access to your connected Telegram, WhatsApp, and LLM accounts (OpenAI/Claude). Treat your Duplicati passphrase like the :key: to your house.

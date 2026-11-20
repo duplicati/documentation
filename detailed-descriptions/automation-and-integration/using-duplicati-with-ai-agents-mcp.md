@@ -232,6 +232,36 @@ The bridge reads the token from the environment variable `DUPLICATI_MCP_TOKEN`, 
 
 Any agent that supports remote MCP servers with the Streamable HTTP transport can connect, using the endpoint address and the `Authorization: Bearer <token>` header.
 
+## Agent skill
+
+The instructions the server gives a connecting agent are short. For agents that support [Agent Skills](https://agentskills.io), Duplicati also has a skill, `duplicati-backup`, that describes the whole workflow in more detail: when to take a checkpoint, how to record the restore point, how to restore only the files that need it, and what to ask you before overwriting files. The skill also tells the agent how to guide you through the setup on this page if the Duplicati tools are not connected.
+
+The skill is in the [duplicati/agent-skills](https://github.com/duplicati/agent-skills) repository. The skill does not replace the MCP setup: the agent still needs the endpoint and a token as described above.
+
+### OpenClaw
+
+The skill is published on [ClawHub](https://clawhub.ai):
+
+```
+clawhub install @duplicati/duplicati-backup
+```
+
+### Hermes
+
+```
+hermes skills install duplicati/agent-skills/skills/duplicati-backup
+```
+
+### Claude Code, Codex, Cursor and other agents
+
+Install it with the [skills](https://skills.sh) command line tool:
+
+```
+npx skills add duplicati/agent-skills
+```
+
+Or copy the `skills/duplicati-backup` folder from the repository into the skills folder of the agent, for example `~/.claude/skills/` for Claude Code.
+
 ## Available tools
 
 | Tool | Level | Description |
