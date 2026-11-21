@@ -69,6 +69,7 @@
 * [Microsoft 365 credentials setup](detailed-descriptions/automation-and-integration/microsoft-365-credentials-setup.md)
 * [Google Workspace backup and restore](detailed-descriptions/automation-and-integration/google-workspace-backup-and-restore.md)
 * [Google Workspace credentials setup](detailed-descriptions/automation-and-integration/google-workspace-credentials-setup.md)
+* [PostgreSQL backup and restore](detailed-descriptions/automation-and-integration/postgresql-backup-and-restore.md)
 * [Full-disk backup and restore](detailed-descriptions/automation-and-integration/full-disk-backup-and-restore.md)
 * [Using Duplicati to backup OpenClaw](detailed-descriptions/automation-and-integration/using-duplicati-to-backup-openclaw.md)
 * [Using Duplicati with AI agents (MCP)](detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md)
@@ -97,6 +98,7 @@
 * [Managed backups](duplicati-console/managed-backups.md)
 * [Managed Microsoft 365 backup](duplicati-console/managed-microsoft-365-backup.md)
 * [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
+* [Managed PostgreSQL backup](duplicati-console/managed-postgresql-backup.md)
 * [eDiscovery](duplicati-console/ediscovery.md)
 * [Restore test policies](duplicati-console/restore-test-policies.md)
 

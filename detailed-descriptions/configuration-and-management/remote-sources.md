@@ -10,7 +10,7 @@ Remote sources can be added in the user interface from Duplicati 2.3.0.0.
 
 Besides local files and folders, a backup can include files from a remote location, such as an SFTP server, an S3 bucket, or a cloud drive. Duplicati reads the files directly from the remote location during the backup, so they do not need to be copied to the local machine first.
 
-Remote sources are also used for the [Microsoft 365](../automation-and-integration/office-365-backup-and-restore.md) and [Google Workspace](../automation-and-integration/google-workspace-backup-and-restore.md) backups.
+Remote sources are also used for the [Microsoft 365](../automation-and-integration/office-365-backup-and-restore.md), [Google Workspace](../automation-and-integration/google-workspace-backup-and-restore.md) and [PostgreSQL](../automation-and-integration/postgresql-backup-and-restore.md) backups.
 
 ## Supported remote sources
 

@@ -6,17 +6,18 @@ description: >-
 
 # Managed backups
 
-A managed backup is a backup that the Duplicati Console runs for you. There is no software to install and no machine to maintain: you provide the credentials for the cloud service, and the console runs the backup on a schedule, stores the data and reports the results.
+A managed backup is a backup that the Duplicati Console runs for you. There is no software to install and no machine to maintain: you provide the credentials for the cloud service or database, and the console runs the backup on a schedule, stores the data and reports the results.
 
-Managed backups are found on the [**Managed backups** tab](https://app.duplicati.com/app/machines/managed-backups) under **Machines**. The console supports two sources, and each has its own guide with the steps for the credentials, the wizard and the restore:
+Managed backups are found on the [**Managed backups** tab](https://app.duplicati.com/app/machines/managed-backups) under **Machines**. The console supports these sources, and each has its own guide with the steps for the credentials, the wizard and the restore:
 
 - [Managed Microsoft 365 backup](managed-microsoft-365-backup.md)
 - [Managed Google Workspace backup](managed-google-workspace-backup.md)
+- [Managed PostgreSQL backup](managed-postgresql-backup.md) (preview)
 
 If you want to back up files on your own machines from the console instead, see [Backup configurations](backup-configurations.md).
 
 {% hint style="info" %}
-Managed backups require **managed backup users** on your subscription. They are purchased separately from machine licenses and do not require an Enterprise plan. Trials do not include managed backup users; contact support if you want to try it. You must be an owner of the organization to create a managed backup, run it, restore from it or do maintenance on it.
+Microsoft 365 and Google Workspace backups require **managed backup users** on your subscription. They are purchased separately from machine licenses and do not require an Enterprise plan. Trials do not include managed backup users; contact support if you want to try it. You must be an owner of the organization to create a managed backup, run it, restore from it or do maintenance on it.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -50,9 +51,13 @@ After each backup, the list shows how many seats are assigned to the backup and 
 If the source contains more items than there are seats assigned to the backup, the items beyond the limit are **not backed up** and the backup log contains a warning. Assign enough seats, or use filters to leave out the parts of the source that you do not want to back up. Restores are not limited by seats.
 {% endhint %}
 
+## Managed database GB
+
+PostgreSQL backups do not use managed backup users. Instead, each database backup is assigned a number of **managed database GB**, and the backup fails if the database is larger than that. Managed database GB do not include storage. See [Managed database GB](managed-postgresql-backup.md#managed-database-gb) for how the size is measured.
+
 ### Usage-based subscriptions
 
-On a usage-based subscription there is no fixed pool of seats to assign. Each backup is instead billed by the number of seats the latest backup used, and the list shows that number. The total that is billed is shown on the [Usage page](using-the-duplicati-console.md#subscription-usage). Contact Duplicati if you want a usage-based subscription.
+On a usage-based subscription there is no fixed pool of seats to assign. Each backup instead counts the number of seats the latest backup used, and the list shows that number. The total is shown on the [Usage page](using-the-duplicati-console.md#subscription-usage). Contact Duplicati if you want a usage-based subscription.
 
 ### Storage
 
@@ -77,12 +82,12 @@ Click **Managed backup** to start the wizard for a new backup. For each backup i
 | Run now            | Starts a backup right away instead of waiting for the schedule                                     |
 | Edit               | Opens the wizard again to change the name, seats, schedule or filters                              |
 | Restore            | Restores data from the backup to the cloud service or to a download                                |
-| eDiscovery         | Searches the backup for content and shares the matching files with a recipient, see [eDiscovery](ediscovery.md) |
+| eDiscovery         | Searches the backup for content and shares the matching files with a recipient, see [eDiscovery](ediscovery.md). Not available for database backups |
 | Repair             | Repairs inconsistencies between the local database and the storage destination                     |
 | Purge broken files | Removes files from the backup that can no longer be restored due to missing data. Cannot be undone |
 | Recreate database  | Rebuilds the local database from the storage destination. No backups run until it has finished     |
 | Delete database    | Deletes the local database. Backups fail until the database is recreated                           |
-| Archive            | Removes the managed backup and releases the seats assigned to it                                   |
+| Archive            | Removes the managed backup and releases the seats or GB assigned to it                             |
 
 An archived backup stays in the list with an **Archived** chip and no longer runs on a schedule. The backup data is kept and can still be restored, but not from the console: **Restore** and **eDiscovery** are not available for an archived backup.
 

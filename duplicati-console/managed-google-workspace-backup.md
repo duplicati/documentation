@@ -37,12 +37,6 @@ The backup data is encrypted with a passphrase that is generated automatically w
 
 Managed backups are licensed per **managed backup user**, also referred to as a seat. Seats are purchased on the subscription page under **Settings → Subscription**, and the same seats can be used for both Google Workspace and Microsoft 365 backups.
 
-<figure><picture><source srcset="../.gitbook/assets/Screenshot 2026-09-28 at 13.53.00.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/Screenshot 2026-09-28 at 13.52.50.png" alt="The Managed Backup Users card on the subscription page"></picture><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-Managed backup users are sold on yearly subscriptions. If you are on a monthly subscription, contact Duplicati support to add managed backup users.
-{% endhint %}
-
 ### Storage
 
 Each purchased managed backup user adds **100 GB** of Duplicati cloud storage to the account. The storage is pooled for the organization, so it does not matter how the data is distributed between the users in the domain. As an example, 25 managed backup users give 2.5 TB of storage that is shared by all backups in the organization.
