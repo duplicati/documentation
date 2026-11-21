@@ -100,6 +100,7 @@
 * [Managed Google Workspace backup](duplicati-console/managed-google-workspace-backup.md)
 * [Managed PostgreSQL backup](duplicati-console/managed-postgresql-backup.md)
 * [eDiscovery](duplicati-console/ediscovery.md)
+* [Backup monitoring](duplicati-console/backup-monitoring.md)
 * [Restore test policies](duplicati-console/restore-test-policies.md)
 
 ## Backup destinations

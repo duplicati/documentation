@@ -73,6 +73,8 @@ Create custom profiles to detect abnormalities before they become problems:
 * **Modified Files Threshold** – Alert when the number of modified files exceeds a defined threshold, potentially indicating unusual activity.
 * **Duration Monitoring** – Track backup duration deviations that might indicate performance issues or network problems.
 
+See [backup monitoring](backup-monitoring.md) for how the profiles learn what is normal for each backup, and how to preview the effect of the settings before saving them.
+
 #### Restore Tests
 
 Use [restore test policies](restore-test-policies.md) to decide how often backups must pass a restore test, and get an alert when a backup falls behind.
