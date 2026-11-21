@@ -79,6 +79,10 @@ See [backup monitoring](backup-monitoring.md) for how the profiles learn what is
 
 Use [restore test policies](restore-test-policies.md) to decide how often backups must pass a restore test, and get an alert when a backup falls behind.
 
+#### Alert Cases (Enterprise feature)
+
+Turn on [alert cases](alert-cases.md) to follow each problem with a backup as one case that opens when the problem is first reported and closes when the backup is well again, instead of one alert per report.
+
 #### Notification Channels
 
 Configure multiple channels to receive alerts where your team will see them:
