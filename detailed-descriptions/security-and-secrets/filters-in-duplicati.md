@@ -109,6 +109,8 @@ By default, filters follow the operating system: they ignore casing on Windows a
 
 To choose the behavior yourself, set `--filter-case-sensitivity`. With the value `default`, the rules above apply.
 
+From canary 2.4.1.103, case-insensitive filters also work correctly when the server runs with the Turkish culture, where the letters `i` and `I` were treated as different letters.
+
 {% hint style="info" %}
 From canary 2.4.1.102, the change tracking of a backup and the check for duplicate paths are always case-sensitive, also on Windows and macOS. Before, they followed the operating system, which failed for remote sources, such as S3 or Google Drive, with files whose names differ only in casing. Filters are not affected by this change.
 {% endhint %}
@@ -166,6 +168,8 @@ Placeholder files from a sync tool, such as OneDrive, Dropbox or Google Drive, a
 
 A source folder that is missing stops the backup. From canary 2.4.1.100, the same applies to a source folder that exists but cannot be listed, for example on a failing drive. Before, it only gave a warning, and the backup stored a version without any of its files, so the retention policy could remove the versions that still had them. Set `--allow-missing-source` to continue the backup without missing or unreadable sources.
 
+From canary 2.4.1.103, `--keep-missing-sources` keeps the files of a missing local source folder, such as a folder on a drive that is not connected, as they were in the previous version, instead of recording them as deleted. This applies to local source paths only, and not to a source folder that lies inside another source folder. Use it together with `--allow-missing-source` for a backup of an external drive that is not always connected.
+
 ### Skipping files by modification time
 
 `--skip-files-modified-before` backs up only the files modified after a point in time. Files last modified before it are skipped, and are not in the new version.
@@ -177,3 +181,15 @@ The value can be a date, such as `2026-01-01`, or an interval back from now, suc
 {% hint style="warning" %}
 A skipped file is not in the new version, even if it was in the previous version. With retention settings, older versions that hold the file are eventually deleted.
 {% endhint %}
+
+### Skipping small files
+
+From canary 2.4.1.103, `--skip-files-smaller-than` leaves out files smaller than the given size, such as `1kb`. A file of exactly this size is backed up. Folders and file metadata are not affected. As with `--skip-files-larger-than`, a skipped file is not in the new version.
+
+### Checking some files on every backup
+
+By default, a file whose time stamp and size are unchanged since the last backup is not read again. Some files, such as encrypted containers made with VeraCrypt, change without updating their time stamp or size. From canary 2.4.1.103, `--disable-filetime-check-for` reads the files that match one or more filter expressions on every backup, as `--disable-filetime-check` does for all files. Separate several expressions with the path separator (`:` on Linux and macOS, `;` on Windows):
+
+```
+--disable-filetime-check-for=*.vc;*.hc
+```

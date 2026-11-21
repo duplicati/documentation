@@ -18,6 +18,8 @@ Duplicati does not delete your configurations or backup databases when it is upg
 
 The server regularly checks for new versions and shows "New update found" in the user interface when one is available. You can also check from the "About Duplicati" page with "Check for updates", and download a new version from the "Download update" link on the same page. From the commandline, the [AutoUpdater](../../duplicati-programs/command-line-interface-cli-1/autoupdater.md) can check for a new version with `duplicati-autoupdater check` and download the package that matches your system with `duplicati-autoupdater download`.
 
+From canary 2.4.1.103, the "About" page shows the result of the last update check, so it is possible to see why a check failed, for example because the update server could not be reached. The notification about an available update can also show the changelog of the new version.
+
 ### Installing updates from the user interface
 
 From canary 2.4.1.101, an update can be installed directly from the new user interface. When an update is available, the "About" page shows an "Install update" button with the new version, and the update notification has an "Install" button.

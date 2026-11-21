@@ -51,3 +51,16 @@ Translated, this policy means that:
 * For the most-recent week, store 1 backup each day
 * For the last 4 weeks, store 1 backup each week
 * For the last 12 months, store 1 backup each month
+
+### Keeping a minimum number of versions
+
+If backups stop running for a while, for example because the machine is off, a retention policy can delete the older versions until only a few are left. From canary 2.4.1.103, `--retention-policy-minimum-versions` sets a number of full backup versions that are always kept. If the retention policy would leave fewer full versions, the most recent of the versions it would delete are kept until the minimum is reached. The default value 0 disables the minimum.
+
+```
+--retention-policy=1W:1D,4W:1W,12M:1M
+--retention-policy-minimum-versions=10
+```
+
+### Deleting partial backups
+
+A backup that was stopped, for example with `--max-backup-runtime` or by the user, is saved as a partial backup. By default, the retention policy keeps every partial backup within its time frames. From canary 2.4.1.103, `--retention-policy-delete-partials` deletes the partial backups that have a full backup both before and after them, as `--keep-versions` does. Partial backups in a time frame that keeps all versions (`U`), and a partial backup that is newer than every full backup, are still kept.

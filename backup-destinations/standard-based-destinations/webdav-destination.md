@@ -56,6 +56,19 @@ For testing setups you can also use `--accept-any-ssl-certificate` that will dis
 
 If the revocation status of the certificate cannot be checked, for instance because the revocation server is offline, the option `--ignore-revocation-failure` ignores that failure. This option is available from Duplicati 2.4.0.0.
 
+### Client certificates
+
+Some WebDAV servers require the client to authenticate with a TLS client certificate. From canary 2.4.1.103, set `--webdav-client-certificate` to the path of a PKCS#12 file (`.pfx` or `.p12`) that holds the client certificate and its private key. If the file is protected with a password, set it with `--webdav-client-certificate-password`:
+
+```
+webdav://<hostname>/<path>
+  ?use-ssl=true
+  &webdav-client-certificate=/path/to/client.pfx
+  &webdav-client-certificate-password=<password>
+```
+
+The certificate is presented to the server when the server asks for one. It can be combined with the other authentication methods.
+
 ## Listing files
 
 Duplicati lists the files on the server with a WebDAV `PROPFIND` request. If the listing fails or returns wrong file names, these options can help:

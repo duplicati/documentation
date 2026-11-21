@@ -24,7 +24,11 @@ The operation mode can only be chosen when the job is created. Backup and sync j
 
 ## How files are synced
 
-By default, Duplicati lists the destination before copying to find out which files need to be uploaded. Files that were deleted from the source are kept on the destination unless `--sync-then-delete` is set. Folders are never deleted from the destination.
+By default, Duplicati lists the destination before copying to find out which files need to be uploaded. Files and folders that were deleted from the source are kept on the destination unless `--sync-then-delete` is set. With `--sync-then-delete`, a folder that is gone from the source is deleted on the destination together with everything in it. Box, Dropbox, Google Drive, OneDrive, S3 and iDrive e2 delete such a folder in one call; other destinations delete the files in it one by one. Files and folders that a filter excludes are not deleted.
+
+{% hint style="warning" %}
+Before 2.4.1.103, `--sync-then-delete` deleted only files and left the folders on the destination. A job that already uses the option will now also remove folders that no longer exist in the source.
+{% endhint %}
 
 The sync can also keep the modification times of the local files with `--sync-keep-modification-time`, for local folders and for WebDAV servers that accept the `X-OC-Mtime` header, such as Nextcloud and ownCloud.
 
@@ -34,7 +38,7 @@ By default, a sync job keeps a single copy of the source on the destination. To 
 
 On `file://` and `smb://` destinations, unchanged files are hard linked from the previous snapshot, so they do not take up extra space. On other destinations they are uploaded again. Set `--sync-snapshot-disable-hardlinks` to always copy them, so that changing a file in one snapshot never changes it in another.
 
-Use `--sync-keep-snapshots=<number>` to delete the oldest snapshot folders after a successful run, keeping the given number. Zero, the default, keeps all snapshot folders. `--sync-then-delete` has no effect with snapshot folders, as each snapshot starts empty.
+Use `--sync-keep-snapshots=<number>` to delete the oldest snapshot folders after a successful run, keeping the given number. Zero, the default, keeps all snapshot folders. `--sync-then-delete` has no effect with snapshot folders, as each snapshot starts empty. If a destination holds snapshot folders and a job runs without `--sync-snapshot-folders` but with `--sync-then-delete`, the run is refused instead of deleting the snapshots.
 
 ## Restoring from a sync job
 

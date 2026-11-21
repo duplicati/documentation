@@ -30,8 +30,10 @@
 * [Multiple backup destinations](detailed-descriptions/configuration-and-management/multiple-backup-destinations.md)
 * [Remote sources](detailed-descriptions/configuration-and-management/remote-sources.md)
 * [Sync jobs](detailed-descriptions/configuration-and-management/sync-jobs.md)
+* [Scheduling and running backups in order](detailed-descriptions/configuration-and-management/scheduling-and-running-backups-in-order.md)
 * [File system watcher](detailed-descriptions/configuration-and-management/file-system-watcher.md)
 * [Duplicati Access Password](detailed-descriptions/configuration-and-management/duplicati-access-password.md)
+* [User interface settings](detailed-descriptions/configuration-and-management/user-interface-settings.md)
 * [Running a self-hosted OAuth Server](detailed-descriptions/configuration-and-management/running-a-self-hosted-oauth-server.md)
 
 ## Security & Secrets

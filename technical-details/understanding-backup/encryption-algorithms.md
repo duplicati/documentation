@@ -23,3 +23,18 @@ The option `--aes-minimal-header` leaves out the optional metadata (creator, tim
 With GPG encryption the implementation requires the GPG binaries to be installed on the system. GPG is available on most Linux distributions, and in most package managers, but can otherwise be obtained via the [GnuPG download page](https://www.gnupg.org/download/).
 
 By default, GPG encryption is done with symmetric encryption and default options ([CAST-128](https://en.wikipedia.org/wiki/CAST-128)), using the provided passphrase. It is possible to supply custom arguments to GPG, to choose a different algorithm, or even set it up to perform asymmetric encryption where only the public key is present on the client.
+
+From canary 2.4.1.103, two options make the common cases easier, without writing the GPG arguments yourself:
+
+* `--gpg-encryption-recipient` encrypts the volumes to the public key of a user ID, key ID or fingerprint, by passing `--recipient` and `--encrypt` to GPG instead of `--symmetric`. The key must be in the GPG keyring of the user Duplicati runs as, and be trusted. Only the matching private key can decrypt the files, and the passphrase is then used to unlock the private key. A command given in `--gpg-encryption-command` takes precedence.
+* `--gpg-encryption-cipher-algo` chooses the cipher GPG encrypts with, such as `AES256`, by passing `--cipher-algo` to GPG. If not set, GPG uses its own default. Decryption does not need it, as GPG reads the cipher from the file. A `--cipher-algo` given in `--gpg-encryption-switches` takes precedence.
+
+For example, to encrypt with AES-256 to a public key:
+
+```
+--encryption-module=gpg --gpg-encryption-recipient=backup@example.com --gpg-encryption-cipher-algo=AES256
+```
+
+{% hint style="warning" %}
+With `--gpg-encryption-recipient`, restoring, verifying, repairing and compacting the backup all need the private key. Keep a copy of the private key in a safe place apart from the machine, as the backup cannot be read without it.
+{% endhint %}

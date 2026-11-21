@@ -34,6 +34,8 @@ The name and description fields can be any text you like, and is only used to di
 
 The encryption setup allows you to choose an encryption method and a passphrase. Encryption adds a minor overhead to the processing, but is generally a good idea to add. If you opt out of encryption, make sure you control the storage destination and have adequate protections in place.
 
+From canary 2.4.1.103, saving a new backup without encryption to a remote destination asks for confirmation, as anyone with access to the destination can read the files.
+
 {% hint style="warning" %}
 **Be sure to store the chosen or generated passphrase in a safe location** as it is not possible to recover anything if this passphrase is lost!
 {% endhint %}
@@ -47,6 +49,8 @@ In the second step you need to define what data should be backed up. This part d
 In the source picker view you can choose the files and folders you would like to back up. If you pick a folder, all subfolders and files in that folder will be included. You can use the UI to unselect some items that you want to exclude, and they will show up without a selection marker.
 
 <figure><picture><source srcset="../.gitbook/assets/setup-backup-source-data-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/setup-backup-source-data-light.png" alt=""></picture><figcaption><p>Selecting source folders</p></figcaption></figure>
+
+From canary 2.4.1.103, the list of selected sources shows local folders and [remote sources](../detailed-descriptions/configuration-and-management/remote-sources.md) together, each with an icon for the kind of data. A path that uses a shortcut, such as `%HOME%`, also shows the folder the shortcut points to on this machine. In the file tree, the target of a junction or symbolic link is shown next to it, and a folder that has excluded paths below it is marked, so it is clear that not everything in it is backed up. Attribute exclusions, such as leaving out hidden or system files, are previewed in the tree as well.
 
 For more advanced uses, you can also use the filters to set up rules for what to include and exclude. See the section on [how filters are evaluated in Duplicati](../detailed-descriptions/security-and-secrets/filters-in-duplicati.md) if you have advanced needs.
 
@@ -66,6 +70,8 @@ Due to the number of supported backends, this page does not contain the instruct
 
 When the details are entered, it is recommended that you use the "Test now" button which will perform some connection tests that helps reveal any issues with the entered information.
 
+If a local database for the destination already exists, for example because the destination has been used with the [command line](../duplicati-programs/command-line-interface-cli.md), you are asked whether to use the existing database or create a new one. Using the existing database shares the backup history with the command line. From canary 2.4.1.103, deleting such a backup in the user interface does not remove a database that the command line still uses.
+
 When the destination is configured as desired, click the "Continue" button to continue to the schedule step.
 
 ## 4. Schedule
@@ -73,6 +79,8 @@ When the destination is configured as desired, click the "Continue" button to co
 Having an outdated backup is rarely an ideal solution, but remembering to run backups is also tedious and easy to forget. To ensure you have up-to-date backups, there is a built-in scheduler in Duplicati that you can enable to have Duplicati run automatically.
 
 <figure><picture><source srcset="../.gitbook/assets/setup-backup-schedule-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/setup-backup-schedule-light.png" alt=""></picture><figcaption><p>Choosing a schedule to run on</p></figcaption></figure>
+
+A backup can also be set to run each time another backup finishes, under "Run after another job". See [Scheduling and running backups in order](../detailed-descriptions/configuration-and-management/scheduling-and-running-backups-in-order.md).
 
 If you prefer to run the backups manually, disable the scheduler, and you can use [ServerUtil](../duplicati-programs/command-line-interface-cli-1/serverutil.md) to trigger the backups as needed.
 

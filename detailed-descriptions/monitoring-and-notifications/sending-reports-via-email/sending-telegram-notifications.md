@@ -83,4 +83,6 @@ Besides the mandatory options, it is also possible to configure:
 
 
 
+Telegram limits a message to 4096 characters. A longer report is split into several messages, each within the limit. From canary 2.4.1.103, the parts are split without cutting a character in two, and the report is sent in the body of a POST request instead of in the URL, so long reports and the bot API key are no longer part of the request URL.
+
 For details on how to customize the notification message, see the [section on customizing message content](custom-message-content.md).

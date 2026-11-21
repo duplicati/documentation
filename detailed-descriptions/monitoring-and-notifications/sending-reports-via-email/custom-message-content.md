@@ -49,7 +49,18 @@ The template engine supports reporting any setting by using the setting name as 
   The name of the backup. Can be overridden with --backup-name
 %machine-name%
   The name of the machine. Can be overridden with --machine-name
+%BeginTime%
+  The local time the operation started, as yyyy-MM-dd HH:mm:ss
+%EndTime%
+  The local time the operation ended, as yyyy-MM-dd HH:mm:ss
+%Duration%
+  How long the operation ran, in whole seconds, as hh:mm:ss,
+  or d.hh:mm:ss for a day or more
 ```
+
+{% hint style="info" %}
+`%BeginTime%`, `%EndTime%` and `%Duration%` are available from canary 2.4.1.103. For example, a subject line can be `Duplicati %backup-name%: %PARSEDRESULT% in %Duration%`.
+{% endhint %}
 
 ## JSON output
 

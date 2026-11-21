@@ -65,6 +65,14 @@ When a volume is read from the destination, for example to compact or restore, i
 
 Because a local storage destination is expected to have a very low latency, the file backend will verify the length of the file after copy. This additional call is usually very fast and does not impact transfers speeds, but can be disabled for slightly faster uploads with `--disable-length-verification`.
 
+### Verifying uploads
+
+With `--list-verify-uploads`, Duplicati checks that each uploaded file is present on the destination. From canary 2.4.1.103, a local folder destination looks up the single file instead of listing the whole folder, which is much faster for a folder with many files. S3 destinations do the same with a `HEAD` request.
+
+## Deleting files on full copy-on-write file systems
+
+On copy-on-write file systems such as ZFS and Btrfs, deleting a file needs some free space, so a delete can fail when the file system is full. This can keep Duplicati from freeing up space by deleting old versions. From canary 2.4.1.103, set `--truncate-before-delete`, and a file that cannot be deleted is first overwritten with an empty file to free space, after which the delete is tried again. The option has no effect when `--soft-delete-prefix` is set.
+
 ## File name sanitation
 
 Some mounted storage, such as SharePoint folders mounted on the local system, reports file names with extra null characters. To handle this, the file backend removes null characters at the start and end of the file names. If this causes problems with your storage, set `--disable-filename-sanitation` to use the file names exactly as the file system reports them.

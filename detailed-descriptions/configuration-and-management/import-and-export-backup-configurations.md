@@ -8,7 +8,7 @@ While it is not required that you keep a copy of the backup configuration, it ca
 
 ## Export
 
-To export from within the user interface, open the menu of the backup on the home page and choose "Export".
+To export from within the user interface, click the "More actions" button of the backup on the home page, and choose "Export" in the dialog that opens.
 
 <div><figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.14.44.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.14.32 (1).png" alt=""></picture><figcaption><p>Expanded backup configuration</p></figcaption></figure> <figure><picture><source srcset="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.07.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/Screenshot 2025-11-03 at 14.15.15.png" alt=""></picture><figcaption><p>Choosing export options</p></figcaption></figure></div>
 
@@ -16,11 +16,13 @@ On this page you should select "To file", which is default. The option to export
 
 You then need to decide on how to handle secrets stored in the configuration. Since these secrets include both the credentials to connect to the remote destination as well as the encryption passphrase, it is important that the exported file is protected.
 
-You can choose to not include any secrets by unchecking the "Export passwords" option. The resulting file will then not contain the secrets and you need to store them in a different place (credential vault, keychain, etc).
+You can choose to not include any secrets by unchecking the "Export passwords" option. The resulting file will then not contain the secrets and you need to store them in a different place (credential vault, keychain, etc). Only the secret values are removed from the destination URL; the rest of the URL, such as encoded characters, repeated parameters and empty parameters, is kept as it is. A password in the user part of a URL, as in `ftp://user:password@host`, is removed as well.
 
 You can also choose to encrypt the file before exporting it. If you choose this option, make sure you choose a strong unique passphrase, and store that passphrase in a safe location.
 
 After completing the export, you will get a file containing the backup configuration. The file is in JSON format and optionally encrypted with [AESCrypt](../../using-tools/encrypting-and-decrypting-files.md).
+
+The exported file also holds the global advanced options of the server, which are the options set on the "Settings" page that apply to all backups. They are stored in their own `GlobalSettings` field, apart from the options of the backup, so importing the file does not turn them into options of the backup. Global options that hold a password are left out unless "Export passwords" is checked.
 
 ## Import configuration
 
@@ -35,6 +37,16 @@ Pick the file or drag-n-drop it on the file chooser. If the file is encrypted, p
 The option "Import Metadata" will create the new backup configuration and restore the statistics, including backup size, number of versions, etc. from the data in the file. If not checked, these will not be filled, and will be updated when the first backup is executed.
 
 If the option "Save now" is checked, the backup will be created when clicking import, skipping the option to edit the backup configuration.
+
+If the file holds global advanced options, the "Global advanced options" field chooses what to do with them:
+
+* **Ignore**: the global options in the file are not used. This is the default, and the way older versions of Duplicati imported a file.
+* **Merge into this backup**: the global options are added to the options of the new backup. An option the backup sets itself keeps the value of the backup.
+* **Apply to server settings**: the global options replace the matching global options of this server, and other global options are kept. This changes the options for all backups on the server, so it is only offered when "Save now" is checked, and asks for confirmation.
+
+{% hint style="info" %}
+Exporting the global advanced options was added in Duplicati 2.4.1.103. Files exported by older versions do not have them.
+{% endhint %}
 
 When all is configured as desired, click the "Import" button. If you have not checked "Save now", the flow will look like it does when [setting up the initial backup](../../getting-started/set-up-a-backup-in-the-ui.md).
 

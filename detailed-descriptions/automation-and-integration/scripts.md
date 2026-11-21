@@ -26,6 +26,22 @@ These options allow you to integrate custom scripts with Duplicati operations, p
 
 **`--run-script-log-filter`**`(String)` A filter expression that selects the log messages included in the results.
 
+### Environment variables for scripts
+
+Scripts get the options of the operation as environment variables with the prefix `DUPLICATI__`, as described in the sample scripts below. From canary 2.4.1.103, scripts also get `DUPLICATI__BACKUP_SOURCES`, which holds the source paths of the job, separated by the path separator (`:` on Linux and macOS, `;` on Windows). Unlike `DUPLICATI__LOCALPATH`, which holds the paths being restored during a restore, `DUPLICATI__BACKUP_SOURCES` always holds the sources of the backup, so a script run before or after a restore can find them. For a backup started from the command line, it holds the source paths given on the command line. Like `DUPLICATI__LOCALPATH`, it is left out when reduced reporting is enabled.
+
+A `--run-script-before` script can change the options, the remote URL and the source paths of the operation by writing `--option=value` lines to standard output. From canary 2.4.1.103, the names of the options that were changed this way are written to the log at the `Information` level, so it is possible to see what the operation ran with. The values are not logged, as such scripts are often used to fetch secrets.
+
+### PowerShell scripts on Windows
+
+From canary 2.4.1.103, a script with the `.ps1` extension is run through Windows PowerShell on Windows, with `-NoProfile -NonInteractive -ExecutionPolicy Bypass -File <script>`. Earlier versions could not start a `.ps1` file directly, and needed a batch file to start PowerShell. For example:
+
+```
+--run-script-before="C:\Scripts\prepare-backup.ps1"
+```
+
+The post-queue script of the server, which runs when the queue is empty, is described in [Scheduling and running backups in order](../configuration-and-management/scheduling-and-running-backups-in-order.md#the-post-queue-script).
+
 ### Script Output Integration with Duplicati Logging
 
 You can add custom entries directly to Duplicati's log system from your scripts by using special prefixes in stdout messages. This allows script events to appear in both the Duplicati Log and Reports alongside native application events.

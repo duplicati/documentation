@@ -70,6 +70,31 @@ duplicati-server-util import <filename> <passphrase>
 
 Note that this will create a new backup with the same configuration, so make sure you have removed the previous backup configuration first.
 
+Add `--expand-env-vars` to replace `%VAR%` environment variables in the configuration with the values they have on the server. This allows an exported configuration to be used as a template for several machines, for example with a destination path such as `s3://backups/%COMPUTERNAME%`. A variable that is not defined on the server is left as it is.
+
+To change parts of an existing backup without exporting and importing it, use the `update-backup` command with a JSON file that holds only the parts to change:
+
+```
+duplicati-server-util update-backup <backup id or name> <file>
+```
+
+The file can have a `Backup` and a `Schedule` object. Each property given under `Backup` or `Schedule` replaces the current value, and anything not mentioned is kept. Entries under `Backup.Settings` set the named option, and a `null` value removes it. `"Schedule": null` removes the schedule. For example, this file changes the volume size and removes `--list-verify-uploads`:
+
+```json
+{
+  "Backup": {
+    "Settings": {
+      "--dblock-size": "80mb",
+      "--list-verify-uploads": null
+    }
+  }
+}
+```
+
+If `Backup.Settings` is an array instead of an object, it replaces all the options of the backup.
+
+From canary 2.4.1.103, the server API also keeps the fields that a request to save a backup leaves out, such as the operation type, destination, filters, tags and schedule. Before, a client that sent only some fields cleared the rest. A field that is sent, even if empty, is applied as before.
+
 To delete a backup configuration, run:
 
 ```

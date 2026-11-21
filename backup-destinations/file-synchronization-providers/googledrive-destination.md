@@ -39,3 +39,11 @@ If you need to use a Team Drive, set the option `--googledrive-teamdrive-id` to 
 ```
 googledrive://folder/subfolder?authid=<authid>&googledrive-teamdrive-id=<team id>
 ```
+
+On a shared drive, permanently deleting a file requires the "Manager" role. If Duplicati has the "Content manager" role, deletes fail. From canary 2.4.1.103, set `--googledrive-use-trash` to move deleted files to the trash instead, which the "Content manager" role is allowed to do:
+
+```
+googledrive://folder/subfolder?authid=<authid>&googledrive-teamdrive-id=<team id>&googledrive-use-trash=true
+```
+
+Files in the trash still use storage until the trash is emptied, which Google Drive does automatically after 30 days. The option also works for a personal Google Drive.
