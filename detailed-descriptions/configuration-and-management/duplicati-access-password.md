@@ -8,10 +8,6 @@ description: >-
 
 If you are starting the [Server](../../duplicati-programs/server.md) for the first time, the user interface will ask you to pick a password. When Duplicati is started from the [TrayIcon](../../duplicati-programs/trayicon.md), this question is skipped, because the TrayIcon logs in for you (see below); instead, a welcome page offers to connect to the Duplicati Console. Picking a strong password is important to ensure unwanted access to Duplicati from other processes on the system. By default, Duplicati has chosen a strong random password and it is recommended for most users to not change the random password. It is not possible to extract the current password in any way and it is not possible to disable the password.
 
-## Signing out when idle
-
-By default, the user interface keeps you signed in for as long as it is open. From canary 2.4.1.103, the "Settings" page has a "Sign out when idle" setting that signs you out automatically when the browser has not been used for a chosen time. The setting is stored in the browser only, so it must be set in each browser that is used to access Duplicati.
-
 ## Access from the TrayIcon
 
 The [TrayIcon](../../duplicati-programs/trayicon.md) process will usually host the [Server](../../duplicati-programs/server.md) that presents the UI. Since the two parts are within the same process they can communicate securely, and this setup enables the TrayIcon to negotiate a short-term signin token with the server, even though it does not know the password.
@@ -143,3 +139,7 @@ It is possible to disable the use of sign-in tokens completely, which can increa
 This will make the [Server](../../duplicati-programs/server.md) reject any sign-in tokens and prevent the access from the TrayIcon and ServerUtil without explicitly passing the password. With this option, it will require write access to the database to create a new token, but it will also require handling the password in a safe manner from all instances where this is needed.
 
 This option can also be supplied to the [TrayIcon](../../duplicati-programs/trayicon.md) process and is default enabled by the [Agent](../../duplicati-programs/agent.md).
+
+## Signing out when idle
+
+By default, the user interface keeps you signed in for as long as it is open. From canary 2.4.1.103, the "Settings" page has a "Sign out when idle" setting that signs you out automatically when the browser has not been used for a chosen time. The setting is stored in the browser only, so it must be set in each browser that is used to access Duplicati.
