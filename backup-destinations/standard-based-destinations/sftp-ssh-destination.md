@@ -70,7 +70,7 @@ On the first connection to the SSH server, Duplicati will throw an exception tha
 
 If the host key changes, you will get a different message, but also reporting the new host key, so you can update it. The option `--ssh-accept-any-fingerprints=true` is only recommended for testing and not for production setups as it will disable the man-in-the-middle protection.
 
-If you are using the UI, you can click the "Test now" button and it will guide you to set the host key parameters based on what the server reports. From canary 2.4.1.103, the UI also asks you to approve an unknown host key before browsing the folders of the SFTP server, so the folder picker works on the first connection. If the host key has changed since it was approved, the UI warns about it, and you should check with the server administrator before approving the new key.
+If you are using the UI, you can click the "Test now" button and it will guide you to set the host key parameters based on what the server reports. From canary 2.4.1.103 and stable 2.4.1.1, the UI also asks you to approve an unknown host key before browsing the folders of the SFTP server, so the folder picker works on the first connection. If the host key has changed since it was approved, the UI warns about it, and you should check with the server administrator before approving the new key.
 
 ## Timeout and keep-alive
 

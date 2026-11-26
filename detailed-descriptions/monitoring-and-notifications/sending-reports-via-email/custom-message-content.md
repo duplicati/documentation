@@ -59,7 +59,7 @@ The template engine supports reporting any setting by using the setting name as 
 ```
 
 {% hint style="info" %}
-`%BeginTime%`, `%EndTime%` and `%Duration%` are available from canary 2.4.1.103. For example, a subject line can be `Duplicati %backup-name%: %PARSEDRESULT% in %Duration%`.
+`%BeginTime%`, `%EndTime%` and `%Duration%` are available from canary 2.4.1.103 and stable 2.4.1.1. For example, a subject line can be `Duplicati %backup-name%: %PARSEDRESULT% in %Duration%`.
 {% endhint %}
 
 ## JSON output

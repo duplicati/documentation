@@ -156,7 +156,7 @@ If you are sure you want to restore the files, and potentially lose existing fil
 
 The restore command will restore from the latest version of the backup, but other versions can be selected with the `--version=<version>`. As with backups, the `--include` and `--exclude` options can be used to filter down the desired files to restore.
 
-From canary 2.4.1.100, a restore that could not restore some of the files exits with code 3, in the same way as a backup that finished with errors. Earlier versions exited with code 0. A block that cannot be read from its volume only fails the files that use it, and the other files are restored.
+From canary 2.4.1.100 and stable 2.4.1.1, a restore that could not restore some of the files exits with code 3, in the same way as a backup that finished with errors. Earlier versions exited with code 0. A block that cannot be read from its volume only fails the files that use it, and the other files are restored.
 
 To restore the files from several versions at once, add `--restore-all-files=True` together with `--restore-path`. Each version is then restored into its own subfolder of the restore path, named after the time of the backup (such as `20261010-214426`). With `--restore-all-files=Unique`, a file is only restored the first time a given content is seen, so later versions only contain the files that changed. The versions can be limited with `--version`, and the files with filters. This option is available from Duplicati 2.4.0.0 and is not available in the user interface.
 
@@ -194,7 +194,7 @@ duplicati-cli repair <remote url>
 
 If the local database is missing, it is recreated from the remote storage. If the local database is present, the repair command will attempt to recreate any data that is missing on the remote storage. Recreate is only possible if the missing data is still available on the local system. If the required data is missing, the repair command will fail with an error message, explaining what is missing.
 
-From canary 2.4.1.103, a repair that recreates a missing dblock volume reads source files that are locked by other programs through a snapshot (VSS on Windows, LVM on Linux), when `--snapshot-policy` is set. A repair with `--dry-run` no longer changes the local database, and works without a local database. The number of versions and the size of the destination shown in the user interface are updated after a repair.
+From canary 2.4.1.103 and stable 2.4.1.1, a repair that recreates a missing dblock volume reads source files that are locked by other programs through a snapshot (VSS on Windows, LVM on Linux), when `--snapshot-policy` is set. A repair with `--dry-run` works without a local database, and the number of versions and the size of the destination shown in the user interface are updated after a repair. From canary 2.4.1.103, a repair with `--dry-run` also no longer changes the local database.
 
 ### List broken files
 

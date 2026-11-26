@@ -36,4 +36,4 @@ If you need to tune the performance and resource usage to match your specific se
 
 ## Upload method
 
-From canary 2.4.1.102, uploads first allocate the upload with Jottacloud, as the Jottacloud clients do. If uploads fail with this method, set `--jottacloud-legacy-upload=true` to upload each file with a single request to the legacy upload service.
+From canary 2.4.1.102, uploads first allocate the upload with Jottacloud, as the Jottacloud clients do. If uploads fail with this method, set `--jottacloud-legacy-upload=true` to upload each file with a single request to the legacy upload service. Stable 2.4.1.1 uses the legacy upload service unless `--jottacloud-legacy-upload=false` is set.

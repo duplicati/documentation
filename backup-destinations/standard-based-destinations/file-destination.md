@@ -54,7 +54,7 @@ In Duplicati 2.2.0.3 and earlier, `--use-move-for-put` only had an effect when `
 A local folder is often an external hard disk, where several transfers at once are slower than one. For this reason, a local folder destination uploads one volume at a time, and a restore reads it with one volume downloader. To use more, set `--asynchronous-upload-limit` and `--restore-volume-downloaders`. Setting `--asynchronous-upload-limit=0` removes the limit.
 
 {% hint style="info" %}
-The one-at-a-time default for local folders was added in canary 2.4.1.102. Before that, `--asynchronous-upload-limit=0` allowed only one upload at a time, despite the help text saying it meant no limit.
+The one-at-a-time default for local folders was added in canary 2.4.1.102 and stable 2.4.1.1. Before that, `--asynchronous-upload-limit=0` allowed only one upload at a time, despite the help text saying it meant no limit.
 {% endhint %}
 
 ### Linking instead of copying downloaded files

@@ -166,7 +166,7 @@ Placeholder files from a sync tool, such as OneDrive, Dropbox or Google Drive, a
 
 ### Missing and unreadable source folders
 
-A source folder that is missing stops the backup. From canary 2.4.1.100, the same applies to a source folder that exists but cannot be listed, for example on a failing drive. Before, it only gave a warning, and the backup stored a version without any of its files, so the retention policy could remove the versions that still had them. Set `--allow-missing-source` to continue the backup without missing or unreadable sources.
+A source folder that is missing stops the backup. From canary 2.4.1.100 and stable 2.4.1.1, the same applies to a source folder that exists but cannot be listed, for example on a failing drive. Before, it only gave a warning, and the backup stored a version without any of its files, so the retention policy could remove the versions that still had them. Set `--allow-missing-source` to continue the backup without missing or unreadable sources.
 
 From canary 2.4.1.103, `--keep-missing-sources` keeps the files of a missing local source folder, such as a folder on a drive that is not connected, as they were in the previous version, instead of recording them as deleted. This applies to local source paths only, and not to a source folder that lies inside another source folder. Use it together with `--allow-missing-source` for a backup of an external drive that is not always connected.
 

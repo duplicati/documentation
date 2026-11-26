@@ -98,7 +98,7 @@ When making backups of a Google Workspace domain, the advanced option `--store-m
 
 #### Paths in the backup
 
-From canary 2.4.1.102, items are stored in the backup under stable ids instead of their names, as names could collide or be invalid in a path. The UI shows the names when you browse a backup for a restore.
+From canary 2.4.1.102 and stable 2.4.1.1, items are stored in the backup under stable ids instead of their names, as names could collide or be invalid in a path. The UI shows the names when you browse a backup for a restore.
 
 By default, the folder of each user is named by the user's primary email address. With `--google-use-user-ids-in-paths`, the folder is named by the user id instead, which stays the same when the address changes.
 
