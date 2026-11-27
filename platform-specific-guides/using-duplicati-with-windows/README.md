@@ -144,7 +144,13 @@ The most robust and heavy handed way of making a backup on Windows is to use VSS
 
 To enable VSS, set the advanced option `--snapshot-policy=required` . If another program is creating a shadow copy at the same time, Duplicati retries the snapshot until `--vss-timeout` has passed, from canary 2.4.1.101. If you are using Duplicati 2.1.1.0 or later, VSS will be enabled by default if the user context has the SeBackupPrivilege.
 
-Duplicati has three implementations for creating the VSS snapshot, which can be chosen with the option `--snapshot-provider`:
+Duplicati has several implementations for creating the VSS snapshot, which can be chosen with the option `--snapshot-provider`. From canary 2.4.0.100, the providers are:
+
+* `Native`: calls the Windows VSS API directly and does not need anything extra installed. This is the default on all architectures.
+* `Wmi`: creates the snapshot through WMI without asking the VSS writers, such as MSSQL and Hyper-V, to flush their data, so it has fewer features. Use it if you only need to back up locked files. It replaces the `Wmic` provider.
+* `Vanara` (experimental) and `AlphaVSS` (legacy): require the Visual C++ Redistributable to be installed. They are not available on Arm64.
+
+In earlier versions, and in the stable releases up to 2.4.1.1, the providers are:
 
 * `AlphaVSS`: the legacy provider, which requires the Visual C++ Redistributable to be installed. This is the default on x64 and x86.
 * `Wmic`: uses WMI to create the snapshot. It is slightly more portable but has fewer features. This is the default on Arm64, from Duplicati 2.3.0.0.
