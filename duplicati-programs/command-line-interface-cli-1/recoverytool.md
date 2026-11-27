@@ -83,7 +83,7 @@ duplicati-recovery-tool recompress zip <backend url> <working folder> \
 
 To add encryption to a backup that was made without encryption, use `--add-encryption` together with `--passphrase` or `--new-passphrase`. The files are encrypted with the module given by `--encryption-module`, which defaults to `aes`. `--reencrypt` alone has no effect on files that are not encrypted, and warns about them. The `--add-encryption` option is available from canary 2.4.1.100.
 
-From canary 2.4.1.100, files that keep their name after recompressing, such as when recompressing to the same format, are left in place instead of being deleted after the upload.
+From canary 2.4.1.100 and stable 2.4.1.1, files that keep their name after recompressing, such as when recompressing to the same format, are left in place instead of being deleted after the upload.
 
 **Warning**: Before recompress delete the [local database](../../detailed-descriptions/database-and-storage/the-local-database.md) and after recompress recreate local database before executing any operation on backup. This allows Duplicati to read new file names from remote storage.
 

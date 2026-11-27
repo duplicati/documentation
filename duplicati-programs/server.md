@@ -22,7 +22,7 @@ As described in the [access password](../detailed-descriptions/configuration-and
 --webservice-password=<new password>
 ```
 
-This new password is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and does not need to be supplied on future launches. From canary 2.4.1.101, changing the password also resets the authentication: the signing keys are replaced, so existing logins are dropped and all issued [tokens](../technical-details/server-authentication-model.md), including [MCP access tokens](../detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md), stop working. Starting the server with the same password again does not reset anything. In earlier versions, changing the password did not invalidate issued tokens. To clear any issued tokens without changing the password, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
+This new password is stored in the [server database](../detailed-descriptions/database-and-storage/the-server-database.md) and does not need to be supplied on future launches. From canary 2.4.1.101 and stable 2.4.1.1, changing the password also resets the authentication: the signing keys are replaced, so existing logins are dropped and all issued [tokens](../technical-details/server-authentication-model.md), including [MCP access tokens](../detailed-descriptions/automation-and-integration/using-duplicati-with-ai-agents-mcp.md), stop working. Starting the server with the same password again does not reset anything. In earlier versions, changing the password did not invalidate issued tokens. To clear any issued tokens without changing the password, which should be done if there is a suspicion that the signing keys are leaked, start with the following option:
 
 ```
 --webservice-reset-jwt-config=true
@@ -168,7 +168,7 @@ The scheduler needs to be timezone aware so scheduled backups run at the same lo
 ```
 
 {% hint style="info" %}
-Before canary 2.4.1.101, the scheduler used UTC unless a time zone had been chosen, which only the old UI offered, so schedules moved by an hour across daylight saving changes. From 2.4.1.101, the local time zone is the default.
+Before canary 2.4.1.101 and stable 2.4.1.1, the scheduler used UTC unless a time zone had been chosen, which only the old UI offered, so schedules moved by an hour across daylight saving changes. From those versions, the local time zone is the default.
 {% endhint %}
 
 ## Configuring logging

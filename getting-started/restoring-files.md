@@ -58,7 +58,7 @@ Once Duplicati has a connection to the remote destination it will find all the b
 
 Click the files or folders that you want to restore and then click "Continue".
 
-From canary 2.4.1.103, the version list shows the number of files in each version. Files that were added to the backup one by one, rather than as part of a folder, are grouped together in the tree, so they are easy to find.
+From canary 2.4.1.103 and stable 2.4.1.1, the version list shows the number of files in each version. Files that were added to the backup one by one, rather than as part of a folder, are grouped together in the tree, so they are easy to find.
 
 To find a file without browsing the folders, enter part of its name in the search field and click "Search". By default, only the selected version is searched. Check "Search all versions" to search every version of the backup at once; each match is then listed with the version and time it is found in, which helps you find the version to restore from when you do not know when a file was changed or deleted.
 
@@ -92,7 +92,7 @@ To restore only files that changed recently, add the advanced option `--restore-
 
 ## Comparing versions
 
-From canary 2.4.1.103, two versions of a backup can be compared, to see what was added, modified and deleted between them. This helps to find the version to restore from. Click "More actions" on the backup on the home page, and choose "Compare versions". Pick the "From version" and the "To version", and click "Compare".
+From canary 2.4.1.103 and stable 2.4.1.1, two versions of a backup can be compared, to see what was added, modified and deleted between them. This helps to find the version to restore from. Click "More actions" on the backup on the home page, and choose "Compare versions". Pick the "From version" and the "To version", and click "Compare".
 
 <figure><picture><source srcset="../.gitbook/assets/ngclient-compare-versions-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/ngclient-compare-versions-light.png" alt=""></picture><figcaption><p>Comparing two versions of a backup</p></figcaption></figure>
 

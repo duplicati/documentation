@@ -58,7 +58,7 @@ If the revocation status of the certificate cannot be checked, for instance beca
 
 ### Client certificates
 
-Some WebDAV servers require the client to authenticate with a TLS client certificate. From canary 2.4.1.103, set `--webdav-client-certificate` to the path of a PKCS#12 file (`.pfx` or `.p12`) that holds the client certificate and its private key. If the file is protected with a password, set it with `--webdav-client-certificate-password`:
+Some WebDAV servers require the client to authenticate with a TLS client certificate. From canary 2.4.1.103 and stable 2.4.1.1, set `--webdav-client-certificate` to the path of a PKCS#12 file (`.pfx` or `.p12`) that holds the client certificate and its private key. If the file is protected with a password, set it with `--webdav-client-certificate-password`:
 
 ```
 webdav://<hostname>/<path>

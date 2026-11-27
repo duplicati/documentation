@@ -142,4 +142,4 @@ This option can also be supplied to the [TrayIcon](../../duplicati-programs/tray
 
 ## Signing out when idle
 
-By default, the user interface keeps you signed in for as long as it is open. From canary 2.4.1.103, the "Settings" page has a "Sign out when idle" setting that signs you out automatically when the browser has not been used for a chosen time. The setting is stored in the browser only, so it must be set in each browser that is used to access Duplicati.
+By default, the user interface keeps you signed in for as long as it is open. From canary 2.4.1.103 and stable 2.4.1.1, the "Settings" page has a "Sign out when idle" setting that signs you out automatically when the browser has not been used for a chosen time. The setting is stored in the browser only, so it must be set in each browser that is used to access Duplicati.

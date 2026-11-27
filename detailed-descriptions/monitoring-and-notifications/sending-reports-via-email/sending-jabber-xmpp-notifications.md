@@ -34,7 +34,7 @@ For details on how to customize the notification message, see the [section on cu
 
 ## Server certificates
 
-From canary 2.4.1.101, the certificate of the XMPP server is validated, and the login is not sent to a server with an invalid certificate. Earlier versions accepted any certificate, so a setup that sends to a server with a self-signed or expired certificate stops getting reports after the upgrade, until one of these options is set:
+From canary 2.4.1.101 and stable 2.4.1.1, the certificate of the XMPP server is validated, and the login is not sent to a server with an invalid certificate. Earlier versions accepted any certificate, so a setup that sends to a server with a self-signed or expired certificate stops getting reports after the upgrade, until one of these options is set:
 
 * `--send-xmpp-accept-specified-ssl-hash=<sha1 hash>` accepts a specific certificate, given as its SHA1 hash in hex format without spaces or colons. Several hashes can be separated with commas.
 * `--send-xmpp-accept-any-ssl-certificate` accepts any certificate. Use the specified hash instead whenever possible.

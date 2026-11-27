@@ -42,7 +42,7 @@ To send the body as HTML instead of plain text, set `--send-mail-body-html=true`
 
 ## Server certificates
 
-The certificate of the mail server is validated. If the server uses a self-signed certificate, or the check of whether the certificate is revoked cannot complete, which has been seen on several Macs, these options are available from canary 2.4.1.101:
+The certificate of the mail server is validated. If the server uses a self-signed certificate, or the check of whether the certificate is revoked cannot complete, which has been seen on several Macs, these options are available from canary 2.4.1.101 and stable 2.4.1.1:
 
 * `--send-mail-accept-specified-ssl-hash=<sha1 hash>` accepts a specific certificate, given as its SHA1 hash in hex format without spaces or colons. Several hashes can be separated with commas.
 * `--send-mail-accept-any-ssl-certificate` accepts any certificate. Use the specified hash instead whenever possible.

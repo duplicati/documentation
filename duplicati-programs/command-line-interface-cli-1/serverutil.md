@@ -93,7 +93,7 @@ The file can have a `Backup` and a `Schedule` object. Each property given under 
 
 If `Backup.Settings` is an array instead of an object, it replaces all the options of the backup.
 
-From canary 2.4.1.103, the server API also keeps the fields that a request to save a backup leaves out, such as the operation type, destination, filters, tags and schedule. Before, a client that sent only some fields cleared the rest. A field that is sent, even if empty, is applied as before.
+From canary 2.4.1.103 and stable 2.4.1.1, the server API also keeps the fields that a request to save a backup leaves out, such as the operation type, destination, filters, tags and schedule. Before, a client that sent only some fields cleared the rest. A field that is sent, even if empty, is applied as before.
 
 To delete a backup configuration, run:
 
@@ -171,7 +171,7 @@ As explained in the section on the [access password](../../detailed-descriptions
 duplicati-server-util change-password <new password>
 ```
 
-From canary 2.4.1.101, changing the password also revokes access that is already granted: the signing keys of the [refresh and access tokens](../../technical-details/server-authentication-model.md) are replaced, so all existing logins and tokens stop working. In earlier versions, restart the Server with `--webservice-reset-jwt-config=true` to revoke them, as explained in the [Server](../server.md#configuring-the-server-password) section.
+From canary 2.4.1.101 and stable 2.4.1.1, changing the password also revokes access that is already granted: the signing keys of the [refresh and access tokens](../../technical-details/server-authentication-model.md) are replaced, so all existing logins and tokens stop working. In earlier versions, restart the Server with `--webservice-reset-jwt-config=true` to revoke them, as explained in the [Server](../server.md#configuring-the-server-password) section.
 
 ## Issuing a "forever token"
 

@@ -32,7 +32,7 @@ These two options greatly simplify sending notifications to multiple destination
 
 ### Authentication
 
-If the server requires a username and password, put them in the URL, for example `https://user:password@example.com/report`. From canary 2.4.1.102, they are sent as HTTP Basic authentication, and are left out of the request URL and the logs. Earlier versions ignored them.
+If the server requires a username and password, put them in the URL, for example `https://user:password@example.com/report`. From canary 2.4.1.102 and stable 2.4.1.1, they are sent as HTTP Basic authentication, and are left out of the request URL and the logs. Earlier versions ignored them.
 
 Use HTTPS when sending credentials, as Basic authentication does not encrypt them.
 

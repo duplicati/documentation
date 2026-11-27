@@ -34,7 +34,7 @@ A `--run-script-before` script can change the options, the remote URL and the so
 
 ### PowerShell scripts on Windows
 
-From canary 2.4.1.103, a script with the `.ps1` extension is run through Windows PowerShell on Windows, with `-NoProfile -NonInteractive -ExecutionPolicy Bypass -File <script>`. Earlier versions could not start a `.ps1` file directly, and needed a batch file to start PowerShell. For example:
+From canary 2.4.1.103 and stable 2.4.1.1, a script with the `.ps1` extension is run through Windows PowerShell on Windows, with `-NoProfile -NonInteractive -ExecutionPolicy Bypass -File <script>`. Earlier versions could not start a `.ps1` file directly, and needed a batch file to start PowerShell. For example:
 
 ```
 --run-script-before="C:\Scripts\prepare-backup.ps1"

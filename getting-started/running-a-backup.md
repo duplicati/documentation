@@ -30,11 +30,11 @@ The enabled flag is stored in a new column in the [server database](../detailed-
 
 ## Starting all backups and running backups in order
 
-From canary 2.4.1.103, the home page has a "Start all" button that queues all enabled backups, with an option to shut down or restart the computer when they are done. A backup can also be set to run after another backup. See [Scheduling and running backups in order](../detailed-descriptions/configuration-and-management/scheduling-and-running-backups-in-order.md).
+From canary 2.4.1.103 and stable 2.4.1.1, the home page has a "Start all" button that queues all enabled backups. From canary 2.4.1.103, it has an option to shut down or restart the computer when they are done, and a backup can also be set to run after another backup. See [Scheduling and running backups in order](../detailed-descriptions/configuration-and-management/scheduling-and-running-backups-in-order.md).
 
 ## The backup actions dialog
 
-From canary 2.4.1.103, the "More actions" button of a backup opens a dialog with all the commands for the backup, grouped as "Operations" (such as Restore, Skip next run, Export, Disable and Delete), "Versions" (Compare versions, Version labels, Delete versions and Remove files), "Verify and repair", and "Advanced" (Command line and Log).
+From canary 2.4.1.103, the "More actions" button of a backup opens a dialog with all the commands for the backup, grouped as "Operations" (such as Restore, Skip next run, Export, Disable and Delete), "Versions" (Compare versions, Version labels, Delete versions and Remove files), "Verify and repair", and "Advanced" (Command line and Log). The dialog is also in stable 2.4.1.1, but without Skip next run and Disable, which need canary 2.4.1.103 and canary 2.4.1.101.
 
 <figure><picture><source srcset="../.gitbook/assets/ngclient-backup-actions-dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/ngclient-backup-actions-light.png" alt=""></picture><figcaption><p>The backup actions dialog</p></figcaption></figure>
 
